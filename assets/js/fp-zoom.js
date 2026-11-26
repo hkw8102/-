@@ -15,7 +15,7 @@
   var detailed = media.querySelector(".fp-svg:not(.fp-svg--mob)");
   var mq = window.matchMedia("(max-width: 900px)");
 
-  var steps = [1000, 1400, 1900, 2600];
+  var steps = ["100%", "1200px", "1700px", "2300px"];
   var step = 0;
   var lastFocus = null;
   var built = false;
@@ -25,7 +25,7 @@
     var clone = detailed.cloneNode(true);
     clone.setAttribute("class", "fp-svg fpzoom-svg");
     stage.appendChild(clone);
-    stage.style.setProperty("--zw", steps[step] + "px");
+    stage.style.setProperty("--zw", steps[step]);
     built = true;
   }
 
@@ -35,11 +35,6 @@
     box.classList.add("is-open");
     box.setAttribute("aria-hidden", "false");
     document.documentElement.style.overflow = "hidden";
-    var sc = box.querySelector(".fpzoom-scroll");
-    if (sc) {
-      sc.scrollLeft = Math.max(0, (sc.scrollWidth - sc.clientWidth) / 2);
-      sc.scrollTop = Math.max(0, (sc.scrollHeight - sc.clientHeight) * 0.35);
-    }
     if (closeBtn) closeBtn.focus();
   }
 
@@ -52,7 +47,14 @@
 
   function zoom(d) {
     step = Math.max(0, Math.min(steps.length - 1, step + d));
-    stage.style.setProperty("--zw", steps[step] + "px");
+    stage.style.setProperty("--zw", steps[step]);
+    var sc = box.querySelector(".fpzoom-scroll");
+    if (sc && step > 0) {
+      sc.scrollLeft = Math.max(0, (sc.scrollWidth - sc.clientWidth) / 2);
+      sc.scrollTop = Math.max(0, (sc.scrollHeight - sc.clientHeight) * 0.42);
+    } else if (sc) {
+      sc.scrollTo({ left: 0, top: 0 });
+    }
   }
 
   var openBtn = document.querySelector(".fp-zoom-open");

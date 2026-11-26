@@ -25,7 +25,7 @@
     var clone = detailed.cloneNode(true);
     clone.setAttribute("class", "fp-svg fpzoom-svg");
     stage.appendChild(clone);
-    stage.style.setProperty("--zw", steps[step]);
+    stage.style.setProperty("--zw", steps[step] + "px");
     built = true;
   }
 
@@ -52,7 +52,7 @@
 
   function zoom(d) {
     step = Math.max(0, Math.min(steps.length - 1, step + d));
-    stage.style.setProperty("--zw", steps[step]);
+    stage.style.setProperty("--zw", steps[step] + "px");
     var sc = box.querySelector(".fpzoom-scroll");
     if (sc && step > 0) {
       sc.scrollLeft = Math.max(0, (sc.scrollWidth - sc.clientWidth) / 2);

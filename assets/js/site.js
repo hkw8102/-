@@ -255,7 +255,7 @@ function openDrawer(id) {
   const addrKey = lang === "ko" ? "addrKo" : lang === "en" ? "addrEn" : "addrJa";
   const cancel = e.cancelBadge ? `<span class="dr-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
   content.innerHTML = `
-    <div class="dr-hero" style="--poster:url('${e.poster}')"><img src="${e.poster}" alt="${esc(e.title)}">${cancel}</div>
+    <div class="dr-hero" style="--poster:url('${e.poster}')"><figure class="dr-hero-frame"><img src="${e.poster}" alt="${esc(e.title)}">${cancel}</figure></div>
     <div class="dr-body">
       <div class="dr-kicker">
         <span class="ev-city">${esc(e.cityLabel)}</span>

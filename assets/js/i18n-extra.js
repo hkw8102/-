@@ -215,3 +215,149 @@ Object.assign(T.en, {
   "stand.pageLead": "Flower and balloon stands for PLUSWIN-produced shows are by advance application only. Please read the guidelines below and apply from one month before the show.",
   "stand.formSectionTitle": "Application form"
 });
+
+/* ============================================================
+   Improvements 1–4: drink notice, FAQ, availability calendar,
+   downloadable PDF, detailed access and real form states
+   ============================================================ */
+
+Object.assign(T.ja, {
+  "drink.notice": "入場時、別途1ドリンク代 ¥600 が必要です",
+  "drink.more": "くわしく",
+
+  "faq.eyebrow": "FAQ",
+  "faq.title": "よくある質問",
+  "faq.lead": "ご来場・ご利用の前によくいただく質問をまとめました。ここにない内容はお問い合わせください。",
+  "faq.link": "よくある質問（FAQ）",
+  "faq.contactLabel": "お問い合わせ",
+
+  "avail.eyebrow": "AVAILABILITY",
+  "avail.title": "レンタル空き状況",
+  "avail.lead": "PLUSWIN HALL OSAKA のレンタル空き状況です。○の日を選ぶと、下の問い合わせフォームに希望日が入ります。",
+  "avail.open": "空き",
+  "avail.part": "一部・要相談",
+  "avail.busy": "使用中",
+  "avail.note": "空き状況は定期的に更新しています。最終的な可否はお問い合わせください。公演・出演者などの予定内容は表示していません。",
+  "avail.generated": "更新日",
+  "avail.picked": "希望日をフォームに入れました",
+  "avail.prev": "前の月",
+  "avail.next": "次の月",
+  "avail.ask": "この日程で相談する",
+
+  "pdf.cta": "ホール資料・平面図 PDF をダウンロード",
+  "pdf.meta": "施設概要・ステージ寸法・平面図・アクセスマップ・料金表（A4・印刷用）",
+  "pdf.short": "ホール資料 PDF",
+
+  "access.stepsHead": "駅からの道順",
+  "access.nbTitle": "地下鉄 日本橋駅 2番出口から",
+  "access.nb1": "2番出口を出て、堺筋へ",
+  "access.nb2": "堺筋を道頓堀方面へ北に約200m",
+  "access.nb3": "宗右衛門町へ入り、千年町筋方面へ約100m",
+  "access.nb4": "美松ビルが見えます。地下1階が PLUSWIN HALL OSAKA です",
+  "access.nmTitle": "なんば駅から",
+  "access.nm1": "御堂筋を北へ進み、宗右衛門町通へ",
+  "access.nm2": "千年町筋へ入って約70m",
+  "access.nm3": "美松ビルが見えます。地下1階が会場です",
+  "access.b1Title": "会場はビルの地下1階",
+  "access.b1": "美松ビルの地下1階が会場です。建物の入口から地下へお進みください。車椅子・ベビーカーのご利用や、お足元に不安がある場合は、事前にお問い合わせください。",
+
+  "form.sending": "送信中…",
+  "form.sent": "送信しました。担当者より2〜3営業日以内にご連絡します。",
+  "form.fail": "送信できませんでした。お手数ですが、メールでお送りください。",
+  "form.fallback": "メールで送る",
+  "form.or": "または"
+});
+
+Object.assign(T.ko, {
+  "drink.notice": "입장 시 별도 1드링크비 ¥600이 필요합니다",
+  "drink.more": "자세히",
+
+  "faq.eyebrow": "FAQ",
+  "faq.title": "자주 묻는 질문",
+  "faq.lead": "관람·이용 전에 자주 나오는 질문을 모았습니다. 여기에 없는 내용은 문의해 주세요.",
+  "faq.link": "자주 묻는 질문(FAQ)",
+  "faq.contactLabel": "문의",
+
+  "avail.eyebrow": "AVAILABILITY",
+  "avail.title": "대관 가능일",
+  "avail.lead": "PLUSWIN HALL OSAKA의 대관 가능일입니다. ○인 날짜를 고르면 아래 문의 폼에 희망일이 입력됩니다.",
+  "avail.open": "가능",
+  "avail.part": "일부·상담",
+  "avail.busy": "사용 중",
+  "avail.note": "가능일은 정기적으로 갱신합니다. 최종 가능 여부는 문의해 주세요. 공연·출연자 등 일정 내용은 표시하지 않습니다.",
+  "avail.generated": "갱신일",
+  "avail.picked": "희망일을 폼에 입력했습니다",
+  "avail.prev": "이전 달",
+  "avail.next": "다음 달",
+  "avail.ask": "이 날짜로 상담하기",
+
+  "pdf.cta": "홀 자료·평면도 PDF 내려받기",
+  "pdf.meta": "시설 개요·무대 치수·평면도·오시는 길 지도·요금표 (A4·인쇄용)",
+  "pdf.short": "홀 자료 PDF",
+
+  "access.stepsHead": "역에서 오는 길",
+  "access.nbTitle": "지하철 니혼바시역 2번 출구에서",
+  "access.nb1": "2번 출구를 나와 사카이스지로",
+  "access.nb2": "사카이스지를 도톤보리 방향(북쪽)으로 약 200m",
+  "access.nb3": "소에몬초로 들어가 지토세마치스지 방향으로 약 100m",
+  "access.nb4": "미마츠빌딩이 보입니다. 지하 1층이 PLUSWIN HALL OSAKA입니다",
+  "access.nmTitle": "난바역에서",
+  "access.nm1": "미도스지를 북쪽으로 올라가 소에몬초도리로",
+  "access.nm2": "지토세마치스지로 들어가 약 70m",
+  "access.nm3": "미마츠빌딩이 보입니다. 지하 1층이 공연장입니다",
+  "access.b1Title": "공연장은 빌딩 지하 1층",
+  "access.b1": "미마츠빌딩 지하 1층이 공연장입니다. 건물 입구에서 지하로 내려오세요. 휠체어·유모차 이용이나 발밑이 불안하신 경우에는 미리 문의해 주세요.",
+
+  "form.sending": "보내는 중…",
+  "form.sent": "보냈습니다. 담당자가 2~3영업일 내에 연락드립니다.",
+  "form.fail": "보내지 못했습니다. 번거로우시더라도 메일로 보내 주세요.",
+  "form.fallback": "메일로 보내기",
+  "form.or": "또는"
+});
+
+Object.assign(T.en, {
+  "drink.notice": "A separate ¥600 one-drink fee is required at entry",
+  "drink.more": "Details",
+
+  "faq.eyebrow": "FAQ",
+  "faq.title": "Frequently asked questions",
+  "faq.lead": "The questions we hear most before a visit or a rental. If yours is not here, please get in touch.",
+  "faq.link": "FAQ",
+  "faq.contactLabel": "Contact",
+
+  "avail.eyebrow": "AVAILABILITY",
+  "avail.title": "Rental availability",
+  "avail.lead": "Rental availability at PLUSWIN HALL OSAKA. Pick an open (○) date to fill it into the enquiry form below.",
+  "avail.open": "Open",
+  "avail.part": "Part day · ask",
+  "avail.busy": "Booked",
+  "avail.note": "Availability is updated periodically. Final confirmation is by enquiry. Show titles and artists are not displayed.",
+  "avail.generated": "Updated",
+  "avail.picked": "Date added to the form below",
+  "avail.prev": "Previous month",
+  "avail.next": "Next month",
+  "avail.ask": "Enquire for this date",
+
+  "pdf.cta": "Download the hall spec & floor plan PDF",
+  "pdf.meta": "Specs, stage dimensions, floor plan, access map and rate card (A4, print-ready)",
+  "pdf.short": "Hall spec PDF",
+
+  "access.stepsHead": "Walking directions",
+  "access.nbTitle": "From Nihonbashi Station, Exit 2",
+  "access.nb1": "Leave Exit 2 and head to Sakaisuji",
+  "access.nb2": "Follow Sakaisuji north towards Dotonbori for about 200 m",
+  "access.nb3": "Turn into Soemoncho and continue about 100 m towards Chitose-machi-suji",
+  "access.nb4": "You will see the Mimatsu Building — PLUSWIN HALL OSAKA is on B1",
+  "access.nmTitle": "From Namba Station",
+  "access.nm1": "Head north on Midosuji, then turn onto Soemoncho-dori",
+  "access.nm2": "Turn into Chitose-machi-suji and walk about 70 m",
+  "access.nm3": "You will see the Mimatsu Building — the hall is on B1",
+  "access.b1Title": "The hall is on basement level 1",
+  "access.b1": "PLUSWIN HALL OSAKA is on B1 of the Mimatsu Building; head downstairs from the building entrance. If you use a wheelchair or a stroller, or are unsure about the stairs, please contact us in advance.",
+
+  "form.sending": "Sending…",
+  "form.sent": "Sent — our team will reply within 2–3 business days.",
+  "form.fail": "We could not send it. Please send your enquiry by email instead.",
+  "form.fallback": "Send by email",
+  "form.or": "or"
+});

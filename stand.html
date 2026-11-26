@@ -150,14 +150,15 @@
               <textarea id="s-notes" name="notes" data-i18n-ph="stand.fNotesPh" placeholder="スタンドの本数、ご希望の到着時間など"></textarea>
             </div>
           </div>
+          <div class="form-msg" id="standMsg" role="status" aria-live="polite"></div>
           <div class="form-foot">
-            <p class="form-note" data-i18n="stand.formNote">送信ボタンを押すとメールソフトが開きます（試作版のため、フォームから直接送信はされません）。</p>
+            <p class="form-note" data-i18n="stand.formNote">送信後、担当者が内容を確認のうえご連絡します。</p>
             <button class="btn btn-solid" type="submit">
-              <span data-i18n="stand.submit">入力内容をメールで送る</span>
+              <span data-i18n="stand.submit">申請内容を送信する</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
             </button>
           </div>
-          <p class="form-status" id="standStatus" data-i18n="stand.status">メールソフトを開きました。送信内容をご確認ください。</p>
+          <p class="form-alt"><span data-i18n="form.or">または</span> <a data-fallback href="mailto:info@pluswin.jp">info@pluswin.jp</a></p>
         </form>
       </div>
     </div>
@@ -189,6 +190,7 @@
           <a href="hall.html" data-i18n="nav.hall">ホール</a>
           <a href="archive.html" data-i18n="nav.archive">アーカイブ</a>
           <a href="stand.html" data-i18n="nav.stand">スタンド花</a>
+          <a href="hall.html#faq" data-i18n="faq.link">よくある質問（FAQ）</a>
         </div>
         <div class="footer-col">
           <p class="footer-head" data-i18n="footer.contactHead">CONTACT</p>

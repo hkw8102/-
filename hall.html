@@ -59,10 +59,32 @@
         <a href="#floorplan" data-i18n="hall.jumpFloor">平面図</a>
         <a href="#access" data-i18n="hall.jumpAccess">アクセス</a>
         <a href="#rates" data-i18n="hall.jumpRates">料金表</a>
+        <a href="#availability" data-i18n="avail.title">レンタル空き状況</a>
+        <a href="#faq" data-i18n="faq.eyebrow">FAQ</a>
         <a href="#rental-form" data-i18n="hall.jumpForm">レンタル相談</a>
       </div>
+
+      <div class="page-actions hall-actions">
+        <a class="btn btn-solid" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <span data-i18n="pdf.cta">ホール資料・平面図 PDF をダウンロード</span>
+        </a>
+        <a class="btn btn-line" href="#rental-form" data-i18n="venues.rentalFormCta">レンタル問い合わせ</a>
+      </div>
+      <p class="hall-actions-meta" data-i18n="pdf.meta">施設概要・ステージ寸法・平面図・アクセスマップ・料金表（A4・印刷用）</p>
     </div>
   </section>
+
+  <div class="wrap">
+    <div class="drink-bar drink-bar-flat" role="note">
+      <span class="drink-badge" aria-hidden="true">DRINK</span>
+      <p class="drink-notice" data-i18n="drink.notice">入場時、別途1ドリンク代 ¥600 が必要です</p>
+      <a class="drink-more" href="#faq">
+        <span data-i18n="drink.more">くわしく</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
 
   <!-- ============ SPECS ============ -->
   <section class="section section-tight" id="specs">
@@ -149,6 +171,35 @@
           <img src="assets/img/hall-access-map.jpg" alt="PLUSWIN HALL OSAKA 周辺地図" loading="lazy" decoding="async">
         </figure>
       </div>
+
+      <div class="access-steps">
+        <div class="access-route reveal">
+          <p class="ar-k">ROUTE 01</p>
+          <h3 class="ar-t" data-i18n="access.nbTitle">地下鉄 日本橋駅 2番出口から</h3>
+          <ol class="ar-list">
+            <li><span>01</span><p data-i18n="access.nb1">2番出口を出て、堺筋へ</p></li>
+            <li><span>02</span><p data-i18n="access.nb2">堺筋を道頓堀方面へ北に約200m</p></li>
+            <li><span>03</span><p data-i18n="access.nb3">宗右衛門町へ入り、千年町筋方面へ約100m</p></li>
+            <li><span>04</span><p data-i18n="access.nb4">美松ビルが見えます。地下1階が PLUSWIN HALL OSAKA です</p></li>
+          </ol>
+        </div>
+
+        <div class="access-route reveal">
+          <p class="ar-k">ROUTE 02</p>
+          <h3 class="ar-t" data-i18n="access.nmTitle">なんば駅から</h3>
+          <ol class="ar-list">
+            <li><span>01</span><p data-i18n="access.nm1">御堂筋を北へ進み、宗右衛門町通へ</p></li>
+            <li><span>02</span><p data-i18n="access.nm2">千年町筋へ入って約70m</p></li>
+            <li><span>03</span><p data-i18n="access.nm3">美松ビルが見えます。地下1階が会場です</p></li>
+          </ol>
+        </div>
+
+        <div class="access-b1 reveal">
+          <p class="ar-k">B1</p>
+          <h3 class="ar-t" data-i18n="access.b1Title">会場はビルの地下1階</h3>
+          <p class="ar-note" data-i18n="access.b1">美松ビルの地下1階が会場です。建物の入口から地下へお進みください。車椅子・ベビーカーのご利用や、お足元に不安がある場合は、事前にお問い合わせください。</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -219,8 +270,57 @@
     </div>
   </section>
 
+  <!-- ============ AVAILABILITY ============ -->
+  <section class="section section-alt section-tight" id="availability">
+    <div class="wrap">
+      <div class="avail reveal">
+        <div class="avail-head">
+          <p class="eyebrow" data-i18n="avail.eyebrow">AVAILABILITY</p>
+          <h2 class="block-title" data-i18n="avail.title">レンタル空き状況</h2>
+          <p class="avail-lead" data-i18n="avail.lead">PLUSWIN HALL OSAKA のレンタル空き状況です。○の日を選ぶと、下の問い合わせフォームに希望日が入ります。</p>
+        </div>
+        <div class="avail-tabs" id="availTabs" role="tablist" aria-label="Month"></div>
+        <div class="avail-body">
+          <div class="avail-cal" id="availGrid"></div>
+          <aside class="avail-side">
+            <ul class="avail-legend">
+              <li class="is-open"><i>○</i><span data-i18n="avail.open">空き</span></li>
+              <li class="is-part"><i>△</i><span data-i18n="avail.part">一部・要相談</span></li>
+              <li class="is-busy"><i>×</i><span data-i18n="avail.busy">使用中</span></li>
+            </ul>
+            <div class="avail-picked" id="availPicked" aria-live="polite"></div>
+            <p class="avail-note" data-i18n="avail.note">空き状況は定期的に更新しています。最終的な可否はお問い合わせください。公演・出演者などの予定内容は表示していません。</p>
+            <p class="avail-stamp"><span data-i18n="avail.generated">更新日</span> <b id="availGenerated">2026.11.26</b></p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section section-tight" id="faq">
+    <div class="wrap">
+      <div class="block-head reveal">
+        <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+        <h2 class="block-title" data-i18n="faq.title">よくある質問</h2>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-list reveal" id="faqList"><!-- rendered by hall-extras.js --></div>
+        <aside class="faq-side reveal">
+          <p class="faq-lead" data-i18n="faq.lead">ご来場・ご利用の前によくいただく質問をまとめました。ここにない内容はお問い合わせください。</p>
+          <div class="faq-contact">
+            <span data-i18n="faq.contactLabel">お問い合わせ</span>
+            <a href="tel:+81665362002">06-6536-2002</a>
+            <a href="mailto:info@pluswin.jp">info@pluswin.jp</a>
+          </div>
+          <a class="link-arrow" href="#rental-form" data-i18n="hall.jumpForm">レンタル相談</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ RENTAL FORM ============ -->
-  <section class="section section-tight" id="rental-form">
+  <section class="section section-alt section-tight" id="rental-form">
     <div class="wrap">
       <div class="hall-form-grid">
         <div class="rental-copy reveal">
@@ -292,14 +392,15 @@
                 <textarea id="f-message" name="message" required data-i18n-ph="form.messagePh" placeholder="公演内容、ご希望の時間帯、機材の有無など"></textarea>
               </div>
             </div>
+            <div class="form-msg" id="rentalMsg" role="status" aria-live="polite"></div>
             <div class="form-foot">
-              <p class="form-note" data-i18n="form.note">送信ボタンを押すとメールソフトが開きます（試作版のため、フォームから直接送信はされません）。</p>
+              <p class="form-note" data-i18n="form.note">送信後、担当者より2〜3営業日以内にご連絡します。</p>
               <button class="btn btn-solid" type="submit">
-                <span data-i18n="form.submit">入力内容をメールで送る</span>
+                <span data-i18n="form.submit">入力内容を送信する</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
               </button>
             </div>
-            <p class="form-status" id="formStatus" data-i18n="form.status">メールソフトを開きました。送信内容をご確認ください。</p>
+            <p class="form-alt"><span data-i18n="form.or">または</span> <a data-fallback href="mailto:info@pluswin.jp">info@pluswin.jp</a></p>
           </form>
         </div>
       </div>
@@ -332,6 +433,7 @@
           <a href="hall.html" data-i18n="nav.hall">ホール</a>
           <a href="archive.html" data-i18n="nav.archive">アーカイブ</a>
           <a href="stand.html" data-i18n="nav.stand">スタンド花</a>
+          <a href="hall.html#faq" data-i18n="faq.link">よくある質問（FAQ）</a>
         </div>
         <div class="footer-col">
           <p class="footer-head" data-i18n="footer.contactHead">CONTACT</p>
@@ -359,6 +461,8 @@
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/i18n-extra.js"></script>
+<script src="assets/js/hall-availability.js"></script>
+<script src="assets/js/hall-extras.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>

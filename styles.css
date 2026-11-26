@@ -1,5 +1,5 @@
 /* ============================================================
-   PLUSWIN — renewal prototype
+   PLUSWIN — design system & layout
    Dark stage aesthetic / 3-language layout
    ============================================================ */
 
@@ -963,3 +963,179 @@ section[id]{scroll-margin-top:78px}
 .desk-right a.desk-mail{font-size:10px;color:var(--dim);margin-top:3px}
 .desk-row:hover a.desk-tel{color:var(--accent)}
 .desk-row:hover a.desk-mail{color:var(--txt)}
+
+/* ============================================================
+   Improvements 1–4 — drink notice, detailed access, availability
+   calendar, FAQ accordion, PDF button and live form states
+   ============================================================ */
+
+/* ---------- drink fee notice ---------- */
+.drink-bar{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  margin:0 0 26px;padding:13px 16px;
+  border:1px solid rgba(255,75,43,.32);border-left:3px solid var(--accent);
+  background:linear-gradient(90deg,rgba(255,75,43,.10),rgba(255,75,43,.02) 55%,transparent);
+  border-radius:3px;
+}
+.drink-bar-flat{margin:20px 0 0}
+.drink-badge{
+  flex-shrink:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.18em;
+  color:#ff8b74;padding:4px 8px;border:1px solid rgba(255,75,43,.4);border-radius:2px;
+}
+.drink-notice{font-size:13px;font-weight:700;letter-spacing:-.005em;line-height:1.5;flex:1;min-width:200px;color:#fff}
+.drink-more{
+  display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+  font-size:11px;font-weight:700;color:var(--dim);
+  border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:color .2s,border-color .2s;
+}
+.drink-more:hover{color:#fff;border-color:var(--accent)}
+.drink-more svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.mini-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px}
+.mini-links a{font-size:11px;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .2s,border-color .2s}
+.mini-links a:hover{color:var(--txt);border-color:var(--accent)}
+
+/* ---------- hall page actions ---------- */
+.hall-actions{margin-top:20px}
+.hall-actions .btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.hall-actions-meta{font-size:10.5px;color:var(--dim-2);margin-top:10px;line-height:1.6}
+
+/* ---------- access: walking directions ---------- */
+.access-steps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.access-route,.access-b1{border:1px solid var(--line);background:var(--card);border-radius:3px;padding:20px 22px}
+.access-b1{grid-column:1/-1;background:var(--card-2)}
+.ar-k{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--accent);margin-bottom:8px}
+.ar-t{font-size:14px;font-weight:800;letter-spacing:-.01em;margin-bottom:14px;line-height:1.4}
+.ar-list{display:grid;gap:10px}
+.ar-list li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.ar-list span{
+  font-family:var(--mono);font-size:9px;font-weight:700;color:var(--dim-2);
+  padding-top:3px;letter-spacing:.06em;
+}
+.ar-list p{font-size:12.5px;color:#cfcfd7;line-height:1.65}
+.ar-note{font-size:12.5px;color:var(--dim);line-height:1.75;max-width:70ch}
+
+/* ---------- availability calendar ---------- */
+.avail{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:clamp(20px,2.6vw,30px)}
+.avail-head{margin-bottom:18px}
+.avail-head .eyebrow{margin-bottom:8px}
+.avail-lead{font-size:12.5px;color:var(--dim);line-height:1.75;max-width:62ch;margin-top:10px}
+.avail-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.avail-tab{
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--dim);
+  padding:8px 16px;border:1px solid var(--line);border-radius:100px;transition:all .22s var(--ease);
+}
+.avail-tab:hover{color:var(--txt);border-color:var(--line-2)}
+.avail-tab.is-active{color:#0a0a0e;background:var(--txt);border-color:var(--txt)}
+.avail-body{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(18px,3vw,34px);align-items:start}
+.avail-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.avail-wd{
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  color:var(--dim-2);text-align:center;padding:0 0 6px;
+}
+.avail-cell{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1px;aspect-ratio:1/1;min-height:44px;border-radius:3px;border:1px solid transparent;
+  font-size:11px;line-height:1;transition:all .18s var(--ease);
+}
+.avail-cell b{font-size:11.5px;font-weight:700}
+.avail-cell i{font-style:normal;font-size:11px;line-height:1}
+.avail-cell.is-empty{border:0;background:none}
+.avail-cell.is-open{background:rgba(255,255,255,.045);border-color:var(--line);cursor:pointer;color:var(--txt)}
+.avail-cell.is-open i{color:#8ee0a1}
+.avail-cell.is-open:hover{border-color:var(--accent);background:rgba(255,75,43,.1);transform:translateY(-1px)}
+.avail-cell.is-part{background:rgba(255,193,94,.07);border-color:rgba(255,193,94,.28);cursor:pointer;color:var(--txt)}
+.avail-cell.is-part i{color:#ffc15e}
+.avail-cell.is-part:hover{border-color:#ffc15e;background:rgba(255,193,94,.14)}
+.avail-cell.is-busy{background:rgba(255,255,255,.015);color:#5c5c68;cursor:default}
+.avail-cell.is-busy i{color:#6b4d4a}
+.avail-cell.is-picked{box-shadow:0 0 0 1.5px var(--accent) inset;border-color:var(--accent)}
+.avail-legend{display:grid;gap:8px;margin-bottom:16px}
+.avail-legend li{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--dim)}
+.avail-legend i{
+  font-style:normal;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;border-radius:3px;border:1px solid var(--line);background:rgba(255,255,255,.035);
+}
+.avail-legend .is-open i{color:#8ee0a1}
+.avail-legend .is-part i{color:#ffc15e;border-color:rgba(255,193,94,.28);background:rgba(255,193,94,.07)}
+.avail-legend .is-busy i{color:#6b4d4a}
+.avail-picked{display:none}
+.avail-picked.is-on{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  font-size:11.5px;color:var(--dim);padding:10px 12px;margin-bottom:12px;
+  border:1px solid rgba(255,75,43,.3);background:rgba(255,75,43,.07);border-radius:3px;
+}
+.avail-picked b{font-family:var(--mono);font-size:11px;color:#fff;letter-spacing:.02em}
+.avail-cta{font-size:11px;font-weight:700;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}
+.avail-note{font-size:11px;color:var(--dim-2);line-height:1.7}
+.avail-stamp{font-size:10px;color:var(--dim-2);margin-top:10px;letter-spacing:.02em}
+.avail-stamp b{font-family:var(--mono);color:var(--dim);font-weight:700}
+
+/* ---------- FAQ ---------- */
+.faq-wrap{display:grid;grid-template-columns:1.55fr .45fr;gap:clamp(20px,3vw,40px);align-items:start}
+.faq-list{display:grid;gap:8px}
+.faq-item{border:1px solid var(--line);border-radius:3px;background:var(--card);overflow:hidden;transition:border-color .25s}
+.faq-item[open]{border-color:var(--line-2);background:var(--card-2)}
+.faq-item summary{display:flex;align-items:center;gap:14px;padding:15px 17px;cursor:pointer;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-num{font-family:var(--mono);font-size:9.5px;font-weight:700;color:var(--dim-2);letter-spacing:.06em;flex-shrink:0}
+.faq-q{flex:1;font-size:13px;font-weight:700;line-height:1.5;color:#e8e8ef}
+.faq-item[open] .faq-q{color:#fff}
+.faq-item summary i{position:relative;width:11px;height:11px;flex-shrink:0}
+.faq-item summary i::before,.faq-item summary i::after{content:"";position:absolute;background:var(--dim);border-radius:1px;transition:transform .25s,opacity .25s}
+.faq-item summary i::before{left:0;top:4.75px;width:11px;height:1.5px}
+.faq-item summary i::after{left:4.75px;top:0;width:1.5px;height:11px}
+.faq-item[open] summary i::after{transform:rotate(90deg);opacity:0}
+.faq-a{font-size:12.5px;line-height:1.8;color:#bfbfca;padding:0 17px 17px 46px}
+.faq-side{position:sticky;top:100px;display:grid;gap:14px;align-content:start}
+.faq-lead{font-size:12px;color:var(--dim);line-height:1.8}
+.faq-contact{display:grid;gap:4px;padding:14px 16px;border:1px solid var(--line);border-radius:3px;background:var(--card)}
+.faq-contact span{font-size:9.5px;font-weight:800;letter-spacing:.18em;color:var(--accent);margin-bottom:2px}
+.faq-contact a{font-size:12px;color:var(--dim);transition:color .2s}
+.faq-contact a:hover{color:var(--txt)}
+
+/* ---------- form: live submission states ---------- */
+.form-msg{display:none;gap:9px;align-items:flex-start;margin-top:16px;padding:13px 15px;border-radius:3px;font-size:12.5px;line-height:1.65}
+.form-msg.is-on{display:flex;flex-wrap:wrap}
+.form-msg.is-ok{border:1px solid rgba(142,224,161,.35);background:rgba(142,224,161,.08);color:#a9ebba}
+.form-msg.is-err{border:1px solid rgba(255,120,100,.38);background:rgba(255,75,43,.08);color:#ffb3a4}
+.fm-ic{
+  flex-shrink:0;width:15px;height:15px;margin-top:2px;border-radius:50%;
+  border:1.5px solid currentColor;position:relative;
+}
+.form-msg.is-ok .fm-ic::after{content:"";position:absolute;left:3.4px;top:3.6px;width:6px;height:3px;border-left:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(-45deg)}
+.form-msg.is-err .fm-ic::after{content:"!";position:absolute;left:4.4px;top:0.5px;font-size:9px;font-weight:800;line-height:13px}
+.fm-t{flex:1;min-width:180px}
+.fm-link{font-weight:700;color:inherit;border-bottom:1px solid currentColor;padding-bottom:1px;white-space:nowrap}
+.btn.is-loading{opacity:.7;cursor:progress;pointer-events:none}
+.btn.is-done{background:#2f6b3f;border-color:#2f6b3f}
+.form-alt{font-size:10.5px;color:var(--dim-2);margin-top:10px}
+.form-alt a{color:var(--dim);border-bottom:1px solid var(--line-2);padding-bottom:1px}
+.form-alt a:hover{color:var(--txt);border-color:var(--accent)}
+
+@media (max-width:1000px){
+  .avail-body{grid-template-columns:1fr}
+  .faq-wrap{grid-template-columns:1fr}
+  .faq-side{position:static;grid-auto-flow:column;justify-content:space-between;align-items:center}
+}
+@media (max-width:860px){
+  .access-steps{grid-template-columns:1fr}
+  .access-b1{grid-column:auto}
+  .faq-side{grid-auto-flow:row}
+  .drink-bar{gap:10px}
+  .drink-notice{font-size:12.5px}
+}
+@media (max-width:520px){
+  .avail{padding:16px 14px}
+  .avail-cal{gap:2px}
+  .avail-cell{min-height:38px;border-radius:2px}
+  .avail-cell b{font-size:10.5px}
+  .avail-cell i{font-size:9.5px}
+  .drink-badge{display:none}
+  .faq-q{font-size:12.5px}
+  .faq-a{padding-left:17px}
+  .hall-actions .btn{width:100%;justify-content:center}
+}
+
+/* small fixes: inline link in the FAQ side column */
+.faq-side .link-arrow{width:max-content;justify-self:start}

@@ -67,7 +67,7 @@ Object.assign(T.ja, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "過去公演アーカイブ",
-  "archive.lead": "2012年以降、プラスウインが企画・制作・運営してきた公演の記録です。ポスターを選ぶと、公演の詳細と注意事項を表示します。",
+  "archive.lead": "2012年以降、プラスウインが企画・制作・運営してきた公演の記録です。公演日と会場を一覧でご覧いただけます。",
   "archive.filterLabel": "年で絞り込む",
 
   "stand.pageLead": "プラスウイン主催公演へのスタンド花・バルーンスタンドのお申し込みは事前申請制です。以下の注意事項をご確認のうえ、開催1か月前から申請フォームよりお申し込みください。",
@@ -138,7 +138,7 @@ Object.assign(T.ko, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "지난 공연 아카이브",
-  "archive.lead": "2012년 이후 플러스윈이 기획·제작·운영한 공연의 기록입니다. 포스터를 선택하면 공연 상세와 주의사항을 볼 수 있습니다.",
+  "archive.lead": "2012년 이후 플러스윈이 기획·제작·운영한 공연의 기록입니다. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
   "archive.filterLabel": "연도로 좁히기",
 
   "stand.pageLead": "플러스윈 주최 공연의 스탠드 화환·벌룬 스탠드는 사전 신청제입니다. 아래 안내를 확인하신 뒤 공연 1개월 전부터 신청 폼으로 신청해 주세요.",
@@ -209,7 +209,7 @@ Object.assign(T.en, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "Past events",
-  "archive.lead": "A record of shows PLUSWIN has planned, produced and operated since 2012. Select a poster for details and guidelines.",
+  "archive.lead": "A record of shows PLUSWIN has planned, produced and operated since 2012 — when and where each one took place.",
   "archive.filterLabel": "Filter by year",
 
   "stand.pageLead": "Flower and balloon stands for PLUSWIN-produced shows are by advance application only. Please read the guidelines below and apply from one month before the show.",
@@ -262,6 +262,7 @@ Object.assign(T.ja, {
   "access.b1": "美松ビルの地下1階が会場です。建物の入口から地下へお進みください。車椅子・ベビーカーのご利用や、お足元に不安がある場合は、事前にお問い合わせください。",
 
   "form.sending": "送信中…",
+  "form.sentTab": "送信しました。確認ページが別タブで開きます。うまく開かない場合は、メールでお送りください。",
   "form.sent": "送信しました。担当者より2〜3営業日以内にご連絡します。",
   "form.fail": "送信できませんでした。お手数ですが、メールでお送りください。",
   "form.fallback": "メールで送る",
@@ -309,6 +310,7 @@ Object.assign(T.ko, {
   "access.b1": "미마츠빌딩 지하 1층이 공연장입니다. 건물 입구에서 지하로 내려오세요. 휠체어·유모차 이용이나 발밑이 불안하신 경우에는 미리 문의해 주세요.",
 
   "form.sending": "보내는 중…",
+  "form.sentTab": "보냈습니다. 확인 페이지가 새 탭에서 열립니다. 열리지 않으면 메일로 보내 주세요.",
   "form.sent": "보냈습니다. 담당자가 2~3영업일 내에 연락드립니다.",
   "form.fail": "보내지 못했습니다. 번거로우시더라도 메일로 보내 주세요.",
   "form.fallback": "메일로 보내기",
@@ -356,6 +358,7 @@ Object.assign(T.en, {
   "access.b1": "PLUSWIN HALL OSAKA is on B1 of the Mimatsu Building; head downstairs from the building entrance. If you use a wheelchair or a stroller, or are unsure about the stairs, please contact us in advance.",
 
   "form.sending": "Sending…",
+  "form.sentTab": "Sent — the confirmation page opens in a new tab. If it does not open, please send your enquiry by email.",
   "form.sent": "Sent — our team will reply within 2–3 business days.",
   "form.fail": "We could not send it. Please send your enquiry by email instead.",
   "form.fallback": "Send by email",

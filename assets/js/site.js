@@ -4,7 +4,7 @@
    ============================================================ */
 
 let lang = "ja";
-const state = { openId: null, openPastKey: null, pastYear: "all" };
+const state = { openId: null, pastYear: "all" };
 
 /* ---------- helpers ---------- */
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -171,7 +171,7 @@ function renderArchive() {
       ? `<div class="arch-poster" style="--poster:url('${p.poster}')"><img src="${p.poster}" alt="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async"></div>`
       : `<div class="arch-poster"><span class="arch-typo-inner"><span class="arch-typo-mark" aria-hidden="true"></span><span class="arch-typo-name">${esc(p.artist)}</span><span class="arch-typo-year">${esc(p.year)}</span></span></div>`;
     return `
-      <article class="arch-card${p.poster ? "" : " is-typo"}" data-past="${p.key}" tabindex="0" role="button" aria-label="${esc(p.artist)} — ${esc(p.title)}, ${esc(p.date)}, ${esc(p.venue)}">
+      <article class="arch-card${p.poster ? "" : " is-typo"}">
         ${poster}
         <div class="arch-info">
           <h4 class="arch-artist">${esc(p.artist)}</h4>
@@ -216,7 +216,6 @@ function closeDrawer() {
   root.setAttribute("aria-hidden", "true");
   document.body.classList.remove("is-locked");
   state.openId = null;
-  state.openPastKey = null;
 }
 
 function guideMarkup() {
@@ -243,37 +242,6 @@ function standHintMarkup() {
         </div>
         <a class="btn btn-line btn-sm" href="stand.html">${t("stand.ctaShort")}</a>
       </div>`;
-}
-
-function openPast(key) {
-  const p = PAST.find((x) => x.key === key);
-  if (!p) return;
-  state.openPastKey = key;
-  const content = $("#drawerContent");
-  if (!content) return;
-  const hero = p.poster
-    ? `<div class="dr-hero dr-hero-past" style="--poster:url('${p.poster}')"><img src="${p.poster}" alt="${esc(p.artist)} — ${esc(p.title)}"></div>`
-    : `<div class="dr-hero dr-hero-past"><div class="dr-hero-fallback"><span>${esc(p.artist)}</span></div></div>`;
-  content.innerHTML = `
-    ${hero}
-    <div class="dr-body">
-      <div class="dr-kicker">
-        <span class="ev-city">${esc(p.year)}</span>
-        <span class="ev-city">${t("past.kicker")}</span>
-      </div>
-      <h3 class="dr-title" id="drawerTitle">${esc(p.artist)}</h3>
-      <p class="dr-sub">${esc(p.title)}</p>
-      <div class="dr-meta-grid">
-        <div><span>${t("past.date")}</span><b>${esc(p.date)}</b></div>
-        <div><span>${t("past.venue")}</span><b>${esc(p.venue)}</b></div>
-      </div>
-      ${guideMarkup()}
-      <div class="dr-actions">
-        <a class="btn btn-line" href="${p.url}" target="_blank" rel="noopener">${t("past.source")}</a>
-      </div>
-      <p class="dr-note">${t("past.producedBy")}</p>
-    </div>`;
-  openRoot("#drawerRoot");
 }
 
 function openDrawer(id) {
@@ -368,7 +336,6 @@ function setLang(next) {
   applyStatic();
   renderPage();
   if (state.openId) openDrawer(state.openId);
-  else if (state.openPastKey) openPast(state.openPastKey);
   localizeLinks();
   updateUrl();
 }
@@ -383,12 +350,17 @@ function initialLang() {
 }
 
 /* ---------- forms ----------
-   Both enquiries are sent by a real HTML form submit to FormSubmit, into a
-   hidden iframe. FormSubmit's AJAX endpoint returns no CORS headers, so a
-   fetch() from the site cannot be read (preflight fails); a form POST is not
-   subject to CORS, the visitor stays on the page, and the iframe's load event
-   drives the success message. If anything fails, the same content is offered
-   as a pre-filled mailto: link so an enquiry is never lost.
+   Both enquiries are sent by a real HTML form POST to FormSubmit
+   (https://formsubmit.co/info@pluswin.jp) in a new tab:
+     · FormSubmit's AJAX endpoint answers without CORS headers, so fetch()
+       from the page cannot read the result;
+     · its confirmation page is sent with X-Frame-Options: SAMEORIGIN, so a
+       hidden iframe cannot show the outcome;
+     · the POST is handled behind Cloudflare's verification, which needs a
+       top-level page.
+   A new tab lets the visitor see the real result ("thank you", or the
+   activation notice) while the site stays put. A pre-filled mailto: link is
+   always offered as a fallback.
 
    NOTE: the first submission to a new address makes FormSubmit send a
    one-time activation email to info@pluswin.jp; mail flows after that link
@@ -420,15 +392,12 @@ function showFormMsg(msg, kind, text, mailto) {
 
 function bindMailForm(form, opts) {
   if (!form) return;
-  const sink = document.getElementById("pwMailSink");
   const msg = document.getElementById(opts.msgId);
   const btn = form.querySelector('button[type="submit"]');
   const label = btn ? btn.querySelector("span") : null;
   const subjectField = form.querySelector('input[name="_subject"]');
   const nextField = form.querySelector('input[name="_next"]');
   const fallback = form.querySelector("[data-fallback]");
-  let submitting = false;
-  let timer = null;
 
   const subjectNow = () => {
     const fd = new FormData(form);
@@ -438,7 +407,6 @@ function bindMailForm(form, opts) {
   };
 
   form.addEventListener("submit", () => {
-    submitting = true;
     const subject = subjectNow();
     if (subjectField) subjectField.value = subject;
     if (nextField) {
@@ -450,38 +418,23 @@ function bindMailForm(form, opts) {
     if (label) label.textContent = t("form.sending");
     form.setAttribute("aria-busy", "true");
     if (msg) msg.classList.remove("is-on");
-    clearTimeout(timer);
-    timer = setTimeout(() => done(false), 30000);
-  });
 
-  function done(ok) {
-    if (!submitting) return;
-    submitting = false;
-    clearTimeout(timer);
-    if (btn) {
-      btn.disabled = false;
-      btn.classList.remove("is-loading");
-      btn.classList.toggle("is-done", ok);
-    }
-    form.removeAttribute("aria-busy");
-    if (label) label.textContent = t(opts.submitKey);
-    if (ok) {
-      showFormMsg(msg, "ok", t(opts.okKey));
+    // the tab opens on its own; report on this page right after the hand-off
+    window.setTimeout(() => {
+      if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); btn.classList.add("is-done"); }
+      form.removeAttribute("aria-busy");
+      if (label) label.textContent = t(opts.submitKey);
+      showFormMsg(msg, "ok", t("form.sentTab"), mailtoFrom(form, subject));
       form.reset();
       if (fallback) fallback.setAttribute("href", `mailto:${MAIL_RENTAL}`);
-    } else {
-      showFormMsg(msg, "err", t("form.fail"), mailtoFrom(form, subjectNow()));
-    }
-  }
-
-  if (sink) sink.addEventListener("load", () => done(true));
+    }, 1400);
+  });
 }
 
 function bindRentalForm() {
   bindMailForm($("#rentalForm"), {
     msgId: "rentalMsg",
     submitKey: "form.submit",
-    okKey: "form.sent",
     subjectField: "お名前 / Name",
     subject: (name) => `[PLUSWIN HALL OSAKA] レンタル相談 — ${name || "(no name)"}`
   });
@@ -491,7 +444,6 @@ function bindStandForm() {
   bindMailForm($("#standForm"), {
     msgId: "standMsg",
     submitKey: "stand.submit",
-    okKey: "stand.status",
     subjectField: "公演名・出演者名 / Show",
     subject: (perf) => `[PLUSWIN] スタンド花・バルーン申請 — ${perf || "(no title)"}`
   });
@@ -512,17 +464,9 @@ function bind() {
     const opener = ev.target.closest("[data-open]");
     if (opener) { ev.preventDefault(); openDrawer(opener.getAttribute("data-open")); return; }
     if (ev.target.closest("[data-drawer-close]")) { closeDrawer(); return; }
-    const past = ev.target.closest("[data-past]");
-    if (past) openPast(past.getAttribute("data-past"));
   });
 
   document.addEventListener("keydown", (ev) => {
-    const active = document.activeElement;
-    if ((ev.key === "Enter" || ev.key === " ") && active && active.matches("[data-past]")) {
-      ev.preventDefault();
-      openPast(active.getAttribute("data-past"));
-      return;
-    }
     if (ev.key === "Escape") {
       closeDrawer();
       const nav = $("#mainNav");

@@ -15,8 +15,8 @@
   var detailed = media.querySelector(".fp-svg:not(.fp-svg--mob)");
   var mq = window.matchMedia("(max-width: 900px)");
 
-  var steps = [1100, 1500, 2000, 2600];
-  var step = 1;
+  var steps = [1000, 1400, 1900, 2600];
+  var step = 0;
   var lastFocus = null;
   var built = false;
 
@@ -35,6 +35,11 @@
     box.classList.add("is-open");
     box.setAttribute("aria-hidden", "false");
     document.documentElement.style.overflow = "hidden";
+    var sc = box.querySelector(".fpzoom-scroll");
+    if (sc) {
+      sc.scrollLeft = Math.max(0, (sc.scrollWidth - sc.clientWidth) / 2);
+      sc.scrollTop = Math.max(0, (sc.scrollHeight - sc.clientHeight) * 0.35);
+    }
     if (closeBtn) closeBtn.focus();
   }
 

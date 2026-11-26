@@ -50,6 +50,7 @@
 .est-group > legend b{display:block;font-family:var(--sans);font-size:14px;letter-spacing:-.01em;color:var(--txt);margin-top:5px;font-weight:800;text-transform:none}
 .est-grid{display:grid;gap:10px}
 .est-grid.g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.est-grid.g-plan{grid-template-columns:minmax(0,1.6fr) minmax(0,.4fr)}
 .est-grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .est-grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:520px){.est-grid.g3,.est-grid.g4{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}

@@ -1,0 +1,175 @@
+/* ============================================================
+   PLUSWIN — estimate / application sheet builder (estimate.html)
+   Shared by the light and the dark build: every colour comes from
+   the site variables, so the panel follows the theme while the
+   A4 paper sheet stays fixed black-on-white for printing.
+   ============================================================ */
+
+/* ---------- hall.html: call-to-action band ---------- */
+.estimate-cta{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;
+  margin-top:26px;padding:22px 24px;border:1px solid var(--line-2);border-radius:3px;
+  background:var(--card);
+}
+.estimate-cta .est-cta-eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--accent-ink,var(--accent));margin:0 0 6px}
+.estimate-cta h3{margin:0 0 6px;font-size:17px;letter-spacing:-.01em;line-height:1.35}
+.estimate-cta p{margin:0;font-size:12px;line-height:1.7;color:var(--dim);max-width:60ch}
+.estimate-cta .btn{flex:none}
+
+.rental-estimate{margin-top:16px}
+.rental-estimate .btn{width:100%;justify-content:center}
+
+/* ---------- page frame ---------- */
+.est-section{padding-top:clamp(18px,3vw,32px)}
+.est-layout{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:clamp(20px,3vw,42px);align-items:start}
+@media (max-width:1080px){.est-layout{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- input panel ---------- */
+.est-panel{
+  background:var(--card);border:1px solid var(--line);border-radius:3px;
+  padding:clamp(16px,2.2vw,24px);
+  color-scheme:dark;              /* native date/time pickers follow the theme */
+}
+
+.est-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.est-tools .btn{flex:1 1 auto;justify-content:center;font-size:12px;white-space:normal;text-align:center;line-height:1.35}
+.est-tools #btnReset{flex:0 0 auto;padding:13px 18px}
+@media (max-width:520px){
+  .est-tools{flex-direction:column}
+  .est-tools .btn,.est-tools #btnReset{width:100%;flex:1 1 auto}
+}
+.est-tools .btn svg{width:14px;height:14px}
+
+.est-group{border:0;padding:0;margin:18px 0 0}
+.est-group > legend{
+  display:block;width:100%;padding:0 0 8px;margin-bottom:10px;
+  border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent-ink,var(--accent));
+}
+.est-group > legend b{display:block;font-family:var(--sans);font-size:14px;letter-spacing:-.01em;color:var(--txt);margin-top:5px;font-weight:800;text-transform:none}
+.est-grid{display:grid;gap:10px}
+.est-grid.g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.est-grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.est-grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:520px){.est-grid.g3,.est-grid.g4{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+
+.est-field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.est-field > span{font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--dim)}
+.est-field input,.est-field select,.est-field textarea{
+  font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--txt);
+  background:var(--card-2);border:1px solid var(--line-2);border-radius:2px;
+  padding:8px 9px;width:100%;min-width:0;
+}
+.est-field input:focus,.est-field select:focus,.est-field textarea:focus{
+  outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent);
+}
+.est-field input[type="date"]{min-height:35px}
+.est-hint{font-size:10.5px;line-height:1.5;color:var(--dim-2);margin:2px 0 0}
+
+.est-check{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.45;color:var(--txt);cursor:pointer}
+.est-check input{margin:2px 0 0;width:15px;height:15px;accent-color:var(--accent);flex:none}
+.est-check b{font-weight:700}
+.est-check em{font-style:normal;font-family:var(--mono);color:var(--dim);font-size:11px;margin-left:auto;flex:none}
+.est-rowcheck{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.est-rowcheck:last-child{border-bottom:0}
+.est-rowcheck .est-qty{width:64px;flex:none}
+.est-rowcheck .est-field{padding:0}
+.est-rowcheck .est-field input{padding:5px 7px;font-size:12.5px}
+
+.est-sum{display:grid;gap:4px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2)}
+.est-sum div{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--dim)}
+.est-sum div b{font-family:var(--mono);font-size:13px;color:var(--txt);letter-spacing:.01em}
+.est-sum div.is-total{margin-top:4px;padding-top:8px;border-top:1px solid var(--line);color:var(--txt);font-weight:800}
+.est-sum div.is-total b{font-size:17px;color:var(--accent-ink,var(--accent))}
+
+@media (min-width:1081px){
+  .est-preview{position:sticky;top:92px}
+}
+
+/* ---------- preview stage ---------- */
+.est-preview{min-width:0}
+.est-preview-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.est-preview-head p{margin:0;font-size:11.5px;color:var(--dim);line-height:1.6}
+.est-preview-head span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim-2)}
+.paper-jp,.est-preview-head .paper-jp{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP","Noto Sans CJK JP","Noto Sans CJK KR","Meiryo",sans-serif;letter-spacing:.02em}
+.paper-holder{position:relative;width:100%;overflow:hidden;border:1px solid var(--line-2);border-radius:2px;background:#fff}
+.paper{position:absolute;top:0;left:50%;transform-origin:top center;transform:translateX(-50%)}
+
+/* ============================================================
+   A4 SHEET — fixed black on white, official form
+   ============================================================ */
+.paper{
+  --ink:#111;
+  width:210mm;height:297mm;padding:8mm 10mm 6mm;
+  background:#fff;color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP","Noto Sans CJK JP","Noto Sans CJK KR","Meiryo",sans-serif;
+  font-size:8pt;line-height:1.25;font-feature-settings:"palt" 1;
+  -webkit-font-smoothing:antialiased;box-sizing:border-box;
+  display:flex;flex-direction:column;
+}
+.paper *{box-sizing:border-box}
+.paper .p-bar{
+  background:var(--ink);color:#fff;text-align:center;
+  font-size:17.5pt;font-weight:800;letter-spacing:.01em;line-height:1;
+  padding:2.1mm 0 1.8mm;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.paper .p-head{position:relative;text-align:center;padding:1.6mm 0 1.4mm}
+.paper .p-doctitle{font-size:14pt;font-weight:800;letter-spacing:.26em;margin:0}
+.paper .p-issued{
+  position:absolute;right:0;bottom:.6mm;font-size:7.6pt;letter-spacing:.02em;
+  display:flex;align-items:baseline;gap:1.2mm;
+}
+.paper .p-issued i{font-style:normal;font-size:7pt;letter-spacing:.08em}
+.paper .u{display:inline-block;min-width:11mm;text-align:center;border-bottom:.5pt solid var(--ink);font-weight:700;padding:0 .6mm}
+
+.paper table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:-.6pt}
+.paper td,.paper th{
+  border:.55pt solid var(--ink);padding:1.35mm 1.4mm;font-size:7.9pt;font-weight:400;
+  vertical-align:middle;line-height:1.2;overflow-wrap:anywhere;word-break:normal;
+}
+.paper th{font-weight:700;text-align:center}
+.paper .lb{background:#f4f4f4;white-space:nowrap;font-size:7.3pt;font-weight:700;text-align:center;letter-spacing:.02em;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.paper .lb2{font-weight:700;text-align:center;letter-spacing:.02em}
+.paper .r{text-align:right}
+.paper .c{text-align:center}
+.paper .big{font-size:10.5pt;font-weight:800;letter-spacing:.01em}
+.paper .sub{display:block;font-size:6.4pt;font-weight:400;line-height:1.35;margin-top:.5mm;color:#333}
+.paper .dim{color:#333}
+.paper .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:7.6pt;letter-spacing:.01em}
+.paper td.fill{min-height:5.4mm}
+.paper .strong{font-weight:800}
+.paper .total td{border-top:1pt solid var(--ink)}
+.paper .total .lb{background:#f4f4f4}
+.paper .contract td{border-top:1.2pt solid var(--ink)}
+.paper .contract .lb{background:#ececec;font-size:9pt}
+.paper .contract .num{font-size:10.5pt;font-weight:800}
+.paper .app td{font-size:7.6pt}
+.paper .paycell{font-size:7.2pt;line-height:1.5}
+.paper .payopt{display:block;position:relative;padding-left:4.4mm}
+.paper .payopt .mark{
+  position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3.2mm;height:3.2mm;border-radius:50%;border:.5pt solid var(--ink);text-align:center;
+  line-height:3.1mm;font-size:6pt;
+}
+.paper .payopt.is-on .mark{background:var(--ink);color:#fff}
+.paper .stamp{
+  width:100%;height:100%;min-height:18mm;display:block;
+}
+.paper .vlabel{display:block;font-size:6.2pt;letter-spacing:.1em;color:#444}
+
+/* fitted inside the holder on screen; reset when printing */
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff !important;margin:0 !important;padding:0 !important}
+  .grain,.site-header,.site-footer,.est-panel,.page-head,.est-preview-head,.no-print{display:none !important}
+  .est-section,.est-layout,.est-preview,.paper-holder{
+    display:block !important;margin:0 !important;padding:0 !important;
+    border:0 !important;background:#fff !important;overflow:visible !important;
+    width:auto !important;height:auto !important;position:static !important;
+    max-height:none !important;
+  }
+  .paper{position:static !important;transform:none !important;box-shadow:none !important;margin:0 !important}
+  .paper table{page-break-inside:avoid}
+}

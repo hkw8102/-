@@ -14,6 +14,7 @@
 <link rel="icon" href="assets/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/css/estimate.css">
 </head>
 <body data-page="hall">
 <div class="grain" aria-hidden="true"></div>
@@ -65,7 +66,11 @@
       </div>
 
       <div class="page-actions hall-actions">
-        <a class="btn btn-solid" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download>
+        <a class="btn btn-solid" href="estimate.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
+          <span data-i18n="est.ctaBtn">見積書・利用申込書を作成</span>
+        </a>
+        <a class="btn btn-line" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
           <span data-i18n="pdf.cta">ホール資料・平面図 PDF をダウンロード</span>
         </a>
@@ -1348,6 +1353,18 @@
           <li data-i18n="rental.term5">舞台背面LEDのご利用は別料金です。演出としてご使用の場合は、映像オペレーターを主催者様でご手配ください。</li>
           <li data-i18n="rental.term6">オペレーターはお任せの場合のみ承ります。稽古への参加や凝った演出への対応はできかねます。</li>
         </ul>
+
+        <div class="estimate-cta reveal">
+          <div>
+            <p class="est-cta-eyebrow" data-i18n="est.ctaEyebrow">ESTIMATE SHEET</p>
+            <h3 data-i18n="est.ctaTitle">見積書・利用申込書を作成</h3>
+            <p data-i18n="est.ctaLead">料金の項目を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成・印刷できます。</p>
+          </div>
+          <a class="btn btn-solid" href="estimate.html">
+            <span data-i18n="est.ctaBtn">見積書・利用申込書を作成</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1420,6 +1437,12 @@
             <p class="rh-name">PLUSWIN HALL OSAKA</p>
             <p data-i18n="venues.osakaAddress">〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1</p>
             <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=PLUSWIN+HALL+OSAKA+%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%AE%97%E5%8F%B3%E8%A1%9B%E9%96%80%E7%94%BA2-3" target="_blank" rel="noopener noreferrer" data-i18n="about.mapLink">Google マップで見る</a>
+          </div>
+          <div class="rental-estimate">
+            <a class="btn btn-solid" href="estimate.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
+              <span data-i18n="est.rentalBtn">見積書を作成する</span>
+            </a>
           </div>
         </div>
 

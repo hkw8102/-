@@ -341,6 +341,7 @@ function setLang(next) {
   if (state.openId) openDrawer(state.openId);
   localizeLinks();
   updateUrl();
+  document.dispatchEvent(new CustomEvent("pw:lang", { detail: { lang: lang } }));
 }
 
 function initialLang() {
@@ -536,4 +537,5 @@ document.addEventListener("DOMContentLoaded", () => {
   localizeLinks();
   bind();
   updateUrl();
+  document.dispatchEvent(new CustomEvent("pw:lang", { detail: { lang: lang } }));
 });

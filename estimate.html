@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>見積書・利用申込書の作成 | PLUSWIN HALL OSAKA</title>
+<meta name="description" content="PLUSWIN HALL OSAKA の利用料金を選ぶだけで、税別の見積りとご利用申込書（A4）をその場で作成・印刷できます。">
+<meta name="theme-color" content="#08080a">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="見積書・利用申込書の作成 | PLUSWIN HALL OSAKA">
+<meta property="og:description" content="PLUSWIN HALL OSAKA の利用料金を選ぶだけで、税別の見積りとご利用申込書（A4）をその場で作成・印刷できます。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hkw8102.github.io/-/assets/img/hall/stage-full.jpg">
+<link rel="icon" href="assets/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/css/estimate.css">
+</head>
+<body data-page="estimate">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="PLUSWIN ENTERTAINMENT">
+      <img class="brand-logo" src="assets/img/pluswin-logo.png" alt="PLUSWIN ENTERTAINMENT" width="297" height="68">
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Main">
+      <a href="index.html#events" data-i18n="nav.events">公演情報</a>
+      <a href="hall.html" data-i18n="nav.hall">ホール</a>
+      <a href="archive.html" data-i18n="nav.archive">アーカイブ</a>
+      <a href="index.html#contact" data-i18n="nav.contact">お問い合わせ</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="lang" role="group" aria-label="Language / 言語">
+        <button type="button" data-lang-btn="ja" aria-pressed="true">JP</button>
+        <button type="button" data-lang-btn="ko" aria-pressed="false">KR</button>
+        <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-line header-cta" href="hall.html#rental-form" data-i18n="nav.rentalCta">レンタル相談</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-head">
+    <div class="wrap">
+      <a class="back-link" href="hall.html#rates"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H6M11 18l-6-6 6-6"/></svg><span data-q="back">料金表へ戻る</span></a>
+      <p class="eyebrow" data-q="eyebrow">ESTIMATE SHEET</p>
+      <h1 class="page-title" data-q="title">見積書・利用申込書</h1>
+      <p class="page-lead" data-q="lead">PLUSWIN HALL OSAKA のご利用料金を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成できます。金額はすべて税別です。</p>
+      <div class="page-actions hall-actions">
+        <a class="btn btn-line" href="hall.html#rates" data-q="backBtn">レンタル料金表を見る</a>
+        <a class="btn btn-line" href="hall.html#availability" data-q="availBtn">空き状況を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight est-section">
+    <div class="wrap est-layout">
+
+      <!-- ================= INPUT PANEL ================= -->
+      <aside class="est-panel no-print" aria-label="Estimate builder">
+
+        <div class="est-tools">
+          <button class="btn btn-solid" id="btnPrint" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
+            <span data-q="print">見積書・申込書をPDF保存 / 印刷 (A4)</span>
+          </button>
+          <button class="btn btn-line" id="btnReset" type="button"><span data-q="reset">リセット</span></button>
+        </div>
+        <p class="est-hint" data-q="toolsHint">入力すると右の用紙にすぐ反映されます。印刷画面で「PDFに保存」を選ぶとPDFになります。</p>
+
+        <!-- 1. event -->
+        <fieldset class="est-group">
+          <legend><span data-q="g1k">EVENT</span><b data-q="g1">公演情報</b></legend>
+          <div class="est-grid g2">
+            <label class="est-field"><span data-q="date">公演日</span><input id="f-date" type="date"></label>
+            <label class="est-field"><span data-q="rateClass">料金区分</span>
+              <select id="f-rate">
+                <option value="auto" data-q="rateAuto">自動（曜日で判定）</option>
+                <option value="weekday" data-q="rateWeekday">平日（月〜金）</option>
+                <option value="holiday" data-q="rateHoliday">土日祝</option>
+              </select>
+            </label>
+          </div>
+          <p class="est-hint" id="rateHint"></p>
+          <div class="est-grid g2" style="margin-top:10px">
+            <label class="est-field"><span data-q="inTime">入り時刻</span><input id="f-in" type="time" value="10:00"></label>
+            <label class="est-field"><span data-q="outTime">退出時刻</span><input id="f-out" type="time" value="22:00"></label>
+            <label class="est-field"><span data-q="rehearsal">リハーサル</span><input id="f-rehearsal" type="text" data-q-ph="rehearsePh" placeholder="15:00〜16:30"></label>
+            <label class="est-field"><span data-q="open1">開場 ①</span><input id="f-open1" type="time" value="17:00"></label>
+            <label class="est-field"><span data-q="open2">開場 ②</span><input id="f-open2" type="time"></label>
+            <label class="est-field"><span data-q="start1">本番 ① 開演</span><input id="f-start1" type="time" value="17:30"></label>
+            <label class="est-field"><span data-q="end1">本番 ① 終演</span><input id="f-end1" type="time" value="19:30"></label>
+            <label class="est-field"><span data-q="start2">本番 ② 開演</span><input id="f-start2" type="time"></label>
+            <label class="est-field"><span data-q="end2">本番 ② 終演</span><input id="f-end2" type="time"></label>
+          </div>
+        </fieldset>
+
+        <!-- 2. show -->
+        <fieldset class="est-group">
+          <legend><span data-q="g2k">SHOW</span><b data-q="g2">公演内容</b></legend>
+          <div class="est-grid">
+            <label class="est-field"><span data-q="showTitle">タイトル</span><input id="f-title" type="text" data-q-ph="titlePh" placeholder=""></label>
+          </div>
+          <div class="est-grid g2" style="margin-top:10px">
+            <label class="est-field"><span data-q="artist">出演者</span><input id="f-artist" type="text" data-q-ph="artistPh" placeholder=""></label>
+            <label class="est-field"><span data-q="cap">集客予定（名）</span><input id="f-cap" type="number" min="0" step="1" placeholder="100"></label>
+            <label class="est-field"><span data-q="adv">入場料 前売（円）</span><input id="f-adv" type="number" min="0" step="1" placeholder="5500"></label>
+            <label class="est-field"><span data-q="door">入場料 当日（円）</span><input id="f-door" type="number" min="0" step="1" placeholder="6500"></label>
+            <label class="est-field"><span data-q="drink">ドリンク代</span>
+              <select id="f-drink">
+                <option value="sep" data-q="drinkSep">別（入場時に600円）</option>
+                <option value="inc" data-q="drinkInc">込（券売数×600円を精算時）</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 3. price -->
+        <fieldset class="est-group">
+          <legend><span data-q="g3k">RENTAL &amp; OPTIONS</span><b data-q="g3">ご利用料金</b></legend>
+          <div class="est-grid g2">
+            <label class="est-field"><span data-q="plan">時間</span>
+              <select id="f-plan">
+                <option value="12" data-q="plan12">12時間パック 10:00〜22:00</option>
+                <option value="am" data-q="planAm">10:00〜16:00（6時間）</option>
+                <option value="pm" data-q="planPm">16:00〜22:00（6時間）</option>
+              </select>
+            </label>
+            <label class="est-field"><span data-q="qty">数量</span><input id="f-qty" type="number" min="0" step="1" value="1"></label>
+          </div>
+          <p class="est-hint" id="planHint"></p>
+
+          <div style="margin-top:12px">
+            <label class="est-field" style="margin-bottom:8px"><span data-q="optOp">音響、照明オペレーター</span>
+              <select id="f-op">
+                <option value="0" data-q="optOpNone">なし</option>
+                <option value="1" data-q="optOp1">1（¥60,000）</option>
+                <option value="1.5" data-q="optOp15">1.5（¥90,000）／2公演・本番3時間超</option>
+              </select>
+            </label>
+            <div class="est-rowcheck">
+              <label class="est-check"><input type="checkbox" id="f-mgmt"><span><b data-q="optMgmt">オペレーター乗込み時管理費</b><br><span class="est-hint" data-q="optMgmtNote">主催者様でPA・照明オペを手配されたとき（音響10,000＋照明10,000）</span></span><em>¥20,000</em></label>
+            </div>
+            <div class="est-rowcheck">
+              <label class="est-check"><input type="checkbox" id="f-mic"><b data-q="optMic">ワイヤレスマイク（1本）</b><em>¥2,700</em></label>
+              <input class="est-qty" id="f-micq" type="number" min="1" step="1" value="1" aria-label="mic qty">
+            </div>
+            <div class="est-rowcheck">
+              <label class="est-check"><input type="checkbox" id="f-ext"><b data-q="optExt">延長（1時間）</b><em>¥25,000</em></label>
+              <input class="est-qty" id="f-extq" type="number" min="1" step="1" value="1" aria-label="extension hours">
+            </div>
+            <div class="est-rowcheck">
+              <label class="est-check"><input type="checkbox" id="f-drum"><b data-q="optDrum">ドラムセット一式</b><em>¥5,000</em></label>
+            </div>
+            <div class="est-rowcheck">
+              <label class="est-check"><input type="checkbox" id="f-trash"><span><b data-q="optTrash">ごみ処理費</b><br><span class="est-hint" data-q="optTrashNote">ホールがごみ処理を行う場合の金額です。お持ち帰りの場合はかかりません。</span></span><em>¥1,000</em></label>
+            </div>
+            <div class="est-rowcheck">
+              <label class="est-check"><input type="checkbox" id="f-led"><b data-q="optLed">LED使用料</b><em>¥10,000</em></label>
+            </div>
+          </div>
+
+          <p class="est-hint" style="margin-top:14px" data-q="othersHead">その他（自由入力）</p>
+          <div class="est-grid" style="margin-top:6px">
+            <div class="est-grid g3" style="gap:6px">
+              <input id="f-o1n" type="text" placeholder="" aria-label="other 1">
+              <input id="f-o1a" type="number" min="0" step="1" placeholder="0" aria-label="other 1 amount">
+            </div>
+            <div class="est-grid g3" style="gap:6px">
+              <input id="f-o2n" type="text" aria-label="other 2">
+              <input id="f-o2a" type="number" min="0" step="1" placeholder="0" aria-label="other 2 amount">
+            </div>
+            <div class="est-grid g3" style="gap:6px">
+              <input id="f-o3n" type="text" aria-label="other 3">
+              <input id="f-o3a" type="number" min="0" step="1" placeholder="0" aria-label="other 3 amount">
+            </div>
+          </div>
+
+          <div class="est-sum">
+            <div><span data-q="sumItems">合計金額（税別）</span><b id="sum-sub">¥0</b></div>
+            <div><span data-q="sumTax">消費税（10%）</span><b id="sum-tax">¥0</b></div>
+            <div class="is-total"><span data-q="sumGrand">ご契約金額計</span><b id="sum-grand">¥0</b></div>
+          </div>
+        </fieldset>
+
+        <!-- 4. applicant -->
+        <fieldset class="est-group">
+          <legend><span data-q="g4k">APPLICANT</span><b data-q="g4">お申込み者</b></legend>
+          <div class="est-grid g2">
+            <label class="est-field"><span data-q="company">御社名</span><input id="f-company" type="text"></label>
+            <label class="est-field"><span data-q="person">ご担当者名</span><input id="f-person" type="text"></label>
+            <label class="est-field" style="grid-column:1/-1"><span data-q="addr">ご住所</span><input id="f-addr" type="text"></label>
+            <label class="est-field"><span data-q="tel">TEL／FAX</span><input id="f-tel" type="text" placeholder="03-0000-0000"></label>
+            <label class="est-field"><span data-q="mobile">ご担当携帯電話</span><input id="f-mobile" type="text" inputmode="tel"></label>
+            <label class="est-field" style="grid-column:1/-1"><span data-q="email">e-mail</span><input id="f-email" type="email"></label>
+            <label class="est-field"><span data-q="pay">ご精算方法</span>
+              <select id="f-pay">
+                <option value="1" data-q="pay1">1. 事前お振込み（請求書をお出しします）</option>
+                <option value="2" data-q="pay2">2. 当日現金精算</option>
+              </select>
+            </label>
+            <label class="est-field"><span data-q="issued">申込日</span><input id="f-issued" type="date"></label>
+          </div>
+        </fieldset>
+
+      </aside>
+
+      <!-- ================= A4 PREVIEW ================= -->
+      <div class="est-preview">
+        <div class="est-preview-head">
+          <p data-q="previewHint">A4・1枚（印刷プレビュー）</p>
+          <span class="paper-jp">PLUSWINHALL 大阪 ご利用申込書</span>
+        </div>
+        <div class="paper-holder" id="paperHolder">
+          <div class="paper" id="paper">
+
+            <div class="p-bar">PLUSWINHALL 大阪</div>
+
+            <div class="p-head">
+              <p class="p-doctitle">ご利用申込書</p>
+              <div class="p-issued"><i>申込日</i><span class="u" id="s-issued-y"></span><i>年</i><span class="u" id="s-issued-m"></span><i>月</i><span class="u" id="s-issued-d"></span><i>日</i></div>
+            </div>
+
+            <table class="p-top">
+              <colgroup><col style="width:16mm"><col style="width:30mm"><col style="width:22mm"><col style="width:30mm"><col style="width:24mm"><col></colgroup>
+              <tbody>
+                <tr>
+                  <td class="lb" rowspan="3">公演日</td>
+                  <td class="c" colspan="3" rowspan="3" id="s-datecell"></td>
+                  <td class="lb2">リハーサル</td>
+                  <td id="s-rehearsal"></td>
+                </tr>
+                <tr>
+                  <td class="lb2">開場</td>
+                  <td><span class="dim">①</span> <span id="s-open1"></span>　<span class="dim">②</span> <span id="s-open2"></span></td>
+                </tr>
+                <tr>
+                  <td class="lb2">本番</td>
+                  <td><span class="dim">①</span> <span id="s-start1"></span> 〜 <span id="s-end1"></span>　<span class="dim">②</span> <span id="s-start2"></span> 〜 <span id="s-end2"></span></td>
+                </tr>
+                <tr>
+                  <td class="lb2">入り時刻</td>
+                  <td class="c" id="s-in"></td>
+                  <td class="lb2">退出時刻</td>
+                  <td class="c" colspan="3" id="s-out"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="p-ev">
+              <colgroup><col style="width:22mm"><col style="width:40mm"><col style="width:44mm"><col style="width:22mm"><col></colgroup>
+              <tbody>
+                <tr>
+                  <td class="lb">タイトル</td>
+                  <td class="big" colspan="4" id="s-title"></td>
+                </tr>
+                <tr>
+                  <td class="lb">出演者</td>
+                  <td colspan="2" id="s-artist"></td>
+                  <td class="lb2">集客予定</td>
+                  <td class="c" id="s-cap"></td>
+                </tr>
+                <tr>
+                  <td class="lb">入場料</td>
+                  <td colspan="2" id="s-price"></td>
+                  <td class="lb2">ドリンク代</td>
+                  <td id="s-drinkcell"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="p-items">
+              <colgroup><col style="width:21mm"><col style="width:9mm"><col style="width:48mm"><col style="width:20mm"><col style="width:13mm"><col style="width:24mm"><col></colgroup>
+              <thead>
+                <tr><th colspan="3">項　目</th><th>単　価<br><span style="font-weight:400;font-size:6.4pt">（消費税別）</span></th><th>数　量</th><th>金　額</th><th>備　考</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="lb" rowspan="3">平日<br><span style="font-weight:400;font-size:6.4pt">（月〜金）</span></td>
+                  <td></td>
+                  <td>12時間パック(10:00〜22:00)</td>
+                  <td class="r mono">150,000</td>
+                  <td class="c" id="s-q-wd-12"></td>
+                  <td class="r mono" id="s-a-wd-12"></td>
+                  <td class="dim"><span style="font-size:6.6pt">音響照明オペレーター別代</span></td>
+                </tr>
+                <tr>
+                  <td class="lb2" rowspan="2" style="font-size:6.6pt;line-height:1.1;padding:.4mm">時<br>間<br>貸</td>
+                  <td>10:00〜16:00</td>
+                  <td class="r mono">50,000</td>
+                  <td class="c" id="s-q-wd-am"></td>
+                  <td class="r mono" id="s-a-wd-am"></td>
+                  <td class="dim"><span style="font-size:6.6pt">音響照明オペレーター別代</span></td>
+                </tr>
+                <tr>
+                  <td>16:00〜22:00</td>
+                  <td class="r mono">110,000</td>
+                  <td class="c" id="s-q-wd-pm"></td>
+                  <td class="r mono" id="s-a-wd-pm"></td>
+                  <td class="dim"><span style="font-size:6.6pt">音響照明オペレーター別代</span></td>
+                </tr>
+
+                <tr>
+                  <td class="lb" rowspan="3">土日祝</td>
+                  <td></td>
+                  <td>12時間パック(10:00〜22:00)</td>
+                  <td class="r mono">280,000</td>
+                  <td class="c" id="s-q-hd-12"></td>
+                  <td class="r mono" id="s-a-hd-12"></td>
+                  <td class="dim"><span style="font-size:6.6pt">音響照明オペレーター別代</span></td>
+                </tr>
+                <tr>
+                  <td class="lb2" rowspan="2" style="font-size:6.6pt;line-height:1.1;padding:.4mm">時<br>間<br>貸</td>
+                  <td>10:00〜16:00</td>
+                  <td class="r mono">190,000</td>
+                  <td class="c" id="s-q-hd-am"></td>
+                  <td class="r mono" id="s-a-hd-am"></td>
+                  <td class="dim"><span style="font-size:6.6pt">音響照明オペレーター別代</span></td>
+                </tr>
+                <tr>
+                  <td>16:00〜22:00</td>
+                  <td class="r mono">190,000</td>
+                  <td class="c" id="s-q-hd-pm"></td>
+                  <td class="r mono" id="s-a-hd-pm"></td>
+                  <td class="dim"><span style="font-size:6.6pt">音響照明オペレーター別代</span></td>
+                </tr>
+
+                <tr>
+                  <td class="lb" rowspan="7">Option料金</td>
+                  <td colspan="2">音響、照明オペレーター</td>
+                  <td class="r mono">60,000</td>
+                  <td class="c" id="s-q-op"></td>
+                  <td class="r mono" id="s-a-op"></td>
+                  <td class="dim"><span style="font-size:6.4pt">2公演の場合or本番が3hを超える場合×<br>1.5となります</span></td>
+                </tr>
+                <tr>
+                  <td colspan="2">オペレーター乗込み時管理費</td>
+                  <td class="r mono">20,000</td>
+                  <td class="c" id="s-q-mgmt"></td>
+                  <td class="r mono" id="s-a-mgmt"></td>
+                  <td class="dim"><span style="font-size:6.2pt">主催者様でPA照明オペを手配された時<br>の管理費　音響10,000, 照明10,000</span></td>
+                </tr>
+                <tr>
+                  <td colspan="2">ワイヤレスマイク(1本)</td>
+                  <td class="r mono">2,700</td>
+                  <td class="c" id="s-q-mic"></td>
+                  <td class="r mono" id="s-a-mic"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">延長(1H)</td>
+                  <td class="r mono">25,000</td>
+                  <td class="c" id="s-q-ext"></td>
+                  <td class="r mono" id="s-a-ext"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">ドラムセット一式</td>
+                  <td class="r mono">5,000</td>
+                  <td class="c" id="s-q-drum"></td>
+                  <td class="r mono" id="s-a-drum"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">ごみ処理費</td>
+                  <td class="r mono">1,000</td>
+                  <td class="c" id="s-q-trash"></td>
+                  <td class="r mono" id="s-a-trash"></td>
+                  <td class="dim"><span style="font-size:6.2pt">ごみ処理をホールが行う場合の金額です。<br>お持ち帰りの場合はかかりません。</span></td>
+                </tr>
+                <tr>
+                  <td colspan="2">LED使用料</td>
+                  <td class="r mono">10,000</td>
+                  <td class="c" id="s-q-led"></td>
+                  <td class="r mono" id="s-a-led"></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td class="lb" rowspan="3">その他</td>
+                  <td colspan="2" id="s-o1n"></td>
+                  <td></td>
+                  <td></td>
+                  <td class="r mono" id="s-o1a"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2" id="s-o2n"></td>
+                  <td></td>
+                  <td></td>
+                  <td class="r mono" id="s-o2a"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2" id="s-o3n"></td>
+                  <td></td>
+                  <td></td>
+                  <td class="r mono" id="s-o3a"></td>
+                  <td></td>
+                </tr>
+
+                <tr class="total">
+                  <td class="lb" colspan="5">合計金額</td>
+                  <td class="r mono" id="s-total"></td>
+                  <td></td>
+                </tr>
+                <tr class="total">
+                  <td class="lb" colspan="5">消費税</td>
+                  <td class="r mono" id="s-tax"></td>
+                  <td></td>
+                </tr>
+                <tr class="contract total">
+                  <td class="lb" colspan="5">ご契約金額計<span style="font-weight:400;font-size:6.4pt">　（税込）</span></td>
+                  <td class="r mono num" id="s-grand"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="p-app app">
+              <colgroup><col style="width:26mm"><col style="width:44mm"><col style="width:26mm"><col></colgroup>
+              <tbody>
+                <tr><td class="lb">御社名</td><td id="s-company"></td><td class="lb">ご担当者名</td><td id="s-person"></td></tr>
+                <tr><td class="lb">ご住所</td><td colspan="3" id="s-addr"></td></tr>
+                <tr><td class="lb">ご担当携帯電話</td><td id="s-mobile"></td><td class="lb">TEL／FAX</td><td id="s-tel"></td></tr>
+                <tr><td class="lb">e-mail</td><td colspan="3" id="s-email"></td></tr>
+              </tbody>
+            </table>
+
+            <table class="p-sign">
+              <colgroup><col><col style="width:9mm"><col style="width:26mm"><col style="width:9mm"><col style="width:26mm"></colgroup>
+              <tbody>
+                <tr>
+                  <td class="paycell">
+                    <span class="dim">【ご精算方法】（どちらかに○印をお願いします）</span>
+                    <span class="payopt" id="s-pay1"><span class="mark"></span>1　事前お振込み（請求書をお出しします）</span>
+                    <span class="payopt" id="s-pay2"><span class="mark"></span>2　当日現金精算</span>
+                  </td>
+                  <td class="lb" style="writing-mode:vertical-rl;font-size:7pt;padding:1mm .6mm">申込印</td>
+                  <td><span class="stamp"></span></td>
+                  <td class="lb" style="writing-mode:vertical-rl;font-size:7pt;padding:1mm .6mm">承認印</td>
+                  <td><span class="stamp"></span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="p-fill"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/pluswin-logo.png" alt="PLUSWIN ENTERTAINMENT" width="297" height="68">
+        <p data-i18n="footer.tagline">ステージから、エンターテインメントを動かす。</p>
+        <div class="sns-links sns-links-footer">
+          <a class="sns-icon" href="https://x.com/mh_klovers" target="_blank" rel="noopener noreferrer" aria-label="X — @mh_klovers"><svg class="sns-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a class="sns-icon" href="https://www.instagram.com/kloversxpluswin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram — @kloversxpluswin"><svg class="sns-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+        <div class="lang lang-footer" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="ja" aria-pressed="true">JP</button>
+          <button type="button" data-lang-btn="ko" aria-pressed="false">KR</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <p class="footer-head" data-i18n="footer.menuHead">MENU</p>
+          <a href="index.html#events" data-i18n="nav.events">公演情報</a>
+          <a href="hall.html" data-i18n="nav.hall">ホール</a>
+          <a href="archive.html" data-i18n="nav.archive">アーカイブ</a>
+          <a href="stand.html" data-i18n="nav.stand">スタンド花</a>
+          <a href="hall.html#faq" data-i18n="faq.link">よくある質問（FAQ）</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head" data-i18n="footer.contactHead">CONTACT</p>
+          <a href="tel:+81665399770" data-i18n="footer.telEvent">公演・チケット 06-6539-9770</a>
+          <a href="tel:+81665362002" data-i18n="footer.telMain">代表 06-6536-2002</a>
+          <a href="mailto:contact@pluswin.jp">contact@pluswin.jp</a>
+          <a href="mailto:info@pluswin.jp">info@pluswin.jp</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-head" data-i18n="footer.infoHead">INFORMATION</p>
+          <p data-i18n="footer.addr">〒550-0015 大阪府大阪市西区南堀江1-15-11 WINビル 4F</p>
+          <p data-i18n="footer.hours">受付時間 平日 13:00 – 18:00</p>
+          <a href="https://x.com/mh_klovers" target="_blank" rel="noopener noreferrer" data-i18n="sns.xLink">X（旧Twitter）</a>
+          <a href="https://www.instagram.com/kloversxpluswin/" target="_blank" rel="noopener noreferrer" data-i18n="sns.igLink">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright" data-i18n="footer.copyright">© 2026 PLUSWIN Co., Ltd. プラスウイン株式会社</p>
+      <a class="to-top" href="#top" data-i18n="footer.toTop">ページ上部へ</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/i18n-extra.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/estimate.js"></script>
+</body>
+</html>

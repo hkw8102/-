@@ -72,7 +72,7 @@ ul,ol,dl{margin:0;padding:0;list-style:none}
 }
 .header-inner{display:flex;align-items:center;gap:28px;height:78px}
 .brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
-.brand-logo{display:block;height:30px;width:auto;max-width:100%}
+.brand-logo{display:block;height:32px;width:auto;max-width:100%}
 .footer-logo{display:block;height:36px;width:auto}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .brand-txt strong{font-size:17px;letter-spacing:.16em;font-weight:800}
@@ -257,6 +257,7 @@ section[id]{scroll-margin-top:78px}
 .ev-mini svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ============ PAST EVENTS / ARCHIVE ============ */
+.events-hint{font-size:11.5px;color:var(--dim-2);line-height:1.7;margin-top:16px;padding-left:2px;border-left:2px solid var(--line-2);padding:2px 0 2px 12px}
 .past{margin-top:70px;padding-top:36px;border-top:1px solid var(--line)}
 .past-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap}
 .past-eyebrow{font-size:10px;font-weight:800;letter-spacing:.26em;color:var(--accent)}

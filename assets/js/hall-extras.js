@@ -34,9 +34,9 @@ const FAQ_ITEMS = [
   {
     q: { ja: "写真・動画の撮影はできますか？", ko: "사진·영상 촬영을 할 수 있나요?", en: "Can I take photos or videos?" },
     a: {
-      ja: "公演中の録音・録画・撮影は禁止です。特典会のスマートフォン撮影はスタッフが行い、画面録画とLive Photosは使用できません。",
-      ko: "공연 중 녹음·녹화·촬영은 금지입니다. 특전회의 스마트폰 촬영은 스태프가 진행하며, 화면 녹화와 Live Photos는 사용할 수 없습니다.",
-      en: "Recording, filming and photography during the show are not allowed. At fan events staff take the smartphone photos; screen recording and Live Photos cannot be used."
+      ja: "写真・動画の撮影の可否は公演ごとに異なります。特典会の撮影方法も公演により異なるため、各公演の案内・注意事項をご確認のうえ、当日は会場スタッフの指示に従ってください。",
+      ko: "사진·영상 촬영 가능 여부는 공연마다 다릅니다. 특전회 촬영 방법도 공연마다 다르므로, 각 공연의 안내·주의사항을 확인해 주시고 당일에는 현장 스태프의 안내에 따라 주세요.",
+      en: "Whether photos or videos may be taken differs by show, and fan-event photo rules vary too. Please check each show's notice and follow the venue staff's instructions on the day."
     }
   },
   {

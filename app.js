@@ -56,6 +56,49 @@ const T = {
     "events.onsale": "販売中",
     "events.soon": "まもなく発売",
     "events.ended": "終了",
+    "stand.eyebrow": "FLOWER & BALLOON",
+    "stand.title": "スタンド花・バルーンスタンド",
+    "stand.lead": "プラスウイン主催公演へのスタンド花・バルーンスタンドのお申し込みは事前申請制です。下記の注意事項をご確認のうえ、開催1か月前から申請フォームよりお申し込みください。",
+    "stand.cta": "申請フォームを開く",
+    "stand.ctaShort": "申請フォーム",
+    "stand.note": "事前申請制・開催1か月前より受付",
+    "stand.hintTitle": "スタンド花・バルーン",
+    "stand.hintText": "事前申請制です。開催1か月前から申請フォームで受け付けます。",
+    "stand.rulesHead": "設置の注意事項",
+    "stand.formTitle": "スタンド花・バルーンスタンド 申請",
+    "stand.formSub": "注意事項をご確認のうえ、必要事項をご記入ください。内容を確認のうえ、担当者よりご連絡します。",
+    "stand.formHead": "申請内容",
+    "stand.fPerf": "公演名・出演者名",
+    "stand.fPerfPh": "2026 ○○ FANMEETING IN OSAKA",
+    "stand.fDate": "開催日",
+    "stand.fTime": "開催時間",
+    "stand.fVenue": "会場",
+    "stand.fVenueHall": "PLUSWIN HALL OSAKA",
+    "stand.fVenueOther": "その他会場",
+    "stand.fVenueName": "会場名（PLUSWIN HALL OSAKA 以外の場合）",
+    "stand.fVenueNamePh": "例）○○ホール（東京）",
+    "stand.fType": "スタンドの種類",
+    "stand.fTypeFlower": "スタンド花",
+    "stand.fTypeBalloon": "バルーンスタンド",
+    "stand.fTypeDressing": "楽屋花",
+    "stand.fName": "申請者名",
+    "stand.fNamePh": "山田 花子",
+    "stand.fFlorist": "お花屋名",
+    "stand.fFloristPh": "○○フラワー",
+    "stand.fEmail": "メールアドレス",
+    "stand.fEmailPh": "you@example.com",
+    "stand.fTel": "電話番号",
+    "stand.fTelPh": "090-0000-0000",
+    "stand.fNotes": "備考",
+    "stand.fNotesPh": "スタンドの本数、ご希望の到着時間など",
+    "stand.formNote": "送信ボタンを押すとメールソフトが開きます（試作版のため、フォームから直接送信はされません）。",
+    "stand.submit": "入力内容をメールで送る",
+    "stand.status": "メールソフトを開きました。送信内容をご確認ください。",
+    "stand.mailSubject": "スタンド花・バルーン申請",
+    "stand.contactLabel": "お問い合わせ",
+    "sns.label": "OFFICIAL SNS",
+    "sns.xLink": "X（旧Twitter）",
+    "sns.igLink": "Instagram",
     "business.eyebrow": "WHAT WE DO",
     "business.title": "事業内容",
     "business.desc": "ホールを貸すだけでは終わらない。企画・制作・運営まで、ライブに必要な機能を自社で持っています。",
@@ -73,7 +116,23 @@ const T = {
     "venues.osakaCapacity": "着席 220名 / スタンディング 500名",
     "venues.osakaLed": "W600 × H250 cm 高精細ピッチパネル",
     "venues.osakaEquip": "音響・照明・プロジェクター・生配信環境",
-    "venues.hallSite": "ホールサイト",
+    "venues.specFacility": "付帯施設",
+    "venues.osakaFacility": "楽屋2室・ロッカー・物販所・受付・エントランスホール",
+    "venues.rateCta": "レンタル料金表",
+    "venues.floorKicker": "FLOOR MAP",
+    "venues.floorTitle": "座席平面図",
+    "venues.floorLead": "座席は可動式で、自由にレイアウトを組めます。客席220席、楽屋2室、ロッカー、物販所、受付、エントランスホールを備えています。",
+    "venues.fpSeats": "着席（A〜R列）",
+    "venues.fpRooms": "楽屋",
+    "venues.fpStage": "ステージ幅 cm",
+    "venues.accessEyebrow": "ACCESS",
+    "venues.accessTitle": "アクセス",
+    "venues.access1t": "地下鉄 日本橋駅",
+    "venues.access1": "2番出口より徒歩4分（堺筋近く）",
+    "venues.access2t": "なんば駅",
+    "venues.access2": "南海線・近鉄線・御堂筋線より徒歩8分",
+    "venues.access3t": "心斎橋駅・長堀橋駅",
+    "venues.access3": "地下鉄御堂筋線・堺筋線・長堀鶴見緑地線も利用可",
     "venues.rentalCta": "レンタルの相談",
     "venues.singleNote": "レンタル（貸出）は PLUSWIN HALL OSAKA のみ承ります。",
     "rental.eyebrow": "VENUE RENTAL",
@@ -84,7 +143,34 @@ const T = {
     "rental.point3": "生配信・収録に対応した配信環境",
     "rental.point4": "レンタルは PLUSWIN HALL OSAKA のみ（他会場の貸出は行っていません）",
     "rental.contactLabel": "レンタル窓口",
-    "rental.priceNote": "料金・空き状況はお問い合わせください。見学のご希望もこちらから。",
+    "rental.priceNote": "空き状況はお問い合わせください。見学のご希望もこちらから。",
+    "rental.rateEyebrow": "RATE CARD",
+    "rental.rateTitle": "レンタル料金表",
+    "rental.rateBadge": "PLUSWIN HALL OSAKA・税別",
+    "rental.thDay": "区分",
+    "rental.thTime": "時間",
+    "rental.thPrice": "料金",
+    "rental.dayWeekday": "平日",
+    "rental.dayWeekend": "土日祝",
+    "rental.dayCommon": "共通",
+    "rental.timeWk6": "10:00–16:00 / 16:00–22:00（6時間×2区分）",
+    "rental.timeWk12": "10:00 – 22:00（12時間）",
+    "rental.timeExt": "延長（1時間）",
+    "rental.timeOp": "音響照明オペレーター技術費（1公演）",
+    "rental.optTitle": "オプション",
+    "rental.optLed": "舞台背面LED",
+    "rental.optDrum": "ドラムセット",
+    "rental.optPiano": "電子ピアノ（YAMAHA C4）",
+    "rental.optMic": "ワイヤレスマイク（1本）",
+    "rental.optCam": "配信カメラ（1台）",
+    "rental.optLan": "配信 LAN 使用料",
+    "rental.rateTax": "表示金額はすべて税別です。オペレーター技術費は、1日2公演または1公演が3時間を超える場合 1.5倍になります。",
+    "rental.term1": "使用時間には設営・リハーサル・本番・撤収の時間まで含みます。楽屋の使用可能時間もこれに準じます。",
+    "rental.term2": "客席の椅子は設置済みの状態です。椅子の数を変更・撤去する場合は、退館時に原状復帰をお願いします。",
+    "rental.term3": "ご入場時にはドリンク代（600円）が別途必要です。",
+    "rental.term4": "受付・設営などの人員は主催者様でご手配ください。ドリンクスタッフは弊社で担当します。",
+    "rental.term5": "舞台背面LEDのご利用は別料金です。演出としてご使用の場合は、映像オペレーターを主催者様でご手配ください。",
+    "rental.term6": "オペレーターはお任せの場合のみ承ります。稽古への参加や凝った演出への対応はできかねます。",
     "rental.formTitle": "レンタル・見学のお問い合わせ",
     "rental.formSub": "必要事項をご記入のうえ送信してください。担当者より2〜3営業日以内にご連絡します。",
     "form.name": "お名前",
@@ -153,7 +239,6 @@ const T = {
     "footer.telMain": "代表 06-6536-2002",
     "footer.addr": "〒550-0015 大阪府大阪市西区南堀江1-15-11 WINビル 4F",
     "footer.hours": "受付時間 平日 13:00 – 18:00",
-    "footer.hallSite": "PLUSWIN HALL OSAKA サイト",
     "footer.copyright": "© 2026 PLUSWIN Co., Ltd. プラスウイン株式会社",
     "footer.toTop": "ページ上部へ",
     labels: { open: "開場", start: "開演", venue: "会場", sessions: "公演スケジュール", notes: "ご案内", tickets: "チケット", access: "アクセス" },
@@ -208,6 +293,49 @@ const T = {
     "events.onsale": "판매 중",
     "events.soon": "곧 발매",
     "events.ended": "종료",
+    "stand.eyebrow": "FLOWER & BALLOON",
+    "stand.title": "스탠드 화환·벌룬 스탠드",
+    "stand.lead": "플러스윈 주최 공연의 스탠드 화환·벌룬 스탠드는 사전 신청제입니다. 아래 안내를 확인하신 뒤, 공연 1개월 전부터 신청 폼으로 신청해 주세요.",
+    "stand.cta": "신청 폼 열기",
+    "stand.ctaShort": "신청 폼",
+    "stand.note": "사전 신청제·공연 1개월 전부터 접수",
+    "stand.hintTitle": "스탠드 화환·벌룬",
+    "stand.hintText": "사전 신청제입니다. 공연 1개월 전부터 신청 폼으로 접수합니다.",
+    "stand.rulesHead": "설치 안내",
+    "stand.formTitle": "스탠드 화환·벌룬 스탠드 신청",
+    "stand.formSub": "안내를 확인하신 뒤 필요한 내용을 적어 주세요. 내용을 확인한 뒤 담당자가 연락드립니다.",
+    "stand.formHead": "신청 내용",
+    "stand.fPerf": "공연명·출연자명",
+    "stand.fPerfPh": "2026 ○○ FANMEETING IN OSAKA",
+    "stand.fDate": "공연일",
+    "stand.fTime": "공연 시간",
+    "stand.fVenue": "공연장",
+    "stand.fVenueHall": "PLUSWIN HALL OSAKA",
+    "stand.fVenueOther": "다른 공연장",
+    "stand.fVenueName": "공연장 이름(PLUSWIN HALL OSAKA 가 아닌 경우)",
+    "stand.fVenueNamePh": "예) ○○홀 (도쿄)",
+    "stand.fType": "스탠드 종류",
+    "stand.fTypeFlower": "스탠드 화환",
+    "stand.fTypeBalloon": "벌룬 스탠드",
+    "stand.fTypeDressing": "대기실 꽃",
+    "stand.fName": "신청자 이름",
+    "stand.fNamePh": "홍길동",
+    "stand.fFlorist": "꽃집 이름",
+    "stand.fFloristPh": "○○플라워",
+    "stand.fEmail": "이메일",
+    "stand.fEmailPh": "you@example.com",
+    "stand.fTel": "전화번호",
+    "stand.fTelPh": "010-0000-0000",
+    "stand.fNotes": "비고",
+    "stand.fNotesPh": "스탠드 수, 도착 희망 시간 등",
+    "stand.formNote": "버튼을 누르면 메일 앱이 열립니다(시안 버전이라 폼에서 바로 전송되지는 않습니다).",
+    "stand.submit": "메일로 신청 보내기",
+    "stand.status": "메일 앱을 열었습니다. 내용을 확인해 주세요.",
+    "stand.mailSubject": "스탠드 화환·벌룬 신청",
+    "stand.contactLabel": "문의",
+    "sns.label": "OFFICIAL SNS",
+    "sns.xLink": "X(구 트위터)",
+    "sns.igLink": "인스타그램",
     "business.eyebrow": "WHAT WE DO",
     "business.title": "사업 내용",
     "business.desc": "홀을 빌려주는 데서 끝나지 않습니다. 기획·제작·운영까지, 공연에 필요한 기능을 자사가 갖추고 있습니다.",
@@ -225,7 +353,23 @@ const T = {
     "venues.osakaCapacity": "지정석 220석 / 스탠딩 500명",
     "venues.osakaLed": "W600 × H250 cm 고정밀 피치 패널",
     "venues.osakaEquip": "음향·조명·프로젝터·생중계 환경",
-    "venues.hallSite": "홀 사이트",
+    "venues.specFacility": "부대 시설",
+    "venues.osakaFacility": "대기실 2실·사물함·굿즈 판매 공간·접수·입구 홀",
+    "venues.rateCta": "대관 요금표",
+    "venues.floorKicker": "FLOOR MAP",
+    "venues.floorTitle": "좌석 평면도",
+    "venues.floorLead": "좌석은 가동식이라 자유롭게 배치할 수 있습니다. 객석 220석, 대기실 2실, 사물함, 굿즈 판매 공간, 접수, 입구 홀을 갖추고 있습니다.",
+    "venues.fpSeats": "지정석(A~R열)",
+    "venues.fpRooms": "대기실",
+    "venues.fpStage": "무대 폭 cm",
+    "venues.accessEyebrow": "ACCESS",
+    "venues.accessTitle": "오시는 길",
+    "venues.access1t": "지하철 니혼바시역",
+    "venues.access1": "2번 출구에서 도보 4분(사카이스지 근처)",
+    "venues.access2t": "난바역",
+    "venues.access2": "난카이선·긴테쓰선·미도스지선에서 도보 8분",
+    "venues.access3t": "신사이바시역·나가호리바시역",
+    "venues.access3": "지하철 미도스지선·사카이스지선·나가호리쓰루미료쿠치선도 이용 가능",
     "venues.rentalCta": "대관 상담",
     "venues.singleNote": "대관(임대)은 PLUSWIN HALL OSAKA에서만 진행합니다.",
     "rental.eyebrow": "VENUE RENTAL",
@@ -236,7 +380,34 @@ const T = {
     "rental.point3": "생중계·녹화에 대응하는 중계 환경",
     "rental.point4": "대관은 PLUSWIN HALL OSAKA만 진행합니다(타 공연장 임대는 하지 않습니다)",
     "rental.contactLabel": "대관 문의",
-    "rental.priceNote": "요금·예약 가능일은 문의해 주세요. 답사 희망도 이쪽으로.",
+    "rental.priceNote": "예약 가능일은 문의해 주세요. 답사 희망도 이쪽으로.",
+    "rental.rateEyebrow": "RATE CARD",
+    "rental.rateTitle": "대관 요금표",
+    "rental.rateBadge": "PLUSWIN HALL OSAKA·세금 별도",
+    "rental.thDay": "구분",
+    "rental.thTime": "시간",
+    "rental.thPrice": "요금",
+    "rental.dayWeekday": "평일",
+    "rental.dayWeekend": "주말·공휴일",
+    "rental.dayCommon": "공통",
+    "rental.timeWk6": "10:00–16:00 / 16:00–22:00(6시간×2구분)",
+    "rental.timeWk12": "10:00 – 22:00(12시간)",
+    "rental.timeExt": "연장(1시간)",
+    "rental.timeOp": "음향·조명 오퍼레이터 기술료(공연 1회)",
+    "rental.optTitle": "옵션",
+    "rental.optLed": "무대 뒤 LED",
+    "rental.optDrum": "드럼 세트",
+    "rental.optPiano": "전자 피아노(YAMAHA C4)",
+    "rental.optMic": "무선 마이크(1개)",
+    "rental.optCam": "중계 카메라(1대)",
+    "rental.optLan": "중계 LAN 사용료",
+    "rental.rateTax": "표시 금액은 모두 세금 별도입니다. 오퍼레이터 기술료는 하루 2회 공연 또는 1회 공연이 3시간을 넘을 때 1.5배가 됩니다.",
+    "rental.term1": "사용 시간에는 설치·리허설·본 공연·철수 시간이 모두 포함됩니다. 대기실 사용 가능 시간도 이에 준합니다.",
+    "rental.term2": "객석 의자는 설치된 상태로 제공됩니다. 의자 수를 바꾸거나 철거할 때는 퇴관 시 원상 복구해 주세요.",
+    "rental.term3": "입장 시 음료비(600엔)가 별도로 필요합니다.",
+    "rental.term4": "접수·설치 등 인력은 주최자 측에서 준비해 주세요. 음료 스태프는 당사가 담당합니다.",
+    "rental.term5": "무대 뒤 LED는 별도 요금입니다. 연출로 사용할 때는 영상 오퍼레이터를 주최자 측에서 준비해 주세요.",
+    "rental.term6": "오퍼레이터는 맡겨 주시는 경우에만 진행합니다. 연습 참여나 복잡한 연출 대응은 어렵습니다.",
     "rental.formTitle": "대관·답사 문의",
     "rental.formSub": "필요한 내용을 적어 보내주세요. 담당자가 2~3영업일 내에 연락드립니다.",
     "form.name": "이름",
@@ -305,7 +476,6 @@ const T = {
     "footer.telMain": "대표 06-6536-2002",
     "footer.addr": "〒550-0015 오사카부 오사카시 니시구 미나미호리에 1-15-11 WIN빌딩 4F",
     "footer.hours": "상담 시간 평일 13:00 – 18:00",
-    "footer.hallSite": "PLUSWIN HALL OSAKA 사이트",
     "footer.copyright": "© 2026 PLUSWIN Co., Ltd. 주식회사 플러스윈",
     "footer.toTop": "맨 위로",
     labels: { open: "입장", start: "공연 시작", venue: "회장", sessions: "공연 일정", notes: "안내", tickets: "티켓", access: "오시는 길" },
@@ -360,6 +530,49 @@ const T = {
     "events.onsale": "On sale",
     "events.soon": "On sale soon",
     "events.ended": "Ended",
+    "stand.eyebrow": "FLOWER & BALLOON",
+    "stand.title": "Flower & balloon stands",
+    "stand.lead": "Flower and balloon stands for PLUSWIN-produced shows are by advance application only. Please read the guidelines below and apply from one month before the show.",
+    "stand.cta": "Open application form",
+    "stand.ctaShort": "Application form",
+    "stand.note": "Advance application — opens one month before the show",
+    "stand.hintTitle": "Flower & balloon stands",
+    "stand.hintText": "By advance application — the form opens one month before the show.",
+    "stand.rulesHead": "Guidelines",
+    "stand.formTitle": "Flower & balloon stand application",
+    "stand.formSub": "Please read the guidelines and fill in the details. Our team will review your application and get back to you.",
+    "stand.formHead": "Application",
+    "stand.fPerf": "Show / artist",
+    "stand.fPerfPh": "2026 ○○ FANMEETING IN OSAKA",
+    "stand.fDate": "Show date",
+    "stand.fTime": "Show time",
+    "stand.fVenue": "Venue",
+    "stand.fVenueHall": "PLUSWIN HALL OSAKA",
+    "stand.fVenueOther": "Another venue",
+    "stand.fVenueName": "Venue name (if not PLUSWIN HALL OSAKA)",
+    "stand.fVenueNamePh": "e.g. ○○ Hall, Tokyo",
+    "stand.fType": "Type of stand",
+    "stand.fTypeFlower": "Flower stand",
+    "stand.fTypeBalloon": "Balloon stand",
+    "stand.fTypeDressing": "Dressing-room flowers",
+    "stand.fName": "Applicant name",
+    "stand.fNamePh": "Hanako Yamada",
+    "stand.fFlorist": "Florist",
+    "stand.fFloristPh": "○○ Flowers",
+    "stand.fEmail": "Email",
+    "stand.fEmailPh": "you@example.com",
+    "stand.fTel": "Phone",
+    "stand.fTelPh": "+81 90 0000 0000",
+    "stand.fNotes": "Notes",
+    "stand.fNotesPh": "Number of stands, preferred arrival time…",
+    "stand.formNote": "The button opens your email app (this is a prototype, so nothing is sent directly from the form).",
+    "stand.submit": "Send application by email",
+    "stand.status": "Your email app has opened — please review the message.",
+    "stand.mailSubject": "Flower & balloon stand application",
+    "stand.contactLabel": "Contact",
+    "sns.label": "OFFICIAL SNS",
+    "sns.xLink": "X (formerly Twitter)",
+    "sns.igLink": "Instagram",
     "business.eyebrow": "WHAT WE DO",
     "business.title": "What we do",
     "business.desc": "Not just a hall for hire. Planning, production and operation — the capabilities a live show needs, in house.",
@@ -377,7 +590,23 @@ const T = {
     "venues.osakaCapacity": "220 seated / 500 standing",
     "venues.osakaLed": "600 × 250 cm high-density pitch panel",
     "venues.osakaEquip": "Sound, lighting, projector, live streaming",
-    "venues.hallSite": "Hall website",
+    "venues.specFacility": "Facilities",
+    "venues.osakaFacility": "2 dressing rooms, lockers, merch area, reception, entrance hall",
+    "venues.rateCta": "Rental rates",
+    "venues.floorKicker": "FLOOR MAP",
+    "venues.floorTitle": "Floor plan",
+    "venues.floorLead": "The seating is movable, so the room can be laid out freely: 220 seats, two dressing rooms, lockers, a merch area, reception and an entrance hall.",
+    "venues.fpSeats": "seats (rows A–R)",
+    "venues.fpRooms": "dressing rooms",
+    "venues.fpStage": "stage width in cm",
+    "venues.accessEyebrow": "ACCESS",
+    "venues.accessTitle": "Access",
+    "venues.access1t": "Nihonbashi Station (subway)",
+    "venues.access1": "4 min walk from Exit 2 — near Sakaisuji",
+    "venues.access2t": "Namba Station",
+    "venues.access2": "8 min walk via the Nankai, Kintetsu or Midosuji line",
+    "venues.access3t": "Shinsaibashi / Nagahoribashi",
+    "venues.access3": "The Midosuji, Sakaisuji and Nagahori-Tsurumi-ryokuchi lines also serve the area",
     "venues.rentalCta": "Rental enquiry",
     "venues.singleNote": "Venue rental is offered only at PLUSWIN HALL OSAKA.",
     "rental.eyebrow": "VENUE RENTAL",
@@ -388,7 +617,34 @@ const T = {
     "rental.point3": "Streaming and recording-ready infrastructure",
     "rental.point4": "Rental is only at PLUSWIN HALL OSAKA — we do not rent other venues",
     "rental.contactLabel": "Rental desk",
-    "rental.priceNote": "Rates and availability on request — site visits too, just ask.",
+    "rental.priceNote": "Availability on request — site visits too, just ask.",
+    "rental.rateEyebrow": "RATE CARD",
+    "rental.rateTitle": "Rental rates",
+    "rental.rateBadge": "PLUSWIN HALL OSAKA — excl. tax",
+    "rental.thDay": "Day",
+    "rental.thTime": "Hours",
+    "rental.thPrice": "Rate",
+    "rental.dayWeekday": "Weekdays",
+    "rental.dayWeekend": "Weekends & holidays",
+    "rental.dayCommon": "All days",
+    "rental.timeWk6": "10:00–16:00 / 16:00–22:00 (two 6-hour blocks)",
+    "rental.timeWk12": "10:00 – 22:00 (12 hours)",
+    "rental.timeExt": "Extension (per hour)",
+    "rental.timeOp": "Sound & lighting operator fee (per show)",
+    "rental.optTitle": "Options",
+    "rental.optLed": "Stage-rear LED",
+    "rental.optDrum": "Drum kit",
+    "rental.optPiano": "Digital piano (YAMAHA C4)",
+    "rental.optMic": "Wireless microphone (each)",
+    "rental.optCam": "Streaming camera (each)",
+    "rental.optLan": "Streaming LAN fee",
+    "rental.rateTax": "All rates exclude consumption tax. The operator fee is ×1.5 for two shows in a day, or a show longer than three hours.",
+    "rental.term1": "Hire time includes setup, rehearsal, the show itself and load-out. Dressing-room hours follow the same rule.",
+    "rental.term2": "Seats are supplied set up. If you change or remove seats, please restore the room before leaving.",
+    "rental.term3": "A drink charge (¥600) applies to each guest on entry.",
+    "rental.term4": "Please provide your own reception and setup staff; our team handles drink staff.",
+    "rental.term5": "Use of the stage-rear LED is charged separately. For creative use, please arrange your own video operator.",
+    "rental.term6": "Operators are provided on a take-it-as-is basis only; we cannot join rehearsals or handle intricate staging.",
     "rental.formTitle": "Rental & site visit enquiry",
     "rental.formSub": "Tell us what you need. Our team replies within 2–3 business days.",
     "form.name": "Name",
@@ -457,7 +713,6 @@ const T = {
     "footer.telMain": "Office 06-6536-2002",
     "footer.addr": "WIN Bldg. 4F, 1-15-11 Minamihorie, Nishi-ku, Osaka 550-0015",
     "footer.hours": "Office hours: weekdays 13:00 – 18:00",
-    "footer.hallSite": "PLUSWIN HALL OSAKA website",
     "footer.copyright": "© 2026 PLUSWIN Co., Ltd.",
     "footer.toTop": "Back to top",
     labels: { open: "Doors", start: "Show", venue: "Venue", sessions: "Schedule", notes: "Notes", tickets: "Tickets", access: "Access" },
@@ -713,6 +968,40 @@ const GUIDES = [
   },
 ];
 
+/* ---------- stand flowers & balloons ---------- */
+const STAND_RULES = [
+  {
+    ja: { t: "対象となる公演", d: "プラスウインが主催するアーティストイベントのみ受け付けます。他会場のレンタルイベントは対象外です。主催者様へ直接お問い合わせください。" },
+    ko: { t: "대상 공연", d: "플러스윈이 주최하는 아티스트 이벤트만 접수합니다. 다른 곳의 대관 이벤트는 대상이 아니므로 주최자에게 직접 문의해 주세요." },
+    en: { t: "Which shows", d: "Only artist events produced by PLUSWIN. Events run by third-party hall renters are not handled here — please contact that event's organiser directly." }
+  },
+  {
+    ja: { t: "事前申請制", d: "受付は開催1か月前から。事前の申請・許可がない場合や、注意事項を守っていただけない場合はお受けできません。" },
+    ko: { t: "사전 신청제", d: "접수는 공연 1개월 전부터. 사전 신청·허가가 없거나 안내를 지키지 않는 경우는 받을 수 없습니다." },
+    en: { t: "Advance application", d: "Applications open one month before the event. Without prior application and approval, or if these guidelines are not followed, stands cannot be accepted." }
+  },
+  {
+    ja: { t: "対象ホール", d: "PLUSWIN HALL OSAKA（プラスウイン主催イベント）。他会場を希望する場合は会場名をご記入ください。会場によっては設置できない場合があります。" },
+    ko: { t: "대상 홀", d: "PLUSWIN HALL OSAKA(플러스윈 주최 이벤트). 다른 공연장을 희망하는 경우 공연장 이름을 적어 주세요. 공연장에 따라 설치할 수 없는 경우가 있습니다." },
+    en: { t: "Venue", d: "PLUSWIN HALL OSAKA (PLUSWIN-produced events). If you want another venue, write the venue name — some venues do not permit stands." }
+  },
+  {
+    ja: { t: "搬入・撤去時間", d: "申請フォーム送信後にご連絡します（ご返信に数日いただく場合があります）。納品の際は、公演日とアーティスト名を必ずご記入ください。" },
+    ko: { t: "반입·철수 시간", d: "신청 폼을 보낸 뒤 안내드립니다(회신에 며칠 걸릴 수 있습니다). 납품 시 공연일과 아티스트 이름을 반드시 적어 주세요." },
+    en: { t: "Delivery & removal", d: "We will let you know after you submit the form (a reply may take a few days). When delivering, the show date and artist name must be clearly written." }
+  },
+  {
+    ja: { t: "引き取りの手配", d: "スタンド花・バルーンスタンドをご注文の際は、お花屋様への引き取り手配も必ずあわせてお願いします。" },
+    ko: { t: "수거 준비", d: "스탠드 화환·벌룬 스탠드를 주문하실 때는 꽃집에 수거 준비도 반드시 함께 부탁해 주세요." },
+    en: { t: "Pickup arrangement", d: "When you order a flower or balloon stand, you must also arrange collection with your florist." }
+  },
+  {
+    ja: { t: "設置場所・管理", d: "設置場所はホール利用規定と消防法に基づき主催者側が判断し、順不同で設置します。場所・順番の指定や、返却・ご自身での管理に関するご要望はお受けできません。飾りきれない場合は一部を別スペースに設置することがあります。" },
+    ko: { t: "설치 위치·관리", d: "설치 위치는 홀 이용 규정과 소방법에 따라 주최 측이 정하며, 순서와 관계없이 배치합니다. 위치·순서 지정이나 반환·직접 관리 요청은 받을 수 없습니다. 다 장식할 수 없을 때는 일부를 다른 공간에 설치할 수 있습니다." },
+    en: { t: "Placement & management", d: "Placement inside or outside the venue is decided by the organiser under the hall rules and fire law, and stands are placed in no particular order. Requests for a specific place or order, for return, or to manage a stand yourself cannot be accepted. If space is limited, some stands may be placed in another area." }
+  }
+];
+
 /* ---------- business pillars ---------- */
 const PILLARS = [
   {
@@ -909,6 +1198,53 @@ function renderNextChip() {
     <span class="next-chip-venue">${esc(e.venueShort[lang])}</span>`;
 }
 
+function renderStandRules() {
+  const html = STAND_RULES.map((r, i) => `
+    <li>
+      <span class="sr-num">${String(i + 1).padStart(2, "0")}</span>
+      <div class="sr-body"><b class="sr-t">${esc(r[lang].t)}</b><p class="sr-d">${esc(r[lang].d)}</p></div>
+    </li>`).join("");
+  ["#standRules", "#standFormRules"].forEach((sel) => {
+    const el = $(sel);
+    if (el) el.innerHTML = html;
+  });
+}
+
+/* ---------- stand drawer ---------- */
+function standHintMarkup() {
+  return `
+      <div class="stand-hint">
+        <div>
+          <b>${t("stand.hintTitle")}</b>
+          <span>${t("stand.hintText")}</span>
+        </div>
+        <button class="btn btn-line btn-sm" type="button" data-open-stand>${t("stand.ctaShort")}</button>
+      </div>`;
+}
+
+function openStand() {
+  const root = $("#standRoot");
+  if (!root) return;
+  const sc = $(".drawer-scroll", root);
+  if (sc) sc.scrollTop = 0;
+  root.classList.add("is-open");
+  root.setAttribute("aria-hidden", "false");
+  document.body.classList.add("is-locked");
+  const drawer = $(".drawer", root);
+  setTimeout(() => drawer && drawer.focus(), 60);
+}
+
+function closeStand() {
+  const root = $("#standRoot");
+  if (!root || !root.classList.contains("is-open")) return;
+  root.classList.remove("is-open");
+  root.setAttribute("aria-hidden", "true");
+  const status = $("#standStatus");
+  if (status) status.classList.remove("is-on");
+  const eventRoot = $("#drawerRoot");
+  if (!eventRoot || !eventRoot.classList.contains("is-open")) document.body.classList.remove("is-locked");
+}
+
 /* ---------- drawer ---------- */
 function guideMarkup() {
   return `
@@ -1018,6 +1354,7 @@ function openDrawer(id) {
       </div>
 
       ${guideMarkup()}
+      ${standHintMarkup()}
 
       <div class="dr-actions">
         <a class="btn btn-solid" href="${e.ticket}" target="_blank" rel="noopener">${t("events.ticket")}
@@ -1051,6 +1388,7 @@ function setLang(next, opts = {}) {
   renderPast();
   renderPillars();
   renderNextChip();
+  renderStandRules();
   if (state.openId) openDrawer(state.openId);
   else if (state.openPastKey) openPast(state.openPastKey);
   if (opts.updateUrl !== false && window.location.protocol !== "file:") {
@@ -1076,6 +1414,8 @@ function bind() {
   });
 
   document.addEventListener("click", (ev) => {
+    if (ev.target.closest("[data-open-stand]")) { ev.preventDefault(); openStand(); return; }
+    if (ev.target.closest("[data-stand-close]")) { closeStand(); return; }
     const opener = ev.target.closest("[data-open]");
     if (opener) { ev.preventDefault(); openDrawer(opener.getAttribute("data-open")); return; }
     if (ev.target.closest("[data-drawer-close]")) { closeDrawer(); return; }
@@ -1093,6 +1433,8 @@ function bind() {
       return;
     }
     if (ev.key === "Escape") {
+      const standRoot = $("#standRoot");
+      if (standRoot && standRoot.classList.contains("is-open")) { closeStand(); return; }
       closeDrawer();
       const nav = $("#mainNav");
       if (nav && nav.classList.contains("is-open")) toggleMenu(false);
@@ -1199,6 +1541,39 @@ function bind() {
       if (status) status.classList.add("is-on");
     });
   }
+
+  // stand application form -> mailto
+  const standForm = $("#standForm");
+  if (standForm) {
+    standForm.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      const data = new FormData(standForm);
+      const get = (k) => (data.get(k) || "").toString().trim();
+      const typeMap = { flower: "stand.fTypeFlower", balloon: "stand.fTypeBalloon", dressing: "stand.fTypeDressing" };
+      const types = data.getAll("type").map((v) => t(typeMap[String(v)] || String(v))).filter(Boolean);
+      const subject = `[PLUSWIN] ${t("stand.mailSubject")} — ${get("perf") || "(no title)"}`;
+      const venue = get("venue") === "other" ? [t("stand.fVenueOther"), get("venuename")].filter(Boolean).join(" / ") : t("stand.fVenueHall");
+      const lines = [
+        `公演名・出演者名 / Show · artist: ${get("perf")}`,
+        `開催日 / Date: ${get("date")}`,
+        `開催時間 / Time: ${get("time")}`,
+        `会場 / Venue: ${venue}`,
+        `スタンドの種類 / Type: ${types.join(", ")}`,
+        `申請者名 / Applicant: ${get("name")}`,
+        `お花屋名 / Florist: ${get("florist")}`,
+        `メール / Email: ${get("email")}`,
+        `電話 / Tel: ${get("tel")}`,
+        "",
+        `備考 / Notes:`,
+        get("notes"),
+        "",
+        "—— sent from pluswin.net (renewal prototype)"
+      ];
+      window.location.href = `mailto:${MAIL_RENTAL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      const stStatus = $("#standStatus");
+      if (stStatus) stStatus.classList.add("is-on");
+    });
+  }
 }
 
 /* ---------- boot ---------- */
@@ -1209,6 +1584,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPast();
   renderPillars();
   renderNextChip();
+  renderStandRules();
   bind();
   // reflect the deep-link language once, without polluting the URL on first load
   if (!new URLSearchParams(window.location.search).get("lang") && window.location.protocol !== "file:") {

@@ -115,6 +115,27 @@
       <div class="event-grid" id="eventGrid"><!-- rendered by app.js --></div>
       <p class="events-hint" data-i18n="events.guideHint">各公演の注意事項・特典会ルールは、カードの「詳細」からご確認ください。</p>
 
+      <!-- ===== STAND FLOWERS & BALLOONS ===== -->
+      <section class="stand reveal" id="stand" aria-labelledby="standTitle">
+        <div class="stand-copy">
+          <p class="eyebrow" data-i18n="stand.eyebrow">FLOWER &amp; BALLOON</p>
+          <h3 class="stand-title" id="standTitle" data-i18n="stand.title">スタンド花・バルーンスタンド</h3>
+          <p class="stand-lead" data-i18n="stand.lead">プラスウイン主催公演へのスタンド花・バルーンスタンドのお申し込みは事前申請制です。下記の注意事項をご確認のうえ、開催1か月前から申請フォームよりお申し込みください。</p>
+          <div class="stand-actions">
+            <button class="btn btn-solid" type="button" data-open-stand>
+              <span data-i18n="stand.cta">申請フォームを開く</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="stand-note" data-i18n="stand.note">事前申請制・開催1か月前より受付</p>
+          </div>
+          <p class="stand-contact">
+            <span data-i18n="stand.contactLabel">お問い合わせ</span>
+            <a href="mailto:info@pluswin.jp">info@pluswin.jp</a><i>・</i><a href="tel:+81665362002">06-6536-2002</a>
+          </p>
+        </div>
+        <ol class="stand-rules" id="standRules"><!-- rendered by app.js --></ol>
+      </section>
+
       <div class="past reveal" id="archive">
         <div class="past-head">
           <div>
@@ -181,9 +202,10 @@
             <div><dt data-i18n="venues.specStage">ステージ</dt><dd>W762 × D500 × H50 cm</dd></div>
             <div><dt data-i18n="venues.specLed">LED</dt><dd data-i18n="venues.osakaLed">W600 × H250 cm 高精細ピッチパネル</dd></div>
             <div><dt data-i18n="venues.specEquip">設備</dt><dd data-i18n="venues.osakaEquip">音響・照明・プロジェクター・生配信環境</dd></div>
+            <div><dt data-i18n="venues.specFacility">付帯施設</dt><dd data-i18n="venues.osakaFacility">楽屋2室・ロッカー・物販所・受付・エントランスホール</dd></div>
           </dl>
           <div class="venue-actions">
-            <a class="btn btn-line btn-sm" href="https://www.pluswin-hall.com/" target="_blank" rel="noopener" data-i18n="venues.hallSite">ホールサイト</a>
+            <a class="btn btn-solid btn-sm" href="#rates" data-i18n="venues.rateCta">レンタル料金表</a>
             <a class="btn btn-line btn-sm" href="#rental" data-i18n="venues.rentalCta">レンタルの相談</a>
           </div>
         </div>
@@ -192,6 +214,48 @@
       <div class="venue-note reveal">
         <b data-i18n="nav.rental">レンタル</b>
         <span data-i18n="venues.singleNote">レンタル（貸出）は PLUSWIN HALL OSAKA のみ承ります。</span>
+      </div>
+
+      <div class="hall-more">
+        <figure class="floorplan reveal">
+          <div class="floorplan-media">
+            <img src="assets/img/hall-floorplan.jpg" alt="PLUSWIN HALL OSAKA 座席平面図" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <p class="fp-kicker" data-i18n="venues.floorKicker">FLOOR MAP</p>
+            <h3 data-i18n="venues.floorTitle">座席平面図</h3>
+            <p class="fp-lead" data-i18n="venues.floorLead">座席は可動式で、自由にレイアウトを組めます。客席220席、楽屋2室、ロッカー、物販所、受付、エントランスホールを備えています。</p>
+            <ul class="fp-facts">
+              <li><b>220</b><span data-i18n="venues.fpSeats">着席（A〜R列）</span></li>
+              <li><b>2</b><span data-i18n="venues.fpRooms">楽屋</span></li>
+              <li><b>W762</b><span data-i18n="venues.fpStage">ステージ幅 cm</span></li>
+            </ul>
+          </figcaption>
+        </figure>
+
+        <div class="access-card reveal">
+          <p class="eyebrow" data-i18n="venues.accessEyebrow">ACCESS</p>
+          <h3 data-i18n="venues.accessTitle">アクセス</h3>
+          <ul class="access-list">
+            <li>
+              <b data-i18n="venues.access1t">地下鉄 日本橋駅</b>
+              <span data-i18n="venues.access1">2番出口より徒歩4分（堺筋近く）</span>
+            </li>
+            <li>
+              <b data-i18n="venues.access2t">なんば駅</b>
+              <span data-i18n="venues.access2">南海線・近鉄線・御堂筋線より徒歩8分</span>
+            </li>
+            <li>
+              <b data-i18n="venues.access3t">心斎橋駅・長堀橋駅</b>
+              <span data-i18n="venues.access3">地下鉄御堂筋線・堺筋線・長堀鶴見緑地線も利用可</span>
+            </li>
+          </ul>
+          <p class="access-addr" data-i18n="venues.osakaAddress">〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1</p>
+          <figure class="access-map">
+            <img src="assets/img/hall-access-map.jpg" alt="PLUSWIN HALL OSAKA 周辺地図" loading="lazy" decoding="async">
+          </figure>
+          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=PLUSWIN+HALL+OSAKA+%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%AE%97%E5%8F%B3%E8%A1%9B%E9%96%80%E7%94%BA2-3" target="_blank" rel="noopener noreferrer" data-i18n="about.mapLink">Google マップで見る</a>
+        </div>
       </div>
     </div>
   </section>
@@ -288,6 +352,69 @@
         </form>
       </div>
       </div>
+
+      <!-- ===== RATE CARD ===== -->
+      <div class="rates reveal" id="rates">
+        <div class="rates-head">
+          <div>
+            <p class="eyebrow" data-i18n="rental.rateEyebrow">RATE CARD</p>
+            <h3 data-i18n="rental.rateTitle">レンタル料金表</h3>
+          </div>
+          <p class="rates-badge" data-i18n="rental.rateBadge">PLUSWIN HALL OSAKA・税別</p>
+        </div>
+
+        <div class="rates-body">
+          <table class="rate-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="rental.thDay">区分</th>
+                <th scope="col" data-i18n="rental.thTime">時間</th>
+                <th scope="col" data-i18n="rental.thPrice">料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="rowgroup" rowspan="3" data-i18n="rental.dayWeekday">平日</th>
+                <td>10:00 – 16:00</td><td class="rate-price">¥50,000</td>
+              </tr>
+              <tr><td>16:00 – 22:00</td><td class="rate-price">¥110,000</td></tr>
+              <tr><td>10:00 – 22:00</td><td class="rate-price">¥150,000</td></tr>
+              <tr>
+                <th scope="rowgroup" rowspan="2" data-i18n="rental.dayWeekend">土日祝</th>
+                <td data-i18n="rental.timeWk6">10:00–16:00 / 16:00–22:00（6時間×2区分）</td><td class="rate-price">¥190,000</td>
+              </tr>
+              <tr><td data-i18n="rental.timeWk12">10:00 – 22:00（12時間）</td><td class="rate-price">¥280,000</td></tr>
+              <tr>
+                <th scope="rowgroup" rowspan="2" data-i18n="rental.dayCommon">共通</th>
+                <td data-i18n="rental.timeExt">延長（1時間）</td><td class="rate-price">¥25,000</td>
+              </tr>
+              <tr><td data-i18n="rental.timeOp">音響照明オペレーター技術費（1公演）</td><td class="rate-price">¥60,000</td></tr>
+            </tbody>
+          </table>
+
+          <div class="rates-side">
+            <p class="rates-sub" data-i18n="rental.optTitle">オプション</p>
+            <ul class="rate-options">
+              <li><span data-i18n="rental.optLed">舞台背面LED</span><b>¥10,000</b></li>
+              <li><span data-i18n="rental.optDrum">ドラムセット</span><b>¥5,000</b></li>
+              <li><span data-i18n="rental.optPiano">電子ピアノ（YAMAHA C4）</span><b>¥5,000</b></li>
+              <li><span data-i18n="rental.optMic">ワイヤレスマイク（1本）</span><b>¥2,700</b></li>
+              <li><span data-i18n="rental.optCam">配信カメラ（1台）</span><b>¥8,000</b></li>
+              <li><span data-i18n="rental.optLan">配信 LAN 使用料</span><b>¥5,000</b></li>
+            </ul>
+            <p class="rates-tax" data-i18n="rental.rateTax">表示金額はすべて税別です。オペレーター技術費は、1日2公演または1公演が3時間を超える場合 1.5倍になります。</p>
+          </div>
+        </div>
+
+        <ul class="rate-terms">
+          <li data-i18n="rental.term1">使用時間には設営・リハーサル・本番・撤収の時間まで含みます。楽屋の使用可能時間もこれに準じます。</li>
+          <li data-i18n="rental.term2">客席の椅子は設置済みの状態です。椅子の数を変更・撤去する場合は、退館時に原状復帰をお願いします。</li>
+          <li data-i18n="rental.term3">ご入場時にはドリンク代（600円）が別途必要です。</li>
+          <li data-i18n="rental.term4">受付・設営などの人員は主催者様でご手配ください。ドリンクスタッフは弊社で担当します。</li>
+          <li data-i18n="rental.term5">舞台背面LEDのご利用は別料金です。演出としてご使用の場合は、映像オペレーターを主催者様でご手配ください。</li>
+          <li data-i18n="rental.term6">オペレーターはお任せの場合のみ承ります。稽古への参加や凝った演出への対応はできかねます。</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -367,6 +494,22 @@
         </article>
       </div>
 
+      <div class="contact-sns reveal">
+        <p class="contact-sns-label" data-i18n="sns.label">OFFICIAL SNS</p>
+        <div class="sns-links">
+          <a class="sns-link" href="https://x.com/mh_klovers" target="_blank" rel="noopener noreferrer" aria-label="X — @mh_klovers">
+            <svg class="sns-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+            <em>@mh_klovers</em>
+          </a>
+          <a class="sns-link" href="https://www.instagram.com/kloversxpluswin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram — @kloversxpluswin">
+            <svg class="sns-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg>
+            <span>Instagram</span>
+            <em>@kloversxpluswin</em>
+          </a>
+        </div>
+      </div>
+
       <div class="contact-foot reveal">
         <div>
           <p class="contact-foot-label" data-i18n="contact.addrLabel">本社</p>
@@ -389,6 +532,14 @@
       <div class="footer-brand">
         <img class="footer-logo" src="assets/img/pluswin-logo.png" alt="PLUSWIN ENTERTAINMENT" width="297" height="68">
         <p data-i18n="footer.tagline">ステージから、エンターテインメントを動かす。</p>
+        <div class="sns-links sns-links-footer">
+          <a class="sns-icon" href="https://x.com/mh_klovers" target="_blank" rel="noopener noreferrer" aria-label="X — @mh_klovers">
+            <svg class="sns-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a class="sns-icon" href="https://www.instagram.com/kloversxpluswin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram — @kloversxpluswin">
+            <svg class="sns-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.05" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
         <div class="lang lang-footer" role="group" aria-label="Language">
           <button type="button" data-lang-btn="ja" aria-pressed="true">JP</button>
           <button type="button" data-lang-btn="ko" aria-pressed="false">KR</button>
@@ -400,6 +551,7 @@
         <div class="footer-col">
           <p class="footer-head" data-i18n="footer.menuHead">MENU</p>
           <a href="#events" data-i18n="nav.events">公演情報</a>
+          <a href="#stand" data-i18n="stand.title">スタンド花・バルーンスタンド</a>
           <a href="#business" data-i18n="nav.business">事業内容</a>
           <a href="#venues" data-i18n="nav.venues">ホール</a>
           <a href="#rental" data-i18n="nav.rental">レンタル</a>
@@ -415,7 +567,8 @@
           <p class="footer-head" data-i18n="footer.infoHead">INFORMATION</p>
           <p data-i18n="footer.addr">〒550-0015 大阪府大阪市西区南堀江1-15-11 WINビル 4F</p>
           <p data-i18n="footer.hours">受付時間 平日 13:00 – 18:00</p>
-          <a href="https://www.pluswin-hall.com/" target="_blank" rel="noopener" data-i18n="footer.hallSite">PLUSWIN HALL OSAKA サイト</a>
+          <a href="https://x.com/mh_klovers" target="_blank" rel="noopener noreferrer" data-i18n="sns.xLink">X（旧Twitter）</a>
+          <a href="https://www.instagram.com/kloversxpluswin/" target="_blank" rel="noopener noreferrer" data-i18n="sns.igLink">Instagram</a>
         </div>
       </div>
     </div>
@@ -435,6 +588,95 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <div class="drawer-scroll" id="drawerContent"><!-- rendered by app.js --></div>
+  </aside>
+</div>
+
+<!-- ============ STAND APPLICATION DRAWER ============ -->
+<div class="drawer-root stand-root" id="standRoot" aria-hidden="true">
+  <div class="drawer-backdrop" data-stand-close></div>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="standDrawerTitle" tabindex="-1">
+    <button class="drawer-close" type="button" data-stand-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="drawer-scroll">
+      <div class="dr-body stand-body">
+        <div class="dr-kicker"><span class="ev-city" data-i18n="stand.eyebrow">FLOWER &amp; BALLOON</span></div>
+        <h3 class="dr-title" id="standDrawerTitle" data-i18n="stand.formTitle">スタンド花・バルーンスタンド 申請</h3>
+        <p class="dr-sub" data-i18n="stand.formSub">注意事項をご確認のうえ、必要事項をご記入ください。内容を確認のうえ、担当者よりご連絡します。</p>
+
+        <div class="dr-section dr-section-first">
+          <h4 data-i18n="stand.rulesHead">設置の注意事項</h4>
+          <ol class="stand-form-rules" id="standFormRules"><!-- rendered by app.js --></ol>
+        </div>
+
+        <form id="standForm" novalidate>
+          <div class="dr-section">
+            <h4 data-i18n="stand.formHead">申請内容</h4>
+            <div class="form-grid">
+              <div class="field field-wide">
+                <label for="s-perf"><span data-i18n="stand.fPerf">公演名・出演者名</span> <i>*</i></label>
+                <input id="s-perf" name="perf" type="text" required data-i18n-ph="stand.fPerfPh" placeholder="2026 ○○ FANMEETING IN OSAKA">
+              </div>
+              <div class="field">
+                <label for="s-date"><span data-i18n="stand.fDate">開催日</span> <i>*</i></label>
+                <input id="s-date" name="date" type="date" required>
+              </div>
+              <div class="field">
+                <label for="s-time" data-i18n="stand.fTime">開催時間</label>
+                <input id="s-time" name="time" type="time">
+              </div>
+              <div class="field field-wide">
+                <label for="s-venue" data-i18n="stand.fVenue">会場</label>
+                <select id="s-venue" name="venue">
+                  <option value="hall" data-i18n="stand.fVenueHall">PLUSWIN HALL OSAKA</option>
+                  <option value="other" data-i18n="stand.fVenueOther">その他会場</option>
+                </select>
+              </div>
+              <div class="field field-wide">
+                <label for="s-venue-name" data-i18n="stand.fVenueName">会場名（PLUSWIN HALL OSAKA 以外の場合）</label>
+                <input id="s-venue-name" name="venuename" type="text" data-i18n-ph="stand.fVenueNamePh" placeholder="例）○○ホール（東京）">
+              </div>
+              <div class="field field-wide">
+                <label data-i18n="stand.fType">スタンドの種類</label>
+                <div class="field-checks">
+                  <label class="check"><input type="checkbox" name="type" value="flower"><span data-i18n="stand.fTypeFlower">スタンド花</span></label>
+                  <label class="check"><input type="checkbox" name="type" value="balloon"><span data-i18n="stand.fTypeBalloon">バルーンスタンド</span></label>
+                  <label class="check"><input type="checkbox" name="type" value="dressing"><span data-i18n="stand.fTypeDressing">楽屋花</span></label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="s-name"><span data-i18n="stand.fName">申請者名</span> <i>*</i></label>
+                <input id="s-name" name="name" type="text" required data-i18n-ph="stand.fNamePh" placeholder="山田 花子" autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="s-florist" data-i18n="stand.fFlorist">お花屋名</label>
+                <input id="s-florist" name="florist" type="text" data-i18n-ph="stand.fFloristPh" placeholder="○○フラワー">
+              </div>
+              <div class="field">
+                <label for="s-email"><span data-i18n="stand.fEmail">メールアドレス</span> <i>*</i></label>
+                <input id="s-email" name="email" type="email" required data-i18n-ph="stand.fEmailPh" placeholder="you@example.com" autocomplete="email">
+              </div>
+              <div class="field">
+                <label for="s-tel" data-i18n="stand.fTel">電話番号</label>
+                <input id="s-tel" name="tel" type="tel" data-i18n-ph="stand.fTelPh" placeholder="090-0000-0000" autocomplete="tel">
+              </div>
+              <div class="field field-wide">
+                <label for="s-notes" data-i18n="stand.fNotes">備考</label>
+                <textarea id="s-notes" name="notes" data-i18n-ph="stand.fNotesPh" placeholder="スタンドの本数、ご希望の到着時間など"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-foot">
+            <p class="form-note" data-i18n="stand.formNote">送信ボタンを押すとメールソフトが開きます（試作版のため、フォームから直接送信はされません）。</p>
+            <button class="btn btn-solid" type="submit">
+              <span data-i18n="stand.submit">入力内容をメールで送る</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="form-status" id="standStatus" data-i18n="stand.status">メールソフトを開きました。送信内容をご確認ください。</p>
+        </form>
+      </div>
+    </div>
   </aside>
 </div>
 

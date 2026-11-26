@@ -18,9 +18,9 @@ const FAQ_ITEMS = [
   {
     q: { ja: "ロッカーはありますか？", ko: "사물함이 있나요?", en: "Are there lockers?" },
     a: {
-      ja: "会場（地下1階）にロッカーがあります。数や利用料金は公演ごとにご案内が異なるため、当日会場のスタッフにお尋ねください。",
-      ko: "공연장(지하 1층)에 사물함이 있습니다. 개수와 이용 요금은 공연마다 안내가 다르므로 당일 현장 스태프에게 문의해 주세요.",
-      en: "Lockers are available on B1. Counts and fees differ by show, so please ask the venue staff on the day."
+      ja: "会場内に観客用のロッカーはありません（楽屋のロッカーは出演者専用です）。お荷物は、お越しになる前に日本橋駅・なんば駅などの駅のコインロッカーへお預けください。",
+      ko: "공연장 안에 관객용 사물함은 없습니다(대기실 사물함은 출연자 전용입니다). 짐은 오시기 전에 니혼바시역·난바역 등 역 코인로커에 맡겨 주세요.",
+      en: "There are no lockers for audience members inside the venue (the lockers in the dressing rooms are for performers only). Please leave your belongings in a coin locker at Nihonbashi, Namba or another nearby station before you arrive."
     }
   },
   {

@@ -96,58 +96,63 @@
           <p data-i18n="stand.formSub">注意事項をご確認のうえ、必要事項をご記入ください。内容を確認のうえ、担当者よりご連絡します。</p>
         </div>
 
-        <form id="standForm" novalidate>
+        <form id="standForm" method="POST" action="https://formsubmit.co/info@pluswin.jp" target="pwMailSink" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="[PLUSWIN] スタンド花・バルーン申請">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="">
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-grid">
             <div class="field field-wide">
               <label for="s-perf"><span data-i18n="stand.fPerf">公演名・出演者名</span> <i>*</i></label>
-              <input id="s-perf" name="perf" type="text" required data-i18n-ph="stand.fPerfPh" placeholder="2026 ○○ FANMEETING IN OSAKA">
+              <input id="s-perf" name="公演名・出演者名 / Show" type="text" required data-i18n-ph="stand.fPerfPh" placeholder="2026 ○○ FANMEETING IN OSAKA">
             </div>
             <div class="field">
               <label for="s-date"><span data-i18n="stand.fDate">開催日</span> <i>*</i></label>
-              <input id="s-date" name="date" type="date" required>
+              <input id="s-date" name="開催日 / Date" type="date" required>
             </div>
             <div class="field">
               <label for="s-time" data-i18n="stand.fTime">開催時間</label>
-              <input id="s-time" name="time" type="time">
+              <input id="s-time" name="開催時間 / Time" type="time">
             </div>
             <div class="field field-wide">
               <label for="s-venue" data-i18n="stand.fVenue">会場</label>
-              <select id="s-venue" name="venue">
+              <select id="s-venue" name="会場 / Venue">
                 <option value="hall" data-i18n="stand.fVenueHall">PLUSWIN HALL OSAKA</option>
                 <option value="other" data-i18n="stand.fVenueOther">その他会場</option>
               </select>
             </div>
             <div class="field field-wide">
               <label for="s-venue-name" data-i18n="stand.fVenueName">会場名（PLUSWIN HALL OSAKA 以外の場合）</label>
-              <input id="s-venue-name" name="venuename" type="text" data-i18n-ph="stand.fVenueNamePh" placeholder="例）○○ホール（東京）">
+              <input id="s-venue-name" name="会場名 / Venue name" type="text" data-i18n-ph="stand.fVenueNamePh" placeholder="例）○○ホール（東京）">
             </div>
             <div class="field field-wide">
               <label data-i18n="stand.fType">スタンドの種類</label>
               <div class="field-checks">
-                <label class="check"><input type="checkbox" name="type" value="flower"><span data-i18n="stand.fTypeFlower">スタンド花</span></label>
-                <label class="check"><input type="checkbox" name="type" value="balloon"><span data-i18n="stand.fTypeBalloon">バルーンスタンド</span></label>
-                <label class="check"><input type="checkbox" name="type" value="dressing"><span data-i18n="stand.fTypeDressing">楽屋花</span></label>
+                <label class="check"><input type="checkbox" name="スタンドの種類 / Type" value="スタンド花"><span data-i18n="stand.fTypeFlower">スタンド花</span></label>
+                <label class="check"><input type="checkbox" name="スタンドの種類 / Type" value="バルーンスタンド"><span data-i18n="stand.fTypeBalloon">バルーンスタンド</span></label>
+                <label class="check"><input type="checkbox" name="スタンドの種類 / Type" value="楽屋花"><span data-i18n="stand.fTypeDressing">楽屋花</span></label>
               </div>
             </div>
             <div class="field">
               <label for="s-name"><span data-i18n="stand.fName">申請者名</span> <i>*</i></label>
-              <input id="s-name" name="name" type="text" required data-i18n-ph="stand.fNamePh" placeholder="山田 花子" autocomplete="name">
+              <input id="s-name" name="申請者名 / Applicant" type="text" required data-i18n-ph="stand.fNamePh" placeholder="山田 花子" autocomplete="name">
             </div>
             <div class="field">
               <label for="s-florist" data-i18n="stand.fFlorist">お花屋名</label>
-              <input id="s-florist" name="florist" type="text" data-i18n-ph="stand.fFloristPh" placeholder="○○フラワー">
+              <input id="s-florist" name="お花屋名 / Florist" type="text" data-i18n-ph="stand.fFloristPh" placeholder="○○フラワー">
             </div>
             <div class="field">
               <label for="s-email"><span data-i18n="stand.fEmail">メールアドレス</span> <i>*</i></label>
-              <input id="s-email" name="email" type="email" required data-i18n-ph="stand.fEmailPh" placeholder="you@example.com" autocomplete="email">
+              <input id="s-email" name="メールアドレス / Email" type="email" required data-i18n-ph="stand.fEmailPh" placeholder="you@example.com" autocomplete="email">
             </div>
             <div class="field">
               <label for="s-tel" data-i18n="stand.fTel">電話番号</label>
-              <input id="s-tel" name="tel" type="tel" data-i18n-ph="stand.fTelPh" placeholder="090-0000-0000" autocomplete="tel">
+              <input id="s-tel" name="電話番号 / Tel" type="tel" data-i18n-ph="stand.fTelPh" placeholder="090-0000-0000" autocomplete="tel">
             </div>
             <div class="field field-wide">
               <label for="s-notes" data-i18n="stand.fNotes">備考</label>
-              <textarea id="s-notes" name="notes" data-i18n-ph="stand.fNotesPh" placeholder="スタンドの本数、ご希望の到着時間など"></textarea>
+              <textarea id="s-notes" name="備考 / Notes" data-i18n-ph="stand.fNotesPh" placeholder="スタンドの本数、ご希望の到着時間など"></textarea>
             </div>
           </div>
           <div class="form-msg" id="standMsg" role="status" aria-live="polite"></div>
@@ -164,6 +169,7 @@
     </div>
   </section>
 
+<iframe id="pwMailSink" name="pwMailSink" class="form-sink" title="Form submission" aria-hidden="true" tabindex="-1"></iframe>
 </main>
 
 <footer class="site-footer">

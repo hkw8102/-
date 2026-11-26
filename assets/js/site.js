@@ -383,85 +383,32 @@ function initialLang() {
 }
 
 /* ---------- forms ----------
-   Real delivery through FormSubmit (no email app needed). If the request
-   fails, the same content is offered as a pre-filled mailto: fallback so an
-   enquiry is never lost.
-   NOTE: the very first submission to a new address makes FormSubmit send a
+   Both enquiries are sent by a real HTML form submit to FormSubmit, into a
+   hidden iframe. FormSubmit's AJAX endpoint returns no CORS headers, so a
+   fetch() from the site cannot be read (preflight fails); a form POST is not
+   subject to CORS, the visitor stays on the page, and the iframe's load event
+   drives the success message. If anything fails, the same content is offered
+   as a pre-filled mailto: link so an enquiry is never lost.
+
+   NOTE: the first submission to a new address makes FormSubmit send a
    one-time activation email to info@pluswin.jp; mail flows after that link
-   is opened once. ---------------------------------------------------------- */
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/" + MAIL_RENTAL;
+   has been opened once. --------------------------------------------------- */
+const FORM_ACTION = "https://formsubmit.co/" + MAIL_RENTAL;
 
-function fieldValue(data, key) {
-  return (data.get(key) || "").toString().trim();
+function formPairs(form) {
+  const fd = new FormData(form);
+  const rows = [];
+  fd.forEach((v, k) => {
+    if (k.charAt(0) === "_") return;
+    const value = String(v).trim();
+    if (value) rows.push([k, value]);
+  });
+  return rows;
 }
 
-function buildRental() {
-  const form = $("#rentalForm");
-  const data = new FormData(form);
-  const get = (k) => fieldValue(data, k);
-  const name = get("name");
-  const email = get("email");
-  const subject = `[PLUSWIN HALL OSAKA] レンタル相談 — ${name || "(no name)"}`;
-  const rows = [
-    ["お名前 / Name", name],
-    ["会社・団体名 / Company", get("company")],
-    ["メール / Email", email],
-    ["電話 / Tel", get("tel")],
-    ["希望日 / Preferred date", get("date")],
-    ["利用目的 / Purpose", get("purpose")],
-    ["予定人数 / Attendance", get("people")],
-    ["ご相談内容 / Message", get("message")]
-  ];
-  const payload = {
-    _subject: subject,
-    _template: "table",
-    _captcha: "false",
-    _replyto: email,
-    "フォーム / Form": "Hall rental enquiry (hall.html)"
-  };
-  rows.forEach(([k, v]) => { payload[k] = v || "-"; });
-  const lines = rows.map(([k, v]) => `${k}: ${v}`).join("\n");
-  return { form, subject, payload, lines };
-}
-
-function buildStand() {
-  const form = $("#standForm");
-  const data = new FormData(form);
-  const get = (k) => fieldValue(data, k);
-  const typeMap = { flower: "stand.fTypeFlower", balloon: "stand.fTypeBalloon", dressing: "stand.fTypeDressing" };
-  const types = data.getAll("type").map((v) => t(typeMap[String(v)] || String(v))).filter(Boolean);
-  const venue = get("venue") === "other"
-    ? ["その他会場", get("venuename")].filter(Boolean).join(" / ")
-    : "PLUSWIN HALL OSAKA";
-  const perf = get("perf");
-  const email = get("email");
-  const subject = `[PLUSWIN] スタンド花・バルーン申請 — ${perf || "(no title)"}`;
-  const rows = [
-    ["公演名・出演者名 / Show · artist", perf],
-    ["開催日 / Date", get("date")],
-    ["開催時間 / Time", get("time")],
-    ["会場 / Venue", venue],
-    ["スタンドの種類 / Type", types.join(", ")],
-    ["申請者名 / Applicant", get("name")],
-    ["お花屋名 / Florist", get("florist")],
-    ["メール / Email", email],
-    ["電話 / Tel", get("tel")],
-    ["備考 / Notes", get("notes")]
-  ];
-  const payload = {
-    _subject: subject,
-    _template: "table",
-    _captcha: "false",
-    _replyto: email,
-    "フォーム / Form": "Stand flower & balloon application (stand.html)"
-  };
-  rows.forEach(([k, v]) => { payload[k] = v || "-"; });
-  const lines = rows.map(([k, v]) => `${k}: ${v}`).join("\n");
-  return { form, subject, payload, lines };
-}
-
-function mailtoFor(built) {
-  return `mailto:${MAIL_RENTAL}?subject=${encodeURIComponent(built.subject)}&body=${encodeURIComponent(built.lines)}`;
+function mailtoFrom(form, subject) {
+  const body = formPairs(form).map(([k, v]) => `${k}: ${v}`).join("\n");
+  return `mailto:${MAIL_RENTAL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function showFormMsg(msg, kind, text, mailto) {
@@ -471,63 +418,82 @@ function showFormMsg(msg, kind, text, mailto) {
     (mailto ? ` <a class="fm-link" href="${mailto}">${esc(t("form.fallback"))} · ${MAIL_RENTAL}</a>` : "");
 }
 
-async function sendEnquiry(built, msgId, okKey) {
-  const { form } = built;
-  const msg = document.getElementById(msgId);
+function bindMailForm(form, opts) {
+  if (!form) return;
+  const sink = document.getElementById("pwMailSink");
+  const msg = document.getElementById(opts.msgId);
   const btn = form.querySelector('button[type="submit"]');
   const label = btn ? btn.querySelector("span") : null;
-  const original = label ? label.textContent : "";
+  const subjectField = form.querySelector('input[name="_subject"]');
+  const nextField = form.querySelector('input[name="_next"]');
+  const fallback = form.querySelector("[data-fallback]");
+  let submitting = false;
+  let timer = null;
 
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
+  const subjectNow = () => {
+    const fd = new FormData(form);
+    const key = opts.subjectField;
+    const value = key ? (fd.get(key) || "").toString().trim() : "";
+    return opts.subject(value);
+  };
 
-  if (btn) { btn.disabled = true; btn.classList.add("is-loading"); }
-  form.setAttribute("aria-busy", "true");
-  if (label) label.textContent = t("form.sending");
-  if (msg) msg.classList.remove("is-on");
+  form.addEventListener("submit", () => {
+    submitting = true;
+    const subject = subjectNow();
+    if (subjectField) subjectField.value = subject;
+    if (nextField) {
+      const base = window.location.pathname.replace(/[^/]*$/, "");
+      nextField.value = window.location.origin + base + "assets/sent.html";
+    }
+    if (fallback) fallback.setAttribute("href", mailtoFrom(form, subject));
+    if (btn) { btn.disabled = true; btn.classList.add("is-loading"); btn.classList.remove("is-done"); }
+    if (label) label.textContent = t("form.sending");
+    form.setAttribute("aria-busy", "true");
+    if (msg) msg.classList.remove("is-on");
+    clearTimeout(timer);
+    timer = setTimeout(() => done(false), 30000);
+  });
 
-  const alt = form.querySelector("[data-fallback]");
-  if (alt) alt.setAttribute("href", mailtoFor(built));
-
-  try {
-    const res = await fetch(FORM_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(built.payload)
-    });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    const out = await res.json().catch(() => ({}));
-    if (out && String(out.success) === "false") throw new Error(out.message || "rejected");
-    form.reset();
-    showFormMsg(msg, "ok", t(okKey));
-    if (btn) btn.classList.add("is-done");
-  } catch (err) {
-    showFormMsg(msg, "err", t("form.fail"), mailtoFor(built));
-  } finally {
-    if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
+  function done(ok) {
+    if (!submitting) return;
+    submitting = false;
+    clearTimeout(timer);
+    if (btn) {
+      btn.disabled = false;
+      btn.classList.remove("is-loading");
+      btn.classList.toggle("is-done", ok);
+    }
     form.removeAttribute("aria-busy");
-    if (label) label.textContent = original;
-    if (alt) alt.setAttribute("href", mailtoFor(built));
+    if (label) label.textContent = t(opts.submitKey);
+    if (ok) {
+      showFormMsg(msg, "ok", t(opts.okKey));
+      form.reset();
+      if (fallback) fallback.setAttribute("href", `mailto:${MAIL_RENTAL}`);
+    } else {
+      showFormMsg(msg, "err", t("form.fail"), mailtoFrom(form, subjectNow()));
+    }
   }
+
+  if (sink) sink.addEventListener("load", () => done(true));
 }
 
 function bindRentalForm() {
-  const form = $("#rentalForm");
-  if (!form) return;
-  form.addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    sendEnquiry(buildRental(), "rentalMsg", "form.sent");
+  bindMailForm($("#rentalForm"), {
+    msgId: "rentalMsg",
+    submitKey: "form.submit",
+    okKey: "form.sent",
+    subjectField: "お名前 / Name",
+    subject: (name) => `[PLUSWIN HALL OSAKA] レンタル相談 — ${name || "(no name)"}`
   });
 }
 
 function bindStandForm() {
-  const form = $("#standForm");
-  if (!form) return;
-  form.addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    sendEnquiry(buildStand(), "standMsg", "stand.status");
+  bindMailForm($("#standForm"), {
+    msgId: "standMsg",
+    submitKey: "stand.submit",
+    okKey: "stand.status",
+    subjectField: "公演名・出演者名 / Show",
+    subject: (perf) => `[PLUSWIN] スタンド花・バルーン申請 — ${perf || "(no title)"}`
   });
 }
 

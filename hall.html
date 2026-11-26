@@ -351,31 +351,36 @@
           <h2 class="block-title" data-i18n="hall.formTitle">レンタル・見学のお問い合わせ</h2>
           <p class="form-sub" data-i18n="rental.formSub">必要事項をご記入のうえ送信してください。担当者より2〜3営業日以内にご連絡します。</p>
 
-          <form id="rentalForm" novalidate>
+          <form id="rentalForm" method="POST" action="https://formsubmit.co/info@pluswin.jp" target="pwMailSink" accept-charset="UTF-8">
+            <input type="hidden" name="_subject" value="[PLUSWIN HALL OSAKA] レンタル相談">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-grid">
               <div class="field">
                 <label for="f-name"><span data-i18n="form.name">お名前</span> <i>*</i></label>
-                <input id="f-name" name="name" type="text" required data-i18n-ph="form.namePh" placeholder="山田 太郎" autocomplete="name">
+                <input id="f-name" name="お名前 / Name" type="text" required data-i18n-ph="form.namePh" placeholder="山田 太郎" autocomplete="name">
               </div>
               <div class="field">
                 <label for="f-company" data-i18n="form.company">会社・団体名</label>
-                <input id="f-company" name="company" type="text" data-i18n-ph="form.companyPh" placeholder="株式会社〇〇" autocomplete="organization">
+                <input id="f-company" name="会社・団体名 / Company" type="text" data-i18n-ph="form.companyPh" placeholder="株式会社〇〇" autocomplete="organization">
               </div>
               <div class="field">
                 <label for="f-email"><span data-i18n="form.email">メールアドレス</span> <i>*</i></label>
-                <input id="f-email" name="email" type="email" required data-i18n-ph="form.emailPh" placeholder="you@example.com" autocomplete="email">
+                <input id="f-email" name="メールアドレス / Email" type="email" required data-i18n-ph="form.emailPh" placeholder="you@example.com" autocomplete="email">
               </div>
               <div class="field">
                 <label for="f-tel" data-i18n="form.tel">電話番号</label>
-                <input id="f-tel" name="tel" type="tel" data-i18n-ph="form.telPh" placeholder="090-0000-0000" autocomplete="tel">
+                <input id="f-tel" name="電話番号 / Tel" type="tel" data-i18n-ph="form.telPh" placeholder="090-0000-0000" autocomplete="tel">
               </div>
               <div class="field">
                 <label for="f-date" data-i18n="form.date">ご希望の日程</label>
-                <input id="f-date" name="date" type="date">
+                <input id="f-date" name="希望日 / Preferred date" type="date">
               </div>
               <div class="field">
                 <label for="f-purpose" data-i18n="form.purpose">利用目的</label>
-                <select id="f-purpose" name="purpose">
+                <select id="f-purpose" name="利用目的 / Purpose">
                   <option data-i18n="form.purpose1">ライブ・コンサート</option>
                   <option data-i18n="form.purpose2">ファンミーティング・イベント</option>
                   <option data-i18n="form.purpose3">撮影・配信・収録</option>
@@ -385,11 +390,11 @@
               </div>
               <div class="field field-wide">
                 <label for="f-people" data-i18n="form.people">予定人数</label>
-                <input id="f-people" name="people" type="number" min="1" placeholder="150">
+                <input id="f-people" name="予定人数 / Attendance" type="number" min="1" placeholder="150">
               </div>
               <div class="field field-wide">
                 <label for="f-message"><span data-i18n="form.message">ご相談内容</span> <i>*</i></label>
-                <textarea id="f-message" name="message" required data-i18n-ph="form.messagePh" placeholder="公演内容、ご希望の時間帯、機材の有無など"></textarea>
+                <textarea id="f-message" name="ご相談内容 / Message" required data-i18n-ph="form.messagePh" placeholder="公演内容、ご希望の時間帯、機材の有無など"></textarea>
               </div>
             </div>
             <div class="form-msg" id="rentalMsg" role="status" aria-live="polite"></div>
@@ -407,6 +412,7 @@
     </div>
   </section>
 
+<iframe id="pwMailSink" name="pwMailSink" class="form-sink" title="Form submission" aria-hidden="true" tabindex="-1"></iframe>
 </main>
 
 <footer class="site-footer">

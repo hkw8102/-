@@ -1139,3 +1139,7 @@ section[id]{scroll-margin-top:78px}
 
 /* small fixes: inline link in the FAQ side column */
 .faq-side .link-arrow{width:max-content;justify-self:start}
+
+/* form plumbing: hidden iframe target, honeypot and disabled submit */
+.form-sink{display:none;width:0;height:0;border:0}
+.form-honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}

@@ -671,6 +671,8 @@ section[id]{scroll-margin-top:78px}
     opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s;
   }
   .nav.is-open{opacity:1;visibility:visible}
+  .header-inner .brand,.header-inner .header-right{position:relative;z-index:46}
+  .nav.is-open{padding-top:104px}
   .nav a{font-size:22px;font-weight:700;color:var(--txt);padding:12px 0;letter-spacing:-.01em}
   .nav a::after{display:none}
   .header-right{margin-left:auto}

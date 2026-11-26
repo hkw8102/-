@@ -7,7 +7,7 @@ Object.assign(T.ja, {
   "meta.homeTitle": "PLUSWIN | プラスウイン株式会社 — ライブホール PLUSWIN HALL OSAKA・イベント制作",
   "meta.homeDesc": "プラスウイン株式会社（PLUSWIN Co., Ltd.）は大阪・心斎橋のライブホール PLUSWIN HALL OSAKA を拠点に、ホールの運営・レンタルとイベントの企画・制作・運営を行うライブエンターテインメントカンパニーです。",
   "meta.archiveTitle": "過去公演アーカイブ | PLUSWIN — プラスウイン株式会社",
-  "meta.archiveDesc": "2012年以降、プラスウインが企画・制作・運営してきた公演のアーカイブ。ポスターから公演の詳細と注意事項を確認できます。",
+  "meta.archiveDesc": "2023年以降、プラスウインが企画・制作・運営してきた公演のアーカイブ。公演日と会場を一覧でご覧いただけます。",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — 施設概要・平面図・アクセス・レンタル料金 | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA（大阪市中央区宗右衛門町）の施設概要、座席平面図、アクセス、レンタル料金表、お問い合わせフォーム。着席220名／スタンディング350名。",
   "meta.standTitle": "スタンド花・バルーンスタンド | PLUSWIN",
@@ -48,7 +48,7 @@ Object.assign(T.ja, {
 
   "hall.eyebrow": "PLUSWIN HALL OSAKA",
   "hall.title": "ホールのご案内",
-  "hall.lead": "心斎橋・宗右衛門町、美松ビル B1。着席220名／スタンディング350名のライブホールです。音響・照明・高精細LED・生配信環境を常設し、レンタルはこの1館のみで承ります。",
+  "hall.lead": "心斎橋・宗右衛門町、美松ビル B1。着席220名／スタンディング350名のライブホールです。音響・照明・高精細LED・生配信環境を常設し、レンタルは PLUSWIN HALL OSAKA で承ります。",
   "hall.jumpSpec": "施設概要",
   "hall.jumpFloor": "平面図",
   "hall.jumpAccess": "アクセス",
@@ -57,9 +57,6 @@ Object.assign(T.ja, {
   "hall.specTitle": "施設概要",
   "hall.nameK": "ホール名",
   "hall.photoCap": "PLUSWIN HALL OSAKA（心斎橋・宗右衛門町）",
-  "hall.point1": "可動式の客席に、音響・照明・高精細LEDを常設",
-  "hall.point2": "生配信・収録に対応した配信環境",
-  "hall.point3": "楽屋2室、物販所、受付、エントランスホール",
   "hall.planTitle": "座席平面図",
   "hall.accessTitle": "アクセス",
   "hall.ratesTitle": "レンタル料金表",
@@ -67,7 +64,7 @@ Object.assign(T.ja, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "過去公演アーカイブ",
-  "archive.lead": "2012年以降、プラスウインが企画・制作・運営してきた公演の記録です。公演日と会場を一覧でご覧いただけます。",
+  "archive.lead": "2023年以降、プラスウインが企画・制作・運営してきた公演の記録です。公演日と会場を一覧でご覧いただけます。",
   "archive.filterLabel": "年で絞り込む",
 
   "stand.pageLead": "プラスウイン主催公演へのスタンド花・バルーンスタンドのお申し込みは事前申請制です。以下の注意事項をご確認のうえ、開催1か月前から申請フォームよりお申し込みください。",
@@ -78,7 +75,7 @@ Object.assign(T.ko, {
   "meta.homeTitle": "PLUSWIN | 주식회사 플러스윈 — 라이브홀 PLUSWIN HALL OSAKA·이벤트 제작",
   "meta.homeDesc": "플러스윈(PLUSWIN Co., Ltd.)은 오사카 신사이바시의 라이브홀 PLUSWIN HALL OSAKA를 거점으로 홀 운영·대관과 이벤트 기획·제작·운영을 하는 라이브 엔터테인먼트 기업입니다.",
   "meta.archiveTitle": "지난 공연 아카이브 | PLUSWIN — 주식회사 플러스윈",
-  "meta.archiveDesc": "2012년 이후 플러스윈이 기획·제작·운영한 공연 아카이브. 포스터에서 공연 상세와 주의사항을 확인할 수 있습니다.",
+  "meta.archiveDesc": "2023년 이후 플러스윈이 기획·제작·운영한 공연 아카이브. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — 시설 개요·평면도·오시는 길·대관 요금 | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA(오사카시 주오구 소에몬초)의 시설 개요, 좌석 평면도, 오시는 길, 대관 요금표, 문의 폼. 지정석 220석·스탠딩 350명.",
   "meta.standTitle": "스탠드 화환·벌룬 스탠드 | PLUSWIN",
@@ -119,7 +116,7 @@ Object.assign(T.ko, {
 
   "hall.eyebrow": "PLUSWIN HALL OSAKA",
   "hall.title": "홀 안내",
-  "hall.lead": "신사이바시 소에몬초, 미마츠빌딩 B1. 지정석 220석·스탠딩 350명의 라이브홀입니다. 음향·조명·고정밀 LED·생중계 환경을 상설로 갖추고, 대관은 이 한 곳에서만 진행합니다.",
+  "hall.lead": "신사이바시 소에몬초, 미마츠빌딩 B1. 지정석 220석·스탠딩 350명의 라이브홀입니다. 음향·조명·고정밀 LED·생중계 환경을 상설로 갖추고, 대관은 PLUSWIN HALL OSAKA에서 진행합니다.",
   "hall.jumpSpec": "시설 개요",
   "hall.jumpFloor": "평면도",
   "hall.jumpAccess": "오시는 길",
@@ -128,9 +125,6 @@ Object.assign(T.ko, {
   "hall.specTitle": "시설 개요",
   "hall.nameK": "홀 이름",
   "hall.photoCap": "PLUSWIN HALL OSAKA (신사이바시·소에몬초)",
-  "hall.point1": "가동식 객석에 음향·조명·고정밀 LED를 상설",
-  "hall.point2": "생중계·녹화에 대응하는 중계 환경",
-  "hall.point3": "대기실 2실, 굿즈 판매 공간, 접수, 입구 홀",
   "hall.planTitle": "좌석 평면도",
   "hall.accessTitle": "오시는 길",
   "hall.ratesTitle": "대관 요금표",
@@ -138,7 +132,7 @@ Object.assign(T.ko, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "지난 공연 아카이브",
-  "archive.lead": "2012년 이후 플러스윈이 기획·제작·운영한 공연의 기록입니다. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
+  "archive.lead": "2023년 이후 플러스윈이 기획·제작·운영한 공연의 기록입니다. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
   "archive.filterLabel": "연도로 좁히기",
 
   "stand.pageLead": "플러스윈 주최 공연의 스탠드 화환·벌룬 스탠드는 사전 신청제입니다. 아래 안내를 확인하신 뒤 공연 1개월 전부터 신청 폼으로 신청해 주세요.",
@@ -149,7 +143,7 @@ Object.assign(T.en, {
   "meta.homeTitle": "PLUSWIN | Pluswin Co., Ltd. — Live Hall PLUSWIN HALL OSAKA & Event Production",
   "meta.homeDesc": "Pluswin Co., Ltd. is a live entertainment company based at PLUSWIN HALL OSAKA in Shinsaibashi, Osaka — operating a live hall and rental venue and producing events.",
   "meta.archiveTitle": "Past events | PLUSWIN — Pluswin Co., Ltd.",
-  "meta.archiveDesc": "An archive of shows PLUSWIN has planned, produced and operated since 2012. Open a poster for details and guidelines.",
+  "meta.archiveDesc": "An archive of shows PLUSWIN has planned, produced and operated since 2023 — when and where each one took place.",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — specs, floor plan, access & rental rates | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA (Soemoncho, Chuo-ku, Osaka): specs, seating plan, access, rental rate card and enquiry form. 220 seated / 350 standing.",
   "meta.standTitle": "Flower & balloon stands | PLUSWIN",
@@ -190,7 +184,7 @@ Object.assign(T.en, {
 
   "hall.eyebrow": "PLUSWIN HALL OSAKA",
   "hall.title": "The hall",
-  "hall.lead": "B1 Mimatsu Building, Soemoncho, Shinsaibashi — a 220-seated / 350-standing live hall with permanent sound, lighting, high-definition LED and streaming facilities. Rental is offered at this hall only.",
+  "hall.lead": "B1 Mimatsu Building, Soemoncho, Shinsaibashi — a 220-seated / 350-standing live hall with permanent sound, lighting, high-definition LED and streaming facilities. Rental is offered for PLUSWIN HALL OSAKA.",
   "hall.jumpSpec": "Specs",
   "hall.jumpFloor": "Floor plan",
   "hall.jumpAccess": "Access",
@@ -199,9 +193,6 @@ Object.assign(T.en, {
   "hall.specTitle": "Specifications",
   "hall.nameK": "Hall",
   "hall.photoCap": "PLUSWIN HALL OSAKA — Soemoncho, Shinsaibashi",
-  "hall.point1": "Movable seating with permanent sound, lighting and high-definition LED",
-  "hall.point2": "Streaming and recording-ready infrastructure",
-  "hall.point3": "2 dressing rooms, merch area, reception and entrance hall",
   "hall.planTitle": "Floor plan",
   "hall.accessTitle": "Access",
   "hall.ratesTitle": "Rental rates",
@@ -209,7 +200,7 @@ Object.assign(T.en, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "Past events",
-  "archive.lead": "A record of shows PLUSWIN has planned, produced and operated since 2012 — when and where each one took place.",
+  "archive.lead": "A record of shows PLUSWIN has planned, produced and operated since 2023 — when and where each one took place.",
   "archive.filterLabel": "Filter by year",
 
   "stand.pageLead": "Flower and balloon stands for PLUSWIN-produced shows are by advance application only. Please read the guidelines below and apply from one month before the show.",
@@ -290,7 +281,7 @@ Object.assign(T.ja, {
   "map.river": "道頓堀川",
 
   "fp.stage": "STAGE",
-  "fp.stageDim": "W7,625 × D5,000 × H500",
+  "fp.stageDim": "W7,625 × D5,000 × H500 mm",
   "fp.f.elevator": "エレベーターホール",
   "fp.f.office": "事務所",
   "fp.f.lobby": "ロビー・物販所",
@@ -420,7 +411,7 @@ Object.assign(T.ko, {
   "map.river": "도톤보리강",
 
   "fp.stage": "STAGE",
-  "fp.stageDim": "W7,625 × D5,000 × H500",
+  "fp.stageDim": "W7,625 × D5,000 × H500 mm",
   "fp.f.elevator": "엘리베이터 홀",
   "fp.f.office": "사무소",
   "fp.f.lobby": "로비·물판",
@@ -550,7 +541,7 @@ Object.assign(T.en, {
   "map.river": "Dotonbori River",
 
   "fp.stage": "STAGE",
-  "fp.stageDim": "W7,625 × D5,000 × H500",
+  "fp.stageDim": "W7,625 × D5,000 × H500 mm",
   "fp.f.elevator": "Elevator hall",
   "fp.f.office": "Office",
   "fp.f.lobby": "Lobby & merch",

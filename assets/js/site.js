@@ -95,11 +95,13 @@ function localizeLinks() {
 /* ---------- renderers: home ---------- */
 function eventCard(e) {
   const soon = e.status === "soon";
+  const cancel = e.cancelBadge ? `<span class="evc-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
   return `
     <article class="evc" data-id="${e.id}">
       <button class="evc-media" type="button" data-open="${e.id}" style="--poster:url('${e.poster}')" aria-label="${esc(e.title)} — ${t("events.detail")}">
         <img src="${e.poster}" alt="${esc(e.title)}" loading="lazy" decoding="async">
         <span class="evc-status${soon ? " is-soon" : ""}">${soon ? t("events.soon") : t("events.onsale")}</span>
+        ${cancel}
         <span class="evc-stamp"><b>${monthName(e.month)}</b><i>${String(e.day).padStart(2, "0")}</i><em>${esc(e.weekday[lang])}</em></span>
       </button>
       <div class="evc-body">
@@ -251,8 +253,9 @@ function openDrawer(id) {
   if (!content) return;
   state.openId = id;
   const addrKey = lang === "ko" ? "addrKo" : lang === "en" ? "addrEn" : "addrJa";
+  const cancel = e.cancelBadge ? `<span class="dr-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
   content.innerHTML = `
-    <div class="dr-hero" style="--poster:url('${e.poster}')"><img src="${e.poster}" alt="${esc(e.title)}"></div>
+    <div class="dr-hero" style="--poster:url('${e.poster}')"><img src="${e.poster}" alt="${esc(e.title)}">${cancel}</div>
     <div class="dr-body">
       <div class="dr-kicker">
         <span class="ev-city">${esc(e.cityLabel)}</span>

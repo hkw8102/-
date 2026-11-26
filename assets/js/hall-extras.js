@@ -90,9 +90,9 @@ const FAQ_ITEMS = [
   {
     q: { ja: "会場への行き方を教えてください。", ko: "공연장까지 가는 길을 알려 주세요.", en: "How do I get to the hall?" },
     a: {
-      ja: "地下鉄 日本橋駅2番出口から徒歩約4分、なんば駅から徒歩約8分です。堺筋を北へ進み、宗右衛門町を千年町筋方面へ入ると美松ビルがあります。会場は地下1階です。道順は上の「アクセス」をご覧ください。",
-      ko: "지하철 니혼바시역 2번 출구에서 도보 약 4분, 난바역에서 도보 약 8분입니다. 사카이스지를 북쪽으로 올라가 소에몬초에서 지토세마치스지 방향으로 들어가면 미마츠빌딩이 있습니다. 공연장은 지하 1층입니다. 자세한 길은 위의 '오시는 길'을 봐 주세요.",
-      en: "About 4 minutes on foot from Nihonbashi Station Exit 2, and about 8 minutes from Namba Station. Walk north along Sakaisuji, then head from Soemoncho towards Chitose-machi-suji to reach the Mimatsu Building; the hall is on B1. See Access above for the step-by-step route."
+      ja: "地下鉄 日本橋駅の2番出口から徒歩約4分、なんば駅から徒歩約8分です。会場は美松ビルの地下1階です。駅からの道順は、上の「アクセス」をご覧ください。",
+      ko: "지하철 니혼바시역 2번 출구에서 도보 약 4분, 난바역에서 도보 약 8분입니다. 공연장은 미마츠빌딩 지하 1층입니다. 역에서 오는 길은 위의 '오시는 길'을 봐 주세요.",
+      en: "About 4 minutes on foot from Nihonbashi Station Exit 2 and about 8 minutes from Namba Station. The hall is on B1 of the Mimatsu Building — see Access above for the route from each station."
     }
   },
   {

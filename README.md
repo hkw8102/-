@@ -3,24 +3,39 @@
 **Live preview: https://hkw8102.github.io/-/**
 
 A 3-language (日本語 / 한국어 / English) prototype of the renewed **pluswin.net** site for
-プラスウイン株式会社 (PLUSWIN Entertainment), Osaka.
+プラスウイン株式会社 (PLUSWIN Entertainment), Osaka — built as four compact pages that share one
+header, footer, design system and language state.
 
-- `index.html` — page (static, no build step)
-- `styles.css` — design system & layout
-- `app.js` — content data, JP/KR/EN translations, event detail drawer + guidelines, past-event archive, rental form, stand-flower guidelines & application
+## Pages
+
+| Page | What it holds |
+| --- | --- |
+| `index.html` | Compact landing page: hero + key stats, 4 upcoming show cards with a detail drawer, 2-link action bar to the archive and the stand-flower guide, business overview (2 cards), hall overview (specs summary + access), company table, contact desks and official SNS. |
+| `archive.html` | Past-event archive: all **53 shows**, year filter (All / 2026 / 2025 / 2024 / 2023), poster grid with a details drawer (venue, date, guidelines, link to pluswin.net). |
+| `hall.html` | PLUSWIN HALL OSAKA: full specs, seating floor plan, access (Nihonbashi 4 min / Namba 8 min) with map, the **2026-03-23 official rate card**, options, 6 usage terms and the rental / site-visit enquiry form (`#rental-form`). |
+| `stand.html` | Stand flower & balloon guide: the 6 placement rules (2×3 cards) and the embedded application form. |
+
+## Files
+
+- `index.html`, `archive.html`, `hall.html`, `stand.html` — static pages (no build step)
+- `styles.css` — design system & layout (shared + compact 4-page additions)
+- `assets/js/data.js` — content data and the JP/KR/EN dictionary
+- `assets/js/i18n-extra.js` — strings added for the compact 4-page layout
+- `assets/js/site.js` — language state, page renderers, drawers, forms, navigation
 - `assets/` — photos, event posters, hall floor plan & access map, official logo, subset webfonts
 
-Language switcher: **JP / KR / EN** in the header (also `?lang=ja|ko|en`).
-Open `index.html` directly, or serve the folder with any static server.
+Language switcher: **JP / KR / EN** in the header and footer. The choice is kept in
+`localStorage` (`pluswin.lang`) and in the `?lang=ja|ko|en` query parameter, so it survives
+moving between pages. Open `index.html` directly, or serve the folder with any static server.
 
-Content: live hall (PLUSWIN HALL OSAKA) with **floor plan, facilities and access (Nihonbashi 4 min /
-Namba 8 min)**, venue rental with the **full rate card** (weekday / weekend rates, extension,
-operator fee, options, streaming), event planning & production, upcoming shows (KEN / ERU / HYUK /
-JINHO), **past-event archive (53 shows, 2023–2026)** with poster grid and year filter, event detail
-drawer with collapsible **guidelines & precautions** (JP/KR/EN), **flower & balloon stand
-guidelines with an application form** (linked from every event drawer), rental enquiry form,
-company profile, and **official SNS links** (X / Instagram — no YouTube).
+## Content constraints
 
-Fonts: Noto Sans JP / KR, subset to the characters used on the page (OFL).
+- Standing capacity **350** (not 500); seated 220.
+- Only **PLUSWIN HALL OSAKA** — no other halls, no vision / restaurant / affiliated artists /
+  dance studio / artist management.
+- Official `PLUSWIN ENTERTAINMENT` white + cyan logo in header, footer and favicon.
+- Official SNS only: X (`@mh_klovers`) and Instagram (`@kloversxpluswin`) — no YouTube.
+
+Fonts: Noto Sans JP / KR, subset to the characters used on the four pages (OFL).
 
 This is a preview build — not the production site. Search indexing is disabled.

@@ -850,7 +850,10 @@ function renderEvents() {
 }
 
 function pastFiltered() {
-  return PAST.filter((p) => state.pastYear === "all" || p.year === state.pastYear);
+  return PAST
+    .filter((p) => state.pastYear === "all" || p.year === state.pastYear)
+    .slice()
+    .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
 }
 
 function renderPast() {

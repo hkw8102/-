@@ -769,7 +769,7 @@ const EVENTS = [
       ko: "한국의 실력파 발라드 가수 ERU, 일본 첫 팬미팅.",
       en: "Korean ballad singer ERU's first fan meeting in Japan."
     },
-    priceLabel: { ja: "全席指定 ¥11,000", ko: "전석 지정석 ¥11,000", en: "Reserved ¥11,000" },
+    priceLabel: { ja: "自由席 ¥11,000", ko: "자유석 ¥11,000", en: "Unreserved ¥11,000" },
     priceFrom: "¥11,000",
     cancelBadge: { ja: "12/12 13:00 中止", ko: "12/12 13:00 중지", en: "12/12 13:00 CANCELED" },
     venues: [HALL_OSAKA],
@@ -778,12 +778,12 @@ const EVENTS = [
       { ja: "2026.12.12 (土) 18:00 開演（13:00の部は中止）", ko: "2026.12.12 (토) 18:00 개연 (13:00 공연은 중지)", en: "12 Dec 2026 (Sat) — show 18:00 (13:00 performance cancelled)" }
     ],
     sessions: [
-      { name: { ja: "12/11 (金)", ko: "12/11 (금)", en: "11 Dec (Fri)" }, open: "18:30", start: "19:00", price: "¥11,000", seat: { ja: "全席指定", ko: "전석 지정석", en: "Reserved seating" }, note: { ja: "当日券 ¥12,000", ko: "당일권 ¥12,000", en: "Door ¥12,000" } },
-      { name: { ja: "12/12 (土)", ko: "12/12 (토)", en: "12 Dec (Sat)" }, open: "17:30", start: "18:00", price: "¥11,000", seat: { ja: "全席指定", ko: "전석 지정석", en: "Reserved seating" }, note: { ja: "当日券 ¥12,000／13:00の部は中止", ko: "당일권 ¥12,000 / 13:00 공연은 중지", en: "Door ¥12,000 / 13:00 performance cancelled" } }
+      { name: { ja: "12/11 (金)", ko: "12/11 (금)", en: "11 Dec (Fri)" }, open: "18:30", start: "19:00", price: "¥11,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥12,000", ko: "당일권 ¥12,000", en: "Door ¥12,000" } },
+      { name: { ja: "12/12 (土)", ko: "12/12 (토)", en: "12 Dec (Sat)" }, open: "17:30", start: "18:00", price: "¥11,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥12,000／13:00の部は中止", ko: "당일권 ¥12,000 / 13:00 공연은 중지", en: "Door ¥12,000 / 13:00 performance cancelled" } }
     ],
     notes: [
       { ja: "各公演後に特典会を予定しています。", ko: "각 공연 후 특전회를 예정하고 있습니다.", en: "A fan event follows each show." },
-      { ja: "全席指定・先着販売。お一人様4枚まで。", ko: "전석 지정석·선착순 판매. 1인 4매까지.", en: "Reserved seating, first come. Up to 4 tickets per person." },
+      { ja: "整理番号付き自由席・先着販売。お一人様4枚まで。", ko: "정리번호 있는 자유석·선착순 판매. 1인 4매까지.", en: "Free seating (numbered), first come. Up to 4 tickets per person." },
       { ja: "3歳未満は入場不可。", ko: "만 3세 미만 입장 불가.", en: "Children under 3 not admitted." },
       { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
     ],

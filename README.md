@@ -11,7 +11,7 @@ header, footer, design system and language state.
 | Page | What it holds |
 | --- | --- |
 | `index.html` | Compact landing page: hero + key stats, 4 upcoming show cards with a detail drawer, 2-link action bar to the archive and the stand-flower guide, business overview (2 cards), hall overview (specs summary + access), company table, contact desks and official SNS. |
-| `archive.html` | Past-event archive: all **53 shows**, year filter (All / 2026 / 2025 / 2024 / 2023), poster grid with a details drawer (venue, date, guidelines, link to pluswin.net). |
+| `archive.html` | Past-event archive: all **53 shows**, year filter (All / 2026 / 2025 / 2024 / 2023) and a plain poster grid — artist, title, date and venue only. No detail drawer: details belong to the upcoming shows on `index.html`. |
 | `hall.html` | PLUSWIN HALL OSAKA: full specs, seating floor plan, step-by-step access from Nihonbashi Exit 2 and Namba with map, the **2026-03-23 official rate card**, options, 6 usage terms, the rental availability calendar (`#availability`, ○ / △ / ×), a 12-question FAQ (`#faq`), the spec-sheet PDF download and the rental / site-visit enquiry form (`#rental-form`). |
 | `stand.html` | Stand flower & balloon guide: the 6 placement rules (2×3 cards) and the embedded application form. |
 

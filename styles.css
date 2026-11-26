@@ -209,7 +209,7 @@ section[id]{scroll-margin-top:78px}
 /* ============ EVENT CARDS ============ */
 .event-grid{display:grid;gap:14px}
 .event-card{
-  position:relative;display:grid;grid-template-columns:200px minmax(0,1fr);text-align:left;
+  position:relative;display:grid;grid-template-columns:250px minmax(0,1fr);text-align:left;
   overflow:hidden;border:1px solid var(--line);border-radius:3px;background:var(--card);isolation:isolate;
   transition:border-color .3s var(--ease),transform .3s var(--ease),background .3s;
 }

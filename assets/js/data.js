@@ -147,7 +147,7 @@ const T = {
     "rental.dayWeekday": "平日",
     "rental.dayWeekend": "土日祝",
     "rental.dayCommon": "共通",
-    "rental.timeWk6": "10:00–16:00 / 16:00–22:00（6時間×2区分）",
+    "rental.timeWk6": "6時間（10:00–16:00 または 16:00–22:00）",
     "rental.timeWk12": "10:00 – 22:00（12時間）",
     "rental.timeExt": "延長（1時間）",
     "rental.timeOp": "音響照明オペレーター技術費（1公演）",
@@ -378,7 +378,7 @@ const T = {
     "rental.dayWeekday": "평일",
     "rental.dayWeekend": "주말·공휴일",
     "rental.dayCommon": "공통",
-    "rental.timeWk6": "10:00–16:00 / 16:00–22:00(6시간×2구분)",
+    "rental.timeWk6": "6시간(10:00–16:00 또는 16:00–22:00)",
     "rental.timeWk12": "10:00 – 22:00(12시간)",
     "rental.timeExt": "연장(1시간)",
     "rental.timeOp": "음향·조명 오퍼레이터 기술료(공연 1회)",
@@ -609,7 +609,7 @@ const T = {
     "rental.dayWeekday": "Weekdays",
     "rental.dayWeekend": "Weekends & holidays",
     "rental.dayCommon": "All days",
-    "rental.timeWk6": "10:00–16:00 / 16:00–22:00 (two 6-hour blocks)",
+    "rental.timeWk6": "6 hours (10:00–16:00 or 16:00–22:00)",
     "rental.timeWk12": "10:00 – 22:00 (12 hours)",
     "rental.timeExt": "Extension (per hour)",
     "rental.timeOp": "Sound & lighting operator fee (per show)",
@@ -747,7 +747,8 @@ const EVENTS = [
     notes: [
       { ja: "各公演後に特典会を予定しています。", ko: "각 공연 후 팬사인회(특전회)를 예정하고 있습니다.", en: "A fan event follows each show." },
       { ja: "東京公演は日程・会場が変更になりました。最新の案内をご確認ください。", ko: "도쿄 공연은 일정·회장이 변경되었습니다. 최신 안내를 확인해 주세요.", en: "The Tokyo dates and venue have changed — please check the latest notice." },
-      { ja: "お一人様4枚まで予約可。3歳未満は入場不可。", ko: "1인 4매까지 예매 가능. 만 3세 미만 입장 불가.", en: "Up to 4 tickets per person. Children under 3 not admitted." }
+      { ja: "お一人様4枚まで予約可。3歳未満は入場不可。", ko: "1인 4매까지 예매 가능. 만 3세 미만 입장 불가.", en: "Up to 4 tickets per person. Children under 3 not admitted." },
+      { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
     ],
     ticketNote: { ja: "発売中（イープラス・先着）", ko: "판매 중 (이플러스·선착순)", en: "On sale now (e+, first come)" }
   },
@@ -783,7 +784,8 @@ const EVENTS = [
     notes: [
       { ja: "各公演後に特典会を予定しています。", ko: "각 공연 후 특전회를 예정하고 있습니다.", en: "A fan event follows each show." },
       { ja: "全席指定・先着販売。お一人様4枚まで。", ko: "전석 지정석·선착순 판매. 1인 4매까지.", en: "Reserved seating, first come. Up to 4 tickets per person." },
-      { ja: "3歳未満は入場不可。", ko: "만 3세 미만 입장 불가.", en: "Children under 3 not admitted." }
+      { ja: "3歳未満は入場不可。", ko: "만 3세 미만 입장 불가.", en: "Children under 3 not admitted." },
+      { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
     ],
     ticketNote: { ja: "発売中（LivePocket・先着）", ko: "판매 중 (LivePocket·선착순)", en: "On sale now (LivePocket, first come)" }
   },

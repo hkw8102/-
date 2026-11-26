@@ -28,6 +28,7 @@
 .est-panel{
   background:var(--card);border:1px solid var(--line);border-radius:3px;
   padding:clamp(16px,2.2vw,24px);
+  overflow-x:clip;                /* last-resort guard: nothing escapes the card */
   color-scheme:dark;              /* native date/time pickers follow the theme */
 }
 
@@ -48,19 +49,35 @@
   color:var(--accent-ink,var(--accent));
 }
 .est-group > legend b{display:block;font-family:var(--sans);font-size:14px;letter-spacing:-.01em;color:var(--txt);margin-top:5px;font-weight:800;text-transform:none}
-.est-grid{display:grid;gap:10px}
+.est-grid{display:grid;gap:10px;min-width:0;max-width:100%}
+.est-grid > *{min-width:0;max-width:100%}
 .est-grid.g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .est-grid.g-plan{grid-template-columns:minmax(0,1.6fr) minmax(0,.4fr)}
 .est-grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .est-grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:520px){.est-grid.g3,.est-grid.g4{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 
-.est-field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.est-field{display:flex;flex-direction:column;gap:5px;min-width:0;max-width:100%}
 .est-field > span{font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--dim)}
 .est-field input,.est-field select,.est-field textarea{
   font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--txt);
   background:var(--card-2);border:1px solid var(--line-2);border-radius:2px;
-  padding:8px 9px;width:100%;min-width:0;
+  padding:8px 9px;
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;display:block;
+}
+/* date / time controls keep a native intrinsic width in WebKit: kill it there so
+   the field can never push out of its grid cell or past the card edge */
+.est-field input[type="date"],.est-field input[type="time"]{
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;display:block;
+  text-align:left;min-height:35px;
+}
+@supports (-webkit-touch-callout:none){
+  .est-field input[type="date"],.est-field input[type="time"]{
+    -webkit-appearance:none;appearance:none;
+    padding:8px 9px;background:var(--card-2);
+  }
+  .est-field input[type="date"]::-webkit-date-and-time-value,
+  .est-field input[type="time"]::-webkit-date-and-time-value{text-align:left;margin:0}
 }
 .est-field input:focus,.est-field select:focus,.est-field textarea:focus{
   outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent);
@@ -74,9 +91,9 @@
 .est-check em{font-style:normal;font-family:var(--mono);color:var(--dim);font-size:11px;margin-left:auto;flex:none}
 .est-rowcheck{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
 .est-rowcheck:last-child{border-bottom:0}
-.est-rowcheck .est-qty{width:64px;flex:none}
+.est-rowcheck .est-qty{width:64px;max-width:40%;flex:none;min-width:0}
 .est-rowcheck .est-field{padding:0}
-.est-rowcheck .est-field input{padding:5px 7px;font-size:12.5px}
+.est-rowcheck .est-field input{padding:5px 7px;font-size:12.5px;width:100%;max-width:100%}
 
 .est-sum{display:grid;gap:4px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2)}
 .est-sum div{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--dim)}
@@ -173,4 +190,12 @@
   }
   .paper{position:static !important;transform:none !important;box-shadow:none !important;margin:0 !important}
   .paper table{page-break-inside:avoid}
+}
+
+/* ---------- phones: one field per row, no iOS focus zoom ---------- */
+@media (max-width:640px){
+  .est-grid.g2,.est-grid.g3,.est-grid.g4,.est-grid.g-plan{grid-template-columns:minmax(0,1fr)}
+  .est-field input,.est-field select,.est-field textarea{font-size:16px}
+  .est-rowcheck{flex-wrap:wrap}
+  .est-rowcheck .est-qty{width:88px;max-width:100%}
 }

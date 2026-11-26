@@ -11,7 +11,8 @@
 <meta property="og:description" content="Live hall and venue rental, event production, artist management and dance studios — Osaka, Shinsaibashi.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/img/hall-live.jpg">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="preload" as="image" href="assets/img/hall-live.jpg">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,12 +23,8 @@
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="PLUSWIN">
-      <span class="brand-mark" aria-hidden="true">PW</span>
-      <span class="brand-txt">
-        <strong>PLUSWIN</strong>
-        <em data-i18n="brand.sub">プラスウイン株式会社</em>
-      </span>
+    <a class="brand" href="#top" aria-label="PLUSWIN ENTERTAINMENT">
+      <img class="brand-logo" src="assets/img/pluswin-logo.png" alt="PLUSWIN ENTERTAINMENT" width="297" height="68">
     </a>
 
     <nav class="nav" id="mainNav" aria-label="Main">
@@ -117,9 +114,26 @@
 
       <div class="event-grid" id="eventGrid"><!-- rendered by app.js --></div>
 
-      <div class="past reveal">
-        <p class="past-head" data-i18n="events.pastHead">PAST 2026</p>
-        <ul class="past-list" id="pastList"><!-- rendered by app.js --></ul>
+      <div class="past reveal" id="archive">
+        <div class="past-head">
+          <div>
+            <p class="past-eyebrow" data-i18n="events.pastEyebrow">TRACK RECORD</p>
+            <h3 class="past-title" data-i18n="events.pastTitle">過去公演アーカイブ</h3>
+          </div>
+          <p class="past-count"><b id="pastCount">53</b><span data-i18n="events.pastShows">公演</span></p>
+        </div>
+        <p class="past-desc" data-i18n="events.pastDesc">2012年以降、プラスウインが企画・制作・運営してきた公演の一部です。</p>
+
+        <div class="past-filters" id="pastFilters" role="group" aria-label="Filter past events">
+          <button type="button" class="filter is-active" data-past-filter="all" data-i18n="events.pastAll">すべて</button>
+          <button type="button" class="filter" data-past-filter="2026">2026</button>
+          <button type="button" class="filter" data-past-filter="2025">2025</button>
+          <button type="button" class="filter" data-past-filter="2024">2024</button>
+          <button type="button" class="filter" data-past-filter="2023">2023</button>
+        </div>
+
+        <div class="arch-grid" id="pastGrid"><!-- rendered by app.js --></div>
+        <button class="arch-more" id="pastMore" type="button" data-i18n="events.pastMore">もっと見る</button>
       </div>
     </div>
   </section>
@@ -372,7 +386,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="footer-mark">PLUSWIN</span>
+        <img class="footer-logo" src="assets/img/pluswin-logo.png" alt="PLUSWIN ENTERTAINMENT" width="297" height="68">
         <p data-i18n="footer.tagline">ステージから、エンターテインメントを動かす。</p>
         <div class="lang lang-footer" role="group" aria-label="Language">
           <button type="button" data-lang-btn="ja" aria-pressed="true">JP</button>

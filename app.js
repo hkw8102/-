@@ -34,6 +34,21 @@ const T = {
     "events.filterOsaka": "大阪",
     "events.filterTokyo": "東京",
     "events.pastHead": "PAST 2026",
+    "events.pastEyebrow": "TRACK RECORD",
+    "events.pastTitle": "過去公演アーカイブ",
+    "events.pastDesc": "2012年以降、プラスウインが企画・制作・運営してきた公演の一部です。ポスターを選ぶと、公演の詳細と注意事項を表示します。",
+    "events.pastAll": "すべて",
+    "events.pastMore": "もっと見る",
+    "events.pastLess": "閉じる",
+    "events.pastShows": "公演",
+    "past.openLabel": "詳細を見る",
+    "past.kicker": "PAST EVENT",
+    "past.date": "公演日",
+    "past.venue": "会場",
+    "past.producedBy": "企画・制作・運営：プラスウイン株式会社",
+    "past.source": "pluswin.net で見る",
+    "guide.title": "注意事項・ガイドライン",
+    "guide.lead": "以下はプラスウイン主催公演に共通するルールです。公演ごとに内容が異なる場合がありますので、各公演の案内もあわせてご確認ください。",
     "events.ticket": "チケット",
     "events.access": "アクセス",
     "events.detail": "詳細",
@@ -170,6 +185,21 @@ const T = {
     "events.filterOsaka": "오사카",
     "events.filterTokyo": "도쿄",
     "events.pastHead": "PAST 2026",
+    "events.pastEyebrow": "TRACK RECORD",
+    "events.pastTitle": "지난 공연 아카이브",
+    "events.pastDesc": "2012년 이후 플러스윈이 기획·제작·운영한 공연들입니다. 포스터를 선택하면 공연 상세 정보와 주의사항을 볼 수 있습니다.",
+    "events.pastAll": "전체",
+    "events.pastMore": "더 보기",
+    "events.pastLess": "접기",
+    "events.pastShows": "공연",
+    "past.openLabel": "상세 보기",
+    "past.kicker": "PAST EVENT",
+    "past.date": "공연일",
+    "past.venue": "공연장",
+    "past.producedBy": "기획·제작·운영: 플러스윈 주식회사",
+    "past.source": "pluswin.net에서 보기",
+    "guide.title": "공연·특전회 주의사항",
+    "guide.lead": "아래는 플러스윈 주최 공연의 공통 규칙입니다. 공연마다 내용이 다를 수 있으니 각 공연 안내도 함께 확인해 주세요.",
     "events.ticket": "예매하기",
     "events.access": "오시는 길",
     "events.detail": "상세",
@@ -306,6 +336,21 @@ const T = {
     "events.filterOsaka": "Osaka",
     "events.filterTokyo": "Tokyo",
     "events.pastHead": "PAST 2026",
+    "events.pastEyebrow": "TRACK RECORD",
+    "events.pastTitle": "Past events",
+    "events.pastDesc": "A selection of shows PLUSWIN has planned, produced and operated since 2012. Select a poster for details and guidelines.",
+    "events.pastAll": "All",
+    "events.pastMore": "Show more",
+    "events.pastLess": "Show less",
+    "events.pastShows": "shows",
+    "past.openLabel": "View details",
+    "past.kicker": "PAST EVENT",
+    "past.date": "Date",
+    "past.venue": "Venue",
+    "past.producedBy": "Planned, produced and operated by PLUSWIN",
+    "past.source": "View on pluswin.net",
+    "guide.title": "Guidelines & precautions",
+    "guide.lead": "These rules apply to PLUSWIN-produced shows. Details can differ by event, so please also check each show's own notice.",
     "events.ticket": "Tickets",
     "events.access": "Access",
     "events.detail": "Details",
@@ -572,9 +617,97 @@ const EVENTS = [
 ];
 
 const PAST = [
-  { title: "Kik5o FAN CONCERT RE:BORN IN OSAKA 2026", when: "2026.11" },
-  { title: "KO TAEWOON 1st FANMEETING in JAPAN [New Chapter:LINK]", when: "2026.10 – 11" },
-  { title: "2026 BAE JINYOUNG JAPAN FANMEETING [Autumn Breeze]", when: "2026.09 – 10" }
+  { key: "kik5o-2026", artist: "Kik5o", title: "FAN CONCERT RE:BORN IN OSAKA 2026", date: "2026.11.15", sort: "2026-11-15", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "assets/img/past/kik5o-2026.jpg", url: "https://www.pluswin.net/news-1-1/kik5o-japanlive" },
+  { key: "hanse-2026", artist: "HANSE", title: "JAPAN LIVE 2026 - Shine Forever", date: "2026.11 - 12", sort: "2026-11-24", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/hanse-2026.jpg", url: "https://www.pluswin.net/news-1-1/dohanse-japan-event" },
+  { key: "ko-taewoon", artist: "KO TAEWOON", title: "1st FANMEETING in JAPAN [New Chapter:LINK]", date: "2026.10.10 - 11.01", sort: "2026-10-10", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/ko-taewoon.jpg", url: "https://www.pluswin.net/news-1-1/kotaewoon" },
+  { key: "bae-jinyoung", artist: "BAE JINYOUNG", title: "JAPAN FANMEETING [Autumn Breeze]", date: "2026.09.11 - 10.04", sort: "2026-09-11", year: "2026", venue: "GOTANDA / OSAKA", poster: "assets/img/past/bae-jinyoung.jpg", url: "https://www.pluswin.net/news-1-1/baejinyoung" },
+  { key: "ehjm", artist: "EHJM", title: "2026 CONCERT IN OSAKA", date: "2026.08.22", sort: "2026-08-22", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/ehjm.jpg", url: "https://www.pluswin.net/news-1-1/ehjm-event" },
+  { key: "jeon-woong", artist: "JEON WOONG", title: "JAPAN FANMEETING [WOONG SUMMER NIGHT]", date: "2026.08.01 - 02", sort: "2026-08-01", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/jeon-woong.jpg", url: "https://www.pluswin.net/news-1-1/jeonwoong" },
+  { key: "klovers-2026-summer", artist: "K-LOVERS FES", title: "2026 SUMMER", date: "2026.08.01", sort: "2026-08-01", year: "2026", venue: "TEMPO HARBOR THEATER", poster: "assets/img/past/klovers-2026-summer.jpg", url: "https://www.pluswin.net/news-1-1/kloversfes2026summer" },
+  { key: "yeeun", artist: "YEEUN", title: "JAPAN FANMEETING 'Scent of Memories'", date: "2026.07.24 - 25", sort: "2026-07-24", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/yeeun.jpg", url: "https://www.pluswin.net/news-1-1/yeeun" },
+  { key: "cho-byeong-kyu", artist: "CHO BYEONG KYU", title: "JAPAN FAN MEETING -Welcome to CAFE BK-", date: "2026.07.18 - 19", sort: "2026-07-18", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/cho-byeong-kyu.jpg", url: "https://www.pluswin.net/news-1-1/chobyeongkyu-event" },
+  { key: "zelo", artist: "ZELO", title: "FANCONCERT [COMIGO:NEXT CHAPTER] in Japan", date: "2026.07.04 - 05", sort: "2026-07-04", year: "2026", venue: "TIAT SKY HALL", poster: "assets/img/past/zelo.jpg", url: "https://www.pluswin.net/news-1-1/zelo" },
+  { key: "wooseung", artist: "WOOSEUNG", title: "1st Fanmeeting in Osaka [MAY BE]", date: "2026.05.08 - 10", sort: "2026-05-08", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/wooseung.jpg", url: "https://www.pluswin.net/news-1-1/wooseung" },
+  { key: "jinho-dear-you", artist: "JINHO", title: "FAN CONCERT 'Dear. you' in JAPAN", date: "2026.04.25 - 05.01", sort: "2026-04-25", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/jinho-dear-you.jpg", url: "https://www.pluswin.net/news-1-1/jinho20260405" },
+  { key: "lee-jinsol", artist: "LEE JINSOL", title: "'from. Sagittarius' RELEASE LIVE in JAPAN", date: "2026.04.22 - 26", sort: "2026-04-22", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/lee-jinsol.jpg", url: "https://www.pluswin.net/news-1-1/jinsol" },
+  { key: "klovers-2026-spring", artist: "K-LOVERS FES", title: "2026 SPRING", date: "2026.04.18 - 19", sort: "2026-04-18", year: "2026", venue: "TEMPO HARBOR THEATER", poster: "assets/img/past/klovers-2026-spring.jpg", url: "https://www.pluswin.net/news-1-1/kloversfes" },
+  { key: "eastshine", artist: "EASTSHINE", title: "JAPAN LIVE 2026", date: "2026.04.17 - 05.06", sort: "2026-04-17", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/eastshine.jpg", url: "https://www.pluswin.net/news-1-1/eastshine-tour" },
+  { key: "jung-dae-hyun", artist: "JUNG DAE HYUN", title: "FANMEETING IN JAPAN <BLOOMING>", date: "2026.03.25 - 29", sort: "2026-03-25", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/jung-dae-hyun.jpg", url: "https://www.pluswin.net/news-1-1/daehyun" },
+  { key: "kik", artist: "KIK", title: "Asia Tour 2026", date: "2026.03.12 - 15", sort: "2026-03-12", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/kik.jpg", url: "https://www.pluswin.net/news-1-1/wooseok-live" },
+  { key: "jinho-winter-bloom", artist: "JINHO", title: "FAN-CON 'WINTER BLOOM' IN JAPAN", date: "2026.01.22 - 27", sort: "2026-01-22", year: "2026", venue: "TOKYO / OSAKA", poster: "assets/img/past/jinho-winter-bloom.jpg", url: "https://www.pluswin.net/news-1-1/jinho" },
+  { key: "hanse-winter", artist: "HANSE", title: "JAPAN LIVE 2025 WINTER", date: "2025.12.16 - 26", sort: "2025-12-16", year: "2025", venue: "PLUSWIN HALL OSAKA / VILLEBOA", poster: "assets/img/past/hanse-winter.jpg", url: "https://www.pluswin.net/news-1-1/hanse-japanlive" },
+  { key: "hayeon", artist: "HAYEON", title: "The First Bloom in Osaka 2025", date: "2025.12.12 - 21", sort: "2025-12-12", year: "2025", venue: "PLUSWIN HALL OSAKA / VILLEBOA", poster: "assets/img/past/hayeon.jpg", url: "https://www.pluswin.net/news-1-1/hayeon-japanlive" },
+  { key: "lim-seul-ong", artist: "LIM SEUL-ONG", title: "SOLO Fan Concert 'ONGBOARDING'", date: "2025.11.07", sort: "2025-11-07", year: "2025", venue: "OSAKA / TOKYO", poster: "assets/img/past/lim-seul-ong.jpg", url: "https://www.pluswin.net/news-1-1/ongboarding" },
+  { key: "xin", artist: "X:IN", title: "JAPAN 1st SHOWCASE 2025 'READY X:IN'", date: "2025.10.25 - 29", sort: "2025-10-25", year: "2025", venue: "TOKYO / OSAKA", poster: "assets/img/past/xin.jpg", url: "https://www.pluswin.net/news-1-1/xin-event" },
+  { key: "everglow", artist: "EVERGLOW", title: "ASIA FANMEETING TOUR: 4EVERGLOW IN OSAKA", date: "2025.10.21 - 22", sort: "2025-10-21", year: "2025", venue: "BIGCAT", poster: "assets/img/past/everglow.jpg", url: "https://www.pluswin.net/news-1-1/everglow-osaka2025" },
+  { key: "2face-tour", artist: "2FACE", title: "LIVE TOUR 2025 ~LOVE TONIGHT~", date: "2025.09.14 - 15", sort: "2025-09-14", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/2face-tour.jpg", url: "https://www.pluswin.net/news-1-1/2face-202504" },
+  { key: "unicode-aing", artist: "UNICODE", title: "LIVE TOUR 2025 'Aing'", date: "2025.09.07 - 26", sort: "2025-09-07", year: "2025", venue: "OSAKA", poster: "assets/img/past/unicode-aing.jpg", url: "https://www.pluswin.net/news-1-1/unicode-event" },
+  { key: "crazangel", artist: "CRAZANGEL", title: "JAPAN PRE-DEBUT SHOWCASE", date: "2025.08.30", sort: "2025-08-30", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/crazangel.jpg", url: "https://www.pluswin.net/news-1-1/2025-crazangel-japanlive" },
+  { key: "kik5o-2025", artist: "Kik5o", title: "SUMMER LIVE in OSAKA 2025", date: "2025.07.22", sort: "2025-07-22", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/kik5o-2025.jpg", url: "https://www.pluswin.net/news-1-1/2025-kik5o-japanlive" },
+  { key: "ken-tokyo", artist: "KEN", title: "MEET&GREET in TOKYO", date: "2025.07.19 - 20", sort: "2025-07-19", year: "2025", venue: "TIAT SKY HALL", poster: "assets/img/past/ken-tokyo.jpg", url: "https://www.pluswin.net/news-1-1/ken2025" },
+  { key: "han", artist: "HAN", title: "SOLO LIVE in OSAKA", date: "2025.07.13 - 20", sort: "2025-07-13", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/han.jpg", url: "https://www.pluswin.net/news-1-1/han-live" },
+  { key: "epts-ookini", artist: "EPTS", title: "SPECIAL LIVE & FANMEETING 'OOKINI'", date: "2025.06.29 - 30", sort: "2025-06-29", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/epts-ookini.jpg", url: "https://www.pluswin.net/news-1-1/2025-epts-ookini" },
+  { key: "choi-sung-yun", artist: "CHOI SUNG YUN", title: "FAN MEETING 'ALL about Yun'", date: "2025.06.21 - 07.06", sort: "2025-06-21", year: "2025", venue: "OSAKA / TOKYO", poster: "assets/img/past/choi-sung-yun.jpg", url: "https://www.pluswin.net/news-1-1/choisungyun-the1stfanmeeting" },
+  { key: "klovers-2025", artist: "K-LOVERS FES", title: "2025 SPRING", date: "2025.05.20 / 08.28", sort: "2025-05-20", year: "2025", venue: "Namba Hatch", poster: "assets/img/past/klovers-2025.jpg", url: "https://www.pluswin.net/news-1-1/kloversfes2025spring" },
+  { key: "seo-jisuk", artist: "SEO JISUK", title: "2025 FAN MEETING [reboot]", date: "2025.04.26", sort: "2025-04-26", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/seo-jisuk.jpg", url: "https://www.pluswin.net/news-1-1/seojisuk-202506" },
+  { key: "high4", artist: "HIGH4", title: "'HIGH4 WAVE' JAPAN LIVE", date: "2025.01.09 / 04.11 - 13", sort: "2025-01-09", year: "2025", venue: "OSAKA / TOKYO", poster: "assets/img/past/high4.jpg", url: "https://www.pluswin.net/news-1-1/%22high4-waev%22--japan-live-osaka" },
+  { key: "jung-seungwon", artist: "JUNG SEUNGWON", title: "KR TRAIN FOR OSAKA BALLAD LINE VOL.4", date: "2025.03.29 - 30", sort: "2025-03-29", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/jung-seungwon.jpg", url: "https://www.pluswin.net/news-1-1/jung-seungwon202503" },
+  { key: "2face-showcase", artist: "2FACE", title: "SHOWCASE OSAKA", date: "2025.02.24", sort: "2025-02-24", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/2face-showcase.jpg", url: "https://www.pluswin.net/news-1-1/2face-live" },
+  { key: "sion", artist: "SION", title: "OUT OF THE BOX SION IN JAPAN", date: "2025.02.23", sort: "2025-02-23", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/sion.jpg", url: "https://www.pluswin.net/news-1-1/sion-in-japanlive" },
+  { key: "zior-park", artist: "ZIOR PARK", title: "REST IN PEACE ZIOR PARK IN JAPAN", date: "2025.02.22", sort: "2025-02-22", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/zior-park.jpg", url: "https://www.pluswin.net/news-1-1/rest-in-peace-zior-park-in-japan" },
+  { key: "lim-youngmin-valentine", artist: "LIM YOUNGMIN", title: "Valentine Concert in OSAKA 2025", date: "2025.02.15", sort: "2025-02-15", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/lim-youngmin-valentine.jpg", url: "https://www.pluswin.net/news-1-1/limyoungmin-osaka202502" },
+  { key: "kr-train-vol3", artist: "KR TRAIN", title: "FOR OSAKA, BALLAD LINE VOL.3", date: "2025.02.08 - 09", sort: "2025-02-08", year: "2025", venue: "PLUSWIN HALL VILLEBOA", poster: "", url: "https://www.pluswin.net/news-1-1/kr-train-for-osaka%2Cballad-line-vol.3-" },
+  { key: "bumjin", artist: "BUMJIN", title: "BUMJIN-STATION", date: "2025.01.11", sort: "2025-01-11", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/bumjin-station-" },
+  { key: "unicode-together", artist: "UNICODE", title: "LIVE TOUR TOGETHER UNICODE! 2024-2025", date: "2025.01.04 - 02.09", sort: "2025-01-04", year: "2025", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/unicode-together.jpg", url: "https://www.pluswin.net/news-1-1/unicode-live-tour--together-unicod812024-2025" },
+  { key: "choi-seon", artist: "CHOI SEON", title: "JAPAN LIVE 2024", date: "2024.11.02 - 23", sort: "2024-11-02", year: "2024", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/choi-seon-japan-live-2024" },
+  { key: "kr-train-vol1", artist: "KR TRAIN", title: "FOR OSAKA HIPHOP STATION vol.1", date: "2024.11.15 - 17", sort: "2024-11-15", year: "2024", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/kr-train--for-osaka-hiphop-station-vol.1-" },
+  { key: "friends", artist: "FRIENDS Vol.1", title: "Presented by WOOSEOK", date: "2024.10.22", sort: "2024-10-22", year: "2024", venue: "KT Zepp Yokohama", poster: "assets/img/past/friends.jpg", url: "https://www.pluswin.net/news-1-1/friends-vol%EF%BD%A51-presented-by-wooseok" },
+  { key: "lee-seong-jong", artist: "LEE SEONG JONG", title: "ASIA TOUR IN OSAKA", date: "2024.09.21 - 22", sort: "2024-09-21", year: "2024", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/2024-lee-seong-jong-asia-tour-in-osaka" },
+  { key: "klovers-2024-summer", artist: "K-LOVERS FES", title: "2024 SUMMER", date: "2024.07.26", sort: "2024-07-26", year: "2024", venue: "Namba Hatch", poster: "", url: "https://www.pluswin.net/news-1-1/k-lovers-fes-2024-summer-%E9%96%8B%E5%82%AC%EF%BC%81" },
+  { key: "klovers-2024-spring", artist: "K-LOVERS FES", title: "2024 SPRING", date: "2024.03.22", sort: "2024-03-22", year: "2024", venue: "Namba Hatch", poster: "", url: "https://www.pluswin.net/news-1-1/k-lovers-fes-2024-spring" },
+  { key: "lim-youngmin-hanami", artist: "LIM YOUNGMIN", title: "花見ん会 -OSAKA", date: "2024.03.21 - 23", sort: "2024-03-21", year: "2024", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/lim-youngmin-%E3%81%8A%E8%8A%B1%E8%A6%8B%E3%82%93%E4%BC%9A-osaka-%E9%96%8B%E5%82%AC!" },
+  { key: "wooseok-bulmung", artist: "WOOSEOK", title: "2024 JAPAN FAN MEETING 'BULMUNG'", date: "2024.03.01 - 15", sort: "2024-03-01", year: "2024", venue: "OSAKA / TOKYO", poster: "assets/img/past/wooseok-bulmung.jpg", url: "https://www.pluswin.net/news-1-1/wooseok%E3%80%88%E3%82%A6%E3%82%BD%E3%82%AF%E3%80%89-2024-japan-fan-meeting-%E2%80%9Cbulmung%E2%80%9D%E9%96%8B%E5%82%AC!" },
+  { key: "go-wooseok", artist: "WOOSEOK", title: "Go WOOSEOK in JAPAN 2024", date: "2024", sort: "2024-06-01", year: "2024", venue: "OSAKA / TOKYO", poster: "", url: "https://www.pluswin.net/news-1-1/go-wooseok-in-japan-%E5%A4%A7%E9%98%AA%E5%85%AC%E6%BC%94%E3%81%8C%E6%B1%BA%E5%AE%9A%EF%BC%81" },
+  { key: "lee-youngji", artist: "LEE YOUNGJI", title: "1st ASIA TOUR 'THE MAIN CHARACTER' -TOKYO", date: "2024.01.30", sort: "2024-01-30", year: "2024", venue: "TOYOSU PIT", poster: "assets/img/past/lee-youngji.jpg", url: "https://www.pluswin.net/news-1-1/lee-youngji-%E3%80%88%E3%82%A4%EF%BD%A5%E3%83%A8%E3%83%B3%E3%82%B8%E3%80%891st-asia-tour-%22the-main-character%22-tokyo-%E9%96%8B%E5%82%AC!" },
+  { key: "lim-youngmin-xmas", artist: "LIM YOUNGMIN", title: "BIRTHDAY & CHRISTMAS FAN CONCERT", date: "2023.12.25 - 26", sort: "2023-12-25", year: "2023", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/lim-youngmin--birthday-%EF%BC%86-christmas---fan-concert-%E9%96%8B%E5%82%AC!" },
+];
+
+const GUIDES = [
+  {
+    ja: { t: "チケットについて", li: ["ご購入後のキャンセル・払い戻し・公演日の変更はできません。", "ご入場にはチケットが必要です。紛失・破損の場合も再発行はできません。", "3歳未満のお子様はご入場いただけません。", "お一人様4枚までご購入いただけます（公演により異なります）。", "会場の構造上、ステージが見えにくい席となる場合があります。"] },
+    ko: { t: "티켓 안내", li: ["구매 후 취소·환불·공연일 변경은 불가합니다.", "입장에는 티켓이 필요하며, 분실·훼손 시에도 재발급되지 않습니다.", "만 3세 미만은 입장할 수 없습니다.", "1인당 4매까지 구매할 수 있습니다(공연별로 다를 수 있음).", "공연장 구조상 무대가 잘 보이지 않는 좌석이 있을 수 있습니다."] },
+    en: { t: "Tickets", li: ["Cancellations, refunds and date changes are not possible after purchase.", "A ticket is required for entry. Lost or damaged tickets cannot be reissued.", "Children under 3 are not admitted.", "Up to 4 tickets per person (varies by show).", "Some seats may have a restricted view of the stage."] },
+  },
+  {
+    ja: { t: "特典会について", li: ["特典会への参加には、当日配布の参加券と有効な特典券が必要です。", "特典券は有料で、各公演の当日のみ有効です。", "列の往復や、繰り返しの並び直しは禁止です。", "特典券の購入枚数には上限があります。"] },
+    ko: { t: "특전회 안내", li: ["특전회 참가에는 당일 배포되는 참가권과 유효한 특전권이 필요합니다.", "특전권은 유료이며, 각 공연 당일만 유효합니다.", "줄을 왕복하거나 반복해서 다시 서는 행위는 금지됩니다.", "특전권 구매 매수에는 상한이 있습니다."] },
+    en: { t: "Fan events", li: ["Entry to a fan event requires the participation ticket handed out on the day and a valid event ticket.", "Event tickets are paid and valid only on the day of each show.", "Returning to the queue or re-queuing repeatedly is not allowed.", "There is a purchase limit on event tickets."] },
+  },
+  {
+    ja: { t: "撮影について", li: ["スマートフォン撮影はスタッフが行います。画面録画機能とLive Photosは使用できません。", "撮影前にスタッフが端末の設定を確認します。", "ポーズは撮影前に決めてください。撮り直しは原則できません。", "アーティストへの過度な身体接触や、持ち物を持たせての撮影はできません。"] },
+    ko: { t: "촬영 안내", li: ["스마트폰 촬영은 스태프가 진행합니다. 화면 녹화 기능과 Live Photos는 사용할 수 없습니다.", "촬영 전 스태프가 기기 설정을 확인합니다.", "포즈는 촬영 전에 정해 주세요. 원칙적으로 다시 찍을 수 없습니다.", "아티스트와 과도한 신체 접촉, 소지품을 들려주는 촬영은 할 수 없습니다."] },
+    en: { t: "Photos", li: ["Staff take smartphone photos. Screen recording and Live Photos are not allowed.", "Staff check your device settings before shooting.", "Decide your pose beforehand. Retakes are generally not possible.", "No excessive physical contact with the artist, and no posing with personal items."] },
+  },
+  {
+    ja: { t: "サイン会について", li: ["A5サイズのサインカード、またはA4サイズまでの私物にサインします。", "お名前を入れる場合は、事前にメモに書いてスタッフへお渡しください。", "ご本人のみ参加できます。ご同伴の方は参加できません。"] },
+    ko: { t: "사인회 안내", li: ["A5 사이즈 사인 카드 또는 A4 사이즈까지의 소지품에 사인합니다.", "이름을 적는 경우 미리 메모에 적어 스태프에게 전달해 주세요.", "본인만 참여할 수 있으며 동반자는 참여할 수 없습니다."] },
+    en: { t: "Signings", li: ["We sign A5 sign cards or personal items up to A4 size.", "If you would like your name written, write it on a note beforehand and hand it to staff.", "Only the ticket holder may take part; companions cannot join."] },
+  },
+  {
+    ja: { t: "公演中のマナー", li: ["公演中の録音・録画・撮影は禁止です。", "泥酔状態でのご入場、および会場内での飲酒はご遠慮ください。", "お荷物を置いて席を取る行為は禁止です。", "他のお客様の視界を遮る行為、出演者へのやじや話しかけはご遠慮ください。"] },
+    ko: { t: "공연 중 매너", li: ["공연 중 녹음·녹화·촬영은 금지입니다.", "만취 상태로 입장하거나 공연장 안에서 음주하는 것은 삼가 주세요.", "짐을 놓아 자리를 맡는 행위는 금지입니다.", "다른 관객의 시야를 가리는 행위, 출연자에게 야유하거나 말을 거는 행위는 삼가 주세요."] },
+    en: { t: "During the show", li: ["Recording, filming and photography during the show are prohibited.", "Do not enter intoxicated or drink excessively inside the venue.", "Saving seats with bags or belongings is not allowed.", "Do not block other guests' view or shout at the performers."] },
+  },
+  {
+    ja: { t: "プレゼント・差し入れ", li: ["現金、生き物、電子機器、手作りの食品、生もの、宗教関連の品、大きすぎる・重すぎる物はお受けできません。", "開封済み・使用済みの品物はお受けできません。", "お受けできない品物は会場で処分します。返却はできません。"] },
+    ko: { t: "선물·서포트", li: ["현금, 살아있는 동물·곤충, 전자기기, 직접 만든 음식, 날것, 종교 관련 물품, 너무 크거나 무거운 물품은 받을 수 없습니다.", "개봉했거나 사용한 물품은 받을 수 없습니다.", "받을 수 없는 물품은 현장에서 폐기하며 반환하지 않습니다."] },
+    en: { t: "Gifts and support", li: ["We cannot accept cash, living creatures, electronics, homemade food, fresh or raw food, religious items, or items that are too large or heavy.", "Opened or used items cannot be accepted.", "Items we cannot accept are disposed of at the venue and cannot be returned."] },
+  },
+  {
+    ja: { t: "入場・禁止事項", li: ["入場チケット・特典券のコピーや偽造は固く禁止します。", "他のお客様への迷惑行為、勧誘・宣伝行為はご遠慮ください。", "スタッフの指示に従えない場合、ご退場いただくことがあります。"] },
+    ko: { t: "입장·금지 사항", li: ["입장권·특전권의 복사나 위조는 엄격히 금지합니다.", "다른 관객에게 피해를 주는 행위, 권유·홍보 행위는 삼가 주세요.", "스태프의 안내에 따르지 않을 경우 퇴장을 요청할 수 있습니다."] },
+    en: { t: "Entry and prohibited conduct", li: ["Copying or forging entry tickets or event tickets is strictly prohibited.", "Please do not disturb other guests or solicit or promote other events.", "Guests who do not follow staff instructions may be asked to leave."] },
+  },
 ];
 
 /* ---------- business pillars ---------- */
@@ -605,7 +738,7 @@ const PILLARS = [
 
 /* ---------- state ---------- */
 let lang = "ja";
-const state = { filter: "all", openId: null };
+const state = { filter: "all", openId: null, openPastKey: null, pastYear: "all", pastLimit: 12 };
 
 /* ---------- helpers ---------- */
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -675,9 +808,11 @@ function renderEvents() {
     const statusCls = e.status === "soon" ? "is-soon" : "";
     const statusTxt = e.status === "soon" ? t("events.soon") : t("events.onsale");
     return `
-      <article class="event-card reveal is-in" data-id="${e.id}">
-        <div class="event-card-media"><img src="${e.poster}" alt="" loading="lazy"></div>
-        <div class="event-card-inner">
+      <article class="event-card" data-id="${e.id}">
+        <div class="event-card-poster" style="--poster:url('${e.poster}')">
+          <img src="${e.poster}" alt="${esc(e.title)}" loading="lazy" decoding="async">
+        </div>
+        <div class="event-card-body">
           <div class="ev-date">
             <span class="m">${monthName(e.month, lang)}</span>
             <span class="d">${String(e.day).padStart(2, "0")}</span>
@@ -711,10 +846,38 @@ function renderEvents() {
   }).join("");
 }
 
+function pastFiltered() {
+  return PAST.filter((p) => state.pastYear === "all" || p.year === state.pastYear);
+}
+
 function renderPast() {
-  const ul = $("#pastList");
-  if (!ul) return;
-  ul.innerHTML = PAST.map((p) => `<li><b>${esc(p.title)}</b><span>${esc(p.when)}</span></li>`).join("");
+  const grid = $("#pastGrid");
+  if (!grid) return;
+  const all = pastFiltered();
+  const shown = state.pastLimit === "all" ? all : all.slice(0, state.pastLimit);
+  grid.innerHTML = shown.map((p) => {
+    const poster = p.poster
+      ? `<div class="arch-poster" style="--poster:url('${p.poster}')"><img src="${p.poster}" alt="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async"></div>`
+      : `<div class="arch-poster"><span class="arch-typo-inner"><span class="arch-typo-mark" aria-hidden="true"></span><span class="arch-typo-name">${esc(p.artist)}</span><span class="arch-typo-year">${esc(p.year)}</span></span></div>`;
+    return `
+      <article class="arch-card${p.poster ? "" : " is-typo"}" data-past="${p.key}" tabindex="0" role="button" aria-label="${esc(p.artist)} — ${esc(p.title)}, ${esc(p.date)}, ${esc(p.venue)}">
+        ${poster}
+        <div class="arch-info">
+          <h4 class="arch-artist">${esc(p.artist)}</h4>
+          <p class="arch-title">${esc(p.title)}</p>
+          <p class="arch-meta"><span>${esc(p.date)}</span><span class="arch-venue">${esc(p.venue)}</span></p>
+        </div>
+      </article>`;
+  }).join("");
+  const count = $("#pastCount");
+  if (count) count.textContent = String(all.length);
+  const more = $("#pastMore");
+  if (more) {
+    const expanded = state.pastLimit === "all";
+    more.hidden = all.length <= 12;
+    more.textContent = expanded ? t("events.pastLess") : t("events.pastMore");
+    more.setAttribute("aria-expanded", expanded ? "true" : "false");
+  }
 }
 
 function renderPillars() {
@@ -741,6 +904,63 @@ function renderNextChip() {
 }
 
 /* ---------- drawer ---------- */
+function guideMarkup() {
+  return `
+      <div class="dr-section dr-guide">
+        <h4>${t("guide.title")}</h4>
+        <p class="dr-guide-lead">${t("guide.lead")}</p>
+        <div class="guide-list">
+          ${GUIDES.map((g, i) => `
+            <details class="guide-item">
+              <summary><span class="guide-num">${String(i + 1).padStart(2, "0")}</span><b>${esc(g[lang].t)}</b><i aria-hidden="true"></i></summary>
+              <ul>${g[lang].li.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+            </details>`).join("")}
+        </div>
+      </div>`;
+}
+
+function openRoot() {
+  const root = $("#drawerRoot");
+  if (!root) return;
+  const sc = $(".drawer-scroll", root);
+  if (sc) sc.scrollTop = 0;
+  root.classList.add("is-open");
+  root.setAttribute("aria-hidden", "false");
+  document.body.classList.add("is-locked");
+  const drawer = $(".drawer", root);
+  setTimeout(() => drawer && drawer.focus(), 60);
+}
+
+function openPast(key) {
+  const p = PAST.find((x) => x.key === key);
+  if (!p) return;
+  state.openPastKey = key;
+  const content = $("#drawerContent");
+  const hero = p.poster
+    ? `<div class="dr-hero dr-hero-past" style="--poster:url('${p.poster}')"><img src="${p.poster}" alt="${esc(p.artist)} — ${esc(p.title)}"></div>`
+    : `<div class="dr-hero dr-hero-past"><div class="dr-hero-fallback"><span>${esc(p.artist)}</span></div></div>`;
+  content.innerHTML = `
+    ${hero}
+    <div class="dr-body">
+      <div class="dr-kicker">
+        <span class="ev-city">${esc(p.year)}</span>
+        <span class="ev-city">${t("past.kicker")}</span>
+      </div>
+      <h3 class="dr-title" id="drawerTitle">${esc(p.artist)}</h3>
+      <p class="dr-sub">${esc(p.title)}</p>
+      <div class="dr-meta-grid">
+        <div><span>${t("past.date")}</span><b>${esc(p.date)}</b></div>
+        <div><span>${t("past.venue")}</span><b>${esc(p.venue)}</b></div>
+      </div>
+      ${guideMarkup()}
+      <div class="dr-actions">
+        <a class="btn btn-line" href="${p.url}" target="_blank" rel="noopener">${t("past.source")}</a>
+      </div>
+      <p class="dr-note">${t("past.producedBy")}</p>
+    </div>`;
+  openRoot();
+}
+
 function openDrawer(id) {
   const e = EVENTS.find((x) => x.id === id);
   if (!e) return;
@@ -748,7 +968,7 @@ function openDrawer(id) {
   const addrKey = lang === "ko" ? "addrKo" : lang === "en" ? "addrEn" : "addrJa";
   const content = $("#drawerContent");
   content.innerHTML = `
-    <div class="dr-hero"><img src="${e.poster}" alt=""></div>
+    <div class="dr-hero" style="--poster:url('${e.poster}')"><img src="${e.poster}" alt="${esc(e.title)}"></div>
     <div class="dr-body">
       <div class="dr-kicker">
         <span class="ev-city">${esc(e.cityLabel)}</span>
@@ -791,6 +1011,8 @@ function openDrawer(id) {
         </ul>
       </div>
 
+      ${guideMarkup()}
+
       <div class="dr-actions">
         <a class="btn btn-solid" href="${e.ticket}" target="_blank" rel="noopener">${t("events.ticket")}
           <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
@@ -800,12 +1022,7 @@ function openDrawer(id) {
       <p class="dr-note">${esc(e.ticketNote[lang])}　—　${esc(e.priceLabel[lang])}</p>
     </div>`;
 
-  const root = $("#drawerRoot");
-  root.classList.add("is-open");
-  root.setAttribute("aria-hidden", "false");
-  document.body.classList.add("is-locked");
-  const drawer = $(".drawer", root);
-  setTimeout(() => drawer && drawer.focus(), 60);
+  openRoot();
 }
 
 function closeDrawer() {
@@ -815,6 +1032,7 @@ function closeDrawer() {
   root.setAttribute("aria-hidden", "true");
   document.body.classList.remove("is-locked");
   state.openId = null;
+  state.openPastKey = null;
 }
 
 /* ---------- language ---------- */
@@ -828,6 +1046,7 @@ function setLang(next, opts = {}) {
   renderPillars();
   renderNextChip();
   if (state.openId) openDrawer(state.openId);
+  else if (state.openPastKey) openPast(state.openPastKey);
   if (opts.updateUrl !== false && window.location.protocol !== "file:") {
     const url = new URL(window.location.href);
     url.searchParams.set("lang", lang);
@@ -855,16 +1074,48 @@ function bind() {
     if (opener) { ev.preventDefault(); openDrawer(opener.getAttribute("data-open")); return; }
     if (ev.target.closest("[data-drawer-close]")) { closeDrawer(); return; }
     const card = ev.target.closest(".event-card");
-    if (card && !ev.target.closest("a,button")) openDrawer(card.getAttribute("data-id"));
+    if (card && !ev.target.closest("a,button")) { openDrawer(card.getAttribute("data-id")); return; }
+    const past = ev.target.closest("[data-past]");
+    if (past) openPast(past.getAttribute("data-past"));
   });
 
   document.addEventListener("keydown", (ev) => {
+    const active = document.activeElement;
+    if ((ev.key === "Enter" || ev.key === " ") && active && active.matches("[data-past]")) {
+      ev.preventDefault();
+      openPast(active.getAttribute("data-past"));
+      return;
+    }
     if (ev.key === "Escape") {
       closeDrawer();
       const nav = $("#mainNav");
       if (nav && nav.classList.contains("is-open")) toggleMenu(false);
     }
   });
+
+  const pastFilters = $("#pastFilters");
+  if (pastFilters) {
+    pastFilters.addEventListener("click", (ev) => {
+      const btn = ev.target.closest("[data-past-filter]");
+      if (!btn) return;
+      state.pastYear = btn.getAttribute("data-past-filter");
+      state.pastLimit = 12;
+      $$("[data-past-filter]", pastFilters).forEach((b) => b.classList.toggle("is-active", b === btn));
+      renderPast();
+    });
+  }
+
+  const pastMore = $("#pastMore");
+  if (pastMore) {
+    pastMore.addEventListener("click", () => {
+      state.pastLimit = state.pastLimit === "all" ? 12 : "all";
+      renderPast();
+      if (state.pastLimit === 12) {
+        const sec = $("#archive");
+        if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
 
   const filterRow = $("#eventFilter");
   if (filterRow) {

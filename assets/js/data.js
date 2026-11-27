@@ -869,7 +869,7 @@ const EVENTS = [
       ko: "VICTON 출신 HANSE의 오사카 정기 라이브. 12월·1월·2월 매달 개최.",
       en: "HANSE (ex-VICTON) monthly live in Osaka — December, January and February."
     },
-    priceLabel: { ja: "自由席 ¥6,000（12月公演）", ko: "자유석 ¥6,000 (12월 공연)", en: "Unreserved ¥6,000 (Dec shows)" },
+    priceLabel: { ja: "自由席 ¥6,000", ko: "자유석 ¥6,000", en: "Unreserved ¥6,000" },
     priceFrom: "¥6,000",
     venues: [
       {
@@ -887,8 +887,8 @@ const EVENTS = [
     ],
     sessions: [
       { name: { ja: "12月公演", ko: "12월 공연", en: "December" }, open: "18:30", start: "19:00", price: "¥6,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥7,000", ko: "당일권 ¥7,000", en: "Door ¥7,000" } },
-      { name: { ja: "1月公演", ko: "1월 공연", en: "January" }, open: "開演30分前", start: "18:00 / 19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金・発売日は近日発表", ko: "요금·판매일 추후 공지", en: "Price and release date TBA" } },
-      { name: { ja: "2月公演", ko: "2월 공연", en: "February" }, open: "開演30分前", start: "18:00 / 19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金・発売日は近日発表", ko: "요금·판매일 추후 공지", en: "Price and release date TBA" } }
+      { name: { ja: "1月公演", ko: "1월 공연", en: "January" }, open: "開演30分前", start: "18:00 / 19:00", price: "¥6,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥7,000／発売日は近日発表", ko: "당일권 ¥7,000 / 판매일 추후 공지", en: "Door ¥7,000 / release date TBA" } },
+      { name: { ja: "2月公演", ko: "2월 공연", en: "February" }, open: "開演30分前", start: "18:00 / 19:00", price: "¥6,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥7,000／発売日は近日発表", ko: "당일권 ¥7,000 / 판매일 추후 공지", en: "Door ¥7,000 / release date TBA" } }
     ],
     notes: [
       { ja: "整理番号付き自由席・先着販売。お一人様4枚まで。", ko: "정리번호 있는 자유석·선착순 판매. 1인 4매까지.", en: "Free seating (numbered), first come. Up to 4 tickets per person." },

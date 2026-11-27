@@ -219,6 +219,13 @@ function renderNextChip() {
     <span class="next-chip-venue">${esc(e.venueShort[lang])}</span>`;
 }
 
+/* the show count in the hero comes from the archive itself, so it grows
+   on its own as soon as a show has finished (55 → 56 → …) */
+function renderShowCount() {
+  const el = $("#heroShows");
+  if (el) el.textContent = ARCHIVE.length + "+";
+}
+
 /* ---------- renderers: archive ---------- */
 function archiveYears() {
   const years = [];
@@ -446,6 +453,7 @@ function updateUrl() {
 function renderPage() {
   renderEvents();
   renderArchive();
+  renderShowCount();
   renderPillars();
   renderNextChip();
   renderStandRules();

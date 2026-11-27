@@ -230,7 +230,7 @@ const T = {
     "contact.card1h": "平日 13:00 – 18:00",
     "contact.card2k": "HALL & RENTAL",
     "contact.card2t": "ホールの利用・レンタルについて",
-    "contact.card2h": "10:00 – 18:00（平日 13:00 – 18:00）",
+    "contact.card2h": "10:00 – 18:00",
     "contact.card3k": "PRODUCTION / OTHER",
     "contact.card3t": "イベント制作・その他のご相談",
     "contact.card3h": "平日 13:00 – 18:00",
@@ -253,7 +253,7 @@ const T = {
   },
 
   ko: {
-    metaTitle: "PLUSWIN | 주식회사 플러스윈 — 라이브홀 PLUSWIN HALL OSAKA·이벤트 제작",
+    metaTitle: "PLUSWIN | 플러스윈 주식회사 — 라이브홀 PLUSWIN HALL OSAKA·이벤트 제작",
     metaDesc: "플러스윈(PLUSWIN Co., Ltd.)은 오사카 신사이바시의 라이브홀 PLUSWIN HALL OSAKA를 거점으로 홀 운영·대관과 이벤트 기획·제작·운영을 하는 라이브 엔터테인먼트 기업입니다.",
     "brand.sub": "플러스윈 주식회사",
     "nav.events": "공연 정보",
@@ -350,7 +350,7 @@ const T = {
     "business.desc": "홀을 빌려주는 데서 끝나지 않습니다. 기획·제작·운영까지, 공연에 필요한 기능을 자사가 갖추고 있습니다.",
     "venues.eyebrow": "VENUE",
     "venues.title": "홀",
-    "venues.desc": "대관 안내 홀은 PLUSWIN HALL OSAKA입니다. 지정석 220석·스탠딩 350명, 음향·조명·고정밀 LED·중계 설비를 상설로 갖추고 있습니다.",
+    "venues.desc": "대관 안내 홀은 PLUSWIN HALL OSAKA입니다. 지정석 220석·스탠딩 350명, 음향·조명·고정밀 LED·생중계 설비를 상설로 갖추고 있습니다.",
     "venues.tagOsaka": "OSAKA / SHINSAIBASHI",
     "venues.osakaLead": "신사이바시 중심에 자리한 다목적 라이브 공간. 최신 음향·조명 설비와 고정밀 LED 패널을 상설로 갖추고 생중계에도 대응합니다.",
     "venues.specAddress": "주소",
@@ -383,10 +383,10 @@ const T = {
     "venues.singleNote": "대관(임대)은 PLUSWIN HALL OSAKA에서 진행합니다.",
     "rental.eyebrow": "VENUE RENTAL",
     "rental.title": "홀 대관",
-    "rental.lead": "신사이바시 소에몬초. 라이브, 팬미팅, 쇼케이스, 촬영·중계, 리허설까지. 상설 음향·조명·고정밀 LED를 갖춘 홀을 일 단위로 이용하실 수 있습니다. 사전 답사도 언제든 환영합니다.",
+    "rental.lead": "신사이바시 소에몬초. 라이브, 팬미팅, 쇼케이스, 촬영·생중계, 리허설까지. 상설 음향·조명·고정밀 LED를 갖춘 홀을 일 단위로 이용하실 수 있습니다. 사전 답사도 언제든 환영합니다.",
     "rental.point1": "음향·조명·고정밀 LED(W600 × H250cm) 상설",
     "rental.point2": "지정석 220석 / 스탠딩 350명, 무대 W762 × D500 × H50cm",
-    "rental.point3": "생중계·녹화에 대응하는 중계 환경",
+    "rental.point3": "생중계·녹화에 대응하는 환경",
     "rental.point4": "대관은 PLUSWIN HALL OSAKA만 진행합니다(타 공연장 임대는 하지 않습니다)",
     "rental.contactLabel": "대관 문의",
     "rental.priceNote": "희망 일시는 아래 폼으로 보내주세요. 확인 후 회신드립니다. 대관은 PLUSWIN HALL OSAKA에서 진행합니다(타 공연장 임대는 하지 않습니다). 답사 희망도 이쪽으로.",
@@ -408,13 +408,13 @@ const T = {
     "rental.optDrum": "드럼 세트",
     "rental.optPiano": "전자 피아노(YAMAHA C4)",
     "rental.optMic": "무선 마이크(1개)",
-    "rental.optCam": "중계 카메라(1대)",
-    "rental.optLan": "중계 LAN 사용료",
+    "rental.optCam": "생중계 카메라(1대)",
+    "rental.optLan": "생중계용 LAN 사용료",
     "rental.optMgmt": "외부 오퍼레이터 상주 시 관리비 (음향·조명 각각)",
     "rental.optTrash": "쓰레기 처리비 (홀에서 처리하는 경우)",
     "rental.rateTax": "표시 금액은 모두 세금 별도입니다. 오퍼레이터 기술료는 하루 2회 공연 또는 1회 공연이 3시간을 넘을 때 1.5배가 됩니다.",
     "rental.term1": "사용 시간에는 설치·리허설·본 공연·철수 시간이 모두 포함됩니다. 대기실 사용 가능 시간도 이에 준합니다.",
-    "rental.term2": "객석 의자는 설치된 상태로 제공됩니다. 의자 수를 바꾸거나 철거할 때는 퇴관 시 원상 복구해 주세요.",
+    "rental.term2": "객석 의자는 설치된 상태로 제공됩니다. 의자 수를 바꾸거나 철거할 때는 퇴실 시 원상 복구해 주세요.",
     "rental.term3": "입장 시 음료비(600엔)가 별도로 필요합니다.",
     "rental.term4": "접수·설치 등 인력은 주최자 측에서 준비해 주세요. 음료 스태프는 당사가 담당합니다.",
     "rental.term5": "무대 뒤 LED는 별도 요금입니다. 연출로 사용할 때는 영상 오퍼레이터를 주최자 측에서 준비해 주세요.",
@@ -436,7 +436,7 @@ const T = {
     "form.messagePh": "공연 내용, 희망 시간대, 장비 사용 여부 등",
     "form.purpose1": "라이브·콘서트",
     "form.purpose2": "팬미팅·이벤트",
-    "form.purpose3": "촬영·중계·녹화",
+    "form.purpose3": "촬영·생중계·녹화",
     "form.purpose4": "리허설·연습",
     "form.purpose5": "기타",
     "form.submit": "입력한 내용 보내기",
@@ -473,7 +473,7 @@ const T = {
     "contact.card1h": "평일 13:00 – 18:00",
     "contact.card2k": "HALL & RENTAL",
     "contact.card2t": "홀 이용·대관 문의",
-    "contact.card2h": "10:00 – 18:00 (평일 13:00 – 18:00)",
+    "contact.card2h": "10:00 – 18:00",
     "contact.card3k": "PRODUCTION / OTHER",
     "contact.card3t": "이벤트 제작·기타 문의",
     "contact.card3h": "평일 13:00 – 18:00",
@@ -489,9 +489,9 @@ const T = {
     "footer.telMain": "대표 06-6536-2002",
     "footer.addr": "〒542-0084 오사카부 오사카시 주오구 소에몬초 2-3 미마츠 빌딩 B1",
     "footer.hours": "상담 시간 평일 13:00 – 18:00",
-    "footer.copyright": "© 2026 PLUSWIN Co., Ltd. 주식회사 플러스윈",
+    "footer.copyright": "© 2026 PLUSWIN Co., Ltd. 플러스윈 주식회사",
     "footer.toTop": "맨 위로",
-    labels: { open: "입장", start: "공연 시작", venue: "회장", sessions: "공연 일정", notes: "안내", tickets: "티켓", access: "오시는 길" },
+    labels: { open: "입장", start: "공연 시작", venue: "공연장", sessions: "공연 일정", notes: "안내", tickets: "티켓", access: "오시는 길" },
     dateFmt: (y, m, d, w) => `${y}.${String(m).padStart(2, "0")}.${String(d).padStart(2, "0")} (${w})`
   },
 
@@ -661,7 +661,7 @@ const T = {
     "rental.term3": "A drink charge (¥600) applies to each guest on entry.",
     "rental.term4": "Please provide your own reception and setup staff; our team handles drink staff.",
     "rental.term5": "Use of the stage-rear LED is charged separately. For creative use, please arrange your own video operator.",
-    "rental.term6": "Operators are provided on a take-it-as-is basis only; we cannot join rehearsals or handle intricate staging.",
+    "rental.term6": "Our operators work on a leave-it-to-us basis only; they cannot join rehearsals or handle complex staging.",
     "rental.formTitle": "Rental & site visit enquiry",
     "rental.formSub": "Tell us what you need. Our team replies within 2–3 business days.",
     "form.name": "Name",
@@ -716,7 +716,7 @@ const T = {
     "contact.card1h": "Weekdays 13:00 – 18:00",
     "contact.card2k": "HALL & RENTAL",
     "contact.card2t": "Hall hire & rental",
-    "contact.card2h": "10:00 – 18:00 (weekdays 13:00 – 18:00)",
+    "contact.card2h": "10:00 – 18:00",
     "contact.card3k": "PRODUCTION / OTHER",
     "contact.card3t": "Production & general enquiries",
     "contact.card3h": "Weekdays 13:00 – 18:00",
@@ -780,8 +780,8 @@ const EVENTS = [
     priceFrom: "¥12,000",
     venues: [HALL_OSAKA, PO_HALL],
     dates: [
-      { ja: "2026.12.05 (土)・12.06 (日) — PLUSWIN HALL OSAKA", ko: "2026.12.05 (토)・12.06 (일) — PLUSWIN HALL OSAKA", en: "05–06 Dec 2026 (Sat–Sun) — PLUSWIN HALL OSAKA" },
-      { ja: "2026.12.19 (土)・12.20 (日) — P.O. Minamiaoyama Hall", ko: "2026.12.19 (토)・12.20 (일) — P.O. Minamiaoyama Hall", en: "19–20 Dec 2026 (Sat–Sun) — P.O. Minamiaoyama Hall" }
+      { ja: "2026.12.05 (土)・12.06 (日) — PLUSWIN HALL OSAKA", ko: "2026.12.05 (토)·12.06 (일) — PLUSWIN HALL OSAKA", en: "05–06 Dec 2026 (Sat–Sun) — PLUSWIN HALL OSAKA" },
+      { ja: "2026.12.19 (土)・12.20 (日) — P.O. Minamiaoyama Hall", ko: "2026.12.19 (토)·12.20 (일) — P.O. Minamiaoyama Hall", en: "19–20 Dec 2026 (Sat–Sun) — P.O. Minamiaoyama Hall" }
     ],
     sessions: [
       { name: { ja: "1部", ko: "1부", en: "Part 1" }, open: "12:00", start: "13:00", price: "¥12,000", seat: { ja: "全席指定", ko: "전석 지정석", en: "Reserved seating" }, note: { ja: "当日券 ¥13,000", ko: "당일권 ¥13,000", en: "Door ¥13,000" } },
@@ -789,7 +789,7 @@ const EVENTS = [
     ],
     notes: [
       { ja: "各公演後に特典会を予定しています。", ko: "각 공연 후 팬사인회(특전회)를 예정하고 있습니다.", en: "A fan event follows each show." },
-      { ja: "東京公演は日程・会場が変更になりました。最新の案内をご確認ください。", ko: "도쿄 공연은 일정·회장이 변경되었습니다. 최신 안내를 확인해 주세요.", en: "The Tokyo dates and venue have changed — please check the latest notice." },
+      { ja: "東京公演は日程・会場が変更になりました。最新の案内をご確認ください。", ko: "도쿄 공연은 일정·공연장이 변경되었습니다. 최신 안내를 확인해 주세요.", en: "The Tokyo dates and venue have changed — please check the latest notice." },
       { ja: "お一人様4枚まで予約可。3歳未満は入場不可。", ko: "1인 4매까지 예매 가능. 만 3세 미만 입장 불가.", en: "Up to 4 tickets per person. Children under 3 not admitted." },
       { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
     ],
@@ -821,15 +821,15 @@ const EVENTS = [
     },
     priceLabel: { ja: "自由席 ¥11,000", ko: "자유석 ¥11,000", en: "Unreserved ¥11,000" },
     priceFrom: "¥11,000",
-    cancelBadge: { ja: "12/12 13:00 中止", ko: "12/12 13:00 중지", en: "12/12 13:00 CANCELED" },
+    cancelBadge: { ja: "12/12 13:00 中止", ko: "12/12 13:00 취소", en: "12/12 13:00 CANCELED" },
     venues: [HALL_OSAKA],
     dates: [
-      { ja: "2026.12.11 (金) 19:00 開演", ko: "2026.12.11 (금) 19:00 개연", en: "11 Dec 2026 (Fri) — show 19:00" },
-      { ja: "2026.12.12 (土) 18:00 開演（13:00の部は中止）", ko: "2026.12.12 (토) 18:00 개연 (13:00 공연은 중지)", en: "12 Dec 2026 (Sat) — show 18:00 (13:00 performance cancelled)" }
+      { ja: "2026.12.11 (金) 19:00 開演", ko: "2026.12.11 (금) 19:00 시작", en: "11 Dec 2026 (Fri) — show 19:00" },
+      { ja: "2026.12.12 (土) 18:00 開演（13:00の部は中止）", ko: "2026.12.12 (토) 18:00 시작 (13:00 공연은 취소)", en: "12 Dec 2026 (Sat) — show 18:00 (13:00 performance cancelled)" }
     ],
     sessions: [
       { name: { ja: "12/11 (金)", ko: "12/11 (금)", en: "11 Dec (Fri)" }, open: "18:30", start: "19:00", price: "¥11,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥12,000", ko: "당일권 ¥12,000", en: "Door ¥12,000" } },
-      { name: { ja: "12/12 (土)", ko: "12/12 (토)", en: "12 Dec (Sat)" }, open: "17:30", start: "18:00", price: "¥11,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥12,000／13:00の部は中止", ko: "당일권 ¥12,000 / 13:00 공연은 중지", en: "Door ¥12,000 / 13:00 performance cancelled" } }
+      { name: { ja: "12/12 (土)", ko: "12/12 (토)", en: "12 Dec (Sat)" }, open: "17:30", start: "18:00", price: "¥11,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥12,000／13:00の部は中止", ko: "당일권 ¥12,000 / 13:00 공연은 취소", en: "Door ¥12,000 / 13:00 performance cancelled" } }
     ],
     notes: [
       { ja: "各公演後に特典会を予定しています。", ko: "각 공연 후 특전회를 예정하고 있습니다.", en: "A fan event follows each show." },
@@ -877,7 +877,7 @@ const EVENTS = [
       }
     ],
     dates: [
-      { ja: "2026年12月：12.07 (月)・12.08 (火)・12.09 (水) 各19:00 開演【発売中】", ko: "2026년 12월: 12.07 (월)·12.08 (화)·12.09 (수) 각 19:00 개연 【판매 중】", en: "Dec 2026: 7 (Mon), 8 (Tue), 9 (Wed) — shows 19:00 [on sale]" },
+      { ja: "2026年12月：12.07 (月)・12.08 (火)・12.09 (水) 各19:00 開演【発売中】", ko: "2026년 12월: 12.07 (월)·12.08 (화)·12.09 (수) 각 19:00 시작 【판매 중】", en: "Dec 2026: 7 (Mon), 8 (Tue), 9 (Wed) — shows 19:00 [on sale]" },
       { ja: "2027年1月：01.08 (金) 19:00・01.09 (土) 18:00・01.11 (月・祝) 18:00・01.14 (木) 19:00・01.15 (金) 19:00【近日発売】", ko: "2027년 1월: 01.08 (금) 19:00·01.09 (토) 18:00·01.11 (월·공휴일) 18:00·01.14 (목) 19:00·01.15 (금) 19:00 【곧 발매】", en: "Jan 2027: 8 (Fri) 19:00, 9 (Sat) 18:00, 11 (Mon, holiday) 18:00, 14 (Thu) 19:00, 15 (Fri) 19:00 [on sale soon]" },
       { ja: "2027年2月：02.23 (火・祝) 18:00・02.25 (木) 19:00・02.26 (金) 19:00・02.27 (土) 18:00【近日発売】", ko: "2027년 2월: 02.23 (화·공휴일) 18:00·02.25 (목) 19:00·02.26 (금) 19:00·02.27 (토) 18:00 【곧 발매】", en: "Feb 2027: 23 (Tue, holiday) 18:00, 25 (Thu) 19:00, 26 (Fri) 19:00, 27 (Sat) 18:00 [on sale soon]" }
     ],
@@ -888,7 +888,7 @@ const EVENTS = [
     ],
     notes: [
       { ja: "整理番号付き自由席・先着販売。お一人様4枚まで。", ko: "정리번호 있는 자유석·선착순 판매. 1인 4매까지.", en: "Free seating (numbered), first come. Up to 4 tickets per person." },
-      { ja: "開場は開演の30分前です。", ko: "개장은 개연 30분 전입니다.", en: "Doors open 30 minutes before the show." },
+      { ja: "開場は開演の30分前です。", ko: "입장은 공연 시작 30분 전부터입니다.", en: "Doors open 30 minutes before the show." },
       { ja: "3歳未満は入場不可。", ko: "만 3세 미만 입장 불가.", en: "Children under 3 not admitted." },
       { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
     ],
@@ -920,7 +920,7 @@ const EVENTS = [
     priceLabel: { ja: "全席指定 ¥5,000〜", ko: "지정석 ¥5,000~", en: "From ¥5,000" },
     priceFrom: "¥5,000",
     venues: [HALL_OSAKA],
-    dates: [{ ja: "2026.12.26 (土)・12.27 (日) — PLUSWIN HALL OSAKA", ko: "2026.12.26 (토)・12.27 (일) — PLUSWIN HALL OSAKA", en: "26–27 Dec 2026 (Sat–Sun) — PLUSWIN HALL OSAKA" }],
+    dates: [{ ja: "2026.12.26 (土)・12.27 (日) — PLUSWIN HALL OSAKA", ko: "2026.12.26 (토)·12.27 (일) — PLUSWIN HALL OSAKA", en: "26–27 Dec 2026 (Sat–Sun) — PLUSWIN HALL OSAKA" }],
     sessions: [
       { name: { ja: "1部：特典会", ko: "1부: 특전회", en: "Part 1 — Fan event" }, open: "13:00", start: "14:00", price: "¥5,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥5,500／チェキ・スマホ撮影・サイン会（歌唱なし）", ko: "당일권 ¥5,500 / 체키·스마트폰 촬영·사인회(노래 없음)", en: "Door ¥5,500 / photo & signing session, no performance" } },
       { name: { ja: "2部：FAN-CON", ko: "2부: FAN-CON", en: "Part 2 — FAN-CON" }, open: "17:00", start: "18:00", price: "¥12,000", seat: { ja: "全席指定", ko: "전석 지정석", en: "Reserved seating" }, note: { ja: "当日券 ¥13,000／入場時ワンドリンク別途", ko: "당일권 ¥13,000 / 입장 시 원드링크 별도", en: "Door ¥13,000 / one drink at entry" } }
@@ -960,13 +960,13 @@ const EVENTS = [
     priceFrom: "¥5,000",
     venues: [SONORRA, HALL_OSAKA],
     dates: [
-      { ja: "2027.01.10 (日)・01.11 (月祝) — SONORRA（東京）", ko: "2027.01.10 (일)・01.11 (월·공휴일) — SONORRA (도쿄)", en: "10–11 Jan 2027 (Sun–Mon holiday) — SONORRA, Tokyo" },
-      { ja: "2027.01.16 (土)・01.17 (日) — PLUSWIN HALL OSAKA", ko: "2027.01.16 (토)・01.17 (일) — PLUSWIN HALL OSAKA", en: "16–17 Jan 2027 (Sat–Sun) — PLUSWIN HALL OSAKA" }
+      { ja: "2027.01.10 (日)・01.11 (月祝) — SONORRA（東京）", ko: "2027.01.10 (일)·01.11 (월·공휴일) — SONORRA (도쿄)", en: "10–11 Jan 2027 (Sun–Mon holiday) — SONORRA, Tokyo" },
+      { ja: "2027.01.16 (土)・01.17 (日) — PLUSWIN HALL OSAKA", ko: "2027.01.16 (토)·01.17 (일) — PLUSWIN HALL OSAKA", en: "16–17 Jan 2027 (Sat–Sun) — PLUSWIN HALL OSAKA" }
     ],
     sessions: [
       { name: { ja: "1部：特典会", ko: "1부: 특전회", en: "Part 1 — Fan event" }, open: "12:00", start: "13:00", price: "¥5,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥5,500", ko: "당일권 ¥5,500", en: "Door ¥5,500" } },
       { name: { ja: "2部：JIN-UARY PARTY!", ko: "2부: JIN-UARY PARTY!", en: "Part 2 — JIN-UARY PARTY!" }, open: "16:00", start: "17:00", price: "¥12,000", seat: { ja: "全席指定", ko: "전석 지정석", en: "Reserved seating" }, note: { ja: "入場時ワンドリンク別途", ko: "입장 시 원드링크 별도", en: "One drink at entry" } },
-      { name: { ja: "3部：特典会", ko: "3부: 특전회", en: "Part 3 — Fan event" }, open: "19:30", start: "20:00", price: "¥5,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥5,500／チェキ・スマホ撮影・ハイタッチ（サイン会なし）", ko: "당일권 ¥5,500 / 체키·스마트폰 촬영·하이터치(사인회 없음)", en: "Door ¥5,500 / photos & hi-bye, no signing" } }
+      { name: { ja: "3部：特典会", ko: "3부: 특전회", en: "Part 3 — Fan event" }, open: "19:30", start: "20:00", price: "¥5,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥5,500／チェキ・スマホ撮影・ハイバイ（サイン会なし）", ko: "당일권 ¥5,500 / 체키·스마트폰 촬영·하이바이(사인회 없음)", en: "Door ¥5,500 / photos & hi-bye, no signing" } }
     ],
     notes: [
       { ja: "チケット発売：東京公演 11/30 (月) 18:00〜／大阪公演 11/30 (月) 19:00〜。", ko: "티켓 발매: 도쿄 공연 11/30 (월) 18:00~ / 오사카 공연 11/30 (월) 19:00~.", en: "Tickets: Tokyo from 30 Nov (Mon) 18:00 / Osaka from 30 Nov (Mon) 19:00." },

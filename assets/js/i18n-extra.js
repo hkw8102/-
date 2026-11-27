@@ -90,9 +90,9 @@ Object.assign(T.ja, {
 });
 
 Object.assign(T.ko, {
-  "meta.homeTitle": "PLUSWIN | 주식회사 플러스윈 — 라이브홀 PLUSWIN HALL OSAKA·이벤트 제작",
+  "meta.homeTitle": "PLUSWIN | 플러스윈 주식회사 — 라이브홀 PLUSWIN HALL OSAKA·이벤트 제작",
   "meta.homeDesc": "플러스윈(PLUSWIN Co., Ltd.)은 오사카 신사이바시의 라이브홀 PLUSWIN HALL OSAKA를 거점으로 홀 운영·대관과 이벤트 기획·제작·운영을 하는 라이브 엔터테인먼트 기업입니다.",
-  "meta.archiveTitle": "지난 공연 아카이브 | PLUSWIN — 주식회사 플러스윈",
+  "meta.archiveTitle": "지난 공연 아카이브 | PLUSWIN — 플러스윈 주식회사",
   "meta.archiveDesc": "2023년 이후 플러스윈이 기획·제작·운영한 공연 아카이브. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — 시설 개요·평면도·오시는 길·대관 요금 | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA(오사카시 주오구 소에몬초)의 시설 개요, 좌석 평면도, 오시는 길, 대관 요금표, 문의 폼. 지정석 220석·스탠딩 350명.",
@@ -152,7 +152,7 @@ Object.assign(T.ko, {
   "hall.jump1": "시설 개요·사진",
   "hall.jump2": "오시는 길",
   "hall.jump3": "요금",
-  "ask.lead": "희망 일시는 아래 「대관·견학 문의」 폼으로 보내주시면 확인 후 2~3영업일 이내에 회신드립니다.",
+  "ask.lead": "희망 일시는 아래 「대관·답사 문의」 폼으로 보내주시면 확인 후 2~3영업일 이내에 회신드립니다.",
   "ask.cta": "희망 일시 상담하기",
   "hall.jump4": "평면도·기자재",
   "hall.jump5": "FAQ·대관 문의",
@@ -432,7 +432,7 @@ Object.assign(T.ko, {
   "photos.hint": "사진을 누르면 크게 볼 수 있습니다. 키보드 ← → 로도 넘길 수 있습니다.",
   "photos.cap1": "스탠딩 펜스 (7대)",
   "photos.cap2": "FOH 음향 부스 (YAMAHA TF3)",
-  "photos.cap3": "만원 관객석 (공연 당일)",
+  "photos.cap3": "만석인 객석 (공연 당일)",
   "photos.cap4": "무대 조명 (블루 × 옐로)",
   "photos.cap5": "무대 전경",
   "photos.cap6": "객석 (220석·가동식)",
@@ -476,7 +476,7 @@ Object.assign(T.ko, {
   "fp.stageDim": "W7,625 × D5,000 × H500 mm",
   "fp.f.elevator": "엘리베이터 홀",
   "fp.f.office": "사무소",
-  "fp.f.lobby": "로비·물판",
+  "fp.f.lobby": "로비·굿즈 판매",
   "fp.f.dressing1": "대기실 1",
   "fp.f.dressing2": "대기실 2",
   "fp.f.wc": "관객 화장실",
@@ -484,7 +484,7 @@ Object.assign(T.ko, {
   "fp.f.entrance": "현관",
   "fp.f.reception": "접수",
   "fp.f.lockers": "출연자 사물함",
-  "fp.f.pa": "음향·조명 탁",
+  "fp.f.pa": "음향·조명 콘솔",
   "fp.f.exit": "비상구",
   "fp.seats10": "10석",
   "fp.seats20": "20석",
@@ -770,7 +770,7 @@ Object.assign(T.ko, {
   "eq.gVideo": "영상·LED",
   "eq.gBackline": "악기·마이크",
   "eq.lead": "홀에 상설로 갖춰진 음향·조명·영상·악기 장비입니다. 장비 추가나 반입은 대관 상담에서 안내해 드립니다.",
-  "eq.note": "위 장비는 모두 상설입니다. 무선 마이크 추가나 중계 카메라 등은 요금표의 옵션을 확인해 주세요.",
+  "eq.note": "위 장비는 모두 상설입니다. 무선 마이크 추가나 생중계 카메라 등은 요금표의 옵션을 확인해 주세요.",
   "eq.backlineNote": "악기·마이크는 대관 상담 때 문의해 주세요. 드럼 세트·전자 피아노는 요금표의 유료 옵션입니다.",
   "eq.plotLink": "조명 플롯(라이팅 플롯) PDF",
   "eq.passive": "패시브",
@@ -984,7 +984,7 @@ Object.assign(T.ja, {
 });
 
 Object.assign(T.ko, {
-  "meta.privacyTitle": "개인정보 처리방침 | PLUSWIN — 주식회사 플러스윈",
+  "meta.privacyTitle": "개인정보 처리방침 | PLUSWIN — 플러스윈 주식회사",
   "meta.privacyDesc": "플러스윈 주식회사의 개인정보 처리방침. 개인정보의 수집, 이용 목적, 제3자 제공, 접속 분석, 문의처에 대해 정하고 있습니다.",
   "privacy.eyebrow": "PRIVACY POLICY",
   "privacy.title": "개인정보 처리방침",

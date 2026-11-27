@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261128n";
+const ASSET_V = "20261128o";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -295,7 +295,31 @@ function archiveYears() {
 
 /* entries marked `archive: false` (e.g. a monthly series that is still running)
    still count toward the show total in the hero, but are not listed in the archive */
-const ARCHIVE_LIST = ARCHIVE.filter((p) => p.archive !== false);
+const ARCHIVE_LIST = ARCHIVE.filter((p) => p.archive !== false && p.series !== "klovers");
+
+/* K-LOVERS FES has its own page (klovers.html), newest edition first */
+function renderKlovers() {
+  const grid = $("#kloversGrid");
+  const list = ARCHIVE.filter((p) => p.series === "klovers")
+    .slice().sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
+  const cnt = document.getElementById("kloversCount");
+  if (cnt) cnt.textContent = String(list.length);
+  if (!grid) return;
+  grid.innerHTML = list.map((p) => `
+      <article class="arch-card">
+        <div class="arch-poster" data-poster="${vurl(p.poster)}"><img src="${vurl(p.poster)}" alt="K-LOVERS FES ${esc(p.title)}" loading="lazy" decoding="async"></div>
+        <div class="arch-info">
+          <h4 class="arch-artist">${esc(p.title)}</h4>
+          <p class="arch-meta"><span>${esc(p.date)}</span><span class="arch-venue">${esc(p.venue)}</span></p>
+        </div>
+      </article>`).join("");
+  grid.querySelectorAll(".arch-poster[data-poster] img").forEach((img) => {
+    const box = img.parentNode;
+    const set = () => box.style.setProperty("--poster", "url('" + box.getAttribute("data-poster") + "')");
+    if (img.complete && img.naturalWidth) set();
+    else img.addEventListener("load", set, { once: true });
+  });
+}
 
 function pastFiltered() {
   const all = ARCHIVE_LIST
@@ -522,6 +546,7 @@ function updateUrl() {
 function renderPage() {
   renderEvents();
   renderArchive();
+  renderKlovers();
   renderArchiveStrip();
   renderShowCount();
   renderPillars();

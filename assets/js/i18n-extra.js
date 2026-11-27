@@ -7,7 +7,7 @@ Object.assign(T.ja, {
   "meta.homeTitle": "PLUSWIN | プラスウイン株式会社 — ライブホール PLUSWIN HALL OSAKA・イベント制作",
   "meta.homeDesc": "プラスウイン株式会社（PLUSWIN Co., Ltd.）は大阪・心斎橋のライブホール PLUSWIN HALL OSAKA を拠点に、ホールの運営・レンタルとイベントの企画・制作・運営を行うライブエンターテインメントカンパニーです。",
   "meta.archiveTitle": "過去公演アーカイブ | PLUSWIN — プラスウイン株式会社",
-  "meta.archiveDesc": "2023年以降、プラスウインが企画・制作・運営してきた公演のアーカイブ。公演日と会場を一覧でご覧いただけます。",
+  "meta.archiveDesc": "2018年以降、プラスウインが企画・制作・運営してきた公演のアーカイブ。公演日と会場を一覧でご覧いただけます。",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — 施設概要・平面図・アクセス・レンタル料金 | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA（大阪市中央区宗右衛門町）の施設概要、座席平面図、アクセス、レンタル料金表、お問い合わせフォーム。着席220名／スタンディング350名。",
   "meta.standTitle": "祝花・差し入れのご案内 | PLUSWIN",
@@ -82,7 +82,7 @@ Object.assign(T.ja, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "過去公演アーカイブ",
-  "archive.lead": "2023年以降、プラスウインが企画・制作・運営してきた公演の記録です。公演日と会場を一覧でご覧いただけます。",
+  "archive.lead": "2018年以降、プラスウインが企画・制作・運営してきた公演の記録です。公演日と会場を一覧でご覧いただけます。",
   "archive.filterLabel": "年で絞り込む",
 
   "stand.pageLead": "プラスウイン主催公演への祝花（スタンド花・バルーンスタンド）と差し入れ・プレゼントは事前申請制です。以下の注意事項をご確認のうえ、開催1か月前から申請フォームよりお申し込みください。",
@@ -93,7 +93,7 @@ Object.assign(T.ko, {
   "meta.homeTitle": "PLUSWIN | 플러스윈 주식회사 — 라이브홀 PLUSWIN HALL OSAKA·이벤트 제작",
   "meta.homeDesc": "플러스윈(PLUSWIN Co., Ltd.)은 오사카 신사이바시의 라이브홀 PLUSWIN HALL OSAKA를 거점으로 홀 운영·대관과 이벤트 기획·제작·운영을 하는 라이브 엔터테인먼트 기업입니다.",
   "meta.archiveTitle": "지난 공연 아카이브 | PLUSWIN — 플러스윈 주식회사",
-  "meta.archiveDesc": "2023년 이후 플러스윈이 기획·제작·운영한 공연 아카이브. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
+  "meta.archiveDesc": "2018년 이후 플러스윈이 기획·제작·운영한 공연 아카이브. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — 시설 개요·평면도·오시는 길·대관 요금 | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA(오사카시 주오구 소에몬초)의 시설 개요, 좌석 평면도, 오시는 길, 대관 요금표, 문의 폼. 지정석 220석·스탠딩 350명.",
   "meta.standTitle": "축하 화환 · 음식·선물 서포트 안내 | PLUSWIN",
@@ -168,7 +168,7 @@ Object.assign(T.ko, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "지난 공연 아카이브",
-  "archive.lead": "2023년 이후 플러스윈이 기획·제작·운영한 공연의 기록입니다. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
+  "archive.lead": "2018년 이후 플러스윈이 기획·제작·운영한 공연의 기록입니다. 공연 날짜와 공연장을 한눈에 볼 수 있습니다.",
   "archive.filterLabel": "연도로 좁히기",
 
   "stand.pageLead": "플러스윈 주최 공연에 보내는 축하 화환(스탠드 화환·벌룬 스탠드)과 음식·선물은 사전 신청제입니다. 아래 안내를 확인하신 뒤 공연 1개월 전부터 신청 폼으로 신청해 주세요.",
@@ -179,7 +179,7 @@ Object.assign(T.en, {
   "meta.homeTitle": "PLUSWIN | Pluswin Co., Ltd. — Live Hall PLUSWIN HALL OSAKA & Event Production",
   "meta.homeDesc": "Pluswin Co., Ltd. is a live entertainment company based at PLUSWIN HALL OSAKA in Shinsaibashi, Osaka — operating a live hall and rental venue and producing events.",
   "meta.archiveTitle": "Past events | PLUSWIN — Pluswin Co., Ltd.",
-  "meta.archiveDesc": "An archive of shows PLUSWIN has planned, produced and operated since 2023 — when and where each one took place.",
+  "meta.archiveDesc": "An archive of shows PLUSWIN has planned, produced and operated since 2018 — when and where each one took place.",
   "meta.hallTitle": "PLUSWIN HALL OSAKA — specs, floor plan, access & rental rates | PLUSWIN",
   "meta.hallDesc": "PLUSWIN HALL OSAKA (Soemoncho, Chuo-ku, Osaka): specs, seating plan, access, rental rate card and enquiry form. 220 seated / 350 standing.",
   "meta.standTitle": "Flowers & Gifts Guide | PLUSWIN",
@@ -254,7 +254,7 @@ Object.assign(T.en, {
 
   "archive.eyebrow": "ARCHIVE",
   "archive.title": "Past events",
-  "archive.lead": "A record of shows PLUSWIN has planned, produced and operated since 2023 — when and where each one took place.",
+  "archive.lead": "A record of shows PLUSWIN has planned, produced and operated since 2018 — when and where each one took place.",
   "archive.filterLabel": "Filter by year",
 
   "stand.pageLead": "Flower stands, balloon stands, food and gifts for PLUSWIN-produced shows are by advance application only. Please read the guidelines below and apply from one month before the show.",

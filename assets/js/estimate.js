@@ -22,8 +22,12 @@
       back: "料金表へ戻る", eyebrow: "ESTIMATE SHEET", title: "見積書・利用申込書",
       lead: "PLUSWIN HALL OSAKA のご利用料金を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成できます。金額はすべて税別です。",
       backBtn: "レンタル料金表を見る", availBtn: "空き状況を見る",
-      print: "見積書・申込書をPDF保存 / 印刷 (A4)", reset: "リセット",
-      toolsHint: "入力すると右の用紙にすぐ反映されます。印刷画面で「PDFに保存」を選ぶとPDFになります。",
+      savePdf: "見積書・申込書をPDF保存 (A4)", print: "印刷", reset: "リセット",
+      toolsHint: "「PDF保存」を押すと、A4・1ページのPDFがそのまま保存されます。印刷するときは「印刷」を押してください。",
+      pdfBusy: "PDFを作成しています…",
+      pdfDone: "PDFを作成しました。保存されないときは、下の「PDFを開く」から開いて「共有 → ファイルに保存」で保存できます。",
+      pdfOpen: "PDFを開く", pdfShare: "共有",
+      pdfFail: "PDFを作成できませんでした。印刷画面から保存してください。",
       g1k: "EVENT", g1: "公演情報",
       date: "公演日", rateClass: "料金区分",
       rateAuto: "自動（曜日で判定）", rateWeekday: "平日（月〜金）", rateHoliday: "土日祝",
@@ -57,8 +61,12 @@
       back: "요금표로 돌아가기", eyebrow: "ESTIMATE SHEET", title: "견적서・이용신청서",
       lead: "PLUSWIN HALL OSAKA의 이용 요금을 고르기만 하면 세금 별도 견적과 「이용신청서」(A4 1장)를 바로 만들 수 있습니다. 금액은 모두 세금 별도입니다.",
       backBtn: "대관 요금표 보기", availBtn: "대관 가능일 보기",
-      print: "견적서・신청서를 PDF 저장 / 인쇄 (A4)", reset: "초기화",
-      toolsHint: "입력하면 오른쪽 용지에 바로 반영됩니다. 인쇄 화면에서 「PDF로 저장」을 고르면 PDF가 됩니다.",
+      savePdf: "PDF 파일 저장 (A4)", print: "인쇄", reset: "초기화",
+      toolsHint: "「PDF 파일 저장」을 누르면 A4 1장 PDF가 바로 저장됩니다. 인쇄할 때는 「인쇄」를 누르세요.",
+      pdfBusy: "PDF 만드는 중…",
+      pdfDone: "PDF를 만들었습니다. 저장이 안 되면 아래 「PDF 열기」를 눌러 「공유 → 파일에 저장」으로 저장하세요.",
+      pdfOpen: "PDF 열기", pdfShare: "공유",
+      pdfFail: "PDF를 만들지 못했습니다. 인쇄 화면에서 저장해 주세요.",
       g1k: "EVENT", g1: "공연 정보",
       date: "공연일", rateClass: "요금 구분",
       rateAuto: "자동 (요일로 판정)", rateWeekday: "평일 (월~금)", rateHoliday: "토・일・공휴일",
@@ -92,8 +100,12 @@
       back: "Back to rate card", eyebrow: "ESTIMATE SHEET", title: "Quote & Application",
       lead: "Pick the PLUSWIN HALL OSAKA rates you need and this page builds a tax-excluded quote and the official one-page A4 application sheet. All prices are tax excluded.",
       backBtn: "See the rate card", availBtn: "See availability",
-      print: "Save quote & application as PDF / print (A4)", reset: "Reset",
-      toolsHint: "Everything you type appears on the sheet at once. Choose “Save as PDF” in the print dialog to keep a PDF.",
+      savePdf: "Save as PDF (A4)", print: "Print", reset: "Reset",
+      toolsHint: "“Save as PDF” writes the one-page A4 PDF straight away. Use “Print” for the print dialog.",
+      pdfBusy: "Making the PDF…",
+      pdfDone: "The PDF is ready. If it did not download, open it with “Open PDF” below and use Share → Save to Files.",
+      pdfOpen: "Open PDF", pdfShare: "Share",
+      pdfFail: "The PDF could not be made. Please save it from the print dialog.",
       g1k: "EVENT", g1: "Event details",
       date: "Event date", rateClass: "Rate type",
       rateAuto: "Automatic (by weekday)", rateWeekday: "Weekday (Mon–Fri)", rateHoliday: "Weekend & holidays",
@@ -335,6 +347,212 @@
     holder.style.height = Math.round(ph * s) + "px";
   }
 
+  /* ============================================================
+     Direct PDF export
+     iOS (and in-app browsers such as WKWebView) silently ignore
+     window.print(), so the sheet is also rendered to a real A4 PDF
+     with html2canvas + jsPDF and downloaded straight away.
+     The libraries are served from this site (assets/js/vendor) and
+     fall back to the CDN only if the local copy cannot run.
+     ============================================================ */
+  var A4 = { w: 210, h: 297, scale: 3 };
+  var VENDOR = {
+    html2canvas: {
+      local: "assets/js/vendor/html2canvas.min.js",
+      cdn: "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
+      ok: function () { return typeof window.html2canvas === "function"; }
+    },
+    jspdf: {
+      local: "assets/js/vendor/jspdf.umd.min.js",
+      cdn: "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",
+      ok: function () { return !!(window.jspdf && window.jspdf.jsPDF); }
+    }
+  };
+  var libPromise = null;
+  var pdfState = { busy: false, url: "", name: "", blob: null };
+
+  function nextFrame() {
+    return new Promise(function (resolve) {
+      if (window.requestAnimationFrame) window.requestAnimationFrame(function () { resolve(); });
+      else setTimeout(resolve, 16);
+    });
+  }
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      s.onload = function () { resolve(); };
+      s.onerror = function () { reject(new Error("could not load " + src)); };
+      (document.head || document.documentElement).appendChild(s);
+    });
+  }
+
+  function ensureLib(spec) {
+    if (spec.ok()) return Promise.resolve();
+    return loadScript(spec.local)
+      .then(function () { if (!spec.ok()) throw new Error("local copy did not initialise"); })
+      .catch(function () { return loadScript(spec.cdn); })
+      .then(function () { if (!spec.ok()) throw new Error("library unavailable"); });
+  }
+
+  function ensurePdfLibs() {
+    if (!libPromise) {
+      libPromise = ensureLib(VENDOR.html2canvas).then(function () { return ensureLib(VENDOR.jspdf); });
+      libPromise.catch(function () { libPromise = null; });
+    }
+    return libPromise;
+  }
+
+  function pdfFileName() {
+    var extra = (val("f-company") || val("f-title") || "")
+      .replace(/[\\/:*?"<>|\r\n\t]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    var base = Q[currentLang()].printTitle + (extra ? "_" + extra : "");
+    return base.slice(0, 90).replace(/\s+$/, "") + ".pdf";
+  }
+
+  /* a clean, untransformed copy of the sheet, parked at the top of the
+     viewport under the “making the PDF” overlay */
+  function paperStage() {
+    var src = $("paper");
+    if (!src) return null;
+    var stage = document.createElement("div");
+    stage.className = "pdf-stage";
+    stage.setAttribute("aria-hidden", "true");
+    var clone = src.cloneNode(true);
+    clone.removeAttribute("id");
+    stage.appendChild(clone);
+    document.body.appendChild(stage);
+    return stage;
+  }
+
+  function buildPdf() {
+    render();
+    var stage = paperStage();
+    if (!stage) return Promise.reject(new Error("sheet not found"));
+    var clone = stage.firstElementChild;
+    var w = Math.ceil(clone.offsetWidth) || 794;
+    var h = Math.ceil(clone.offsetHeight) || 1123;
+    return nextFrame().then(nextFrame).then(function () {
+      return window.html2canvas(clone, {
+        scale: A4.scale,
+        backgroundColor: "#ffffff",
+        logging: false,
+        useCORS: true,
+        windowWidth: Math.max(window.innerWidth, w),
+        windowHeight: Math.max(window.innerHeight, h),
+        scrollX: 0,
+        scrollY: 0
+      });
+    }).then(function (canvas) {
+      var doc = new window.jspdf.jsPDF({ orientation: "portrait", unit: "mm", format: "a4", compress: true });
+      doc.addImage(canvas.toDataURL("image/jpeg", 0.94), "JPEG", 0, 0, A4.w, A4.h, undefined, "FAST");
+      var name = pdfFileName();
+      doc.setProperties({
+        title: name.replace(/\.pdf$/i, ""),
+        subject: "PLUSWIN HALL OSAKA - estimate & application sheet",
+        author: "PLUSWIN HALL OSAKA",
+        creator: "PLUSWIN HALL OSAKA web estimate builder"
+      });
+      var out = { blob: doc.output("blob"), name: name };
+      stage.remove();
+      return out;
+    }).then(null, function (err) {
+      stage.remove();
+      throw err;
+    });
+  }
+
+  function pdfFile(blob, name) {
+    try { return new File([blob], name, { type: "application/pdf" }); } catch (e) { return null; }
+  }
+
+  function canSharePdf(blob, name) {
+    var f = pdfFile(blob, name);
+    return !!(f && navigator.canShare && navigator.canShare({ files: [f] }));
+  }
+
+  function setPdfBusy(on) {
+    pdfState.busy = !!on;
+    var btn = $("btnSavePdf");
+    var label = btn && btn.querySelector("[data-q]");
+    if (btn) {
+      btn.classList.toggle("is-loading", !!on);
+      btn.setAttribute("aria-busy", on ? "true" : "false");
+    }
+    if (label) label.textContent = Q[currentLang()][on ? "pdfBusy" : "savePdf"];
+    var overlay = $("pdfBusy");
+    if (overlay) overlay.hidden = !on;
+    document.documentElement.classList.toggle("pdf-is-busy", !!on);
+  }
+
+  function showPdfNote(message, url, name, shareable) {
+    var note = $("pdfNote"), text = $("pdfNoteText"), link = $("pdfOpen"), share = $("btnShare");
+    if (!note) return;
+    if (text) text.textContent = message;
+    if (link) {
+      link.hidden = !url;
+      if (url) { link.href = url; link.download = name; }
+    }
+    if (share) share.hidden = !(url && shareable);
+    note.hidden = false;
+  }
+
+  function offerPdf(blob, name) {
+    if (pdfState.url) { try { URL.revokeObjectURL(pdfState.url); } catch (e) {} }
+    var url = URL.createObjectURL(blob);
+    pdfState.url = url;
+    pdfState.name = name;
+    pdfState.blob = blob;
+
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = name;
+    a.rel = "noopener";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    if ("download" in a) a.click();
+    setTimeout(function () { a.remove(); }, 4000);
+
+    showPdfNote(Q[currentLang()].pdfDone, url, name, canSharePdf(blob, name));
+  }
+
+  function sharePdf() {
+    var f = pdfState.blob ? pdfFile(pdfState.blob, pdfState.name) : null;
+    if (!f || !navigator.share) return;
+    navigator.share({ files: [f], title: pdfState.name.replace(/\.pdf$/i, "") }).catch(function () {});
+  }
+
+  function printSheet() {
+    var prev = document.title;
+    var k = val("f-company") || val("f-title");
+    document.title = Q[currentLang()].printTitle + (k ? "_" + k : "");
+    try { window.print(); } catch (e) {}
+    setTimeout(function () { document.title = prev; }, 1500);
+  }
+
+  function savePdf() {
+    if (pdfState.busy) return;
+    var note = $("pdfNote");
+    if (note) note.hidden = true;
+    setPdfBusy(true);
+    ensurePdfLibs()
+      .then(buildPdf)
+      .then(function (out) {
+        setPdfBusy(false);
+        offerPdf(out.blob, out.name);
+      })
+      .catch(function (err) {
+        if (window.console && console.warn) console.warn("[estimate] PDF export failed:", err);
+        setPdfBusy(false);
+        showPdfNote(Q[currentLang()].pdfFail, "", "", false);
+        printSheet();
+      });
+  }
+
   /* ---------- boot ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     var today = new Date();
@@ -347,16 +565,14 @@
       panel.addEventListener("change", render);
     }
 
+    var btnSave = $("btnSavePdf");
+    if (btnSave) btnSave.addEventListener("click", savePdf);
+
+    var btnShare = $("btnShare");
+    if (btnShare) btnShare.addEventListener("click", sharePdf);
+
     var btnPrint = $("btnPrint");
-    if (btnPrint) {
-      btnPrint.addEventListener("click", function () {
-        var prev = document.title;
-        var k = val("f-company") || val("f-title");
-        document.title = Q[currentLang()].printTitle + (k ? "_" + k : "");
-        window.print();
-        setTimeout(function () { document.title = prev; }, 1500);
-      });
-    }
+    if (btnPrint) btnPrint.addEventListener("click", printSheet);
 
     var btnReset = $("btnReset");
     if (btnReset) {

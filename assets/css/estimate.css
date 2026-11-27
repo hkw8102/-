@@ -29,17 +29,61 @@
   background:var(--card);border:1px solid var(--line);border-radius:3px;
   padding:clamp(16px,2.2vw,24px);
   overflow-x:clip;                /* last-resort guard: nothing escapes the card */
-  color-scheme:dark;              /* native date/time pickers follow the theme */
+  color-scheme:dark;             /* native date/time pickers follow the theme */
 }
 
 .est-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
-.est-tools .btn{flex:1 1 auto;justify-content:center;font-size:12px;white-space:normal;text-align:center;line-height:1.35}
-.est-tools #btnReset{flex:0 0 auto;padding:13px 18px}
+.est-tools .btn{flex:1 1 auto;justify-content:center;font-size:12px;white-space:normal;text-align:center;line-height:1.35;min-height:44px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.est-tools .btn svg{flex:none}
+.est-tools-main{margin-bottom:0}
+.est-tools-main .btn{width:100%;flex:1 1 100%}
+.est-tools-sub{margin-top:8px;margin-bottom:6px}
+.est-tools-sub .btn{flex:1 1 0;font-size:11.5px;padding:11px 14px}
+.est-tools #btnReset{flex:0 0 auto;padding:11px 18px}
 @media (max-width:520px){
-  .est-tools{flex-direction:column}
-  .est-tools .btn,.est-tools #btnReset{width:100%;flex:1 1 auto}
+  .est-tools-main{flex-direction:column}
+  .est-tools-main .btn{width:100%;flex:1 1 auto}
+  .est-tools-sub{flex-wrap:nowrap}
+  .est-tools-sub .btn{flex:1 1 auto;min-width:0}
 }
 .est-tools .btn svg{width:14px;height:14px}
+
+/* ---------- result note + direct-PDF overlay ---------- */
+.est-pdfnote{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:10px 0 0;
+  padding:10px 12px;border:1px solid var(--line-2);border-radius:2px;background:var(--card-2);
+  font-size:11.5px;line-height:1.55;color:var(--dim);
+}
+.est-pdfnote[hidden]{display:none}
+.est-pdfnote .est-pdflink{color:var(--accent-ink,var(--accent));font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+.est-pdfnote .est-pdflink[hidden]{display:none}
+.est-pdfnote .btn{font-size:11.5px;padding:8px 14px;min-height:0;flex:0 0 auto}
+.est-pdfnote .btn[hidden]{display:none}
+
+/* off-screen-size copy of the A4 sheet, held under the overlay while
+   html2canvas rasterises it (never seen by the user) */
+.pdf-stage{
+  position:fixed;left:0;top:0;width:210mm;height:297mm;overflow:hidden;
+  background:#fff;z-index:2147483001;pointer-events:none;
+}
+.pdf-stage .paper{
+  position:static !important;left:auto !important;top:auto !important;
+  transform:none !important;margin:0 !important;box-shadow:none !important;animation:none !important;
+}
+.pdf-busy{
+  position:fixed;inset:0;z-index:2147483002;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);color:var(--txt);
+}
+.pdf-busy[hidden]{display:none}
+.pdf-busy-in{display:flex;flex-direction:column;align-items:center;gap:14px;font-size:13px;letter-spacing:.02em}
+.pdf-spin{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid var(--line-2);border-top-color:var(--accent);
+  animation:pdfspin .8s linear infinite;
+}
+@keyframes pdfspin{to{transform:rotate(360deg)}}
+html.pdf-is-busy,html.pdf-is-busy body{overflow:hidden}
 
 .est-group{border:0;padding:0;margin:18px 0 0}
 .est-group > legend{
@@ -181,7 +225,7 @@
 @media print{
   @page{size:A4;margin:0}
   html,body{background:#fff !important;margin:0 !important;padding:0 !important}
-  .grain,.site-header,.site-footer,.est-panel,.page-head,.est-preview-head,.no-print{display:none !important}
+  .grain,.site-header,.site-footer,.est-panel,.page-head,.est-preview-head,.no-print,.est-pdfnote,.pdf-busy,.pdf-stage{display:none !important}
   .est-section,.est-layout,.est-preview,.paper-holder{
     display:block !important;margin:0 !important;padding:0 !important;
     border:0 !important;background:#fff !important;overflow:visible !important;

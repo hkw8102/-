@@ -67,14 +67,25 @@
       <!-- ================= INPUT PANEL ================= -->
       <aside class="est-panel no-print" aria-label="Estimate builder">
 
-        <div class="est-tools">
-          <button class="btn btn-solid" id="btnPrint" type="button">
+        <div class="est-tools est-tools-main">
+          <button class="btn btn-solid" id="btnSavePdf" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M7.5 10.5 12 15l4.5-4.5M4 20h16"/></svg>
+            <span data-q="savePdf">見積書・申込書をPDF保存 (A4)</span>
+          </button>
+        </div>
+        <div class="est-tools est-tools-sub">
+          <button class="btn btn-line" id="btnPrint" type="button">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
-            <span data-q="print">見積書・申込書をPDF保存 / 印刷 (A4)</span>
+            <span data-q="print">印刷</span>
           </button>
           <button class="btn btn-line" id="btnReset" type="button"><span data-q="reset">リセット</span></button>
         </div>
-        <p class="est-hint" data-q="toolsHint">入力すると右の用紙にすぐ反映されます。印刷画面で「PDFに保存」を選ぶとPDFになります。</p>
+        <p class="est-hint" data-q="toolsHint">「PDF保存」を押すと、A4・1ページのPDFがそのまま保存されます。印刷するときは「印刷」を押してください。</p>
+        <p class="est-pdfnote" id="pdfNote" hidden aria-live="polite">
+          <span id="pdfNoteText" data-q="pdfDone">PDFを作成しました。</span>
+          <a id="pdfOpen" class="est-pdflink" target="_blank" rel="noopener" download hidden><span data-q="pdfOpen">PDFを開く</span></a>
+          <button class="btn btn-line" id="btnShare" type="button" hidden><span data-q="pdfShare">共有</span></button>
+        </p>
 
         <!-- 1. event -->
         <fieldset class="est-group">
@@ -511,6 +522,13 @@
     </div>
   </div>
 </footer>
+
+<div class="pdf-busy" id="pdfBusy" role="status" aria-live="polite" hidden>
+  <div class="pdf-busy-in">
+    <span class="pdf-spin" aria-hidden="true"></span>
+    <p data-q="pdfBusy">PDFを作成しています…</p>
+  </div>
+</div>
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/i18n-extra.js"></script>

@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261128a";
+const ASSET_V = "20261128b";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -298,7 +298,7 @@ function renderArchive() {
   }
   grid.innerHTML = all.map((p) => {
     const poster = p.poster
-      ? `<div class="arch-poster" style="--poster:url('${vurl(p.poster)}')"><img src="${vurl(p.poster)}" alt="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async"></div>`
+      ? `<div class="arch-poster" data-poster="${vurl(p.poster)}"><img src="${vurl(p.poster)}" alt="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async"></div>`
       : `<div class="arch-poster"><span class="arch-typo-inner"><span class="arch-typo-mark" aria-hidden="true"></span><span class="arch-typo-name">${esc(p.artist)}</span><span class="arch-typo-year">${esc(p.year)}</span></span></div>`;
     return `
       <article class="arch-card${p.poster ? "" : " is-typo"}">
@@ -310,6 +310,14 @@ function renderArchive() {
         </div>
       </article>`;
   }).join("");
+  /* the blurred backdrop reuses the poster only after the lazy <img> has loaded,
+     so posters further down the page are not all downloaded on first open */
+  grid.querySelectorAll(".arch-poster[data-poster] img").forEach((img) => {
+    const box = img.parentNode;
+    const set = () => box.style.setProperty("--poster", "url('" + box.getAttribute("data-poster") + "')");
+    if (img.complete && img.naturalWidth) set();
+    else img.addEventListener("load", set, { once: true });
+  });
   counts.forEach((c) => { if (c) c.textContent = String(all.length); });
 }
 

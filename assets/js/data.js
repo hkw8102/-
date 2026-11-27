@@ -1005,9 +1005,9 @@ const STAND_RULES = [
     en: { t: "Venue", d: "PLUSWIN HALL OSAKA (PLUSWIN-produced events). If you want another venue, write the venue name — some venues do not permit stands." }
   },
   {
-    ja: { t: "搬入・撤去時間", d: "申請フォーム送信後にご連絡します（ご返信に数日いただく場合があります）。納品の際は、公演日とアーティスト名を必ずご記入ください。" },
-    ko: { t: "반입·철수 시간", d: "신청 폼을 보낸 뒤 안내드립니다(회신에 며칠 걸릴 수 있습니다). 납품 시 공연일과 아티스트 이름을 반드시 적어 주세요." },
-    en: { t: "Delivery & removal", d: "We will let you know after you submit the form (a reply may take a few days). When delivering, the show date and artist name must be clearly written." }
+    ja: { t: "搬入・撤去時間（撤去は必須）", d: "搬入・撤去の時間は、申請フォーム送信後にご連絡します（ご返信に数日いただく場合があります）。納品の際は、公演日とアーティスト名を必ずご記入ください。回収（撤去）は必ず行ってください。回収手配ができない場合は搬入自体もお受けできません。" },
+    ko: { t: "반입·철수 시간(철수 필수)", d: "반입·철수 시간은 신청 폼을 보낸 뒤 안내드립니다(회신에 며칠 걸릴 수 있습니다). 납품 시 공연일과 아티스트 이름을 반드시 적어 주세요. 철수(회수)는 반드시 진행해 주셔야 합니다. 회수 수배가 되지 않는 경우 반입 자체도 불가합니다." },
+    en: { t: "Delivery & removal (removal is required)", d: "We will let you know the delivery and removal times after you submit the form (a reply may take a few days). When delivering, the show date and artist name must be clearly written. Collection (removal) after the show is strictly required. Deliveries without arranged pickup cannot be accepted." }
   },
   {
     ja: { t: "引き取りの手配", d: "スタンド花・バルーンスタンドをご注文の際は、お花屋様への引き取り手配も必ずあわせてお願いします。" },

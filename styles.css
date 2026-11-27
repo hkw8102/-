@@ -2012,3 +2012,6 @@ html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
 /* rental desk hours (10:00–18:00, differs from the ticket desk) */
 .desk-h{display:block;margin-top:3px;font-size:11px;font-weight:500;color:var(--dim);letter-spacing:.02em}
 .faq-contact .desk-h,.rental-contact .desk-h{color:var(--dim);font-weight:500;letter-spacing:.02em;font-size:11px;text-transform:none}
+
+/* LINE: a plain speech-bubble glyph (not the LINE logo) drawn like the Instagram icon */
+.sns-line{fill:none}

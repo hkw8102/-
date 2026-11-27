@@ -530,8 +530,14 @@
     var prev = document.title;
     var k = val("f-company") || val("f-title");
     document.title = Q[currentLang()].printTitle + (k ? "_" + k : "");
+    var restore = function () {
+      document.title = prev;
+      window.removeEventListener("afterprint", restore);
+    };
+    window.addEventListener("afterprint", restore);
     try { window.print(); } catch (e) {}
-    setTimeout(function () { document.title = prev; }, 1500);
+    /* some browsers never fire afterprint on a cancelled dialog */
+    setTimeout(restore, 20000);
   }
 
   function savePdf() {

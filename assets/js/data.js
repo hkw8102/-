@@ -234,7 +234,7 @@ const T = {
     "contact.addr": "〒542-0084 大阪府大阪市中央区宗右衛門町2-3 美松ビル B1",
     "contact.hallLabel": "PLUSWIN HALL OSAKA",
     "contact.hallAddr": "〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1",
-    "footer.tagline": "ステージから、エンターテインメントを動かす。",
+    "footer.tagline": "舞台から、エンターテインメントを動かす。",
     "footer.menuHead": "MENU",
     "footer.contactHead": "CONTACT",
     "footer.infoHead": "INFORMATION",

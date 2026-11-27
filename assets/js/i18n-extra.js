@@ -26,7 +26,7 @@ Object.assign(T.ja, {
   "nav.contact": "お問い合わせ",
   "nav.rentalCta": "レンタル相談",
 
-  "hero.eyebrow2": "LIVE ENTERTAINMENT COMPANY ・ OSAKA / NIHONBASHI",
+  "hero.eyebrow2": "LIVE ENTERTAINMENT COMPANY ・ OSAKA / SHINSAIBASHI",
   "hero.ctaHall": "ホール・レンタル",
   "hero.stat3": "公演実績",
 
@@ -112,7 +112,7 @@ Object.assign(T.ko, {
   "nav.contact": "문의",
   "nav.rentalCta": "대관 상담",
 
-  "hero.eyebrow2": "LIVE ENTERTAINMENT COMPANY ・ OSAKA / NIHONBASHI",
+  "hero.eyebrow2": "LIVE ENTERTAINMENT COMPANY ・ OSAKA / SHINSAIBASHI",
   "hero.ctaHall": "홀·대관",
   "hero.stat3": "공연 실적",
 
@@ -198,7 +198,7 @@ Object.assign(T.en, {
   "nav.contact": "Contact",
   "nav.rentalCta": "Rental",
 
-  "hero.eyebrow2": "LIVE ENTERTAINMENT COMPANY ・ OSAKA / NIHONBASHI",
+  "hero.eyebrow2": "LIVE ENTERTAINMENT COMPANY ・ OSAKA / SHINSAIBASHI",
   "hero.ctaHall": "Hall & rental",
   "hero.stat3": "shows produced",
 

@@ -786,6 +786,7 @@ const EVENTS = [
   {
     id: "eru",
     poster: "assets/img/event-eru.jpg",
+    stampPos: "body",
     title: "2026 ERU FAN MEETING [Winter Memories] IN JAPAN",
     city: "osaka",
     cityLabel: "OSAKA",
@@ -867,6 +868,7 @@ const EVENTS = [
   {
     id: "jinho",
     poster: "assets/img/event-jinho.jpg",
+    stampPos: "right",
     title: "2027 JINHO’s NEW YEAR PARTY! [JIN-UARY PARTY]",
     city: "both",
     cityLabel: "TOKYO / OSAKA",

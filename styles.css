@@ -354,7 +354,7 @@ section[id]{scroll-margin-top:78px}
 .drawer-close:hover{background:var(--txt);color:#08080a}
 .drawer-close svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .drawer-scroll{overflow-y:auto;overscroll-behavior:contain;height:100%;padding-bottom:40px}
-.dr-hero{position:relative;height:330px;overflow:hidden;border-bottom:1px solid var(--line);background:#08080b;display:flex;align-items:center;justify-content:center}
+.dr-hero{position:relative;height:min(46vh,400px);min-height:300px;overflow:hidden;border-bottom:1px solid var(--line);background:#08080b;display:flex;align-items:center;justify-content:center}
 .dr-hero::before{content:"";position:absolute;inset:-6%;background-image:var(--poster);background-size:cover;background-position:center;filter:blur(32px) brightness(.28) saturate(1.1);transform:scale(1.12);opacity:.7}
 .dr-hero img{position:relative;z-index:1;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;filter:none}
 .dr-hero::after{display:none}
@@ -827,7 +827,15 @@ section[id]{scroll-margin-top:78px}
   transition:border-color .3s var(--ease),transform .3s var(--ease),background .3s;
 }
 .evc:hover{border-color:var(--line-2);background:var(--card-2);transform:translateY(-3px)}
-.evc-media{position:relative;display:block;width:100%;aspect-ratio:4/3;padding:0;overflow:hidden;background:#0a0a0c;border-bottom:1px solid var(--line)}
+.evc-media{position:relative;display:block;width:100%;aspect-ratio:4/5;padding:0;overflow:hidden;background:#0a0a0c;border-bottom:1px solid var(--line)}
+/* the date stamp moves off a poster's own lettering: JINHO's venue block sits at the
+   bottom left, ERU's date line runs along the bottom, so each gets a clear corner */
+.evc-media.is-stamp-right .evc-stamp{left:auto;right:10px}
+.evc-meta{display:flex;margin-bottom:2px}
+.evc-stamp.is-body{position:static;left:auto;bottom:auto;padding:4px 8px}
+.evc-stamp.is-body b{font-size:8.5px}
+.evc-stamp.is-body i{font-size:15px}
+.evc-stamp.is-body em{font-size:8.5px}
 .evc-media::before{content:"";position:absolute;inset:-14%;background-image:var(--poster);background-size:cover;background-position:center;filter:blur(26px) brightness(.2) saturate(.9);opacity:.85}
 .evc-media img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;transition:transform .5s var(--ease)}
 .evc:hover .evc-media img{filter:brightness(1.07)}
@@ -840,15 +848,15 @@ section[id]{scroll-margin-top:78px}
 .evc-status::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;box-shadow:0 0 7px currentColor}
 .evc-status.is-soon{color:#ffc46b}
 .evc-cancel{
-  position:absolute;right:10px;bottom:10px;z-index:3;display:inline-flex;align-items:center;gap:5px;
-  font-size:10px;font-weight:900;letter-spacing:.06em;color:#fff;line-height:1;
-  background:#cf1c27;border:1px solid #f45660;padding:6px 8px;border-radius:2px;
+  position:absolute;right:8px;bottom:8px;z-index:3;display:inline-flex;align-items:center;gap:5px;
+  font-size:9px;font-weight:900;letter-spacing:.02em;color:#fff;line-height:1;white-space:nowrap;
+  background:#cf1c27;border:1px solid #f45660;padding:5px 7px;border-radius:2px;
   box-shadow:0 2px 12px rgba(0,0,0,.55);
 }
-.evc-cancel::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff}
+.evc-cancel::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff;flex:none}
 .dr-cancel{
-  position:absolute;right:8px;bottom:8px;z-index:3;white-space:nowrap;
-  font-size:12.5px;font-weight:900;letter-spacing:.04em;color:#fff;line-height:1;
+  position:absolute;right:8px;bottom:8px;z-index:3;max-width:min(220px,42vw);text-align:center;
+  font-size:12.5px;font-weight:900;letter-spacing:.04em;color:#fff;line-height:1.35;
   background:#cf1c27;border:1px solid #f45660;padding:8px 14px;border-radius:2px;
   box-shadow:0 3px 16px rgba(0,0,0,.6);
 }
@@ -1027,9 +1035,9 @@ section[id]{scroll-margin-top:78px}
 }
 @media (max-width:560px){
   .evc-grid{grid-template-columns:1fr}
-  /* the poster keeps its own 4:3 frame (contain) on a phone too, so the whole
+  /* the poster keeps a tall frame (contain) on a phone too, so the whole
      artwork stays visible instead of being cropped top and bottom */
-  .evc-media{aspect-ratio:4/3}
+  .evc-media{aspect-ratio:4/5}
   .evc-body{padding:12px 14px 14px}
   .quick-link.has-thumbs{gap:10px;padding:13px 14px}
   .quick-thumbs{order:-1;width:100%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}

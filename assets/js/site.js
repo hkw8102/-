@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261127c";
+const ASSET_V = "20261127d";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -173,15 +173,18 @@ function localizeLinks() {
 function eventCard(e) {
   const soon = e.status === "soon";
   const cancel = e.cancelBadge ? `<span class="evc-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
+  const inBody = e.stampPos === "body";
+  const stamp = `<span class="evc-stamp${inBody ? " is-body" : ""}"><b>${monthName(e.month)}</b><i>${String(e.day).padStart(2, "0")}</i><em>${esc(e.weekday[lang])}</em></span>`;
   return `
     <article class="evc" data-id="${e.id}">
-      <button class="evc-media" type="button" data-open="${e.id}" style="--poster:url('${vurl(e.poster)}');aspect-ratio:4/3" aria-label="${esc(e.title)} — ${t("events.detail")}">
+      <button class="evc-media${e.stampPos && !inBody ? " is-stamp-" + e.stampPos : ""}" type="button" data-open="${e.id}" style="--poster:url('${vurl(e.poster)}');aspect-ratio:4/5" aria-label="${esc(e.title)} — ${t("events.detail")}">
         <img src="${vurl(e.poster)}" alt="${esc(e.title)}" loading="lazy" decoding="async" style="object-fit:contain">
         <span class="evc-status${soon ? " is-soon" : ""}">${soon ? t("events.soon") : t("events.onsale")}</span>
         ${cancel}
-        <span class="evc-stamp"><b>${monthName(e.month)}</b><i>${String(e.day).padStart(2, "0")}</i><em>${esc(e.weekday[lang])}</em></span>
+        ${inBody ? "" : stamp}
       </button>
       <div class="evc-body">
+        ${inBody ? `<div class="evc-meta">${stamp}</div>` : ""}
         <p class="evc-city">${esc(e.cityLabel)}</p>
         <h3 class="evc-title"><button type="button" data-open="${e.id}">${esc(e.title)}</button></h3>
         <p class="evc-venue">${esc(e.venueShort[lang])}</p>
@@ -411,7 +414,7 @@ function openDrawer(id) {
   const addrKey = lang === "ko" ? "addrKo" : lang === "en" ? "addrEn" : "addrJa";
   const cancel = e.cancelBadge ? `<span class="dr-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
   content.innerHTML = `
-    <div class="dr-hero" style="--poster:url('${vurl(e.poster)}')"><figure class="dr-hero-frame"><img src="${vurl(e.poster)}" alt="${esc(e.title)}">${cancel}</figure></div>
+    <div class="dr-hero" style="--poster:url('${vurl(e.poster)}')"><figure class="dr-hero-frame"><img src="${vurl(e.poster)}" alt="${esc(e.title)}"></figure>${cancel}</div>
     <div class="dr-body">
       <div class="dr-kicker">
         <span class="ev-city">${esc(e.cityLabel)}</span>

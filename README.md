@@ -23,6 +23,8 @@ header, footer, design system and language state.
 - `assets/js/data.js` — content data and the JP/KR/EN dictionary (`EVENTS` entries carry `startDate`/`endDate`/`sort` and the archive fields `archiveDate`/`archiveVenue`) 
 - `assets/js/i18n-extra.js` — strings added for the compact 4-page layout
 - `assets/js/site.js` — language state, page renderers, drawers, forms, navigation
+- `assets/js/theme.js` — white / black theme switch, stored in `localStorage` (`pluswin.theme`)
+- `assets/js/analytics.js` — GA4 events (see *Analytics* below)
 - `assets/js/hall-extras.js` — FAQ content (12 items × 3 languages) and the availability calendar
 - `assets/js/hall-availability.js` — date availability only (○ / △ / ×), generated from the hall's booking calendar
 - `assets/pdf/pluswin-hall-osaka-spec.pdf` — downloadable venue sheet, A4, 5 pages (specs, equipment, floor plan, access, rate card)
@@ -35,6 +37,24 @@ header, footer, design system and language state.
 Language switcher: **JP / KR / EN** in the header and footer. The choice is kept in
 `localStorage` (`pluswin.lang`) and in the `?lang=ja|ko|en` query parameter, so it survives
 moving between pages. Open `index.html` directly, or serve the folder with any static server.
+
+## Theme — white (default) / black
+
+One design system, two skins, one stylesheet. **White (ivory)** is the default for a first
+visit and the no-JS fallback; **black (stage black)** is one tap away:
+
+- the **☀ / ☾ pill** sits right of the JP / KR / EN switcher in the header (from 481 px wide;
+  on phones the same control is the **ライト / ダーク** row inside the full-screen menu);
+- `assets/js/theme.js` switches `[data-theme]` on `<html>` instantly (no reload), stores the
+  choice in `localStorage` (`pluswin.theme`) and mirrors it in `?theme=dark|light`, so the
+  skin follows the visitor from `index` → `hall` → `archive` → `stand` → `estimate`;
+- a few lines of inline script in each `<head>` apply the stored skin **before the first
+  paint**, so a page never flashes the other theme;
+- `:root` holds the white tokens, `html[data-theme="dark"]` the black ones; the white-layer
+  component rules are wrapped in `:where(html:not([data-theme="dark"]))`, which keeps their
+  original specificity so each skin renders exactly as it did before the merge.
+- `estimate.html`: the input panel follows the theme, but the A4 sheet (`#paper`) and the
+  PDF / print output stay **white paper + black ink** in both skins.
 
 Shows move on their own: after a show's last date (`endDate` in `assets/js/data.js`, Japan
 time) the next day's page load takes it out of the home grid and puts it at the top of
@@ -51,6 +71,24 @@ look on that date; without it, the visitor's real date in Japan is used.
 - Official SNS only: X (`@mh_klovers`) and Instagram (`@kloversxpluswin`) — no YouTube.
 
 Fonts: Noto Sans JP / KR, subset to the characters used on the four pages (OFL).
+
+## Analytics (GA4)
+
+Every page loads `gtag.js` for **G-80L7MBMH2J** (in the `<head>`, `async`). Besides the
+automatic `page_view`, `assets/js/analytics.js` reports the actions the hall cares about:
+
+| Event | Fires on |
+| --- | --- |
+| `file_download` (`file_name`) | the hall spec PDF link on `hall.html` |
+| `ticket_click` | ticket buttons and links to e+ / LivePocket (`link_domain`, `show_id`, `show_title`) |
+| `outbound_click` | any other link that leaves the site (SNS, maps, tickets elsewhere) |
+| `form_submit_rental` | rental / site-visit enquiry sent (`#rentalForm`) |
+| `form_submit_stand` | stand-flower application sent (`#standForm`) |
+| `estimate_pdf_save` / `estimate_pdf_open` / `estimate_pdf_share` / `estimate_print` | the four buttons in the estimate builder |
+| `theme_toggle` (`theme: light|dark`) | the ☀ / ☾ switch |
+
+All calls are guarded by `typeof gtag === "function"`, so with an ad-blocker or offline the
+site behaves exactly as before.
 
 ## Enquiries
 

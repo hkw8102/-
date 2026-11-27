@@ -11,7 +11,36 @@
 @font-face{font-family:"PW Sans KR";src:url("assets/fonts/kr-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:"PW Sans KR";src:url("assets/fonts/kr-900.woff2") format("woff2");font-weight:800 900;font-style:normal;font-display:swap}
 
+/* ---------- THEME TOKENS ----------
+   One design system, two skins. Light (ivory paper) is the default and
+   the fallback for visitors without JS; [data-theme="dark"] turns the
+   whole site into the stage-black build. Components read these
+   variables, so switching theme never needs a second stylesheet. */
 :root{
+  color-scheme:light;
+  --bg:#f4f2ed;
+  --bg-2:#ebe8e1;
+  --card:#ffffff;
+  --card-2:#f7f5f0;
+  --line:rgba(0,0,0,.09);
+  --line-2:rgba(0,0,0,.2);
+  --txt:#17171c;
+  --dim:#45454e;
+  --dim-2:#67676f;
+  --accent:#ff4b2b;
+  --accent-ink:#c22c0c;        /* accent as text on ivory       4.7-5.1:1 */
+  --accent-btn:#d63a20;        /* solid accent fill, white label   4.7:1 */
+  --accent-btn-h:#c33418;
+  --accent-soft:rgba(255,75,43,.1);
+  --accent-glow:rgba(255,75,43,.35);
+  --radius:2px;
+  --wrap:1240px;
+  --sans:"PW Sans JP","PW Sans KR","Inter","Helvetica Neue","Hiragino Sans","Noto Sans JP","Noto Sans KR",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+html[data-theme="dark"]{
+  color-scheme:dark;
   --bg:#08080a;
   --bg-2:#0b0b0f;
   --card:#101015;
@@ -21,24 +50,27 @@
   --txt:#f3f2ef;
   --dim:#9d9da8;
   --dim-2:#6f6f7b;
-  --accent:#ff4b2b;
+  --accent-ink:#ff4b2b;
+  --accent-btn:#ff4b2b;
+  --accent-btn-h:#ff6042;
   --accent-soft:rgba(255,75,43,.12);
-  --accent-glow:rgba(255,75,43,.35);
-  --radius:2px;
-  --wrap:1240px;
-  --sans:"PW Sans JP","PW Sans KR","Inter","Helvetica Neue","Hiragino Sans","Noto Sans JP","Noto Sans KR",system-ui,sans-serif;
-  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
-  --ease:cubic-bezier(.22,.61,.36,1);
+}
+/* the stage-black header turns opaque once the page scrolls (and is always
+   opaque on phones), exactly as the dark build did */
+html[data-theme="dark"] .site-header.is-scrolled{background:#0d0d10;backdrop-filter:none;-webkit-backdrop-filter:none}
+@media (max-width:860px){
+  html[data-theme="dark"] .site-header,html[data-theme="dark"] .site-header.is-scrolled{background:#0d0d10;backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
   margin:0;background:var(--bg);color:var(--txt);
   font-family:var(--sans);font-size:16px;line-height:1.7;
   font-feature-settings:"palt" 1;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   overflow-x:hidden;
+  transition:background-color .28s var(--ease),color .28s var(--ease);
 }
 body.is-locked{overflow:hidden}
 img{max-width:100%;display:block}
@@ -1398,15 +1430,225 @@ section[id]{scroll-margin-top:78px}
   .fp-zoom-open svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round}
 }
 
+/* ============================================================
+   THEME SWITCH  (header pill + the same control in the mobile menu)
+   Light is the default; the choice is kept in localStorage under
+   "pluswin.theme" and read before first paint by the inline head
+   script in every page, so switching pages never flashes.
+   ============================================================ */
+.theme-sw{display:flex;align-items:center;gap:1px;padding:2px;border:1px solid var(--line-2);border-radius:100px;flex:none}
+.theme-sw button{width:25px;height:22px;display:grid;place-items:center;border-radius:100px;color:var(--dim);transition:color .22s var(--ease),background .22s var(--ease)}
+.theme-sw button svg{width:12.5px;height:12.5px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.theme-sw button:hover{color:var(--txt)}
+.theme-sw button[aria-pressed="true"]{background:var(--txt);color:#08080a}
 
-/* ==== header: opaque once scrolled, and on phones (2026-11-27) ==== */
-.site-header.is-scrolled{background:#0d0d10;backdrop-filter:none;-webkit-backdrop-filter:none}
+.nav-theme{display:none}
+.nav-theme-lab{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim-2)}
+.nav-theme-btn{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.06em;padding:9px 15px;border:1px solid var(--line-2);border-radius:100px;color:var(--dim);transition:all .22s var(--ease)}
+.nav-theme-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.nav-theme-btn[aria-pressed="true"]{background:var(--txt);color:#0d0d10;border-color:var(--txt)}
 @media (max-width:860px){
-  .site-header,.site-header.is-scrolled{background:#0d0d10;backdrop-filter:none;-webkit-backdrop-filter:none}
-  .nav{background:#0d0d10}
+  .nav-theme{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .nav-theme-lab{flex:0 0 100%;margin-bottom:2px}
+  .nav.is-open{overflow-y:auto}
 }
+/* phones: the header is too narrow for brand + JP/KR/EN + the pill + menu,
+   so the pill steps aside — the same control sits in the menu just below */
+@media (max-width:480px){.theme-sw{display:none}}
 
-/* ==== equipment: sound / lighting / video (2026-11-27) ==== */
+/* ============================================================
+   THEME LAYER — LIGHT (ivory) overrides
+   Everything below applies only while the page is light; with
+   [data-theme="dark"] the stage-black base styles stand as they are.
+   ============================================================ */
+/* ==== LIGHT THEME — venue section (ivory cards) and brighter body text ==== */
+:where(html:not([data-theme="dark"])) #venues{background:#f4f2ed;color:#17171c}
+:where(html:not([data-theme="dark"])) #venues .sec-idx{color:#8f8f98}
+:where(html:not([data-theme="dark"])) #venues .sec-title{color:#17171c}
+:where(html:not([data-theme="dark"])) #venues .sec-desc{color:#45454e}
+:where(html:not([data-theme="dark"])) #venues .venue-mini{background:#ffffff;border-color:rgba(0,0,0,.09)}
+:where(html:not([data-theme="dark"])) #venues .venue-mini-body h3{color:#17171c}
+:where(html:not([data-theme="dark"])) #venues .venue-lead{color:#45454e}
+:where(html:not([data-theme="dark"])) #venues .mini-facts{border-top-color:rgba(0,0,0,.1);border-bottom-color:rgba(0,0,0,.1)}
+:where(html:not([data-theme="dark"])) #venues .mini-facts b{color:#17171c}
+:where(html:not([data-theme="dark"])) #venues .mini-facts span{color:#6a6a74}
+:where(html:not([data-theme="dark"])) #venues .mini-access{color:#45454e}
+:where(html:not([data-theme="dark"])) #venues .btn-line{border-color:rgba(0,0,0,.28);color:#17171c;background:rgba(0,0,0,.02)}
+:where(html:not([data-theme="dark"])) #venues .btn-line:hover{border-color:#17171c;background:rgba(0,0,0,.05)}
+:where(html:not([data-theme="dark"])) #venues .mini-links a{color:#45454e;border-bottom-color:rgba(0,0,0,.18)}
+:where(html:not([data-theme="dark"])) #venues .mini-links a:hover{color:#17171c;border-color:var(--accent)}
+:where(html:not([data-theme="dark"])) #venues .venue-note-mini{color:#6a6a74;border-left-color:rgba(0,0,0,.25)}
+/* ==== LIGHT THEME — page surfaces, header, hero, footer, forms ==== */
+/* accent tokens for the light skin live in :root at the top of this file */
+:where(html:not([data-theme="dark"])) .section-alt{background:linear-gradient(180deg,var(--bg-2),#e6e2d9)}
+:where(html:not([data-theme="dark"])) .site-header{--txt:#f3f2ef;--dim:#c4c4cd;--dim-2:#a9a9b5;--line:rgba(255,255,255,.085);--line-2:rgba(255,255,255,.16);background:rgba(8,8,10,.86);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+:where(html:not([data-theme="dark"])) .site-header.is-scrolled{background:rgba(8,8,10,.92)}
+:where(html:not([data-theme="dark"])) .hero{--txt:#f3f2ef;--dim:#c9c9d1;--dim-2:#a9a9b5;--line:rgba(255,255,255,.16);--line-2:rgba(255,255,255,.24)}
+:where(html:not([data-theme="dark"])) .site-footer{--txt:#f3f2ef;--dim:#9d9da8;--dim-2:#8a8a94;--line:rgba(255,255,255,.085);--line-2:rgba(255,255,255,.16);background:#0b0b0f;color:#f3f2ef}
+:where(html:not([data-theme="dark"])) .drawer{background:#ffffff}
+:where(html:not([data-theme="dark"])) .dr-list li, :where(html:not([data-theme="dark"])) .field label.check, :where(html:not([data-theme="dark"])) .rate-table td, :where(html:not([data-theme="dark"])) .rate-options li, :where(html:not([data-theme="dark"])) .evc-price, :where(html:not([data-theme="dark"])) .ar-list p{color:#33333b}
+:where(html:not([data-theme="dark"])) .rental-points li, :where(html:not([data-theme="dark"])) .rental-hall p{color:#3d3d45}
+:where(html:not([data-theme="dark"])) .faq-q, :where(html:not([data-theme="dark"])) .arch-page .arch-meta span:first-child{color:#17171c}
+:where(html:not([data-theme="dark"])) .pillar:hover{background:#e6e2d8}
+:where(html:not([data-theme="dark"])) .contact-card:hover{background:#ebe8e1}
+:where(html:not([data-theme="dark"])) .field input, :where(html:not([data-theme="dark"])) .field select, :where(html:not([data-theme="dark"])) .field textarea{background:#ffffff;color:#17171c}
+:where(html:not([data-theme="dark"])) .field input:focus, :where(html:not([data-theme="dark"])) .field select:focus, :where(html:not([data-theme="dark"])) .field textarea:focus{background:#ffffff}
+:where(html:not([data-theme="dark"])) .field .check input{background:#ffffff}
+:where(html:not([data-theme="dark"])) .floorplan-media{background:#e9e6df}
+:where(html:not([data-theme="dark"])) .access-map{background:#ffffff}
+/* ==== LIGHT THEME — text and control colours on ivory ==== */
+:where(html:not([data-theme="dark"])) .hero{color:#f3f2ef}
+:where(html:not([data-theme="dark"])) .drink-notice{color:#17171c}
+:where(html:not([data-theme="dark"])) .drink-badge{color:#d63a20}
+:where(html:not([data-theme="dark"])) .drink-more:hover{color:#17171c}
+:where(html:not([data-theme="dark"])) .evc-stamp{color:#f3f2ef}
+:where(html:not([data-theme="dark"])) .evc-stamp em{color:#c4c4cd}
+:where(html:not([data-theme="dark"])) .evc-btn:hover{color:#ffffff}
+:where(html:not([data-theme="dark"])) .evc-title button:hover{color:var(--accent)}
+:where(html:not([data-theme="dark"])) .ev-card-title:hover{color:var(--accent)}
+:where(html:not([data-theme="dark"])) .pillar-tags span{color:#45454e}
+:where(html:not([data-theme="dark"])) .past-count b, :where(html:not([data-theme="dark"])) .archive-count b, :where(html:not([data-theme="dark"])) .quick-k b, :where(html:not([data-theme="dark"])) .avail-picked b, :where(html:not([data-theme="dark"])) .dr-session-price, :where(html:not([data-theme="dark"])) .rate-price, :where(html:not([data-theme="dark"])) .rate-options b{color:#17171c}
+:where(html:not([data-theme="dark"])) .arch-artist{color:#17171c}
+:where(html:not([data-theme="dark"])) .arch-venue{color:#5d5d66}
+:where(html:not([data-theme="dark"])) .arch-card.is-typo .arch-typo-year{color:#a9a9b5}
+:where(html:not([data-theme="dark"])) .arch-more:hover{color:#ffffff}
+:where(html:not([data-theme="dark"])) .guide-item li{color:#3d3d45}
+:where(html:not([data-theme="dark"])) .guide-item[open] summary b{color:#17171c}
+:where(html:not([data-theme="dark"])) .stand-contact a:hover{color:#17171c}
+:where(html:not([data-theme="dark"])) .faq-item[open] .faq-q{color:var(--accent)}
+:where(html:not([data-theme="dark"])) .avail-tab.is-active{color:#ffffff}
+/* ==== LIGHT THEME — floor plan and access map (SVG) on paper white ==== */
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-shell{fill:#ffffff;stroke:#9aa3b2}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-zone{fill:#f2f0eb}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-room{fill:#eef1f5;stroke:#9aa3b2}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-room--cyan{fill:#e2f2f7;stroke:#2f7f97}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-room--stage{fill:#d9eef5;stroke:#1f7a99}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-seat{fill:#c3cedd}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-seat--alt{fill:#aebdd2}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-seat-t{fill:#2c3646}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-aisle{stroke:#ffffff}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-wall{stroke:#5a6478}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-dim{stroke:#9aa3b2}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-tick{stroke:#9aa3b2}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-lbl{fill:#3d465b}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-lbl--strong{fill:#17171c}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-lbl--cyan{fill:#1f7a99}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-num{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-row{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-stage{fill:#1f7a99}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-stage-dim{fill:#2f7f97}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-exit{fill:#fdeceb;stroke:#e23c22}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-block{stroke:#9aa3b2}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-block-lbl{fill:#2c3646}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-badge{fill:#1f7a99;stroke:#ffffff}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-badge-t{fill:#ffffff}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-chip{fill:#ffffff}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-aisle-sub{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-col{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-void{fill:#e6e2d9;stroke:#b9b2a4}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-void-t{fill:#8a8272}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-locker{fill:#e2f2f7;stroke:#2f7f97}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-stair{stroke:#b6bfcd}
+:where(html:not([data-theme="dark"])) .mp-ground{fill:#eef0ea;stroke:#c9cec2}
+:where(html:not([data-theme="dark"])) .mp-block{fill:#e3e7de;stroke:#d4d9ce}
+:where(html:not([data-theme="dark"])) .mp-road{stroke:#ffffff}
+:where(html:not([data-theme="dark"])) .mp-subway{stroke:#8a93a6}
+:where(html:not([data-theme="dark"])) .mp-river{fill:#cfe8f2;stroke:#9cc8dd}
+:where(html:not([data-theme="dark"])) .mp-wave{stroke:#5aa7c4;opacity:.6}
+:where(html:not([data-theme="dark"])) .mp-building{fill:#dde1e8;stroke:#a7b0bf}
+:where(html:not([data-theme="dark"])) .mp-plate{fill:#e8ebf0;stroke:#a7b0bf}
+:where(html:not([data-theme="dark"])) .mp-p{fill:#e8ebf0;stroke:#a7b0bf}
+:where(html:not([data-theme="dark"])) .mp-p-t{fill:#3d465b}
+:where(html:not([data-theme="dark"])) .mp-dot{fill:#9aa3b2}
+:where(html:not([data-theme="dark"])) .mp-stn{fill:#ffffff;stroke:#1f7a99}
+:where(html:not([data-theme="dark"])) .mp-stn-dot{fill:#1f7a99}
+:where(html:not([data-theme="dark"])) .mp-pin-hole{fill:#ffffff}
+:where(html:not([data-theme="dark"])) .mp-hall{fill:#17171c}
+:where(html:not([data-theme="dark"])) .mp-hall-sub{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .mp-lm{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .mp-street{fill:#6a7488}
+:where(html:not([data-theme="dark"])) .mp-river-t{fill:#1f7a99}
+:where(html:not([data-theme="dark"])) .mp-sub{fill:#8a93a6}
+:where(html:not([data-theme="dark"])) .mp-stn-t{fill:#17171c}
+:where(html:not([data-theme="dark"])) .mp-stn-sub{fill:#1f7a99}
+:where(html:not([data-theme="dark"])) .mp-dir{fill:#8a93a6}
+/* ==== LIGHT THEME — floor plan numbers bigger and bolder ==== */
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-seat-t{font-size:9.8px;font-weight:700}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-col{font-size:10.5px}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-row{font-weight:700}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-num{font-weight:700}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-lbl{font-weight:600}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-aisle-sub{font-size:10.5px}
+/* ==== LIGHT THEME — last pale map labels darkened ==== */
+:where(html:not([data-theme="dark"])) .mp-dir{fill:#5d6a80}
+:where(html:not([data-theme="dark"])) .mp-sub{fill:#6a7488}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-void-t{fill:#6a6255}
+:where(html:not([data-theme="dark"])) .fp-legend li b{color:#17171c}
+/* ==== LIGHT THEME — small map labels decisively dark ==== */
+:where(html:not([data-theme="dark"])) .mp-dir{fill:#3d465b;font-weight:700}
+:where(html:not([data-theme="dark"])) .mp-street{fill:#3d465b}
+:where(html:not([data-theme="dark"])) .mp-sub{fill:#3d465b}
+:where(html:not([data-theme="dark"])) .mp-lm{fill:#3d465b}
+:where(html:not([data-theme="dark"])) .fp-svg .fpd-void-t{fill:#4a4438;font-weight:700}
+/* ==== LIGHT THEME — contrast pass (small type >= 4.5:1 on ivory) ====
+   Every text colour below was measured against the ivory surfaces
+   (#f4f2ed / #ebe8e1 / #ffffff) so small type clears 4.5:1 and
+   solid accent buttons clear 4.5:1 with white labels.
+   The brand orange stays for decoration; text and solid fills use
+   the two darker steps that keep the same hue. */
+/* accent tokens for the light skin live in :root at the top of this file */
+/* small accent labels that sit on light surfaces */
+:where(html:not([data-theme="dark"])) .eyebrow, :where(html:not([data-theme="dark"])) .past-eyebrow, :where(html:not([data-theme="dark"])) .dr-section h4, :where(html:not([data-theme="dark"])) .guide-num, :where(html:not([data-theme="dark"])) .rental-points li span:first-child, :where(html:not([data-theme="dark"])) .about-address > span, :where(html:not([data-theme="dark"])) .contact-kicker, :where(html:not([data-theme="dark"])) .fp-kicker, :where(html:not([data-theme="dark"])) .rates-sub, :where(html:not([data-theme="dark"])) .quick-k, :where(html:not([data-theme="dark"])) .desk-k, :where(html:not([data-theme="dark"])) .ar-k, :where(html:not([data-theme="dark"])) .avail-cta, :where(html:not([data-theme="dark"])) .faq-contact span, :where(html:not([data-theme="dark"])) .sr-num, :where(html:not([data-theme="dark"])) .ev-date .m, :where(html:not([data-theme="dark"])) .estimate-cta .est-cta-eyebrow{color:var(--accent-ink)}
+/* solid accent buttons: white label needs the darker fill */
+:where(html:not([data-theme="dark"])) .btn-solid{background:var(--accent-btn)}
+:where(html:not([data-theme="dark"])) .btn-solid:hover{background:var(--accent-btn-h)}
+:where(html:not([data-theme="dark"])) .evc-btn.is-solid, :where(html:not([data-theme="dark"])) .ev-mini.is-primary{background:var(--accent-btn);border-color:var(--accent-btn)}
+:where(html:not([data-theme="dark"])) .evc-btn.is-solid:hover{background:var(--accent-btn-h);border-color:var(--accent-btn-h)}
+/* outlined buttons on ivory */
+:where(html:not([data-theme="dark"])) .btn-line{background:rgba(0,0,0,.03)}
+:where(html:not([data-theme="dark"])) .btn-line:hover{background:rgba(0,0,0,.07);border-color:var(--txt)}
+/* archive year filters */
+:where(html:not([data-theme="dark"])) .filter.is-active{color:#fff}
+/* archive cards: meta line and venue */
+:where(html:not([data-theme="dark"])) .arch-page .arch-meta{color:#5d5d66}
+:where(html:not([data-theme="dark"])) .arch-page .arch-venue{color:#5d5d66}
+/* stand-flower rule cards */
+:where(html:not([data-theme="dark"])) .sr-t{color:#17171c}
+:where(html:not([data-theme="dark"])) .sr-d{color:#3d3d45}
+:where(html:not([data-theme="dark"])) .stand-contact{color:#45454e}
+:where(html:not([data-theme="dark"])) .stand-contact a{color:#33333b}
+:where(html:not([data-theme="dark"])) .stand-contact a:hover{color:#17171c}
+/* section index numbers */
+:where(html:not([data-theme="dark"])) .sec-idx{color:#5d5d66}
+/* ---------- availability calendar ---------- */
+:where(html:not([data-theme="dark"])) .avail-wd{color:#45454e}
+:where(html:not([data-theme="dark"])) .avail-cell.is-open{background:#eef7f1;border-color:#bcdcc8}
+:where(html:not([data-theme="dark"])) .avail-cell.is-open i{color:#1f7a45}
+:where(html:not([data-theme="dark"])) .avail-cell.is-open:hover{background:#e2f2e8;border-color:#1f7a45}
+:where(html:not([data-theme="dark"])) .avail-cell.is-part{background:#fdf5e3;border-color:#e2c68c}
+:where(html:not([data-theme="dark"])) .avail-cell.is-part i{color:#8a5a00}
+:where(html:not([data-theme="dark"])) .avail-cell.is-part:hover{background:#fbedd2;border-color:#8a5a00}
+:where(html:not([data-theme="dark"])) .avail-cell.is-busy{background:#efeee9;border-color:rgba(0,0,0,.07);color:#5c5c68}
+:where(html:not([data-theme="dark"])) .avail-cell.is-busy i{color:#8a3a2a}
+:where(html:not([data-theme="dark"])) .avail-legend i{background:#fff;border-color:rgba(0,0,0,.18)}
+:where(html:not([data-theme="dark"])) .avail-legend .is-open i{color:#1f7a45;border-color:#bcdcc8;background:#eef7f1}
+:where(html:not([data-theme="dark"])) .avail-legend .is-part i{color:#8a5a00;border-color:#e2c68c;background:#fdf5e3}
+:where(html:not([data-theme="dark"])) .avail-legend .is-busy i{color:#8a3a2a;border-color:rgba(0,0,0,.14);background:#efeee9}
+:where(html:not([data-theme="dark"])) .avail-note, :where(html:not([data-theme="dark"])) .avail-stamp{color:#45454e}
+:where(html:not([data-theme="dark"])) .avail-stamp b{color:#17171c}
+:where(html:not([data-theme="dark"])) .avail-picked b{color:#17171c}
+:where(html:not([data-theme="dark"])) .avail-picked.is-on{border-color:rgba(201,48,15,.35);background:rgba(201,48,15,.07);color:#33333b}
+/* ==== SHARED — full-screen mobile menu sits outside the header filter
+   backdrop-filter containing block (2026-11-27) ==== */
+@media (max-width:860px){.nav{background:#0d0d10}}
+/* ==== SHARED — lightbox and plan zoom stay dark in both skins ==== */
+.galbox,.fpzoom{--txt:#f3f2ef;--dim:#c4c4cd;--dim-2:#a9a9b5;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.2)}
+:where(html:not([data-theme="dark"])) .drawer-close{color:#f3f2ef;background:rgba(8,8,10,.62)}
+:where(html:not([data-theme="dark"])) .drawer-close:hover{background:#f3f2ef;color:#17171c}
+/* ==== LIGHT THEME — header stays solid so ivory text never shows through ==== */
+:where(html:not([data-theme="dark"])) .site-header, :where(html:not([data-theme="dark"])) .site-header.is-scrolled{background:#0d0d10;
+  backdrop-filter:none;-webkit-backdrop-filter:none;}
+/* ==== SHARED — equipment: sound / lighting / video ==== */
 .eq-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(14px,2.6vw,40px);align-items:end;margin-bottom:clamp(18px,2.2vw,26px)}
 .eq-lead{font-size:13px;color:var(--dim);line-height:1.85;text-wrap:pretty}
 .eq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.5vw,18px);align-items:start}
@@ -1426,12 +1668,27 @@ section[id]{scroll-margin-top:78px}
 .eq-tag{display:inline-block;font-style:normal;font-size:9.5px;font-weight:700;letter-spacing:.02em;color:var(--dim);border:1px solid var(--line-2);border-radius:100px;padding:0 7px;margin-left:3px;line-height:1.7;vertical-align:1px;white-space:nowrap}
 .eq-qty{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.03em;color:var(--accent);white-space:nowrap;margin-left:3px}
 .eq-note{margin-top:14px;padding-left:11px;border-left:2px solid var(--accent);font-size:11.5px;line-height:1.75;color:var(--dim)}
-@media (max-width:1000px){
-  .eq-intro{grid-template-columns:1fr;align-items:start}
-  .eq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:700px){
-  .eq-grid{grid-template-columns:1fr}
+@media (max-width:1000px){.eq-intro{grid-template-columns:1fr;align-items:start}
+  .eq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.eq-grid{grid-template-columns:1fr}
   .eq-lead{font-size:12.5px}
-  .eq-card-title h3{font-size:15px}
-}
+  .eq-card-title h3{font-size:15px}}
+/* ==== LIGHT THEME — food and gift cards ==== */
+:where(html:not([data-theme="dark"])) .gift-card{background:#ffffff;border-color:rgba(0,0,0,.09)}
+:where(html:not([data-theme="dark"])) .gift-t{color:#17171c}
+:where(html:not([data-theme="dark"])) .gift-d{color:#45454e}
+:where(html:not([data-theme="dark"])) .gift-list li{color:#33333b}
+:where(html:not([data-theme="dark"])) .gift-list.is-ng li{color:#5c5c66}
+:where(html:not([data-theme="dark"])) .gift-badge.is-ok{color:#1f7a45;border-color:#bcdcc8;background:#eef7f1}
+:where(html:not([data-theme="dark"])) .gift-badge.is-ask{color:#8a5a00;border-color:#e2c68c;background:#fdf5e3}
+:where(html:not([data-theme="dark"])) .gift-list.is-ok li::before{background:#1f7a45}
+:where(html:not([data-theme="dark"])) .gift-list.is-ng li::before{background:#c23a2a}
+:where(html:not([data-theme="dark"])) .gift-sub{color:#67676f}
+:where(html:not([data-theme="dark"])) .gift-note{color:#67676f}
+
+/* ==== LIGHT THEME — two labels the old light build left too pale ==== */
+/* FAQ answer text: was #bfbfca on white (1.8:1) in the light build */
+:where(html:not([data-theme="dark"])) .faq-a{color:#3d3d45}
+/* floor-plan zoom chip on paper white (cyan on ivory was 1.5:1) */
+:where(html:not([data-theme="dark"])) .fp-zoom-open{border-color:rgba(31,122,153,.45);background:rgba(31,122,153,.10);color:#1f6d84}
+

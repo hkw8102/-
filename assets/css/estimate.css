@@ -29,7 +29,7 @@
   background:var(--card);border:1px solid var(--line);border-radius:3px;
   padding:clamp(16px,2.2vw,24px);
   overflow-x:clip;                /* last-resort guard: nothing escapes the card */
-  color-scheme:dark;             /* native date/time pickers follow the theme */
+  color-scheme:inherit;           /* native date/time pickers follow the page theme */
 }
 
 .est-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}

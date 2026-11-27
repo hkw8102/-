@@ -777,3 +777,20 @@ Object.assign(T.en, {
   "eq.v3": "Studio cameras",
   "eq.v4": "PTZ remote camera"
 });
+
+/* ---------- theme switch (light / dark) ---------- */
+Object.assign(T.ja, {
+  "theme.label": "表示テーマ",
+  "theme.light": "ライト",
+  "theme.dark": "ダーク"
+});
+Object.assign(T.ko, {
+  "theme.label": "화면 테마",
+  "theme.light": "밝게",
+  "theme.dark": "어둡게"
+});
+Object.assign(T.en, {
+  "theme.label": "Theme",
+  "theme.light": "Light",
+  "theme.dark": "Dark"
+});

@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PLUSWIN HALL OSAKA — 施設概要・平面図・アクセス・レンタル料金 | PLUSWIN</title>
 <meta name="description" content="PLUSWIN HALL OSAKA（大阪市中央区宗右衛門町）の施設概要、座席平面図、アクセス、レンタル料金表、お問い合わせフォーム。着席220名／スタンディング350名。">
-<meta name="theme-color" content="#08080a">
+<meta name="theme-color" content="#f4f2ed">
+<script>/* theme first, before any paint: a stored choice or ?theme=dark|light is
+   applied to <html data-theme> here so a page never flashes the other skin */
+(function(){var d=document.documentElement,t=null;
+try{t=new URLSearchParams(location.search).get("theme")}catch(e){}
+if(t!=="dark"&&t!=="light"){try{t=localStorage.getItem("pluswin.theme")}catch(e){}}
+else{try{localStorage.setItem("pluswin.theme",t)}catch(e){}}
+if(t!=="dark"&&t!=="light")t="light";
+d.setAttribute("data-theme",t);
+var m=document.querySelector('meta[name="theme-color"]');
+if(m)m.setAttribute("content",t==="dark"?"#08080a":"#f4f2ed");})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80L7MBMH2J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="PLUSWIN HALL OSAKA — 施設概要・平面図・アクセス・レンタル料金 | PLUSWIN">
 <meta property="og:description" content="PLUSWIN HALL OSAKA（大阪市中央区宗右衛門町）の施設概要、座席平面図、アクセス、レンタル料金表、お問い合わせフォーム。着席220名／スタンディング350名。">
@@ -30,6 +43,12 @@
       <a href="hall.html" data-i18n="nav.hall" aria-current="page">ホール</a>
       <a href="archive.html" data-i18n="nav.archive">アーカイブ</a>
       <a href="index.html#contact" data-i18n="nav.contact">お問い合わせ</a>
+    
+      <div class="nav-theme" role="group" aria-label="Theme" data-i18n-aria="theme.label">
+        <span class="nav-theme-lab" data-i18n="theme.label">表示テーマ</span>
+        <button class="nav-theme-btn" type="button" data-theme-btn="light" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg><span data-i18n="theme.light">ライト</span></button>
+        <button class="nav-theme-btn" type="button" data-theme-btn="dark" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 14.3A8.7 8.7 0 0 1 9.7 3.4a8.7 8.7 0 1 0 10.9 10.9Z"/></svg><span data-i18n="theme.dark">ダーク</span></button>
+      </div>
     </nav>
 
     <div class="header-right">
@@ -37,6 +56,10 @@
         <button type="button" data-lang-btn="ja" aria-pressed="true">JP</button>
         <button type="button" data-lang-btn="ko" aria-pressed="false">KR</button>
         <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+      <div class="theme-sw" role="group" aria-label="Theme" data-i18n-aria="theme.label">
+        <button type="button" data-theme-btn="light" aria-pressed="true" aria-label="Light" data-i18n-aria="theme.light" title="Light" data-i18n-title="theme.light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg></button>
+        <button type="button" data-theme-btn="dark" aria-pressed="false" aria-label="Dark" data-i18n-aria="theme.dark" title="Dark" data-i18n-title="theme.dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 14.3A8.7 8.7 0 0 1 9.7 3.4a8.7 8.7 0 1 0 10.9 10.9Z"/></svg></button>
       </div>
       <a class="btn btn-line header-cta" href="hall.html#rental-form" data-i18n="nav.rentalCta">レンタル相談</a>
       <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Menu">
@@ -71,7 +94,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
           <span data-i18n="est.ctaBtn">見積書・利用申込書を作成</span>
         </a>
-        <a class="btn btn-line" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download>
+        <a class="btn btn-line" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download data-ga="file_download" data-ga-file="pluswin-hall-osaka-spec.pdf">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
           <span data-i18n="pdf.cta">ホール資料・平面図 PDF をダウンロード</span>
         </a>
@@ -1675,6 +1698,8 @@
   </figure>
 </div>
 
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/theme.js"></script>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/i18n-extra.js"></script>
 <script src="assets/js/hall-availability.js"></script>

@@ -117,6 +117,15 @@ function applyStatic() {
     const val = dictLookup(dict, el.getAttribute("data-i18n-ph"));
     if (val !== undefined) el.setAttribute("placeholder", val);
   });
+  // labels that live in attributes (theme switch, icon-only controls)
+  $$("[data-i18n-aria]").forEach((el) => {
+    const val = dictLookup(dict, el.getAttribute("data-i18n-aria"));
+    if (val !== undefined) el.setAttribute("aria-label", val);
+  });
+  $$("[data-i18n-title]").forEach((el) => {
+    const val = dictLookup(dict, el.getAttribute("data-i18n-title"));
+    if (val !== undefined) el.setAttribute("title", val);
+  });
 
   const key = pageKey();
   document.title = t("meta." + key + "Title");

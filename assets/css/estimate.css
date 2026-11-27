@@ -69,6 +69,12 @@
 .pdf-stage .paper{
   position:static !important;left:auto !important;top:auto !important;
   transform:none !important;margin:0 !important;box-shadow:none !important;animation:none !important;
+  /* a canvas measures text without the CSS “palt” proportional-width feature,
+     so with palt on the rasteriser draws each line wider than it is laid out
+     and the characters overrun their neighbours. Off inside the PDF copy only:
+     layout and canvas then agree, and the sheet keeps its normal look on
+     screen and in print. */
+  font-feature-settings:normal !important;
 }
 .pdf-busy{
   position:fixed;inset:0;z-index:2147483002;

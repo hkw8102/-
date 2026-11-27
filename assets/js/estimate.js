@@ -383,9 +383,13 @@
      ============================================================ */
   var A4 = { w: 210, h: 297, scale: 3 };
   var VENDOR = {
+    /* html2canvas-pro 2.6.5, not html2canvas 1.4.1: the original paints the
+       text of every table cell a few pixels too low, so the row rules cut
+       through the glyphs and the sheet reads as broken. The fork keeps the
+       same html2canvas(element, options) API and lays text out correctly. */
     html2canvas: {
       local: "assets/js/vendor/html2canvas.min.js",
-      cdn: "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
+      cdn: "https://cdn.jsdelivr.net/npm/html2canvas-pro@2.6.5/dist/html2canvas-pro.min.js",
       ok: function () { return typeof window.html2canvas === "function"; }
     },
     jspdf: {

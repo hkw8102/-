@@ -1089,6 +1089,9 @@ const PAST = [
   { key: "klovers-2019-vol3", series: "klovers", artist: "K-LOVERS FES", title: "Vol.3 2019", date: "2019.01.22", sort: "2019-01-22", year: "2019", venue: "Zepp Nagoya", poster: "assets/img/klovers/2019-vol3.jpg" },
   { key: "klovers-2018-vol2", series: "klovers", artist: "K-LOVERS FES", title: "Vol.2 2018", date: "2018.10.30", sort: "2018-10-30", year: "2018", venue: "Zepp Namba", poster: "assets/img/klovers/2018-vol2.jpg" },
   { key: "klovers-2018-vol1", series: "klovers", artist: "K-LOVERS FES", title: "2018", date: "2018.03.22", sort: "2018-03-22", year: "2018", venue: "Namba Hatch", poster: "assets/img/klovers/2018-vol1.jpg" },
+  { key: "kim-kwon-2026", artist: "KIM KWON", title: "TOKYO TAKE 2", date: "2026.11.21", sort: "2026-11-21", year: "2026", venue: "GE theater HARAJUKU", poster: "assets/img/past/kim-kwon-2026.jpg" },
+  { key: "riri-2025", artist: "RiRi", title: "FANMEETING IN OSAKA READY!", date: "2025.12.27 - 28", sort: "2025-12-27", year: "2025", venue: "OSAKA", poster: "assets/img/past/riri-2025.jpg" },
+  { key: "3way-2024", artist: "3WAY", title: "F1RST '3WAY PROJECT' in JAPAN", date: "2024.03.23", sort: "2024-03-23", year: "2024", venue: "PLUSWIN HALL MINAMIHORIE", poster: "assets/img/past/3way-2024.jpg" },
 ];
 
 const GUIDES = [

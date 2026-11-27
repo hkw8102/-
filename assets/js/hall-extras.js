@@ -82,9 +82,9 @@ const FAQ_ITEMS = [
   {
     q: { ja: "落とし物をしたときは？", ko: "분실물이 생기면 어떻게 하나요?", en: "What if I lose something?" },
     a: {
-      ja: "会場でお預かりしています。公演日・お名前・品物の特徴を添えて、06-6536-2002 または hallrental@pluswin.jp までご連絡ください。",
-      ko: "공연장에서 보관하고 있습니다. 공연일·이름·물건의 특징을 적어 06-6536-2002 또는 hallrental@pluswin.jp로 연락해 주세요.",
-      en: "Lost items are kept at the venue. Please contact 06-6536-2002 or hallrental@pluswin.jp with the show date, your name and a description of the item."
+      ja: "会場でお預かりしています。保管期間は公演日から1週間です。1週間を過ぎた場合は処分いたします。公演日・お名前・品物の特徴を添えて、06-6536-2002 または hallrental@pluswin.jp までご連絡ください。",
+      ko: "공연장에서 보관하고 있습니다. 보관 기간은 공연일로부터 1주일이며, 1주일이 지나면 처분합니다. 공연일·이름·물건의 특징을 적어 06-6536-2002 또는 hallrental@pluswin.jp로 연락해 주세요.",
+      en: "We keep lost items at the venue. Lost items are kept for 1 week from the event date and disposed of thereafter. Please contact 06-6536-2002 or hallrental@pluswin.jp with the show date, your name and a description of the item."
     }
   },
   {

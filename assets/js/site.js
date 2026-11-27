@@ -34,6 +34,11 @@ const t = (key) => {
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+/* every poster file carries the build tag, so a browser that kept an older
+   copy of a poster (the earlier cropped ones) asks for the new file instead */
+const ASSET_V = "20261127c";
+const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
+
 function monthName(m) {
   return ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"][m - 1];
 }
@@ -170,8 +175,8 @@ function eventCard(e) {
   const cancel = e.cancelBadge ? `<span class="evc-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
   return `
     <article class="evc" data-id="${e.id}">
-      <button class="evc-media" type="button" data-open="${e.id}" style="--poster:url('${e.poster}')" aria-label="${esc(e.title)} — ${t("events.detail")}">
-        <img src="${e.poster}" alt="${esc(e.title)}" loading="lazy" decoding="async">
+      <button class="evc-media" type="button" data-open="${e.id}" style="--poster:url('${vurl(e.poster)}');aspect-ratio:4/3" aria-label="${esc(e.title)} — ${t("events.detail")}">
+        <img src="${vurl(e.poster)}" alt="${esc(e.title)}" loading="lazy" decoding="async" style="object-fit:contain">
         <span class="evc-status${soon ? " is-soon" : ""}">${soon ? t("events.soon") : t("events.onsale")}</span>
         ${cancel}
         <span class="evc-stamp"><b>${monthName(e.month)}</b><i>${String(e.day).padStart(2, "0")}</i><em>${esc(e.weekday[lang])}</em></span>
@@ -197,6 +202,21 @@ function renderEvents() {
     return;
   }
   grid.innerHTML = ACTIVE_EVENTS.map(eventCard).join("");
+}
+
+/* the newest archive posters as one small strip under the events grid, so the
+   past shows are visible on the home page; it follows the archive by itself */
+function renderArchiveStrip() {
+  const wrap = $("#archiveThumbs");
+  if (!wrap) return;
+  const newest = ARCHIVE
+    .filter((p) => p.poster)
+    .slice()
+    .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0))
+    .slice(0, 5);
+  wrap.innerHTML = newest
+    .map((p) => `<img src="${vurl(p.poster)}" alt="" title="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async">`)
+    .join("");
 }
 
 function renderPillars() {
@@ -275,7 +295,7 @@ function renderArchive() {
   }
   grid.innerHTML = all.map((p) => {
     const poster = p.poster
-      ? `<div class="arch-poster" style="--poster:url('${p.poster}')"><img src="${p.poster}" alt="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async"></div>`
+      ? `<div class="arch-poster" style="--poster:url('${vurl(p.poster)}')"><img src="${vurl(p.poster)}" alt="${esc(p.artist)} — ${esc(p.title)}" loading="lazy" decoding="async"></div>`
       : `<div class="arch-poster"><span class="arch-typo-inner"><span class="arch-typo-mark" aria-hidden="true"></span><span class="arch-typo-name">${esc(p.artist)}</span><span class="arch-typo-year">${esc(p.year)}</span></span></div>`;
     return `
       <article class="arch-card${p.poster ? "" : " is-typo"}">
@@ -391,7 +411,7 @@ function openDrawer(id) {
   const addrKey = lang === "ko" ? "addrKo" : lang === "en" ? "addrEn" : "addrJa";
   const cancel = e.cancelBadge ? `<span class="dr-cancel">${esc(e.cancelBadge[lang])}</span>` : "";
   content.innerHTML = `
-    <div class="dr-hero" style="--poster:url('${e.poster}')"><figure class="dr-hero-frame"><img src="${e.poster}" alt="${esc(e.title)}">${cancel}</figure></div>
+    <div class="dr-hero" style="--poster:url('${vurl(e.poster)}')"><figure class="dr-hero-frame"><img src="${vurl(e.poster)}" alt="${esc(e.title)}">${cancel}</figure></div>
     <div class="dr-body">
       <div class="dr-kicker">
         <span class="ev-city">${esc(e.cityLabel)}</span>
@@ -462,6 +482,7 @@ function updateUrl() {
 function renderPage() {
   renderEvents();
   renderArchive();
+  renderArchiveStrip();
   renderShowCount();
   renderPillars();
   renderNextChip();

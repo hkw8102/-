@@ -1763,8 +1763,11 @@ section[id]{scroll-margin-top:78px}
 }
 .faq-more:hover{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft)}
 .faq-more:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.faq-more svg{
-  width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;
+.faq-more svg,
+.faq-more > svg{
+  display:inline-block;flex:0 0 auto;
+  width:14px;height:14px;max-width:14px;max-height:14px;
+  fill:none;stroke:currentColor;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease);
 }
 .faq-more[aria-expanded="true"] svg{transform:rotate(180deg)}
@@ -1790,12 +1793,14 @@ section[id]{scroll-margin-top:78px}
    four-column photo wall (9 photos = hero + 8)
    ============================================================ */
 .hall-logo{
-  display:block;height:clamp(24px,3.1vw,36px);width:auto;margin:0 0 18px;
-  opacity:.94;
+  display:block;width:auto;height:clamp(20px,2.2vw,26px);max-height:28px;
+  margin:0 0 16px;opacity:.94;
 }
 /* the mark is solid black on transparent: on the stage-black skin it is
    flipped to clean white so it stays legible */
 html[data-theme="dark"] .hall-logo{filter:brightness(0) invert(1);opacity:.92}
+/* never let the wordmark fall back to its intrinsic 1200px size */
+.hall-logo[width]{max-width:min(100%,320px)}
 
 .hall-plot-link{margin-top:10px;font-size:11.5px}
 .hall-plot-link .link-arrow{color:var(--dim-2)}

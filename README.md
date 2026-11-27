@@ -14,7 +14,7 @@ header, footer, design system and language state.
 | `archive.html` | Past-event archive: all **53 shows**, year filter (All / 2026 / 2025 / 2024 / 2023) and a plain poster grid — artist, title, date and venue only. No detail drawer: details belong to the upcoming shows on `index.html`. |
 | `hall.html` | PLUSWIN HALL OSAKA: full specs, a seven-photo hall gallery (`#photos`, lightbox, JP/KR/EN captions), a dark-mode SVG seating floor plan with a numbered facility legend on phones, step-by-step access from Nihonbashi Exit 2 and Namba with a dark-mode SVG area map (labels follow the site language), the **2026-03-23 official rate card**, options, 6 usage terms, the rental availability calendar (`#availability`, ○ / △ / ×), a 12-question FAQ (`#faq`), the spec-sheet PDF download and the rental / site-visit enquiry form (`#rental-form`). |
 | `stand.html` | Stand flower & balloon guide: the 6 placement rules (2×3 cards) and the embedded application form. |
-| `estimate.html` | **Quote & application builder.** Pick the hall rate (weekday / weekend-holiday, 12 h or 6 h), the options and the organiser's details, and the page builds a tax-excluded quote plus the official one-page A4 **PLUSWINHALL 大阪 ご利用申込書** — printable / savable as PDF. The input UI follows JP / KR / EN; the sheet itself is always the Japanese form. |
+| `estimate.html` | **Quote & application builder.** Pick the hall rate (weekday / weekend-holiday, 12 h or 6 h), the options and the organiser's details, and the page builds a tax-excluded quote plus the official one-page A4 **PLUSWINHALL 大阪 ご利用申込書** — the **PDF file** button writes that sheet straight to a one-page A4 PDF (html2canvas + jsPDF, served from `assets/js/vendor/`) and the **print** button opens the system print dialog. The input UI follows JP / KR / EN; the sheet itself is always the Japanese form. |
 
 ## Files
 
@@ -28,6 +28,7 @@ header, footer, design system and language state.
 - `assets/pdf/pluswin-hall-osaka-spec.pdf` — downloadable venue sheet (specs, stage, floor plan, access, rate card)
 - `assets/css/estimate.css` — quote-builder layout and the fixed black-on-white A4 sheet (`@media print`)
 - `assets/js/estimate.js` — rate table, weekday detection, option maths and the sheet renderer
+- `assets/js/vendor/` — html2canvas 1.4.1 and jsPDF 2.5.1, used by the direct PDF export (CDN is only a fallback)
 - `assets/` — photos (cleaned hall photos in `assets/img/hall/`), event posters, official logo, subset webfonts
 - the floor plan and area map are inline SVG in `hall.html` (palette-matched, labels translated by `data-i18n`); the print PDF still uses the light JPEG versions
 

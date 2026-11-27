@@ -842,11 +842,7 @@ const EVENTS = [
   {
     id: "hanse",
     poster: "assets/img/event-hanse.jpg",
-    posters: [
-      { from: "2026-01-01", src: "assets/img/event-hanse.jpg" },
-      { from: "2027-01-01", src: "assets/img/event-hanse-jan.jpg" },
-      { from: "2027-02-01", src: "assets/img/event-hanse-feb.jpg" }
-    ],
+    archive: false,   // a running monthly series — kept out of the past archive
     showDates: ["2026-12-07", "2026-12-08", "2026-12-09", "2027-01-08", "2027-01-09", "2027-01-11", "2027-01-14", "2027-01-15", "2027-02-23", "2027-02-25", "2027-02-26", "2027-02-27"],
     stampPos: "body",
     title: "HANSE JAPAN LIVE - Shine Forever",
@@ -986,7 +982,7 @@ const PAST = [
   { key: "epts-story100", artist: "EPTS", title: "JAPAN LIVE TOUR 'STORY 100'", date: "2026.08.07 - 11.23", sort: "2026-11-23", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/epts-story100.jpg", url: "https://www.pluswin.net/news-1-1/epts-tour" },
   { key: "frame-the-x-2026", artist: "FRAME THE X", title: "JAPAN LIVE TOUR ~2026 Autumn~", date: "2026.09.16 - 11.01", sort: "2026-11-01", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/frame-the-x-2026.jpg", url: "https://www.framethexjapan.com/post/ftx-202610japanlive" },
   { key: "kik5o-2026", artist: "Kik5o", title: "FAN CONCERT RE:BORN IN OSAKA 2026", date: "2026.11.15", sort: "2026-11-15", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "assets/img/past/kik5o-2026.jpg", url: "https://www.pluswin.net/news-1-1/kik5o-japanlive" },
-  { key: "hanse-2026", artist: "HANSE", title: "JAPAN LIVE 2026 - Shine Forever", date: "2026.11.24 - 11.26", sort: "2026-11-26", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/hanse-2026.jpg", url: "https://www.pluswin.net/news-1-1/dohanse-japan-event" },
+  { key: "hanse-2026", archive: false, artist: "HANSE", title: "JAPAN LIVE 2026 - Shine Forever", date: "2026.11.24 - 11.26", sort: "2026-11-26", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/hanse-2026.jpg", url: "https://www.pluswin.net/news-1-1/dohanse-japan-event" },
   { key: "ko-taewoon", artist: "KO TAEWOON", title: "1st FANMEETING in JAPAN [New Chapter:LINK]", date: "2026.10.10 - 11.01", sort: "2026-10-10", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/ko-taewoon.jpg", url: "https://www.pluswin.net/news-1-1/kotaewoon" },
   { key: "bae-jinyoung", artist: "BAE JINYOUNG", title: "JAPAN FANMEETING [Autumn Breeze]", date: "2026.09.11 - 10.04", sort: "2026-09-11", year: "2026", venue: "GOTANDA / OSAKA", poster: "assets/img/past/bae-jinyoung.jpg", url: "https://www.pluswin.net/news-1-1/baejinyoung" },
   { key: "ehjm", artist: "EHJM", title: "2026 CONCERT IN OSAKA", date: "2026.08.22", sort: "2026-08-22", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/ehjm.jpg", url: "https://www.pluswin.net/news-1-1/ehjm-event" },
@@ -1003,7 +999,7 @@ const PAST = [
   { key: "jung-dae-hyun", artist: "JUNG DAE HYUN", title: "FANMEETING IN JAPAN <BLOOMING>", date: "2026.03.25 - 29", sort: "2026-03-25", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/jung-dae-hyun.jpg", url: "https://www.pluswin.net/news-1-1/daehyun" },
   { key: "kik", artist: "KIK", title: "Asia Tour 2026", date: "2026.03.12 - 15", sort: "2026-03-12", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/kik.jpg", url: "https://www.pluswin.net/news-1-1/wooseok-live" },
   { key: "jinho-winter-bloom", artist: "JINHO", title: "FAN-CON 'WINTER BLOOM' IN JAPAN", date: "2026.01.22 - 27", sort: "2026-01-22", year: "2026", venue: "TOKYO / OSAKA", poster: "assets/img/past/jinho-winter-bloom.jpg", url: "https://www.pluswin.net/news-1-1/jinho" },
-  { key: "hanse-winter", artist: "HANSE", title: "JAPAN LIVE 2025 WINTER", date: "2025.12.16 - 26", sort: "2025-12-16", year: "2025", venue: "PLUSWIN HALL OSAKA / VILLEBOA", poster: "assets/img/past/hanse-winter.jpg", url: "https://www.pluswin.net/news-1-1/hanse-japanlive" },
+  { key: "hanse-winter", archive: false, artist: "HANSE", title: "JAPAN LIVE 2025 WINTER", date: "2025.12.16 - 26", sort: "2025-12-16", year: "2025", venue: "PLUSWIN HALL OSAKA / VILLEBOA", poster: "assets/img/past/hanse-winter.jpg", url: "https://www.pluswin.net/news-1-1/hanse-japanlive" },
   { key: "hayeon", artist: "HAYEON", title: "The First Bloom in Osaka 2025", date: "2025.12.12 - 21", sort: "2025-12-12", year: "2025", venue: "PLUSWIN HALL OSAKA / VILLEBOA", poster: "assets/img/past/hayeon.jpg", url: "https://www.pluswin.net/news-1-1/hayeon-japanlive" },
   { key: "lim-seul-ong", artist: "LIM SEUL-ONG", title: "SOLO Fan Concert 'ONGBOARDING'", date: "2025.11.07", sort: "2025-11-07", year: "2025", venue: "OSAKA / TOKYO", poster: "assets/img/past/lim-seul-ong.jpg", url: "https://www.pluswin.net/news-1-1/ongboarding" },
   { key: "xin", artist: "X:IN", title: "JAPAN 1st SHOWCASE 2025 'READY X:IN'", date: "2025.10.25 - 29", sort: "2025-10-25", year: "2025", venue: "TOKYO / OSAKA", poster: "assets/img/past/xin.jpg", url: "https://www.pluswin.net/news-1-1/xin-event" },

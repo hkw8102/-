@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261128h";
+const ASSET_V = "20261128i";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -82,7 +82,8 @@ function toArchiveItem(e) {
     year: end.slice(0, 4),
     venue: e.archiveVenue || (e.venues || []).map((v) => v.name).join(" / "),
     poster: e.poster || "",
-    url: e.ticket || ""
+    url: e.ticket || "",
+    archive: e.archive
   };
 }
 
@@ -236,7 +237,7 @@ function renderEvents() {
 function renderArchiveStrip() {
   const wrap = $("#archiveThumbs");
   if (!wrap) return;
-  const newest = ARCHIVE
+  const newest = ARCHIVE_LIST
     .filter((p) => p.poster)
     .slice()
     .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0))
@@ -285,15 +286,19 @@ function renderShowCount() {
 /* ---------- renderers: archive ---------- */
 function archiveYears() {
   const years = [];
-  ARCHIVE.forEach((p) => {
+  ARCHIVE_LIST.forEach((p) => {
     const y = String(p.year);
     if (years.indexOf(y) === -1) years.push(y);
   });
   return years.sort((a, b) => b.localeCompare(a));
 }
 
+/* entries marked `archive: false` (e.g. a monthly series that is still running)
+   still count toward the show total in the hero, but are not listed in the archive */
+const ARCHIVE_LIST = ARCHIVE.filter((p) => p.archive !== false);
+
 function pastFiltered() {
-  const all = ARCHIVE
+  const all = ARCHIVE_LIST
     .slice()
     .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
   if (state.pastYear === "all") return all;
@@ -317,7 +322,7 @@ function renderArchive() {
   const all = pastFiltered();
   const counts = [document.getElementById("pastCount"), document.getElementById("archiveCount")];
   if (!grid) {
-    counts.forEach((c) => { if (c) c.textContent = String(ARCHIVE.length); });
+    counts.forEach((c) => { if (c) c.textContent = String(ARCHIVE_LIST.length); });
     return;
   }
   grid.innerHTML = all.map((p) => {

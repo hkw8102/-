@@ -584,6 +584,8 @@
     if (btnReset) {
       btnReset.addEventListener("click", function () {
         if (!window.confirm(Q[currentLang()].resetConfirm)) return;
+        var pdfNote = $("pdfNote");
+        if (pdfNote) pdfNote.hidden = true;
         ["f-date", "f-rehearsal", "f-open2", "f-start2", "f-end2", "f-title", "f-artist", "f-cap",
          "f-adv", "f-door", "f-o1n", "f-o1a", "f-o2n", "f-o2a", "f-o3n", "f-o3a",
          "f-company", "f-person", "f-addr", "f-tel", "f-mobile", "f-email"].forEach(function (id) {

@@ -642,6 +642,8 @@ Object.assign(T.ja, {
   "eq.faders": "20フェーダー",
   "eq.nLogo": "N ロゴ",
   "eq.rackSeq": "ラック電源シーケンサー",
+  "eq.p26": "P2.6mm",
+  "eq.out2k": "2K出力まで",
   "eq.gAudio": "音響",
   "eq.a1": "メインスピーカー",
   "eq.a2": "サブウーファー",
@@ -668,11 +670,11 @@ Object.assign(T.ja, {
   "eq.l9": "レーザー",
   "eq.l10": "ヘイザー（スモーク）",
   "eq.gVideo": "映像・LED",
+  "eq.v0": "LEDビジョン",
   "eq.v1": "LEDコントローラー",
   "eq.v2": "映像送出",
   "eq.v3": "スタジオカメラ",
-  "eq.v4": "PTZリモートカメラ",
-  "eq.v5": "天井プロジェクター"
+  "eq.v4": "PTZリモートカメラ"
 });
 
 Object.assign(T.ko, {
@@ -689,6 +691,8 @@ Object.assign(T.ko, {
   "eq.faders": "20페이더",
   "eq.nLogo": "N 로고",
   "eq.rackSeq": "랙 전원 시퀀서",
+  "eq.p26": "P2.6mm",
+  "eq.out2k": "최대 2K 출력",
   "eq.gAudio": "음향",
   "eq.a1": "메인 스피커",
   "eq.a2": "서브우퍼",
@@ -715,11 +719,11 @@ Object.assign(T.ko, {
   "eq.l9": "레이저",
   "eq.l10": "헤이저(스모그)",
   "eq.gVideo": "영상·LED",
+  "eq.v0": "LED 스크린",
   "eq.v1": "LED 컨트롤러",
   "eq.v2": "영상 송출",
   "eq.v3": "스튜디오 카메라",
-  "eq.v4": "PTZ 리모트 카메라",
-  "eq.v5": "천장 프로젝터"
+  "eq.v4": "PTZ 리모트 카메라"
 });
 
 Object.assign(T.en, {
@@ -736,6 +740,8 @@ Object.assign(T.en, {
   "eq.faders": "20 faders",
   "eq.nLogo": "N logo",
   "eq.rackSeq": "rack power sequencer",
+  "eq.p26": "P2.6mm",
+  "eq.out2k": "up to 2K output",
   "eq.gAudio": "Audio",
   "eq.a1": "Main speakers",
   "eq.a2": "Subwoofers",
@@ -762,9 +768,9 @@ Object.assign(T.en, {
   "eq.l9": "Laser",
   "eq.l10": "Hazer (smoke)",
   "eq.gVideo": "Video & LED",
+  "eq.v0": "LED screen",
   "eq.v1": "LED controller",
   "eq.v2": "Video playback",
   "eq.v3": "Studio cameras",
-  "eq.v4": "PTZ remote camera",
-  "eq.v5": "Ceiling projector"
+  "eq.v4": "PTZ remote camera"
 });

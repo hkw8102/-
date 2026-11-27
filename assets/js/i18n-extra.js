@@ -677,8 +677,8 @@ Object.assign(T.ja, {
 
 Object.assign(T.ko, {
   "eq.eyebrow": "EQUIPMENT",
-  "eq.title": "설비·장비",
-  "eq.jump": "설비·장비",
+  "eq.title": "음향·조명·영상 장비",
+  "eq.jump": "보유 장비",
   "eq.lead": "홀에 상설로 갖춰진 음향·조명·영상 장비입니다. 장비 추가나 반입은 대관 상담에서 안내해 드립니다.",
   "eq.note": "위 장비는 모두 상설입니다. 무선 마이크 추가나 중계 카메라 등은 요금표의 옵션을 확인해 주세요.",
   "eq.passive": "패시브",

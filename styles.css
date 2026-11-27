@@ -1998,3 +1998,13 @@ html[data-theme="dark"] .to-top-btn{box-shadow:0 8px 22px rgba(0,0,0,.6)}
 .field-consent .consent-t{display:inline}
 .field-consent a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
 .field-consent a:hover{color:var(--accent)}
+
+/* Korean: break lines between words, not inside a word (e.g. "서포/트") */
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
+/* narrow phones (≤380px): keep the hero eyebrow "… OSAKA / SHINSAIBASHI" on screen */
+@media (max-width:380px){
+  .hero-eyebrow{letter-spacing:.06em}
+}
+@media (max-width:340px){
+  .hero-eyebrow{white-space:normal;line-height:1.7}
+}

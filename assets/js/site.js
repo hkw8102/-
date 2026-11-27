@@ -619,6 +619,29 @@ function bindStandForm() {
   });
 }
 
+/* ---------- floating "back to top" ----------
+   The hall page is several phone screens long, so a small round ↑ sits in
+   the bottom-right corner once the visitor has scrolled past the first
+   section. It is built here (not in each page's HTML) so all five pages get
+   it from one place; its label goes through the same translation pass as
+   the rest of the chrome. */
+function ensureTopButton() {
+  if ($("#toTopBtn")) return;
+  const btn = document.createElement("button");
+  btn.id = "toTopBtn";
+  btn.type = "button";
+  btn.className = "to-top-btn";
+  btn.setAttribute("data-i18n-aria", "footer.toTop");
+  btn.setAttribute("aria-label", t("footer.toTop"));
+  btn.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>`;
+  btn.addEventListener("click", () => {
+    let reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (err) { /* ignore */ }
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+  document.body.appendChild(btn);
+}
+
 /* ---------- interactions ---------- */
 function bind() {
   $$("[data-lang-btn]").forEach((b) => {
@@ -656,9 +679,11 @@ function bind() {
   }
 
   const header = $("#siteHeader");
+  ensureTopButton();
+  const toTop = $("#toTopBtn");
   const onScroll = () => {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    if (header) header.classList.toggle("is-scrolled", window.scrollY > 24);
+    if (toTop) toTop.classList.toggle("is-on", window.scrollY > 400);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -699,6 +724,7 @@ function bind() {
 document.addEventListener("DOMContentLoaded", () => {
   lang = initialLang();
   try { localStorage.setItem(LANG_KEY, lang); } catch (err) { /* ignore */ }
+  ensureTopButton();
   applyStatic();
   renderPage();
   localizeLinks();

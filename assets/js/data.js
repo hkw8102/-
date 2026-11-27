@@ -840,6 +840,59 @@ const EVENTS = [
     ticketNote: { ja: "発売中（LivePocket・先着）", ko: "판매 중 (LivePocket·선착순)", en: "On sale now (LivePocket, first come)" }
   },
   {
+    id: "hanse",
+    poster: "assets/img/event-hanse.jpg",
+    stampPos: "body",
+    title: "2026 HANSE JAPAN LIVE - Shine Forever",
+    city: "osaka",
+    cityLabel: "OSAKA",
+    month: 12, day: 7, weekday: { ja: "月", ko: "월", en: "MON" },
+    dateShort: "12.07",
+    year: 2026,
+    artist: "HANSE",
+    startDate: "2026-12-07",
+    endDate: "2026-12-09",
+    sort: "2026-12-09",
+    archiveDate: "2026.12.07 - 12.09",
+    archiveVenue: "PLUSWIN HALL OSAKA",
+    status: "onsale",
+    ticket: "https://livepocket.jp/t/hanse-",
+    venueShort: { ja: "PLUSWIN HALL OSAKA", ko: "PLUSWIN HALL OSAKA", en: "PLUSWIN HALL OSAKA" },
+    sub: {
+      ja: "VICTON出身・HANSEの大阪ライブ。12月は3日間公演。",
+      ko: "VICTON 출신 HANSE의 오사카 라이브. 12월은 3일간 공연.",
+      en: "HANSE (ex-VICTON) live in Osaka — three nights in December."
+    },
+    priceLabel: { ja: "自由席 ¥6,000", ko: "자유석 ¥6,000", en: "Unreserved ¥6,000" },
+    priceFrom: "¥6,000",
+    venues: [
+      {
+        name: "PLUSWIN HALL OSAKA",
+        addrJa: "〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1",
+        addrKo: "〒542-0084 오사카시 주오구 소에몬초 2-3 미마츠빌딩 B1",
+        addrEn: "B1 Mimatsu Bldg., 2-3 Soemoncho, Chuo-ku, Osaka 542-0084",
+        map: HALL_OSAKA_MAP
+      }
+    ],
+    dates: [
+      { ja: "2026.12.07 (月) 19:00 開演", ko: "2026.12.07 (월) 19:00 개연", en: "7 Dec 2026 (Mon) — show 19:00" },
+      { ja: "2026.12.08 (火) 19:00 開演", ko: "2026.12.08 (화) 19:00 개연", en: "8 Dec 2026 (Tue) — show 19:00" },
+      { ja: "2026.12.09 (水) 19:00 開演", ko: "2026.12.09 (수) 19:00 개연", en: "9 Dec 2026 (Wed) — show 19:00" }
+    ],
+    sessions: [
+      { name: { ja: "12/7 (月)", ko: "12/7 (월)", en: "7 Dec (Mon)" }, open: "18:30", start: "19:00", price: "¥6,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥7,000", ko: "당일권 ¥7,000", en: "Door ¥7,000" } },
+      { name: { ja: "12/8 (火)", ko: "12/8 (화)", en: "8 Dec (Tue)" }, open: "18:30", start: "19:00", price: "¥6,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥7,000", ko: "당일권 ¥7,000", en: "Door ¥7,000" } },
+      { name: { ja: "12/9 (水)", ko: "12/9 (수)", en: "9 Dec (Wed)" }, open: "18:30", start: "19:00", price: "¥6,000", seat: { ja: "整理番号付き自由席", ko: "정리번호 있는 자유석", en: "Free seating, numbered" }, note: { ja: "当日券 ¥7,000", ko: "당일권 ¥7,000", en: "Door ¥7,000" } }
+    ],
+    notes: [
+      { ja: "整理番号付き自由席・先着販売。お一人様4枚まで。", ko: "정리번호 있는 자유석·선착순 판매. 1인 4매까지.", en: "Free seating (numbered), first come. Up to 4 tickets per person." },
+      { ja: "開場は開演の30分前です。", ko: "개장은 개연 30분 전입니다.", en: "Doors open 30 minutes before the show." },
+      { ja: "3歳未満は入場不可。", ko: "만 3세 미만 입장 불가.", en: "Children under 3 not admitted." },
+      { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
+    ],
+    ticketNote: { ja: "発売中（LivePocket・先着）", ko: "판매 중 (LivePocket·선착순)", en: "On sale now (LivePocket, first come)" }
+  },
+  {
     id: "hyuk",
     poster: "assets/img/event-hyuk.jpg",
     title: "2026 HYUK FANMEETING [LAST HOLIDAY X-MAS]",
@@ -919,15 +972,125 @@ const EVENTS = [
       { ja: "3歳未満は入場不可。", ko: "만 3세 미만 입장 불가.", en: "Children under 3 not admitted." }
     ],
     ticketNote: { ja: "11/30 (月) 18:00 販売開始", ko: "11/30 (월) 18:00 판매 시작", en: "On sale 30 Nov (Mon) 18:00" }
+  },
+  {
+    id: "hanse-jan",
+    poster: "assets/img/event-hanse-jan.jpg",
+    stampPos: "body",
+    title: "2027 HANSE JAPAN LIVE - Shine Forever",
+    city: "osaka",
+    cityLabel: "OSAKA",
+    month: 1, day: 8, weekday: { ja: "金", ko: "금", en: "FRI" },
+    dateShort: "01.08",
+    year: 2027,
+    artist: "HANSE",
+    startDate: "2027-01-08",
+    endDate: "2027-01-15",
+    sort: "2027-01-15",
+    archiveDate: "2027.01.08 - 01.15",
+    archiveVenue: "PLUSWIN HALL OSAKA",
+    status: "soon",
+    ticket: "https://livepocket.jp/t/hanse-",
+    venueShort: { ja: "PLUSWIN HALL OSAKA", ko: "PLUSWIN HALL OSAKA", en: "PLUSWIN HALL OSAKA" },
+    sub: {
+      ja: "VICTON出身・HANSEの大阪ライブ。1月は全5公演。",
+      ko: "VICTON 출신 HANSE의 오사카 라이브. 1월은 총 5회 공연.",
+      en: "HANSE (ex-VICTON) live in Osaka — 5 shows in January."
+    },
+    priceLabel: { ja: "料金 近日発表", ko: "요금 추후 공지", en: "Price TBA" },
+    priceFrom: "TBA",
+    venues: [
+      {
+        name: "PLUSWIN HALL OSAKA",
+        addrJa: "〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1",
+        addrKo: "〒542-0084 오사카시 주오구 소에몬초 2-3 미마츠빌딩 B1",
+        addrEn: "B1 Mimatsu Bldg., 2-3 Soemoncho, Chuo-ku, Osaka 542-0084",
+        map: HALL_OSAKA_MAP
+      }
+    ],
+    dates: [
+      { ja: "2027.01.08 (金) 19:00 開演", ko: "2027.01.08 (금) 19:00 개연", en: "8 Jan 2027 (Fri) — show 19:00" },
+      { ja: "2027.01.09 (土) 18:00 開演", ko: "2027.01.09 (토) 18:00 개연", en: "9 Jan 2027 (Sat) — show 18:00" },
+      { ja: "2027.01.11 (月・祝) 18:00 開演", ko: "2027.01.11 (월·공휴일) 18:00 개연", en: "11 Jan 2027 (Mon, holiday) — show 18:00" },
+      { ja: "2027.01.14 (木) 19:00 開演", ko: "2027.01.14 (목) 19:00 개연", en: "14 Jan 2027 (Thu) — show 19:00" },
+      { ja: "2027.01.15 (金) 19:00 開演", ko: "2027.01.15 (금) 19:00 개연", en: "15 Jan 2027 (Fri) — show 19:00" }
+    ],
+    sessions: [
+      { name: { ja: "1/8 (金)", ko: "1/8 (금)", en: "8 Jan (Fri)" }, open: "18:30", start: "19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "1/9 (土)", ko: "1/9 (토)", en: "9 Jan (Sat)" }, open: "17:30", start: "18:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "1/11 (月)", ko: "1/11 (월)", en: "11 Jan (Mon)" }, open: "17:30", start: "18:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "1/14 (木)", ko: "1/14 (목)", en: "14 Jan (Thu)" }, open: "18:30", start: "19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "1/15 (金)", ko: "1/15 (금)", en: "15 Jan (Fri)" }, open: "18:30", start: "19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } }
+    ],
+    notes: [
+      { ja: "チケットの発売日・料金は近日発表します。", ko: "티켓 판매일과 요금은 곧 발표합니다.", en: "Ticket release date and prices will be announced soon." },
+      { ja: "開場は開演の30分前です。", ko: "개장은 개연 30분 전입니다.", en: "Doors open 30 minutes before the show." },
+      { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
+    ],
+    ticketNote: { ja: "近日発売（LivePocket）", ko: "곧 발매 (LivePocket)", en: "On sale soon (LivePocket)" }
+  },
+  {
+    id: "hanse-feb",
+    poster: "assets/img/event-hanse-feb.jpg",
+    stampPos: "body",
+    title: "2027 HANSE JAPAN LIVE - Shine Forever",
+    city: "osaka",
+    cityLabel: "OSAKA",
+    month: 2, day: 23, weekday: { ja: "火", ko: "화", en: "TUE" },
+    dateShort: "02.23",
+    year: 2027,
+    artist: "HANSE",
+    startDate: "2027-02-23",
+    endDate: "2027-02-27",
+    sort: "2027-02-27",
+    archiveDate: "2027.02.23 - 02.27",
+    archiveVenue: "PLUSWIN HALL OSAKA",
+    status: "soon",
+    ticket: "https://livepocket.jp/t/hanse-",
+    venueShort: { ja: "PLUSWIN HALL OSAKA", ko: "PLUSWIN HALL OSAKA", en: "PLUSWIN HALL OSAKA" },
+    sub: {
+      ja: "VICTON出身・HANSEの大阪ライブ。2月は全4公演。",
+      ko: "VICTON 출신 HANSE의 오사카 라이브. 2월은 총 4회 공연.",
+      en: "HANSE (ex-VICTON) live in Osaka — 4 shows in February."
+    },
+    priceLabel: { ja: "料金 近日発表", ko: "요금 추후 공지", en: "Price TBA" },
+    priceFrom: "TBA",
+    venues: [
+      {
+        name: "PLUSWIN HALL OSAKA",
+        addrJa: "〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1",
+        addrKo: "〒542-0084 오사카시 주오구 소에몬초 2-3 미마츠빌딩 B1",
+        addrEn: "B1 Mimatsu Bldg., 2-3 Soemoncho, Chuo-ku, Osaka 542-0084",
+        map: HALL_OSAKA_MAP
+      }
+    ],
+    dates: [
+      { ja: "2027.02.23 (火・祝) 18:00 開演", ko: "2027.02.23 (화·공휴일) 18:00 개연", en: "23 Feb 2027 (Tue, holiday) — show 18:00" },
+      { ja: "2027.02.25 (木) 19:00 開演", ko: "2027.02.25 (목) 19:00 개연", en: "25 Feb 2027 (Thu) — show 19:00" },
+      { ja: "2027.02.26 (金) 19:00 開演", ko: "2027.02.26 (금) 19:00 개연", en: "26 Feb 2027 (Fri) — show 19:00" },
+      { ja: "2027.02.27 (土) 18:00 開演", ko: "2027.02.27 (토) 18:00 개연", en: "27 Feb 2027 (Sat) — show 18:00" }
+    ],
+    sessions: [
+      { name: { ja: "2/23 (火)", ko: "2/23 (화)", en: "23 Feb (Tue)" }, open: "17:30", start: "18:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "2/25 (木)", ko: "2/25 (목)", en: "25 Feb (Thu)" }, open: "18:30", start: "19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "2/26 (金)", ko: "2/26 (금)", en: "26 Feb (Fri)" }, open: "18:30", start: "19:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } },
+      { name: { ja: "2/27 (土)", ko: "2/27 (토)", en: "27 Feb (Sat)" }, open: "17:30", start: "18:00", price: "TBA", seat: { ja: "整理番号付き自由席（予定）", ko: "정리번호 있는 자유석 (예정)", en: "Free seating, numbered (planned)" }, note: { ja: "料金は発売時にお知らせします", ko: "요금은 판매 시작 시 안내", en: "Price announced at release" } }
+    ],
+    notes: [
+      { ja: "チケットの発売日・料金は近日発表します。", ko: "티켓 판매일과 요금은 곧 발표합니다.", en: "Ticket release date and prices will be announced soon." },
+      { ja: "開場は開演の30分前です。", ko: "개장은 개연 30분 전입니다.", en: "Doors open 30 minutes before the show." },
+      { ja: "入場時、別途1ドリンク代 ¥600 が必要です。", ko: "입장 시 별도 1드링크비 ¥600이 필요합니다.", en: "Separate ¥600 1-drink fee required at entry" }
+    ],
+    ticketNote: { ja: "近日発売（LivePocket）", ko: "곧 발매 (LivePocket)", en: "On sale soon (LivePocket)" }
   }
 ];
 
 const PAST = [
-  { key: "daehan-2026", artist: "DAEHAN", title: "JAPAN LIVE TOUR 2026", date: "2026.01.27 - 11.28", sort: "2026-11-28", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "assets/img/past/daehan-2026.jpg", url: "https://livepocket.jp/t/jy_w7" },
+  { key: "daehan-2026", artist: "DAEHAN", title: "JAPAN LIVE TOUR 2026", date: "2026.11.17 - 11.28", sort: "2026-11-28", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "assets/img/past/daehan-2026.jpg", url: "https://livepocket.jp/t/jy_w7" },
   { key: "epts-story100", artist: "EPTS", title: "JAPAN LIVE TOUR 'STORY 100'", date: "2026.08.07 - 11.23", sort: "2026-11-23", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/epts-story100.jpg", url: "https://www.pluswin.net/news-1-1/epts-tour" },
   { key: "frame-the-x-2026", artist: "FRAME THE X", title: "JAPAN LIVE TOUR ~2026 Autumn~", date: "2026.09.16 - 11.01", sort: "2026-11-01", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/frame-the-x-2026.jpg", url: "https://www.framethexjapan.com/post/ftx-202610japanlive" },
   { key: "kik5o-2026", artist: "Kik5o", title: "FAN CONCERT RE:BORN IN OSAKA 2026", date: "2026.11.15", sort: "2026-11-15", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "assets/img/past/kik5o-2026.jpg", url: "https://www.pluswin.net/news-1-1/kik5o-japanlive" },
-  { key: "hanse-2026", artist: "HANSE", title: "JAPAN LIVE 2026 - Shine Forever", date: "2026.11 - 12", sort: "2026-11-24", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/hanse-2026.jpg", url: "https://www.pluswin.net/news-1-1/dohanse-japan-event" },
+  { key: "hanse-2026", artist: "HANSE", title: "JAPAN LIVE 2026 - Shine Forever", date: "2026.11.24 - 11.26", sort: "2026-11-26", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/hanse-2026.jpg", url: "https://www.pluswin.net/news-1-1/dohanse-japan-event" },
   { key: "ko-taewoon", artist: "KO TAEWOON", title: "1st FANMEETING in JAPAN [New Chapter:LINK]", date: "2026.10.10 - 11.01", sort: "2026-10-10", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/ko-taewoon.jpg", url: "https://www.pluswin.net/news-1-1/kotaewoon" },
   { key: "bae-jinyoung", artist: "BAE JINYOUNG", title: "JAPAN FANMEETING [Autumn Breeze]", date: "2026.09.11 - 10.04", sort: "2026-09-11", year: "2026", venue: "GOTANDA / OSAKA", poster: "assets/img/past/bae-jinyoung.jpg", url: "https://www.pluswin.net/news-1-1/baejinyoung" },
   { key: "ehjm", artist: "EHJM", title: "2026 CONCERT IN OSAKA", date: "2026.08.22", sort: "2026-08-22", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/ehjm.jpg", url: "https://www.pluswin.net/news-1-1/ehjm-event" },

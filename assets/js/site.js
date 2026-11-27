@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261128c";
+const ASSET_V = "20261128f";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -596,7 +596,7 @@ function bindMailForm(form, opts) {
     if (subjectField) subjectField.value = subject;
     if (nextField) {
       const base = window.location.pathname.replace(/[^/]*$/, "");
-      nextField.value = window.location.origin + base + "assets/sent.html";
+      nextField.value = window.location.origin + base + "assets/sent.html?from=" + (document.body.getAttribute("data-page") || "hall");
     }
     if (fallback) fallback.setAttribute("href", mailtoFrom(form, subject, mail));
     if (btn) { btn.disabled = true; btn.classList.add("is-loading"); btn.classList.remove("is-done"); }

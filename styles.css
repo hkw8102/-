@@ -1905,7 +1905,7 @@ html[data-theme="dark"] .to-top-btn{box-shadow:0 8px 22px rgba(0,0,0,.6)}
   display:flex;align-items:center;justify-content:space-between;gap:10px;
   width:100%;min-width:0;max-width:100%;box-sizing:border-box;text-align:left;cursor:pointer;
   background:var(--card-2);border:1px solid var(--line-2);border-radius:2px;
-  color:var(--txt);font:inherit;font-size:13px;line-height:1.4;padding:8px 9px;min-height:35px;
+  color:var(--txt);font:inherit;font-weight:400;font-size:13px;line-height:1.4;padding:8px 9px;min-height:35px;
 }
 .pwdate-btn:hover{border-color:var(--accent)}
 .pwdate-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}

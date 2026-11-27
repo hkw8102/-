@@ -222,7 +222,8 @@
     out.textContent = label || txt("pick");
     btn.classList.toggle("is-empty", !label);
     btn.setAttribute("aria-label", (label || txt("pick")) + " — " + txt("open"));
-    if (field.pwErr) field.pwErr.hidden = !!field.value || !field.pwRequired;
+    /* the message only appears when the form refuses to send it */
+    if (field.value && field.pwErr) field.pwErr.hidden = true;
   }
 
   function enhance(input) {
@@ -276,6 +277,7 @@
         var empty = Array.prototype.filter.call(form.querySelectorAll("[data-pw-required='1']"), function (f) { return !f.value; });
         if (!empty.length) return;
         ev.preventDefault();
+        ev.stopImmediatePropagation();
         empty.forEach(function (f) { if (f.pwErr) f.pwErr.hidden = true; sync(f); });
         var first = empty[0];
         if (first.pwErr) { first.pwErr.textContent = txt("req"); first.pwErr.hidden = false; }

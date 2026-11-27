@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261128f";
+const ASSET_V = "20261128g";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -85,6 +85,30 @@ function toArchiveItem(e) {
     url: e.ticket || ""
   };
 }
+
+/* ---------- recurring runs (e.g. a monthly series) ----------
+   An event with `showDates` stays as ONE card for the whole series. Its date
+   stamp moves to the next show still ahead (Japan time), and `posters` swaps
+   the artwork when a new month starts — so nothing is edited by hand between
+   months. The card leaves the grid after the last date, like any other show. */
+(function applyNextShow() {
+  const today = tokyoToday();
+  const WD = { ja: "日月火水木金土", ko: "일월화수목금토", en: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"] };
+  EVENTS.forEach((e) => {
+    if (!Array.isArray(e.showDates) || !e.showDates.length) return;
+    const list = e.showDates.slice().sort();
+    const next = list.find((d) => d >= today) || list[list.length - 1];
+    const [y, m, d] = next.split("-").map(Number);
+    const wd = new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+    e.year = y; e.month = m; e.day = d;
+    e.dateShort = String(m).padStart(2, "0") + "." + String(d).padStart(2, "0");
+    e.weekday = { ja: WD.ja[wd], ko: WD.ko[wd], en: WD.en[wd] };
+    e.startDate = next;
+    if (Array.isArray(e.posters)) {
+      e.posters.forEach((p) => { if (p.from <= next) e.poster = p.src; });
+    }
+  });
+})();
 
 const SCHEDULE = (() => {
   const today = tokyoToday();

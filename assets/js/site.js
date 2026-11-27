@@ -40,6 +40,69 @@ function monthName(m) {
 
 const pageKey = () => (document.body && document.body.dataset.page) || "home";
 
+/* ---------- schedule: today in Japan, and what that does to the shows ----------
+   A show stays in the UPCOMING grid until its last date has passed; from the
+   next day (Japan time, no DST) it leaves the grid on its own and drops to the
+   top of the past archive with the other archive entries. Nothing has to be
+   edited by hand when a run finishes — only `endDate` on the event matters. */
+function tokyoToday() {
+  // ?today=YYYY-MM-DD previews the site as it will look on another day
+  // (e.g. ?today=2026-12-21 shows KEN already moved to the archive).
+  // Visitors without the parameter always get the real date in Japan.
+  try {
+    const q = new URLSearchParams(window.location.search).get("today");
+    if (q && /^\d{4}-\d{2}-\d{2}$/.test(q)) return q;
+  } catch (err) { /* ignore */ }
+  const now = new Date();
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Tokyo", year: "numeric", month: "2-digit", day: "2-digit"
+    }).formatToParts(now);
+    const pick = (type) => (parts.find((p) => p.type === type) || {}).value;
+    const y = pick("year"), m = pick("month"), d = pick("day");
+    if (y && m && d) return `${y}-${m}-${d}`;
+  } catch (err) { /* fall through to the fixed offset */ }
+  const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  return jst.toISOString().slice(0, 10);
+}
+
+function toArchiveItem(e) {
+  const end = e.endDate || "";
+  return {
+    key: "auto-" + e.id,
+    artist: e.artist || e.title,
+    title: e.title,
+    date: e.archiveDate || end.replace(/-/g, "."),
+    sort: e.sort || end,
+    year: end.slice(0, 4),
+    venue: e.archiveVenue || (e.venues || []).map((v) => v.name).join(" / "),
+    poster: e.poster || "",
+    url: e.ticket || ""
+  };
+}
+
+const SCHEDULE = (() => {
+  const today = tokyoToday();
+  const active = [];
+  const finished = [];
+  EVENTS.forEach((e) => {
+    const end = e.endDate || "";
+    if (end && end < today) finished.push(e);
+    else active.push(e);
+  });
+  active.sort((a, b) => ((a.startDate || "") < (b.startDate || "") ? -1 : (a.startDate || "") > (b.startDate || "") ? 1 : 0));
+  return { today: today, active: active, finished: finished };
+})();
+
+const ACTIVE_EVENTS = SCHEDULE.active;
+
+/* past archive = the hand-kept list, plus every show whose last date has passed */
+const ARCHIVE = PAST.concat(
+  SCHEDULE.finished
+    .map(toArchiveItem)
+    .filter((p) => !PAST.some((q) => q.key === p.key || (q.sort === p.sort && q.title === p.title)))
+);
+
 /* ---------- static translation pass ---------- */
 function applyStatic() {
   const dict = T[lang];
@@ -120,7 +183,11 @@ function eventCard(e) {
 function renderEvents() {
   const grid = $("#eventGrid");
   if (!grid) return;
-  grid.innerHTML = EVENTS.map(eventCard).join("");
+  if (!ACTIVE_EVENTS.length) {
+    grid.innerHTML = `<p class="sec-desc evc-empty" style="grid-column:1 / -1;text-align:center;margin:0 auto;padding:40px 16px 32px">${esc(t("events.empty"))}</p>`;
+    return;
+  }
+  grid.innerHTML = ACTIVE_EVENTS.map(eventCard).join("");
 }
 
 function renderPillars() {
@@ -136,9 +203,15 @@ function renderPillars() {
 }
 
 function renderNextChip() {
-  const e = EVENTS[0];
+  const e = ACTIVE_EVENTS[0];
   const chip = $("#nextChip");
-  if (!chip || !e) return;
+  if (!chip) return;
+  if (!e) {
+    chip.style.display = "none";
+    chip.innerHTML = "";
+    return;
+  }
+  chip.style.display = "";
   chip.innerHTML = `
     <span class="next-chip-label">${t("hero.next")}</span>
     <span class="next-chip-date">${e.dateShort}</span>
@@ -147,17 +220,33 @@ function renderNextChip() {
 }
 
 /* ---------- renderers: archive ---------- */
-function pastFiltered() {
-  return PAST
-    .filter((p) => state.pastYear === "all" || p.year === state.pastYear)
-    .slice()
-    .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
+function archiveYears() {
+  const years = [];
+  ARCHIVE.forEach((p) => {
+    const y = String(p.year);
+    if (years.indexOf(y) === -1) years.push(y);
+  });
+  return years.sort((a, b) => b.localeCompare(a));
 }
 
+function pastFiltered() {
+  const all = ARCHIVE
+    .slice()
+    .sort((a, b) => (a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0));
+  if (state.pastYear === "all") return all;
+  return all.filter((p) => String(p.year) === String(state.pastYear));
+}
+
+/* the year buttons come from the archive itself, so a new year (2027, …) appears
+   on its own as soon as a show of that year has finished */
 function renderArchiveFilters() {
-  $$("[data-past-filter]").forEach((b) => {
-    b.classList.toggle("is-active", b.getAttribute("data-past-filter") === state.pastYear);
-  });
+  const years = archiveYears();
+  if (state.pastYear !== "all" && years.indexOf(String(state.pastYear)) === -1) state.pastYear = "all";
+  const wrap = $("#pastFilters");
+  if (!wrap) return;
+  const mk = (val, label) =>
+    `<button type="button" class="filter${String(val) === String(state.pastYear) ? " is-active" : ""}" data-past-filter="${esc(val)}">${esc(label)}</button>`;
+  wrap.innerHTML = mk("all", t("events.pastAll")) + years.map((y) => mk(y, y)).join("");
 }
 
 function renderArchive() {
@@ -165,7 +254,7 @@ function renderArchive() {
   const all = pastFiltered();
   const counts = [document.getElementById("pastCount"), document.getElementById("archiveCount")];
   if (!grid) {
-    counts.forEach((c) => { if (c) c.textContent = String(PAST.length); });
+    counts.forEach((c) => { if (c) c.textContent = String(ARCHIVE.length); });
     return;
   }
   grid.innerHTML = all.map((p) => {

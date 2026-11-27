@@ -11,7 +11,7 @@ header, footer, design system and language state.
 | Page | What it holds |
 | --- | --- |
 | `index.html` | Compact landing page: hero + key stats, 4 upcoming show cards with a detail drawer, 2-link action bar to the archive and the stand-flower guide, business overview (2 cards), hall overview (specs summary + access), company table, contact desks and official SNS. |
-| `archive.html` | Past-event archive: all **56 shows**, year filter (All / 2026 / 2025 / 2024 / 2023) and a plain poster grid — artist, title, date and venue only. No detail drawer: details belong to the upcoming shows on `index.html`. |
+| `archive.html` | Past-event archive: all **56 shows**, year filter (All / 2026 / 2025 / 2024 / 2023) and a plain poster grid — artist, title, date and venue only. A show whose last date (`endDate` in `data.js`) has passed moves here automatically the next day (Japan time) and lands at the top by date; the year buttons are built from the years the archive actually contains, so a new year appears on its own. No detail drawer: details belong to the upcoming shows on `index.html`. |
 | `hall.html` | PLUSWIN HALL OSAKA: full specs, the house **equipment list** (`#equipment` — sound / lighting / video, 28 items in three cards), a seven-photo hall gallery (`#photos`, lightbox, JP/KR/EN captions), a dark-mode SVG seating floor plan with a numbered facility legend on phones, step-by-step access from Nihonbashi Exit 2 and Namba with a dark-mode SVG area map (labels follow the site language), the **2026-03-23 official rate card**, options, 6 usage terms, the rental availability calendar (`#availability`, ○ / △ / ×), a 12-question FAQ (`#faq`), the spec-sheet PDF download and the rental / site-visit enquiry form (`#rental-form`). |
 | `stand.html` | Stand flower & balloon guide: the 6 placement rules (2×3 cards) and the embedded application form. |
 | `estimate.html` | **Quote & application builder.** Pick the hall rate (weekday / weekend-holiday, 12 h or 6 h), the options and the organiser's details, and the page builds a tax-excluded quote plus the official one-page A4 **PLUSWINHALL 大阪 ご利用申込書** — the **PDF file** button writes that sheet straight to a one-page A4 PDF (html2canvas + jsPDF, served from `assets/js/vendor/`) and the **print** button opens the system print dialog. The input UI follows JP / KR / EN; the sheet itself is always the Japanese form. |
@@ -20,7 +20,7 @@ header, footer, design system and language state.
 
 - `index.html`, `archive.html`, `hall.html`, `stand.html` — static pages (no build step)
 - `styles.css` — design system & layout (shared + compact 4-page additions)
-- `assets/js/data.js` — content data and the JP/KR/EN dictionary
+- `assets/js/data.js` — content data and the JP/KR/EN dictionary (`EVENTS` entries carry `startDate`/`endDate`/`sort` and the archive fields `archiveDate`/`archiveVenue`) 
 - `assets/js/i18n-extra.js` — strings added for the compact 4-page layout
 - `assets/js/site.js` — language state, page renderers, drawers, forms, navigation
 - `assets/js/hall-extras.js` — FAQ content (12 items × 3 languages) and the availability calendar
@@ -35,6 +35,11 @@ header, footer, design system and language state.
 Language switcher: **JP / KR / EN** in the header and footer. The choice is kept in
 `localStorage` (`pluswin.lang`) and in the `?lang=ja|ko|en` query parameter, so it survives
 moving between pages. Open `index.html` directly, or serve the folder with any static server.
+
+Shows move on their own: after a show's last date (`endDate` in `assets/js/data.js`, Japan
+time) the next day's page load takes it out of the home grid and puts it at the top of
+`archive.html`. `?today=YYYY-MM-DD` (e.g. `?today=2026-12-21`) previews the site as it will
+look on that date; without it, the visitor's real date in Japan is used.
 
 ## Content constraints
 

@@ -33,6 +33,7 @@ Object.assign(T.ja, {
   "events.descShort": "PLUSWIN HALL OSAKA をはじめ、大阪・東京で開催する公演。カードから詳細・チケット・会場を確認できます。",
   "events.archiveCta": "過去公演アーカイブ",
   "events.standCta": "祝花・差し入れ 案内・申請",
+  "events.empty": "現在、予定している公演はありません。新しい公演が決まりましたら、こちらと公式SNSでお知らせします。",
 
   "venues.more": "平面図・設備・料金表を見る",
   "venues.rentalFormCta": "レンタル問い合わせ",
@@ -108,6 +109,7 @@ Object.assign(T.ko, {
   "events.descShort": "PLUSWIN HALL OSAKA를 비롯해 오사카·도쿄에서 열리는 공연. 카드에서 상세·예매·공연장을 확인하세요.",
   "events.archiveCta": "지난 공연 아카이브",
   "events.standCta": "축하 화환·음식·선물 안내·신청",
+  "events.empty": "현재 예정된 공연이 없습니다. 새 공연이 정해지면 이곳과 공식 SNS에서 알려드립니다.",
 
   "venues.more": "평면도·설비·요금표 보기",
   "venues.rentalFormCta": "대관 문의",
@@ -183,6 +185,7 @@ Object.assign(T.en, {
   "events.descShort": "Shows at PLUSWIN HALL OSAKA and venues in Osaka and Tokyo. Open a card for details, tickets and access.",
   "events.archiveCta": "Past events archive",
   "events.standCta": "Flowers, food & gifts — guide & application",
+  "events.empty": "No upcoming shows at the moment. New dates will be announced here and on our official social channels.",
 
   "venues.more": "Floor plan, facilities & rates",
   "venues.rentalFormCta": "Rental enquiry",

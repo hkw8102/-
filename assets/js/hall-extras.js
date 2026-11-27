@@ -105,11 +105,21 @@ const FAQ_ITEMS = [
   }
 ];
 
+let faqOpenAll = false;
+const FAQ_PREVIEW = 5;
+
+function faqToggleLabel() {
+  const key = faqOpenAll ? "faq.collapse" : "faq.showAll";
+  return t(key).replace("{n}", String(FAQ_ITEMS.length));
+}
+
 function renderFaq() {
   const list = document.getElementById("faqList");
   if (!list) return;
+  const total = FAQ_ITEMS.length;
+  const shown = faqOpenAll ? total : Math.min(FAQ_PREVIEW, total);
   list.innerHTML = FAQ_ITEMS.map((item, i) => `
-    <details class="faq-item">
+    <details class="faq-item"${i >= shown ? " hidden" : ""}>
       <summary>
         <span class="faq-num">${String(i + 1).padStart(2, "0")}</span>
         <span class="faq-q">${esc(item.q[lang] || item.q.ja)}</span>
@@ -117,6 +127,120 @@ function renderFaq() {
       </summary>
       <p class="faq-a">${esc(item.a[lang] || item.a.ja)}</p>
     </details>`).join("");
+
+  const btn = document.getElementById("faqMore");
+  if (btn) {
+    btn.hidden = total <= FAQ_PREVIEW;
+    btn.setAttribute("aria-expanded", faqOpenAll ? "true" : "false");
+    const lab = btn.querySelector("span");
+    if (lab) lab.textContent = faqToggleLabel();
+  }
+}
+
+function bindFaqMore() {
+  const btn = document.getElementById("faqMore");
+  if (!btn || btn.dataset.faqReady) return;
+  btn.dataset.faqReady = "1";
+  btn.addEventListener("click", () => {
+    faqOpenAll = !faqOpenAll;
+    renderFaq();
+    if (!faqOpenAll) {
+      const head = document.getElementById("faq");
+      if (head) head.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+}
+
+/* ---------- equipment tabs (sound / lighting / video / backline) ---------- */
+function setEqTab(key, focus) {
+  const tabs = Array.from(document.querySelectorAll("[data-eq-tab]"));
+  if (!tabs.length) return;
+  const keys = tabs.map((b) => b.getAttribute("data-eq-tab"));
+  if (keys.indexOf(key) === -1) key = keys[0];
+  tabs.forEach((btn) => {
+    const on = btn.getAttribute("data-eq-tab") === key;
+    btn.classList.toggle("is-active", on);
+    btn.setAttribute("aria-selected", on ? "true" : "false");
+    btn.tabIndex = on ? 0 : -1;
+    if (on && focus) btn.focus();
+    const panel = document.getElementById(btn.getAttribute("aria-controls"));
+    if (panel) panel.hidden = !on;
+  });
+}
+
+function bindEqTabs() {
+  const tabs = Array.from(document.querySelectorAll("[data-eq-tab]"));
+  if (!tabs.length || tabs[0].dataset.eqReady) return;
+  tabs[0].dataset.eqReady = "1";
+  // the count on each tab is read from its own table, so adding a machine
+  // to the list keeps the tab honest without a second edit here
+  tabs.forEach((btn) => {
+    const panel = document.getElementById(btn.getAttribute("aria-controls"));
+    const n = panel ? panel.querySelectorAll(".eq-list > div").length : 0;
+    const out = btn.querySelector("[data-eq-count]");
+    if (out && n) out.textContent = String(n);
+  });
+  setEqTab(tabs[0].getAttribute("data-eq-tab"));
+  tabs.forEach((btn, i) => {
+    btn.addEventListener("click", () => setEqTab(btn.getAttribute("data-eq-tab")));
+    btn.addEventListener("keydown", (ev) => {
+      const step = ev.key === "ArrowRight" || ev.key === "ArrowDown" ? 1
+        : ev.key === "ArrowLeft" || ev.key === "ArrowUp" ? -1 : 0;
+      if (!step) return;
+      ev.preventDefault();
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      setEqTab(next.getAttribute("data-eq-tab"), true);
+    });
+  });
+}
+
+/* ---------- in-page shortcut bar: mark the group you are reading ---------- */
+const HALL_JUMP_GROUPS = [
+  ["specs", ["specs", "photos"]],
+  ["access", ["access"]],
+  ["rates", ["rates", "availability"]],
+  ["floorplan", ["floorplan", "equipment"]],
+  ["faq", ["faq", "rental-form"]]
+];
+
+function updateHallJump() {
+  const bar = document.getElementById("hallJump");
+  if (!bar) return;
+  const header = document.getElementById("siteHeader");
+  const barH = getComputedStyle(bar).position === "sticky" ? bar.getBoundingClientRect().height : 0;
+  const offset = (header ? header.getBoundingClientRect().height : 0) + barH + 24;
+  let current = "";
+  HALL_JUMP_GROUPS.forEach(([key, ids]) => {
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top - offset <= 0) current = key;
+    });
+  });
+  Array.from(bar.querySelectorAll("a[data-jump]")).forEach((a) => {
+    if (a.getAttribute("data-jump") === current) a.setAttribute("aria-current", "true");
+    else a.removeAttribute("aria-current");
+  });
+}
+
+function bindHallJump() {
+  const bar = document.getElementById("hallJump");
+  if (!bar || bar.dataset.jumpReady) return;
+  bar.dataset.jumpReady = "1";
+  let queued = false;
+  const onScroll = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; updateHallJump(); });
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  updateHallJump();
+}
+
+function bindHallWidgets() {
+  bindEqTabs();
+  bindFaqMore();
+  bindHallJump();
 }
 
 /* ---------- availability calendar ---------- */

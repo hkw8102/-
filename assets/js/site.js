@@ -668,6 +668,7 @@ function bind() {
   bindRentalForm();
   bindStandForm();
   if (typeof bindAvail === "function") bindAvail();
+  if (typeof bindHallWidgets === "function") bindHallWidgets();
 }
 
 /* ---------- boot ---------- */

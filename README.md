@@ -31,7 +31,7 @@ header, footer, design system and language state.
 - `assets/pdf/pluswin-hall-lighting-plot.pdf` — the hall's own lighting plot (2026.7.26), linked from the lighting tab and the page head
 - `assets/css/estimate.css` — quote-builder layout and the fixed black-on-white A4 sheet (`@media print`)
 - `assets/js/estimate.js` — rate table, weekday detection, option maths and the sheet renderer
-- `assets/js/vendor/` — html2canvas 1.4.1 and jsPDF 2.5.1, used by the direct PDF export (CDN is only a fallback)
+- `assets/js/vendor/` — html2canvas-pro 2.6.5 (the maintained fork of html2canvas 1.4.1, whose table-cell text sits a few pixels low and cut the sheet's rules) and jsPDF 2.5.1, used by the direct PDF export (CDN is only a fallback)
 - `assets/` — photos (cleaned hall photos in `assets/img/hall/`), event posters, official logo, subset webfonts
 - the floor plan and area map are inline SVG in `hall.html` (palette-matched, labels translated by `data-i18n`); the print PDF still uses the light JPEG versions
 

@@ -542,6 +542,26 @@ section[id]{scroll-margin-top:78px}
 .stand-hint span{display:block;font-size:11px;color:var(--dim);line-height:1.6;margin-top:3px}
 .stand-hint .btn{flex-shrink:0}
 
+/* food & gifts guide (stand.html) */
+.gift-lead{font-size:13px;color:var(--dim);line-height:1.85;max-width:780px;margin:0 0 24px;text-wrap:pretty}
+.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.gift-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:13px;min-width:0}
+.gift-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.gift-badge{font-family:var(--mono);font-size:9px;letter-spacing:.12em;padding:4px 8px;border-radius:2px;border:1px solid;line-height:1.2}
+.gift-badge.is-ok{color:#8ee0a1;border-color:rgba(142,224,161,.45);background:rgba(142,224,161,.08)}
+.gift-badge.is-ask{color:#ffb45c;border-color:rgba(255,180,92,.45);background:rgba(255,180,92,.08)}
+.gift-t{font-size:14px;font-weight:700;line-height:1.45;letter-spacing:-.01em}
+.gift-d{font-size:12px;color:var(--dim);line-height:1.75;text-wrap:pretty}
+.gift-sub{font-size:9.5px;font-weight:800;letter-spacing:.18em;color:var(--dim-2);margin-top:2px}
+.gift-list{display:grid;gap:5px}
+.gift-list li{font-size:11.6px;line-height:1.6;color:#cfcfd7;padding-left:15px;position:relative}
+.gift-list li::before{content:"";position:absolute;left:1px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--dim-2)}
+.gift-list.is-ok li::before{background:#8ee0a1}
+.gift-list.is-ng li::before{background:#ff6b6b}
+.gift-list.is-ng li{color:var(--dim)}
+.gift-note{margin-top:16px;font-size:11.5px;color:var(--dim-2);line-height:1.7;max-width:900px}
+@media (max-width:760px){.gift-grid{grid-template-columns:1fr}}
+
 /* stand application drawer */
 .stand-root{z-index:76}
 .stand-body{padding-top:46px}
@@ -567,6 +587,11 @@ section[id]{scroll-margin-top:78px}
 .field .check input:checked{background:var(--accent);border-color:var(--accent)}
 .field .check input:checked::after{transform:rotate(-45deg) scale(1)}
 .field .check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.field .check input[type="radio"]{border-radius:50%}
+.field .check input[type="radio"]::after{
+  width:6px;height:6px;border:0;border-radius:50%;background:#fff;transform:scale(0);margin:0;
+}
+.field .check input[type="radio"]:checked::after{transform:scale(1)}
 
 /* ============ SNS ============ */
 .sns-links{display:flex;flex-wrap:wrap;gap:9px}
@@ -825,8 +850,8 @@ section[id]{scroll-margin-top:78px}
 .evc-btn.is-solid{background:var(--accent);border-color:var(--accent);color:#fff}
 .evc-btn.is-solid:hover{background:#ff6042;border-color:#ff6042;color:#fff}
 
-/* --- two-link action bar under events --- */
-.quickbar{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+/* --- action bar under events --- */
+.quickbar{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
 .quick-link{
   display:flex;align-items:center;gap:16px;padding:15px 18px;
   border:1px solid var(--line);border-radius:3px;background:rgba(255,255,255,.015);

@@ -198,6 +198,37 @@ function renderStandRules() {
   });
 }
 
+/* ---------- renderers: food, drink & gifts ---------- */
+function renderGiftGuide() {
+  const wrap = $("#giftGuide");
+  if (!wrap) return;
+  wrap.innerHTML = GIFT_GUIDE.map((g) => {
+    const c = g[lang] || g.ja;
+    const lists = g.kind === "ok"
+      ? `<div>
+           <p class="gift-sub">${esc(c.okHead)}</p>
+           <ul class="gift-list is-ok">${c.ok.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+         </div>
+         <div>
+           <p class="gift-sub">${esc(c.ngHead)}</p>
+           <ul class="gift-list is-ng">${c.ng.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+         </div>`
+      : `<div>
+           <p class="gift-sub">${esc(c.liHead)}</p>
+           <ul class="gift-list">${c.li.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+         </div>`;
+    return `
+      <article class="gift-card">
+        <div class="gift-head">
+          <span class="gift-badge is-${g.kind}">${esc(c.badge)}</span>
+        </div>
+        <h3 class="gift-t">${esc(c.t)}</h3>
+        <p class="gift-d">${esc(c.d)}</p>
+        ${lists}
+      </article>`;
+  }).join("");
+}
+
 /* ---------- drawers ---------- */
 function openRoot(id) {
   const root = $(id);
@@ -242,7 +273,7 @@ function standHintMarkup() {
           <b>${t("stand.hintTitle")}</b>
           <span>${t("stand.hintText")}</span>
         </div>
-        <a class="btn btn-line btn-sm" href="stand.html">${t("stand.ctaShort")}</a>
+        <a class="btn btn-line btn-sm" href="stand.html?lang=${lang}">${t("stand.ctaShort")}</a>
       </div>`;
 }
 
@@ -329,6 +360,7 @@ function renderPage() {
   renderPillars();
   renderNextChip();
   renderStandRules();
+  renderGiftGuide();
   if (typeof renderHallExtras === "function") renderHallExtras();
 }
 
@@ -453,7 +485,7 @@ function bindStandForm() {
     submitKey: "stand.submit",
     mail: MAIL_CONTACT,
     subjectField: "公演名・出演者名 / Show",
-    subject: (perf) => `[PLUSWIN] スタンド花・バルーン申請 — ${perf || "(no title)"}`
+    subject: (perf) => `[PLUSWIN] 祝花・差し入れ申請 — ${perf || "(no title)"}`
   });
 }
 

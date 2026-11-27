@@ -1802,18 +1802,26 @@ html[data-theme="dark"] .hall-logo{filter:brightness(0) invert(1);opacity:.92}
 /* never let the wordmark fall back to its intrinsic 1200px size */
 .hall-logo[width]{max-width:min(100%,320px)}
 
-.hall-plot-link{margin-top:10px;font-size:11.5px}
-.hall-plot-link .link-arrow{color:var(--dim-2)}
-.hall-plot-link .link-arrow:hover{color:var(--txt)}
-
 /* the panel note under the backline list */
 .eq-panel-note{
   margin-top:12px;padding-top:11px;border-top:1px solid var(--line);
   font-size:11px;line-height:1.7;color:var(--dim);text-wrap:pretty;
 }
-.eq-panel-link{margin-top:10px;font-size:11.5px}
-.eq-panel-link .link-arrow{color:var(--accent-ink)}
-.eq-panel-link .link-arrow:hover{color:var(--txt)}
+/* the lighting plot sits where the lighting list is, as a proper button */
+.eq-panel-link{margin-top:14px;display:flex;justify-content:flex-end}
+.eq-plot-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px;border:1px solid var(--line-2);border-radius:100px;
+  background:var(--card-2);color:var(--txt);
+  font-size:11.5px;font-weight:700;letter-spacing:.01em;
+  transition:color .2s var(--ease),border-color .2s,background .2s;
+}
+.eq-plot-btn:hover{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft)}
+.eq-plot-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eq-plot-btn svg{
+  flex:0 0 auto;width:14px;height:14px;max-width:14px;max-height:14px;
+  fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+}
 
 /* four category chips: two per row once they stop fitting side by side */
 @media (max-width:560px){

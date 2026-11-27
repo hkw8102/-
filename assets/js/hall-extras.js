@@ -198,7 +198,7 @@ function bindEqTabs() {
 const HALL_JUMP_GROUPS = [
   ["specs", ["specs", "photos"]],
   ["access", ["access"]],
-  ["rates", ["rates", "availability"]],
+  ["rates", ["rates"]],
   ["floorplan", ["floorplan", "equipment"]],
   ["faq", ["faq", "rental-form"]]
 ];
@@ -315,7 +315,12 @@ function renderAvail() {
 function pickAvailDate(iso) {
   availPicked = iso;
   const field = document.getElementById("f-date");
-  if (field) field.value = iso;
+  if (field) {
+    field.value = iso;
+    /* the form's date field draws its own label in the page language; tell it
+       the value changed (a bare .value = … would leave the label behind) */
+    try { field.dispatchEvent(new Event("change", { bubbles: true })); } catch (e) { /* ignore */ }
+  }
   renderAvail();
   const form = document.getElementById("rental-form");
   if (form) form.scrollIntoView({ behavior: "smooth", block: "start" });

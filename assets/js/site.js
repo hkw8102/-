@@ -497,7 +497,10 @@ function renderPage() {
 function setLang(next) {
   if (!LANGS.includes(next)) next = "ja";
   lang = next;
-  try { localStorage.setItem(LANG_KEY, lang); } catch (err) { /* ignore */ }
+  try {
+    localStorage.setItem(LANG_KEY, lang);
+    localStorage.setItem(LANG_KEY + ".chosen", "1");
+  } catch (err) { /* ignore */ }
   applyStatic();
   renderPage();
   if (state.openId) openDrawer(state.openId);
@@ -509,10 +512,16 @@ function setLang(next) {
 function initialLang() {
   const q = new URLSearchParams(window.location.search).get("lang");
   if (q && LANGS.includes(q.toLowerCase())) return q.toLowerCase();
-  const saved = (() => { try { return localStorage.getItem(LANG_KEY); } catch (e) { return null; } })();
-  if (saved && LANGS.includes(saved)) return saved;
-  const nav = (navigator.language || "ja").slice(0, 2).toLowerCase();
-  return nav === "ko" ? "ko" : nav === "en" ? "en" : "ja";
+  /* Japanese is the site's main language: a visitor who has not pressed a
+     language button sees Japanese, whatever language the phone or browser is
+     set to (a Korean phone used to open the whole site in Korean). Once a
+     visitor has chosen a language themselves, that choice is kept. */
+  try {
+    const chosen = localStorage.getItem(LANG_KEY + ".chosen");
+    const saved = localStorage.getItem(LANG_KEY);
+    if (chosen === "1" && saved && LANGS.includes(saved)) return saved;
+  } catch (e) { /* private mode */ }
+  return "ja";
 }
 
 /* ---------- forms ----------

@@ -12,9 +12,9 @@ header, footer, design system and language state.
 | --- | --- |
 | `index.html` | Compact landing page: hero + key stats, 4 upcoming show cards with a detail drawer, 2-link action bar to the archive and the stand-flower guide, business overview (2 cards), hall overview (specs summary + access), company table, contact desks and official SNS. |
 | `archive.html` | Past-event archive: all **55 shows**, year filter (All / 2026 / 2025 / 2024 / 2023) and a plain poster grid — artist, title, date and venue only. A show whose last date (`endDate` in `data.js`) has passed moves here automatically the next day (Japan time) and lands at the top by date; the year buttons are built from the years the archive actually contains, so a new year appears on its own. No detail drawer: details belong to the upcoming shows on `index.html`. |
-| `hall.html` | PLUSWIN HALL OSAKA, in reading order with a sticky in-page shortcut bar: full specs + the official hall logo, a nine-photo hall gallery (`#photos`, lightbox, JP/KR/EN captions — standing barrier, FOH booth, full house, stage, seats, lobby, dressing rooms), access with a dark-mode SVG area map, the **2026-03-23 official rate card**, the rental availability calendar (`#availability`, ○ / △ / ×), a dark-mode SVG seating floor plan with a numbered facility legend, the house **equipment list** (`#equipment` — four tabs: sound 13 / lighting 12 / video 5 / backline 17, with the lighting plot PDF), a 12-question FAQ shown five at a time (`#faq`), the spec-sheet PDF download and the rental / site-visit enquiry form (`#rental-form`). |
+| `hall.html` | PLUSWIN HALL OSAKA, in reading order with a sticky in-page shortcut bar: full specs + the official hall logo, a nine-photo hall gallery (`#photos`, lightbox, JP/KR/EN captions — standing barrier, FOH booth, full house, stage, seats, lobby, dressing rooms), access with a dark-mode SVG area map, the **2026-03-23 official rate card** with a note (JP/KR/EN) asking the visitor to send preferred dates through the enquiry form, a dark-mode SVG seating floor plan with a numbered facility legend, the house **equipment list** (`#equipment` — four tabs: sound 13 / lighting 12 / video 5 / backline 17, with the lighting plot PDF), a 12-question FAQ shown five at a time (`#faq`), the spec-sheet PDF download and the rental / site-visit enquiry form (`#rental-form`). |
 | `stand.html` | Stand flower & balloon guide: the 6 placement rules (2×3 cards) and the embedded application form. |
-| `estimate.html` | **Quote & application builder.** Pick the hall rate (weekday / weekend-holiday, 12 h or 6 h), the options and the organiser's details, and the page builds a tax-excluded quote plus the official one-page A4 **PLUSWINHALL 大阪 ご利用申込書** — the **PDF file** button writes that sheet straight to a one-page A4 PDF (html2canvas + jsPDF, served from `assets/js/vendor/`) and the **print** button opens the system print dialog. The input UI follows JP / KR / EN; the sheet itself is always the Japanese form. |
+| `estimate.html` | **Quote & application builder — unlisted.** No page links to it (it is kept `noindex`); the address is shared by hand with a client who has asked for a quote.  Pick the hall rate (weekday / weekend-holiday, 12 h or 6 h), the options and the organiser's details, and the page builds a tax-excluded quote plus the official one-page A4 **PLUSWINHALL 大阪 ご利用申込書** — the **PDF file** button writes that sheet straight to a one-page A4 PDF (html2canvas + jsPDF, served from `assets/js/vendor/`) and the **print** button opens the system print dialog. The input UI follows JP / KR / EN; the sheet itself is always the Japanese form. |
 
 ## Files
 
@@ -25,8 +25,9 @@ header, footer, design system and language state.
 - `assets/js/site.js` — language state, page renderers, drawers, forms, navigation
 - `assets/js/theme.js` — white / black theme switch, stored in `localStorage` (`pluswin.theme`)
 - `assets/js/analytics.js` — GA4 events (see *Analytics* below)
-- `assets/js/hall-extras.js` — FAQ content (12 items × 3 languages) and the availability calendar
-- `assets/js/hall-availability.js` — date availability only (○ / △ / ×), generated from the hall's booking calendar
+- `assets/js/hall-extras.js` — FAQ content (12 items × 3 languages), equipment tabs and the availability calendar renderer (the calendar itself is not published on `hall.html` at the moment; the section is gone and the data file is no longer loaded)
+- `assets/js/hall-availability.js` — date availability only (○ / △ / ×), generated from the hall's booking calendar (kept for when the calendar comes back)
+- `assets/js/fields.js` — the date fields (a calendar written in the page language, so a Korean or English phone cannot draw the Japanese page's date in its own format) and the 24-hour time selects
 - `assets/pdf/pluswin-hall-osaka-spec.pdf` — downloadable venue sheet, A4, 6 pages (specs, sound/lighting/video, backline & mics, floor plan, access, rate card)
 - `assets/pdf/pluswin-hall-lighting-plot.pdf` — the hall's own lighting plot (2026.7.26), linked from the lighting tab and the page head
 - `assets/css/estimate.css` — quote-builder layout and the fixed black-on-white A4 sheet (`@media print`)
@@ -35,8 +36,11 @@ header, footer, design system and language state.
 - `assets/` — photos (cleaned hall photos in `assets/img/hall/`), event posters, official logo, subset webfonts
 - the floor plan and area map are inline SVG in `hall.html` (palette-matched, labels translated by `data-i18n`); the print PDF still uses the light JPEG versions
 
-Language switcher: **JP / KR / EN** in the header and footer. The choice is kept in
-`localStorage` (`pluswin.lang`) and in the `?lang=ja|ko|en` query parameter, so it survives
+Language switcher: **JP / KR / EN** in the header and footer. **Japanese is the site's main
+language**: with no `?lang=` and no choice made by the visitor, every page opens in Japanese
+whatever language the phone or browser is set to (a Korean phone used to open the whole site in
+Korean). A language the visitor picks with the switcher is remembered in `localStorage`
+(`pluswin.lang` + `pluswin.lang.chosen`) and the `?lang=ja|ko|en` query parameter keeps it while
 moving between pages. Open `index.html` directly, or serve the folder with any static server.
 
 ## Theme — white (default) / black

@@ -65,7 +65,9 @@ Object.assign(T.ja, {
   "hall.jumpAria": "ページ内リンク",
   "hall.jump1": "施設概要・写真",
   "hall.jump2": "アクセス",
-  "hall.jump3": "料金・空き状況",
+  "hall.jump3": "料金",
+  "ask.lead": "ご希望の日程・時間帯は、下の「レンタル・見学のお問い合わせ」フォームからお知らせください。空き状況を確認のうえ、2〜3営業日以内にご返信します。",
+  "ask.cta": "希望日時を相談する",
   "hall.jump4": "平面図・機材",
   "hall.jump5": "FAQ・レンタル相談",
   "hall.barrierK": "スタンディングフェンス",
@@ -96,12 +98,12 @@ Object.assign(T.ko, {
   "meta.hallDesc": "PLUSWIN HALL OSAKA(오사카시 주오구 소에몬초)의 시설 개요, 좌석 평면도, 오시는 길, 대관 요금표, 문의 폼. 지정석 220석·스탠딩 350명.",
   "meta.standTitle": "축하 화환 · 음식·선물 서포트 안내 | PLUSWIN",
   "meta.standDesc": "플러스윈 주최 공연의 축하 화환(스탠드 화환·벌룬 스탠드)과 음식·선물 반입 안내 및 신청 폼. 사전 신청제, 공연 1개월 전부터 접수.",
-  "meta.estimateTitle": "견적서・이용신청서 작성 | PLUSWIN HALL OSAKA",
+  "meta.estimateTitle": "견적서·이용신청서 작성 | PLUSWIN HALL OSAKA",
   "meta.estimateDesc": "PLUSWIN HALL OSAKA의 이용 요금을 고르기만 하면 세금 별도 견적과 이용신청서(A4)를 바로 만들고 인쇄할 수 있습니다.",
   "est.ctaEyebrow": "ESTIMATE SHEET",
-  "est.ctaTitle": "견적서・이용신청서 만들기",
+  "est.ctaTitle": "견적서·이용신청서 만들기",
   "est.ctaLead": "요금 항목을 고르기만 하면 세금 별도 견적과 「이용신청서」(A4 1장)를 바로 만들고 인쇄할 수 있습니다.",
-  "est.ctaBtn": "견적서・이용신청서 만들기",
+  "est.ctaBtn": "견적서·이용신청서 만들기",
   "est.rentalBtn": "견적서 만들기",
 
   "nav.hall": "홀",
@@ -149,7 +151,9 @@ Object.assign(T.ko, {
   "hall.jumpAria": "페이지 바로가기",
   "hall.jump1": "시설 개요·사진",
   "hall.jump2": "오시는 길",
-  "hall.jump3": "요금·빈 날짜",
+  "hall.jump3": "요금",
+  "ask.lead": "희망 일시는 아래 「대관·견학 문의」 폼으로 보내주시면 확인 후 2~3영업일 이내에 회신드립니다.",
+  "ask.cta": "희망 일시 상담하기",
   "hall.jump4": "평면도·기자재",
   "hall.jump5": "FAQ·대관 문의",
   "hall.barrierK": "스탠딩 펜스",
@@ -233,7 +237,9 @@ Object.assign(T.en, {
   "hall.jumpAria": "On this page",
   "hall.jump1": "Specs & photos",
   "hall.jump2": "Access",
-  "hall.jump3": "Rates & availability",
+  "hall.jump3": "Rates",
+  "ask.lead": "Send your preferred dates and times through the rental enquiry form below. We check availability and reply within 2–3 business days.",
+  "ask.cta": "Ask about your dates",
   "hall.jump4": "Floor plan & equipment",
   "hall.jump5": "FAQ & rental",
   "hall.barrierK": "Standing barrier",
@@ -273,7 +279,7 @@ Object.assign(T.ja, {
   "faq.collapse": "閉じる",
 
   "avail.eyebrow": "AVAILABILITY",
-  "avail.title": "レンタル空き状況",
+  "avail.title": "レンタル相談",
   "avail.lead": "PLUSWIN HALL OSAKA のレンタル空き状況です。○の日を選ぶと、下の問い合わせフォームに希望日が入ります。",
   "avail.open": "空き",
   "avail.part": "一部・要相談",
@@ -407,7 +413,7 @@ Object.assign(T.ko, {
   "faq.collapse": "접기",
 
   "avail.eyebrow": "AVAILABILITY",
-  "avail.title": "대관 가능일",
+  "avail.title": "대관 상담",
   "avail.lead": "PLUSWIN HALL OSAKA의 대관 가능일입니다. ○인 날짜를 고르면 아래 문의 폼에 희망일이 입력됩니다.",
   "avail.open": "가능",
   "avail.part": "일부·상담",
@@ -541,7 +547,7 @@ Object.assign(T.en, {
   "faq.collapse": "Show fewer",
 
   "avail.eyebrow": "AVAILABILITY",
-  "avail.title": "Rental availability",
+  "avail.title": "Rental enquiry",
   "avail.lead": "Rental availability at PLUSWIN HALL OSAKA. Pick an open (○) date to fill it into the enquiry form below.",
   "avail.open": "Open",
   "avail.part": "Part day · ask",
@@ -741,7 +747,17 @@ Object.assign(T.ja, {
   "eq.b14": "ワイヤレスマイク",
   "eq.b15": "ブームマイクスタンド",
   "eq.b16": "ストレートマイクスタンド",
-  "eq.b17": "ショートブームスタンド"
+  "eq.b17": "ショートブームスタンド",
+
+  "theme.label": "表示テーマ",
+  "theme.light": "ライト",
+  "theme.dark": "ダーク",
+
+  "eq.d5": "BETOPPER LB150（150W / 12ch）",
+  "eq.d10": "2W RGB レーザー（13ch）",
+  "eq.dBoom": "ブームスタンド",
+  "eq.dStraight": "ストレートスタンド",
+  "eq.dShortBoom": "ショートブームスタンド"
 });
 
 Object.assign(T.ko, {
@@ -818,7 +834,17 @@ Object.assign(T.ko, {
   "eq.b14": "무선 마이크",
   "eq.b15": "붐 마이크 스탠드",
   "eq.b16": "스트레이트 마이크 스탠드",
-  "eq.b17": "숏 붐 스탠드"
+  "eq.b17": "숏 붐 스탠드",
+
+  "theme.label": "화면 테마",
+  "theme.light": "라이트",
+  "theme.dark": "다크",
+
+  "eq.d5": "BETOPPER LB150 (150W / 12ch)",
+  "eq.d10": "2W RGB 레이저 (13ch)",
+  "eq.dBoom": "붐 스탠드",
+  "eq.dStraight": "스트레이트 스탠드",
+  "eq.dShortBoom": "숏 붐 스탠드"
 });
 
 Object.assign(T.en, {
@@ -895,5 +921,15 @@ Object.assign(T.en, {
   "eq.b14": "Wireless mics",
   "eq.b15": "Boom mic stands",
   "eq.b16": "Straight mic stands",
-  "eq.b17": "Short boom stands"
+  "eq.b17": "Short boom stands",
+
+  "theme.label": "Theme",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+
+  "eq.d5": "BETOPPER LB150 (150W / 12ch)",
+  "eq.d10": "2W RGB laser (13ch)",
+  "eq.dBoom": "Boom stand",
+  "eq.dStraight": "Straight stand",
+  "eq.dShortBoom": "Short boom stand"
 });

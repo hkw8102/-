@@ -26,7 +26,7 @@
     ja: {
       back: "料金表へ戻る", eyebrow: "ESTIMATE SHEET", title: "見積書・利用申込書",
       lead: "PLUSWIN HALL OSAKA のご利用料金を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成できます。金額はすべて税別です。",
-      backBtn: "レンタル料金表を見る", availBtn: "空き状況を見る",
+      backBtn: "レンタル料金表を見る", availBtn: "レンタル相談へ",
       savePdf: "見積書・申込書をPDF保存 (A4)", print: "印刷", reset: "リセット",
       toolsHint: "「PDF保存」を押すと、A4・1ページのPDFがそのまま保存されます。印刷するときは「印刷」を押してください。",
       pdfBusy: "PDFを作成しています…",
@@ -63,13 +63,14 @@
       company: "御社名", person: "ご担当者名", addr: "ご住所", tel: "TEL／FAX",
       mobile: "ご担当携帯電話", email: "e-mail", pay: "ご精算方法",
       pay1: "1. 事前お振込み（請求書をお出しします）", pay2: "2. 当日現金精算", issued: "申込日",
-      previewHint: "A4・1枚（印刷プレビュー）", resetConfirm: "入力内容をすべて消去します。よろしいですか？",
+      previewHint: "A4・1枚（印刷プレビュー）", paperLabel: "PLUSWINHALL 大阪 ご利用申込書",
+      resetConfirm: "入力内容をすべて消去します。よろしいですか？",
       printTitle: "PLUSWINHALL大阪_ご利用申込書"
     },
     ko: {
-      back: "요금표로 돌아가기", eyebrow: "ESTIMATE SHEET", title: "견적서・이용신청서",
+      back: "요금표로 돌아가기", eyebrow: "ESTIMATE SHEET", title: "견적서·이용신청서",
       lead: "PLUSWIN HALL OSAKA의 이용 요금을 고르기만 하면 세금 별도 견적과 「이용신청서」(A4 1장)를 바로 만들 수 있습니다. 금액은 모두 세금 별도입니다.",
-      backBtn: "대관 요금표 보기", availBtn: "대관 가능일 보기",
+      backBtn: "대관 요금표 보기", availBtn: "대관 문의로",
       savePdf: "PDF 파일 저장 (A4)", print: "인쇄", reset: "초기화",
       toolsHint: "「PDF 파일 저장」을 누르면 A4 1장 PDF가 바로 저장됩니다. 인쇄할 때는 「인쇄」를 누르세요.",
       pdfBusy: "PDF 만드는 중…",
@@ -78,10 +79,10 @@
       pdfFail: "PDF를 만들지 못했습니다. 인쇄 화면에서 저장해 주세요.",
       g1k: "EVENT", g1: "공연 정보",
       date: "공연일", rateClass: "요금 구분",
-      rateAuto: "자동 (요일로 판정)", rateWeekday: "평일 (월~금)", rateHoliday: "토・일・공휴일",
+      rateAuto: "자동 (요일로 판정)", rateWeekday: "평일 (월~금)", rateHoliday: "토·일·공휴일",
       hintWeekday: "{d} → 평일 요금이 적용됩니다.",
-      hintHoliday: "{d} → 토・일・공휴일 요금이 적용됩니다.",
-      hintHolidayManual: "{d}은(는) 평일입니다. 공휴일이면 「토・일・공휴일」을 골라 주세요.",
+      hintHoliday: "{d} → 토·일·공휴일 요금이 적용됩니다.",
+      hintHolidayManual: "{d} 평일 요금입니다. 공휴일이면 ‘토·일·공휴일’을 골라 주세요.",
       inTime: "입장(반입) 시각", outTime: "퇴장 시각", rehearsal: "리허설", rehearsePh: "15:00〜16:30",
       open1: "개장 ①", open2: "개장 ②",
       start1: "본 공연 ① 개연", end1: "본 공연 ① 종연", start2: "본 공연 ② 개연", end2: "본 공연 ② 종연",
@@ -91,7 +92,7 @@
       drinkSep: "별도 (입장 시 600엔)", drinkInc: "포함 (판매 수×600엔 정산 시)",
       g3k: "RENTAL", g3: "이용 요금",
       plan: "시간", plan12: "12시간 패키지 10:00〜22:00", planAm: "10:00〜16:00 (6시간)", planPm: "16:00〜22:00 (6시간)",
-      qty: "수량", planHint: "평일 12시간 ¥150,000 ／ 토・일・공휴일 12시간 ¥280,000",
+      qty: "수량", planHint: "평일 12시간 ¥150,000 ／ 토·일·공휴일 12시간 ¥280,000",
       optOp: "음향·조명 오퍼레이터", optOpNone: "없음",
       optOpBoth: "음향+조명 (¥60,000)", optOpSound: "음향만 (¥30,000)", optOpLight: "조명만 (¥30,000)",
       optMul: "오퍼레이터 배율", optMul1: "1", optMul15: "1.5 (2회 공연·본공연 3시간 초과)",
@@ -106,13 +107,14 @@
       company: "회사명", person: "담당자명", addr: "주소", tel: "TEL／FAX",
       mobile: "담당자 휴대전화", email: "e-mail", pay: "결제 방법",
       pay1: "1. 사전 송금 (청구서를 발행합니다)", pay2: "2. 당일 현금 정산", issued: "신청일",
-      previewHint: "A4 1장 (인쇄 미리보기)", resetConfirm: "입력한 내용을 모두 지웁니다. 계속할까요?",
+      previewHint: "A4 1장 (인쇄 미리보기)", paperLabel: "PLUSWINHALL 오사카 이용신청서 (일본어 양식)",
+      resetConfirm: "입력한 내용을 모두 지웁니다. 계속할까요?",
       printTitle: "PLUSWINHALL오사카_이용신청서"
     },
     en: {
       back: "Back to rate card", eyebrow: "ESTIMATE SHEET", title: "Quote & Application",
       lead: "Pick the PLUSWIN HALL OSAKA rates you need and this page builds a tax-excluded quote and the official one-page A4 application sheet. All prices are tax excluded.",
-      backBtn: "See the rate card", availBtn: "See availability",
+      backBtn: "See the rate card", availBtn: "Rental enquiry",
       savePdf: "Save as PDF (A4)", print: "Print", reset: "Reset",
       toolsHint: "“Save as PDF” writes the one-page A4 PDF straight away. Use “Print” for the print dialog.",
       pdfBusy: "Making the PDF…",
@@ -149,7 +151,8 @@
       company: "Company", person: "Contact name", addr: "Address", tel: "TEL／FAX",
       mobile: "Mobile", email: "e-mail", pay: "Payment",
       pay1: "1. Bank transfer in advance (we issue an invoice)", pay2: "2. Cash on the day", issued: "Date issued",
-      previewHint: "One A4 page (print preview)", resetConfirm: "Clear everything you entered?",
+      previewHint: "One A4 page (print preview)", paperLabel: "PLUSWINHALL Osaka application (Japanese form)",
+      resetConfirm: "Clear everything you entered?",
       printTitle: "PLUSWINHALL_Osaka_application"
     }
   };
@@ -193,6 +196,17 @@
     return { y: y, m: m, d: d, dow: new Date(y, m - 1, d).getDay() };
   }
   function jpDate(dt) { return dt.y + "年" + dt.m + "月" + dt.d + "日（" + WD[dt.dow] + "）"; }
+  /* the rate hint sits in the input UI, so its date follows the page language;
+     the A4 sheet below is the official Japanese form and keeps jpDate */
+  var DOW_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var MON_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var DOW_KO = ["일", "월", "화", "수", "목", "금", "토"];
+  function uiDate(dt) {
+    var l = currentLang();
+    if (l === "ko") return dt.y + "년 " + dt.m + "월 " + dt.d + "일 (" + DOW_KO[dt.dow] + ")";
+    if (l === "en") return DOW_EN[dt.dow] + " " + dt.d + " " + MON_EN[dt.m - 1] + " " + dt.y;
+    return jpDate(dt);
+  }
 
   function rateMode() {
     var forced = val("f-rate");
@@ -216,8 +230,8 @@
       if (!dt) hint.textContent = "";
       else {
         var tpl = mode === "holiday" ? d.hintHoliday : d.hintWeekday;
-        var txt = tpl.replace("{d}", jpDate(dt));
-        if (val("f-rate") === "auto" && mode === "weekday") txt = d.hintHolidayManual.replace("{d}", jpDate(dt));
+        var txt = tpl.replace("{d}", uiDate(dt));
+        if (val("f-rate") === "auto" && mode === "weekday") txt = d.hintHolidayManual.replace("{d}", uiDate(dt));
         hint.textContent = txt;
       }
     }
@@ -640,6 +654,7 @@
         if ($("f-drink")) $("f-drink").value = "sep";
         if ($("f-pay")) $("f-pay").value = "1";
         if ($("f-issued")) $("f-issued").value = iso;
+        if (window.pwFields) window.pwFields.syncAll();
         render();
       });
     }

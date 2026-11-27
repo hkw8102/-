@@ -26,8 +26,8 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
 <meta property="og:image" content="https://hkw8102.github.io/-/assets/img/hall/stage-full.jpg">
 <link rel="icon" href="assets/favicon.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
-<link rel="stylesheet" href="styles.css?v=20261127e">
-<link rel="stylesheet" href="assets/css/estimate.css">
+<link rel="stylesheet" href="styles.css?v=20261127g">
+<link rel="stylesheet" href="assets/css/estimate.css?v=20261127g">
 </head>
 <body data-page="hall">
 <div class="grain" aria-hidden="true"></div>
@@ -81,11 +81,7 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
       <p class="page-lead" data-i18n="hall.lead">心斎橋・宗右衛門町、美松ビル B1。着席220名／スタンディング350名のライブホールです。音響・照明・高精細LED・生配信環境を常設し、レンタルは PLUSWIN HALL OSAKA で承ります。</p>
 
       <div class="page-actions hall-actions">
-        <a class="btn btn-solid" href="estimate.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
-          <span data-i18n="est.ctaBtn">見積書・利用申込書を作成</span>
-        </a>
-        <a class="btn btn-line" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download data-ga="file_download" data-ga-file="pluswin-hall-osaka-spec.pdf">
+        <a class="btn btn-solid" href="assets/pdf/pluswin-hall-osaka-spec.pdf" download data-ga="file_download" data-ga-file="pluswin-hall-osaka-spec.pdf">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
           <span data-i18n="pdf.cta">ホール資料・平面図 PDF をダウンロード</span>
         </a>
@@ -100,7 +96,7 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
     <div class="wrap hall-jump-inner">
       <a href="#specs" data-jump="specs"><span data-i18n="hall.jump1">施設概要・写真</span></a>
       <a href="#access" data-jump="access"><span data-i18n="hall.jump2">アクセス</span></a>
-      <a href="#rates" data-jump="rates"><span data-i18n="hall.jump3">料金・空き状況</span></a>
+      <a href="#rates" data-jump="rates"><span data-i18n="hall.jump3">料金</span></a>
       <a href="#floorplan" data-jump="floorplan"><span data-i18n="hall.jump4">平面図・機材</span></a>
       <a href="#faq" data-jump="faq"><span data-i18n="hall.jump5">FAQ・レンタル相談</span></a>
     </div>
@@ -492,43 +488,12 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
           <li data-i18n="rental.term6">オペレーターはお任せの場合のみ承ります。稽古への参加や凝った演出への対応はできかねます。</li>
         </ul>
 
-        <div class="estimate-cta reveal">
-          <div>
-            <p class="est-cta-eyebrow" data-i18n="est.ctaEyebrow">ESTIMATE SHEET</p>
-            <h3 data-i18n="est.ctaTitle">見積書・利用申込書を作成</h3>
-            <p data-i18n="est.ctaLead">料金の項目を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成・印刷できます。</p>
-          </div>
-          <a class="btn btn-solid" href="estimate.html">
-            <span data-i18n="est.ctaBtn">見積書・利用申込書を作成</span>
+        <div class="rental-date-note reveal">
+          <p class="rdn-lead" data-i18n="ask.lead">ご希望の日程・時間帯は、下の「レンタル・見学のお問い合わせ」フォームからお知らせください。空き状況を確認のうえ、2〜3営業日以内にご返信します。</p>
+          <a class="btn btn-solid" href="#rental-form">
+            <span data-i18n="ask.cta">希望日時を相談する</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AVAILABILITY ============ -->
-  <section class="section section-tight" id="availability">
-    <div class="wrap">
-      <div class="avail reveal">
-        <div class="avail-head">
-          <p class="eyebrow" data-i18n="avail.eyebrow">AVAILABILITY</p>
-          <h2 class="block-title" data-i18n="avail.title">レンタル空き状況</h2>
-          <p class="avail-lead" data-i18n="avail.lead">PLUSWIN HALL OSAKA のレンタル空き状況です。○の日を選ぶと、下の問い合わせフォームに希望日が入ります。</p>
-        </div>
-        <div class="avail-tabs" id="availTabs" role="tablist" aria-label="Month"></div>
-        <div class="avail-body">
-          <div class="avail-cal" id="availGrid"></div>
-          <aside class="avail-side">
-            <ul class="avail-legend">
-              <li class="is-open"><i>○</i><span data-i18n="avail.open">空き</span></li>
-              <li class="is-part"><i>△</i><span data-i18n="avail.part">一部・要相談</span></li>
-              <li class="is-busy"><i>×</i><span data-i18n="avail.busy">使用中</span></li>
-            </ul>
-            <div class="avail-picked" id="availPicked" aria-live="polite"></div>
-            <p class="avail-note" data-i18n="avail.note">空き状況は定期的に更新しています。△には仮予約（調整中）の日程も含まれます。年末年始（12月31日〜1月3日）は休館です。最終的な可否はお問い合わせください。公演・出演者などの予定内容は表示していません。</p>
-            <p class="avail-stamp"><span data-i18n="avail.generated">更新日</span> <b id="availGenerated">2026.11.27</b></p>
-          </aside>
         </div>
       </div>
     </div>
@@ -1497,12 +1462,12 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
             <div><dt data-i18n="eq.l2">DMXスプリッター</dt><dd>SPLITTER 8 <em class="eq-tag" data-i18n="eq.8port">8ポート</em></dd></div>
             <div><dt data-i18n="eq.l3">ウォームホワイト ズームPAR</dt><dd>ADJ PAR Z100 3K（1ch） <span class="eq-qty">× 10</span></dd></div>
             <div><dt data-i18n="eq.l4">LED PAR</dt><dd>ADJ 64B LED PRO（3ch） <span class="eq-qty">× 17</span></dd></div>
-            <div><dt data-i18n="eq.l5">ビームムービングヘッド</dt><dd>BETOPPER LB150（150W・12ch） <span class="eq-qty">× 6</span></dd></div>
+            <div><dt data-i18n="eq.l5">ビームムービングヘッド</dt><dd><span data-i18n="eq.d5">BETOPPER LB150（150W / 12ch）</span> <span class="eq-qty">× 6</span></dd></div>
             <div><dt data-i18n="eq.l6">ウォッシュ・ズーム ムービングヘッド</dt><dd>BETOPPER Mini 7×40W RGBW 4-in-1 Bee Eye（18ch） <span class="eq-qty">× 6</span></dd></div>
             <div><dt data-i18n="eq.l7">センタームービングスポット</dt><dd>BECEN 200W LED BSW 3-in-1（18ch） <span class="eq-qty">× 1</span></dd></div>
             <div><dt data-i18n="eq.l8">フロントトラス スポット</dt><dd>Light4Me Patriot Spot 90（14ch） <span class="eq-qty">× 2</span></dd></div>
             <div><dt data-i18n="eq.l9">大型ムービングヘッド</dt><dd><span data-i18n="eq.nLogo">N ロゴ</span> <span class="eq-qty">× 2</span></dd></div>
-            <div><dt data-i18n="eq.l10">レーザー</dt><dd>2W RGB レーザー（13ch） <span class="eq-qty">× 1</span></dd></div>
+            <div><dt data-i18n="eq.l10">レーザー</dt><dd><span data-i18n="eq.d10">2W RGB レーザー（13ch）</span> <span class="eq-qty">× 1</span></dd></div>
             <div><dt data-i18n="eq.l11">LED スパーク（特殊効果）</dt><dd>STAGE EVOLUTION LED SPARK 300 RGB（22ch） <span class="eq-qty">× 1</span></dd></div>
             <div><dt data-i18n="eq.l12">ヘイザー（スモーク）</dt><dd>Antari HZ-100 <em class="eq-tag" data-i18n="eq.remote">リモート操作</em> <span class="eq-qty">× 1</span></dd></div>
           </dl>
@@ -1547,9 +1512,9 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
             <div><dt data-i18n="eq.b12">DI ボックス</dt><dd>BOSS DI-1 <span class="eq-qty">× 2</span></dd></div>
             <div><dt data-i18n="eq.b13">DI ボックス</dt><dd>BEHRINGER DI100 <span class="eq-qty">× 2</span></dd></div>
             <div><dt data-i18n="eq.b14">ワイヤレスマイク</dt><dd>Shure BLX4 <span class="eq-qty">× 4</span></dd></div>
-            <div><dt data-i18n="eq.b15">ブームマイクスタンド</dt><dd>ブームスタンド <span class="eq-qty">× 6</span></dd></div>
-            <div><dt data-i18n="eq.b16">ストレートマイクスタンド</dt><dd>ストレートスタンド <span class="eq-qty">× 6</span></dd></div>
-            <div><dt data-i18n="eq.b17">ショートブームスタンド</dt><dd>ショートブームスタンド <span class="eq-qty">× 4</span></dd></div>
+            <div><dt data-i18n="eq.b15">ブームマイクスタンド</dt><dd><span data-i18n="eq.dBoom">ブームスタンド</span> <span class="eq-qty">× 6</span></dd></div>
+            <div><dt data-i18n="eq.b16">ストレートマイクスタンド</dt><dd><span data-i18n="eq.dStraight">ストレートスタンド</span> <span class="eq-qty">× 6</span></dd></div>
+            <div><dt data-i18n="eq.b17">ショートブームスタンド</dt><dd><span data-i18n="eq.dShortBoom">ショートブームスタンド</span> <span class="eq-qty">× 4</span></dd></div>
           </dl>
           <p class="eq-panel-note" data-i18n="eq.backlineNote">楽器・マイクはレンタル時にご相談ください。ドラムセット・電子ピアノは料金表のオプション（有料）です。</p>
         </article>
@@ -1591,7 +1556,7 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
             <p class="eyebrow" data-i18n="rental.eyebrow">VENUE RENTAL</p>
             <h2 class="block-title" data-i18n="rental.title">ホールレンタル</h2>
           </div>
-          <p class="rental-pricenote" data-i18n="rental.priceNote">空き状況は上のカレンダーでご確認いただけます。レンタルは PLUSWIN HALL OSAKA で承ります（他会場の貸出は行っていません）。見学のご希望もこちらから。</p>
+          <p class="rental-pricenote" data-i18n="rental.priceNote">ご希望の日程は下のフォームからお知らせください。確認のうえ折り返しご連絡します。レンタルは PLUSWIN HALL OSAKA で承ります（他会場の貸出は行っていません）。見学のご希望もこちらから。</p>
           <div class="rental-contact">
             <b data-i18n="rental.contactLabel">レンタル窓口</b>
             <a href="tel:+81665362002">06-6536-2002</a>
@@ -1601,12 +1566,6 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
             <p class="rh-name">PLUSWIN HALL OSAKA</p>
             <p data-i18n="venues.osakaAddress">〒542-0084 大阪市中央区宗右衛門町2-3 美松ビル B1</p>
             <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=PLUSWIN+HALL+OSAKA+%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%AE%97%E5%8F%B3%E8%A1%9B%E9%96%80%E7%94%BA2-3" target="_blank" rel="noopener noreferrer" data-i18n="about.mapLink">Google マップで見る</a>
-          </div>
-          <div class="rental-estimate">
-            <a class="btn btn-solid" href="estimate.html">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M6 14h12v7H6z"/></svg>
-              <span data-i18n="est.rentalBtn">見積書を作成する</span>
-            </a>
           </div>
         </div>
 
@@ -1760,14 +1719,14 @@ gtag("js",new Date());gtag("config","G-80L7MBMH2J");</script>
   </figure>
 </div>
 
-<script src="assets/js/analytics.js?v=20261127d"></script>
-<script src="assets/js/theme.js?v=20261127d"></script>
-<script src="assets/js/data.js?v=20261127d"></script>
-<script src="assets/js/i18n-extra.js?v=20261127d"></script>
-<script src="assets/js/hall-availability.js?v=20261127d"></script>
-<script src="assets/js/hall-extras.js?v=20261127d"></script>
-<script src="assets/js/gallery.js?v=20261127d"></script>
-<script src="assets/js/fp-zoom.js?v=20261127d"></script>
-<script src="assets/js/site.js?v=20261127e"></script>
+<script src="assets/js/analytics.js?v=20261127g"></script>
+<script src="assets/js/theme.js?v=20261127g"></script>
+<script src="assets/js/data.js?v=20261127g"></script>
+<script src="assets/js/i18n-extra.js?v=20261127g"></script>
+<script src="assets/js/hall-extras.js?v=20261127g"></script>
+<script src="assets/js/gallery.js?v=20261127g"></script>
+<script src="assets/js/fp-zoom.js?v=20261127g"></script>
+<script src="assets/js/site.js?v=20261127g"></script>
+<script src="assets/js/fields.js?v=20261127g"></script>
 </body>
 </html>

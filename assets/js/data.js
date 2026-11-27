@@ -4,7 +4,8 @@
 
 const LANGS = ["ja", "ko", "en"];
 const LANG_KEY = "pluswin.lang";
-const MAIL_RENTAL = "info@pluswin.jp";
+const MAIL_RENTAL = "hallrental@pluswin.jp";
+const MAIL_CONTACT = "contact@pluswin.jp";
 
 /* ---------- UI dictionary ---------- */
 const T = {

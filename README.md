@@ -49,10 +49,17 @@ Fonts: Noto Sans JP / KR, subset to the characters used on the four pages (OFL).
 
 ## Enquiries
 
-Both forms (hall rental, stand flowers) submit directly through FormSubmit
-(`https://formsubmit.co/ajax/info@pluswin.jp`), with a pre-filled `mailto:info@pluswin.jp`
-fallback if the request fails. The first submission to a new address makes FormSubmit send a
-one-time activation email to `info@pluswin.jp`; messages are delivered once that link is opened.
+Both forms submit directly through FormSubmit — the hall rental form to
+`hallrental@pluswin.jp`, the stand-flower form to `contact@pluswin.jp` — with a pre-filled
+`mailto:` fallback to the same address if the request fails. The first submission to each new
+address makes FormSubmit send a one-time activation email to it; messages to an address are
+delivered only after that address's activation link has been opened once.
+
+Contact addresses used on the site:
+
+- `hallrental@pluswin.jp` — hall rental desk: rental form, FAQ box and rental notes on the hall page, HALL & RENTAL desk on the home page, venue lost-property note, hall spec PDF.
+- `contact@pluswin.jp` — everything else: shows, tickets, stand flowers (form and note), production / other enquiries, site footer.
+- the old `info@…` address — retired; it must not appear anywhere in the site or the PDF.
 
 ## Availability calendar
 

@@ -354,8 +354,9 @@ function initialLang() {
 }
 
 /* ---------- forms ----------
-   Both enquiries are sent by a real HTML form POST to FormSubmit
-   (https://formsubmit.co/info@pluswin.jp) in a new tab:
+   Both enquiries are sent by a real HTML form POST to FormSubmit in a new tab
+   (hall rental → https://formsubmit.co/hallrental@pluswin.jp,
+    stand flowers → https://formsubmit.co/contact@pluswin.jp):
      · FormSubmit's AJAX endpoint answers without CORS headers, so fetch()
        from the page cannot read the result;
      · its confirmation page is sent with X-Frame-Options: SAMEORIGIN, so a
@@ -366,9 +367,9 @@ function initialLang() {
    activation notice) while the site stays put. A pre-filled mailto: link is
    always offered as a fallback.
 
-   NOTE: the first submission to a new address makes FormSubmit send a
-   one-time activation email to info@pluswin.jp; mail flows after that link
-   has been opened once. --------------------------------------------------- */
+   NOTE: the first submission to an address makes FormSubmit send a one-time
+   activation email to that address (hallrental@pluswin.jp, contact@pluswin.jp);
+   mail flows after each link has been opened once. ------------------------ */
 const FORM_ACTION = "https://formsubmit.co/" + MAIL_RENTAL;
 
 function formPairs(form) {
@@ -382,20 +383,21 @@ function formPairs(form) {
   return rows;
 }
 
-function mailtoFrom(form, subject) {
+function mailtoFrom(form, subject, mail) {
   const body = formPairs(form).map(([k, v]) => `${k}: ${v}`).join("\n");
-  return `mailto:${MAIL_RENTAL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-function showFormMsg(msg, kind, text, mailto) {
+function showFormMsg(msg, kind, text, mailto, mail) {
   if (!msg) return;
   msg.className = "form-msg is-on is-" + kind;
   msg.innerHTML = `<span class="fm-ic" aria-hidden="true"></span><span class="fm-t">${esc(text)}</span>` +
-    (mailto ? ` <a class="fm-link" href="${mailto}">${esc(t("form.fallback"))} · ${MAIL_RENTAL}</a>` : "");
+    (mailto ? ` <a class="fm-link" href="${mailto}">${esc(t("form.fallback"))} · ${mail}</a>` : "");
 }
 
 function bindMailForm(form, opts) {
   if (!form) return;
+  const mail = opts.mail || MAIL_CONTACT;
   const msg = document.getElementById(opts.msgId);
   const btn = form.querySelector('button[type="submit"]');
   const label = btn ? btn.querySelector("span") : null;
@@ -417,7 +419,7 @@ function bindMailForm(form, opts) {
       const base = window.location.pathname.replace(/[^/]*$/, "");
       nextField.value = window.location.origin + base + "assets/sent.html";
     }
-    if (fallback) fallback.setAttribute("href", mailtoFrom(form, subject));
+    if (fallback) fallback.setAttribute("href", mailtoFrom(form, subject, mail));
     if (btn) { btn.disabled = true; btn.classList.add("is-loading"); btn.classList.remove("is-done"); }
     if (label) label.textContent = t("form.sending");
     form.setAttribute("aria-busy", "true");
@@ -428,9 +430,9 @@ function bindMailForm(form, opts) {
       if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); btn.classList.add("is-done"); }
       form.removeAttribute("aria-busy");
       if (label) label.textContent = t(opts.submitKey);
-      showFormMsg(msg, "ok", t("form.sentTab"), mailtoFrom(form, subject));
+      showFormMsg(msg, "ok", t("form.sentTab"), mailtoFrom(form, subject, mail), mail);
       form.reset();
-      if (fallback) fallback.setAttribute("href", `mailto:${MAIL_RENTAL}`);
+      if (fallback) fallback.setAttribute("href", `mailto:${mail}`);
     }, 1400);
   });
 }
@@ -439,6 +441,7 @@ function bindRentalForm() {
   bindMailForm($("#rentalForm"), {
     msgId: "rentalMsg",
     submitKey: "form.submit",
+    mail: MAIL_RENTAL,
     subjectField: "お名前 / Name",
     subject: (name) => `[PLUSWIN HALL OSAKA] レンタル相談 — ${name || "(no name)"}`
   });
@@ -448,6 +451,7 @@ function bindStandForm() {
   bindMailForm($("#standForm"), {
     msgId: "standMsg",
     submitKey: "stand.submit",
+    mail: MAIL_CONTACT,
     subjectField: "公演名・出演者名 / Show",
     subject: (perf) => `[PLUSWIN] スタンド花・バルーン申請 — ${perf || "(no title)"}`
   });

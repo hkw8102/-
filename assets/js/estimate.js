@@ -12,7 +12,12 @@
     weekday: { "12": 150000, am: 50000, pm: 110000 },
     holiday: { "12": 280000, am: 190000, pm: 190000 }
   };
-  var OPT = { op: 60000, mgmt: 20000, mic: 2700, ext: 25000, drum: 5000, trash: 1000, led: 10000 };
+  var OPT = { mic: 2700, ext: 25000, drum: 5000, trash: 1000, led: 10000 };
+  /* operator: sound+lighting / sound only / lighting only (tax excluded) */
+  var OP_FEE = { both: 60000, sound: 30000, light: 30000 };
+  var MGMT_FEE = { both: 20000, sound: 10000, light: 10000 };
+  var OP_NAME = { both: "音響と照明オペレーター", sound: "音響のみオペレーター", light: "照明のみオペレーター" };
+  var MGMT_NAME = { both: "音響と照明", sound: "音響のみ", light: "照明のみ" };
   var TAX_RATE = 0.1;
   var WD = ["日", "月", "火", "水", "木", "金", "土"];
 
@@ -44,8 +49,12 @@
       g3k: "RENTAL & OPTIONS", g3: "ご利用料金",
       plan: "時間", plan12: "12時間パック 10:00〜22:00", planAm: "10:00〜16:00（6時間）", planPm: "16:00〜22:00（6時間）",
       qty: "数量", planHint: "平日 12時間 ¥150,000 ／ 土日祝 12時間 ¥280,000",
-      optOp: "音響、照明オペレーター", optOpNone: "なし", optOp1: "1（¥60,000）", optOp15: "1.5（¥90,000）／2公演・本番3時間超",
-      optMgmt: "オペレーター乗込み時管理費", optMgmtNote: "主催者様でPA・照明オペを手配されたとき（音響10,000＋照明10,000）",
+      optOp: "音響・照明オペレーター", optOpNone: "なし",
+      optOpBoth: "音響と照明（¥60,000）", optOpSound: "音響のみ（¥30,000）", optOpLight: "照明のみ（¥30,000）",
+      optMul: "オペレーター倍率", optMul1: "1", optMul15: "1.5（2公演・本番3時間超）",
+      optMgmt: "オペレーター乗込み時管理費", optMgmtNone: "なし",
+      optMgmtBoth: "音響と照明（¥20,000）", optMgmtSound: "音響のみ（¥10,000）", optMgmtLight: "照明のみ（¥10,000）",
+      optMgmtNote: "主催者様でPA・照明オペを手配されたとき（音響10,000＋照明10,000）",
       optMic: "ワイヤレスマイク（1本）", optExt: "延長（1時間）", optDrum: "ドラムセット一式",
       optTrash: "ごみ処理費", optTrashNote: "ホールがごみ処理を行う場合の金額です。お持ち帰りの場合はかかりません。",
       optLed: "LED使用料", othersHead: "その他（自由入力）",
@@ -83,8 +92,12 @@
       g3k: "RENTAL", g3: "이용 요금",
       plan: "시간", plan12: "12시간 패키지 10:00〜22:00", planAm: "10:00〜16:00 (6시간)", planPm: "16:00〜22:00 (6시간)",
       qty: "수량", planHint: "평일 12시간 ¥150,000 ／ 토・일・공휴일 12시간 ¥280,000",
-      optOp: "음향・조명 오퍼레이터", optOpNone: "없음", optOp1: "1 (¥60,000)", optOp15: "1.5 (¥90,000)／2회 공연・본공연 3시간 초과",
-      optMgmt: "오퍼레이터 상주 시 관리비", optMgmtNote: "주최 측이 PA・조명 오퍼레이터를 직접 준비한 경우 (음향 10,000 + 조명 10,000)",
+      optOp: "음향·조명 오퍼레이터", optOpNone: "없음",
+      optOpBoth: "음향+조명 (¥60,000)", optOpSound: "음향만 (¥30,000)", optOpLight: "조명만 (¥30,000)",
+      optMul: "오퍼레이터 배율", optMul1: "1", optMul15: "1.5 (2회 공연·본공연 3시간 초과)",
+      optMgmt: "오퍼레이터 상주 시 관리비", optMgmtNone: "없음",
+      optMgmtBoth: "음향+조명 (¥20,000)", optMgmtSound: "음향만 (¥10,000)", optMgmtLight: "조명만 (¥10,000)",
+      optMgmtNote: "주최 측이 PA·조명 오퍼레이터를 직접 준비한 경우 (음향 10,000 + 조명 10,000)",
       optMic: "무선 마이크 (1개)", optExt: "연장 (1시간)", optDrum: "드럼 세트 일식",
       optTrash: "쓰레기 처리비", optTrashNote: "홀이 쓰레기를 처리하는 경우의 금액입니다. 직접 가져가시면 발생하지 않습니다.",
       optLed: "LED 사용료", othersHead: "그 외 (자유 입력)",
@@ -122,8 +135,12 @@
       g3k: "RENTAL", g3: "Rental & options",
       plan: "Hours", plan12: "12-hour pack 10:00–22:00", planAm: "10:00–16:00 (6 h)", planPm: "16:00–22:00 (6 h)",
       qty: "Quantity", planHint: "Weekday 12 h ¥150,000 ／ Weekend & holidays 12 h ¥280,000",
-      optOp: "Sound & lighting operator", optOpNone: "None", optOp1: "1 (¥60,000)", optOp15: "1.5 (¥90,000)／two shows or show over 3 h",
-      optMgmt: "Operator attendance fee", optMgmtNote: "When the organiser brings their own PA & lighting operator (sound 10,000 + lighting 10,000)",
+      optOp: "Sound & lighting operator", optOpNone: "None",
+      optOpBoth: "Sound + lighting (¥60,000)", optOpSound: "Sound only (¥30,000)", optOpLight: "Lighting only (¥30,000)",
+      optMul: "Operator multiplier", optMul1: "1", optMul15: "1.5 (two shows / show over 3 h)",
+      optMgmt: "Operator attendance fee", optMgmtNone: "None",
+      optMgmtBoth: "Sound + lighting (¥20,000)", optMgmtSound: "Sound only (¥10,000)", optMgmtLight: "Lighting only (¥10,000)",
+      optMgmtNote: "When the organiser brings their own PA & lighting operator (sound 10,000 + lighting 10,000)",
       optMic: "Wireless microphone (each)", optExt: "Extension (per hour)", optDrum: "Drum kit",
       optTrash: "Waste disposal", optTrashNote: "Charged when the hall disposes of your waste. Free if you take it away.",
       optLed: "LED screen use", othersHead: "Other items",
@@ -255,14 +272,23 @@
     }
 
     /* options */
-    var op = parseFloat(val("f-op") || "0") || 0;
-    var opAmount = op === 1.5 ? OPT.op * 1.5 : (op === 1 ? OPT.op : 0);
-    set("s-q-op", op ? String(op) : "");
-    set("s-a-op", op ? opAmount.toLocaleString("en-US") : "");
+    var opSel = val("f-op") || "0";
+    var opBase = OP_FEE[opSel] || 0;
+    var opMul = val("f-opmul") === "1.5" ? 1.5 : 1;
+    var opAmount = opBase * opMul;
+    set("s-n-op", esc(opBase ? OP_NAME[opSel] : "音響、照明オペレーター"));
+    set("s-u-op", (opBase || 60000).toLocaleString("en-US"));
+    set("s-q-op", opBase ? (opMul === 1.5 ? "1.5" : "1") : "");
+    set("s-a-op", opBase ? opAmount.toLocaleString("en-US") : "");
 
-    var mgmt = checked("f-mgmt") ? OPT.mgmt : 0;
+    var mgmtSel = val("f-mgmt") || "0";
+    var mgmt = MGMT_FEE[mgmtSel] || 0;
+    set("s-n-mgmt", mgmt
+      ? 'オペレーター乗込み時管理費<span class="sub">' + esc(MGMT_NAME[mgmtSel]) + "</span>"
+      : "オペレーター乗込み時管理費");
+    set("s-u-mgmt", (mgmt || 20000).toLocaleString("en-US"));
     set("s-q-mgmt", mgmt ? "1" : "");
-    set("s-a-mgmt", mgmt ? OPT.mgmt.toLocaleString("en-US") : "");
+    set("s-a-mgmt", mgmt ? mgmt.toLocaleString("en-US") : "");
 
     var micQ = checked("f-mic") ? Math.max(1, num("f-micq")) : 0;
     set("s-q-mic", micQ ? String(micQ) : "");
@@ -599,12 +625,14 @@
         if ($("f-qty")) $("f-qty").value = "1";
         if ($("f-micq")) $("f-micq").value = "1";
         if ($("f-extq")) $("f-extq").value = "1";
-        ["f-mgmt", "f-mic", "f-ext", "f-drum", "f-trash", "f-led"].forEach(function (id) {
+        ["f-mic", "f-ext", "f-drum", "f-trash", "f-led"].forEach(function (id) {
           if ($(id)) $(id).checked = false;
         });
         if ($("f-rate")) $("f-rate").value = "auto";
         if ($("f-plan")) $("f-plan").value = "12";
         if ($("f-op")) $("f-op").value = "0";
+        if ($("f-opmul")) $("f-opmul").value = "1";
+        if ($("f-mgmt")) $("f-mgmt").value = "0";
         if ($("f-drink")) $("f-drink").value = "sep";
         if ($("f-pay")) $("f-pay").value = "1";
         if ($("f-issued")) $("f-issued").value = iso;

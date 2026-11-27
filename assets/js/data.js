@@ -861,6 +861,9 @@ const EVENTS = [
 ];
 
 const PAST = [
+  { key: "daehan-2026", artist: "DAEHAN", title: "JAPAN LIVE TOUR 2026", date: "2026.01.27 - 11.28", sort: "2026-11-28", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "", url: "https://livepocket.jp/t/jy_w7" },
+  { key: "epts-story100", artist: "EPTS", title: "JAPAN LIVE TOUR 'STORY 100'", date: "2026.08.07 - 11.23", sort: "2026-11-23", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.pluswin.net/news-1-1/epts-tour" },
+  { key: "frame-the-x-2026", artist: "FRAME THE X", title: "JAPAN LIVE TOUR ~2026 Autumn~", date: "2026.09.16 - 11.01", sort: "2026-11-01", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "", url: "https://www.framethexjapan.com/post/ftx-202610japanlive" },
   { key: "kik5o-2026", artist: "Kik5o", title: "FAN CONCERT RE:BORN IN OSAKA 2026", date: "2026.11.15", sort: "2026-11-15", year: "2026", venue: "PLUSWIN HALL VILLEBOA", poster: "assets/img/past/kik5o-2026.jpg", url: "https://www.pluswin.net/news-1-1/kik5o-japanlive" },
   { key: "hanse-2026", artist: "HANSE", title: "JAPAN LIVE 2026 - Shine Forever", date: "2026.11 - 12", sort: "2026-11-24", year: "2026", venue: "PLUSWIN HALL OSAKA", poster: "assets/img/past/hanse-2026.jpg", url: "https://www.pluswin.net/news-1-1/dohanse-japan-event" },
   { key: "ko-taewoon", artist: "KO TAEWOON", title: "1st FANMEETING in JAPAN [New Chapter:LINK]", date: "2026.10.10 - 11.01", sort: "2026-10-10", year: "2026", venue: "OSAKA / TOKYO", poster: "assets/img/past/ko-taewoon.jpg", url: "https://www.pluswin.net/news-1-1/kotaewoon" },

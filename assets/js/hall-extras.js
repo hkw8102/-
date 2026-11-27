@@ -58,9 +58,9 @@ const FAQ_ITEMS = [
   {
     q: { ja: "スタンド花・バルーンは送れますか？", ko: "스탠드 화환·벌룬을 보낼 수 있나요?", en: "Can I send a flower or balloon stand?" },
     a: {
-      ja: "プラスウイン主催公演のみ、事前申請制で受け付けます（開催1か月前から）。搬入・撤去の時間は申請後にお知らせします。お花屋様への引き取り手配もあわせてお願いします。他会場のレンタルイベントは対象外です。",
-      ko: "플러스윈 주최 공연만 사전 신청제로 접수합니다(공연 1개월 전부터). 반입·철수 시간은 신청 후에 안내드립니다. 꽃집에 수거 준비도 함께 부탁해 주세요. 다른 공연장의 대관 이벤트는 대상이 아닙니다.",
-      en: "Only for PLUSWIN-produced shows, by advance application from one month before the date. Delivery and removal times are confirmed after you apply, and collection must be arranged with your florist. Rented-in events at other venues are not covered."
+      ja: "プラスウイン主催公演のみ、事前申請制で受け付けます（開催1か月前から）。搬入・撤去の時間は申請後にお知らせします。お花屋様への引き取り手配もあわせてお願いします。他会場のレンタルイベントは対象外です。主催者様へお問い合わせください。",
+      ko: "플러스윈 주최 공연만 사전 신청제로 접수합니다(공연 1개월 전부터). 반입·철수 시간은 신청 후에 안내드립니다. 꽃집에 수거 준비도 함께 부탁해 주세요. 다른 공연장의 대관 이벤트는 대상이 아닙니다. 주최자 측으로 문의해 주세요.",
+      en: "Only for PLUSWIN-produced shows, by advance application from one month before the date. Delivery and removal times are confirmed after you apply, and collection must be arranged with your florist. External venues and rental events are excluded. Please contact the event organizer."
     }
   },
   {
@@ -74,9 +74,9 @@ const FAQ_ITEMS = [
   {
     q: { ja: "チケットのキャンセル・払い戻しはできますか？", ko: "티켓을 취소하거나 환불받을 수 있나요?", en: "Can I cancel or get a refund?" },
     a: {
-      ja: "ご購入後のキャンセル・払い戻し・公演日の変更はできません。公演が中止となった場合は、公式SNSと販売サイトでご案内します。",
-      ko: "구매 후 취소·환불·공연일 변경은 불가합니다. 공연이 중지된 경우에는 공식 SNS와 판매 사이트에서 안내합니다.",
-      en: "Cancellations, refunds and date changes are not possible after purchase. If a show is cancelled, we will announce it on our official SNS and at the ticket seller."
+      ja: "プラスウイン主催公演のみ、ご購入後のキャンセル・払い戻し・公演日の変更はできません。公演が中止となった場合は、公式SNSと販売サイトでご案内します。レンタル公演の場合は主催者様へお問い合わせください。",
+      ko: "플러스윈 주최 공연에 한해, 구매 후 취소·환불·공연일 변경은 할 수 없습니다. 공연이 중지된 경우에는 공식 SNS와 판매 사이트에서 안내합니다. 대관 공연의 경우 주최자 측으로 문의해 주세요.",
+      en: "For PLUSWIN-produced shows, cancellations, refunds and date changes are not possible after purchase. If a show is cancelled, we will announce it on our official SNS and at the ticket seller. For rented (hall-rental) shows, please contact the event organiser."
     }
   },
   {

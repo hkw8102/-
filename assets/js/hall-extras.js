@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
     q: { ja: "車椅子・ベビーカーで行けますか？", ko: "휠체어·유모차로 갈 수 있나요?", en: "Can I come with a wheelchair or stroller?" },
     a: {
       ja: "会場はビルの地下1階です。車椅子・ベビーカーのご利用や、お足元に不安がある場合は、事前にお問い合わせください。公演ごとにご案内します。",
-      ko: "공연장은 빌딩 지하 1층입니다. 휠체어·유모차 이용이나 발밑이 불안하신 경우에는 미리 문의해 주세요. 공연마다 안내드립니다.",
+      ko: "공연장은 빌딩 지하 1층입니다. 휠체어·유모차를 이용하시거나 계단 이용이 불편하신 경우에는 미리 문의해 주세요. 공연마다 안내드립니다.",
       en: "The hall is on B1 of the building. If you use a wheelchair or stroller, or are unsure about the stairs, please contact us in advance — we will advise for each show."
     }
   },
@@ -74,8 +74,8 @@ const FAQ_ITEMS = [
   {
     q: { ja: "チケットのキャンセル・払い戻しはできますか？", ko: "티켓을 취소하거나 환불받을 수 있나요?", en: "Can I cancel or get a refund?" },
     a: {
-      ja: "プラスウイン主催公演のみ、ご購入後のキャンセル・払い戻し・公演日の変更はできません。公演が中止となった場合は、公式SNSと販売サイトでご案内します。レンタル公演の場合は主催者様へお問い合わせください。",
-      ko: "플러스윈 주최 공연에 한해, 구매 후 취소·환불·공연일 변경은 할 수 없습니다. 공연이 중지된 경우에는 공식 SNS와 판매 사이트에서 안내합니다. 대관 공연의 경우 주최자 측으로 문의해 주세요.",
+      ja: "プラスウイン主催公演では、ご購入後のキャンセル・払い戻し・公演日の変更はできません。公演が中止となった場合は、公式SNSと販売サイトでご案内します。レンタル公演の場合は主催者様へお問い合わせください。",
+      ko: "플러스윈 주최 공연은 구매 후 취소·환불·공연일 변경을 할 수 없습니다. 공연이 취소된 경우에는 공식 SNS와 판매 사이트에서 안내합니다. 대관 공연의 경우 주최자 측으로 문의해 주세요.",
       en: "For PLUSWIN-produced shows, cancellations, refunds and date changes are not possible after purchase. If a show is cancelled, we will announce it on our official SNS and at the ticket seller. For rented (hall-rental) shows, please contact the event organiser."
     }
   },
@@ -84,7 +84,7 @@ const FAQ_ITEMS = [
     a: {
       ja: "会場でお預かりしています。保管期間は公演日から1週間です。1週間を過ぎた場合は処分いたします。公演日・お名前・品物の特徴を添えて、06-6536-2002 または hallrental@pluswin.jp までご連絡ください。",
       ko: "공연장에서 보관하고 있습니다. 보관 기간은 공연일로부터 1주일이며, 1주일이 지나면 처분합니다. 공연일·이름·물건의 특징을 적어 06-6536-2002 또는 hallrental@pluswin.jp로 연락해 주세요.",
-      en: "We keep lost items at the venue. Lost items are kept for 1 week from the event date and disposed of thereafter. Please contact 06-6536-2002 or hallrental@pluswin.jp with the show date, your name and a description of the item."
+      en: "Lost items are kept at the venue for one week from the show date, then disposed of. Please contact 06-6536-2002 or hallrental@pluswin.jp with the show date, your name and a description of the item."
     }
   },
   {
@@ -96,10 +96,10 @@ const FAQ_ITEMS = [
     }
   },
   {
-    q: { ja: "開場・開演に遅れた場合は入れますか？", ko: "개장·개연 시간에 늦으면 들어갈 수 있나요?", en: "What if I arrive after the doors open?" },
+    q: { ja: "開場・開演に遅れた場合は入れますか？", ko: "입장·공연 시작 시간에 늦으면 들어갈 수 있나요?", en: "What if I arrive late?" },
     a: {
       ja: "開場・開演時間はチケットと各公演の案内に記載のとおりです。開演後にご到着の場合は、公演の進行に合わせてスタッフがご案内します。",
-      ko: "개장·개연 시간은 티켓과 각 공연 안내에 적힌 대로입니다. 개연 후에 도착하신 경우에는 공연 진행에 맞춰 스태프가 안내합니다.",
+      ko: "입장·공연 시작 시간은 티켓과 각 공연 안내에 적힌 대로입니다. 공연 시작 후에 도착하신 경우에는 공연 진행에 맞춰 스태프가 안내합니다.",
       en: "Door and start times are printed on your ticket and each show's notice. If you arrive after the start, staff will seat you at a suitable point in the show."
     }
   }

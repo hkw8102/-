@@ -12,7 +12,7 @@
     weekday: { "12": 150000, am: 50000, pm: 110000 },
     holiday: { "12": 280000, am: 190000, pm: 190000 }
   };
-  var OPT = { mic: 2700, ext: 25000, drum: 5000, trash: 1000, led: 10000, piano: 5000, cam: 8000, lan: 5000 };
+  var OPT = { mic: 2700, ext: 25000, drum: 5000, trash: 1000, led: 10000, piano: 5000 };
   /* operator: sound+lighting / sound only / lighting only (tax excluded) */
   var OP_FEE = { both: 60000, sound: 30000, light: 30000 };
   var MGMT_FEE = { both: 20000, sound: 10000, light: 10000 };
@@ -57,7 +57,7 @@
       optMgmtNote: "主催者様でPA・照明オペを手配されたとき（音響10,000＋照明10,000）",
       optMic: "ワイヤレスマイク（1本）", optExt: "延長（1時間）", optDrum: "ドラムセット一式",
       optTrash: "ごみ処理費", optTrashNote: "ホールがごみ処理を行う場合の金額です。お持ち帰りの場合はかかりません。",
-      optLed: "LED使用料", optPiano: "電子ピアノ（YAMAHA C4）", optCam: "配信カメラ（1台）", optLan: "配信 LAN 使用料", othersHead: "その他（自由入力）",
+      optLed: "LED使用料", optPiano: "電子ピアノ（YAMAHA C4）", othersHead: "その他（自由入力）",
       sumItems: "合計金額（税別）", sumTax: "消費税（10%）", sumGrand: "ご契約金額計",
       g4k: "APPLICANT", g4: "お申込み者",
       company: "御社名", person: "ご担当者名", addr: "ご住所", tel: "TEL／FAX",
@@ -101,7 +101,7 @@
       optMgmtNote: "주최 측이 PA·조명 오퍼레이터를 직접 준비한 경우 (음향 10,000 + 조명 10,000)",
       optMic: "무선 마이크 (1개)", optExt: "연장 (1시간)", optDrum: "드럼 세트",
       optTrash: "쓰레기 처리비", optTrashNote: "홀이 쓰레기를 처리하는 경우의 금액입니다. 직접 가져가시면 발생하지 않습니다.",
-      optLed: "LED 사용료", optPiano: "전자 피아노 (YAMAHA C4)", optCam: "생중계 카메라 (1대)", optLan: "생중계용 LAN 사용료", othersHead: "그 외 (자유 입력)",
+      optLed: "LED 사용료", optPiano: "전자 피아노 (YAMAHA C4)", othersHead: "그 외 (자유 입력)",
       sumItems: "합계 금액 (세금 별도)", sumTax: "소비세 (10%)", sumGrand: "계약 금액 합계",
       g4k: "APPLICANT", g4: "신청자 정보",
       company: "회사명", person: "담당자명", addr: "주소", tel: "TEL／FAX",
@@ -145,7 +145,7 @@
       optMgmtNote: "When the organiser brings their own PA & lighting operator (sound 10,000 + lighting 10,000)",
       optMic: "Wireless microphone (each)", optExt: "Extension (per hour)", optDrum: "Drum kit",
       optTrash: "Waste disposal", optTrashNote: "Charged when the hall disposes of your waste. Free if you take it away.",
-      optLed: "LED screen use", optPiano: "Digital piano (YAMAHA C4)", optCam: "Streaming camera (each)", optLan: "Streaming LAN fee", othersHead: "Other items",
+      optLed: "LED screen use", optPiano: "Digital piano (YAMAHA C4)", othersHead: "Other items",
       sumItems: "Subtotal (tax excl.)", sumTax: "Consumption tax (10%)", sumGrand: "Contract total",
       g4k: "APPLICANT", g4: "Applicant",
       company: "Company", person: "Contact name", addr: "Address", tel: "TEL／FAX",
@@ -328,14 +328,6 @@
     set("s-q-piano", piano ? "1" : "");
     set("s-a-piano", piano ? OPT.piano.toLocaleString("en-US") : "");
 
-    var camQ = checked("f-cam") ? Math.max(1, num("f-camq")) : 0;
-    set("s-q-cam", camQ ? String(camQ) : "");
-    set("s-a-cam", camQ ? (OPT.cam * camQ).toLocaleString("en-US") : "");
-
-    var lan = checked("f-lan") ? OPT.lan : 0;
-    set("s-q-lan", lan ? "1" : "");
-    set("s-a-lan", lan ? OPT.lan.toLocaleString("en-US") : "");
-
     /* others */
     var otherSum = 0;
     [1, 2, 3].forEach(function (i) {
@@ -346,7 +338,7 @@
     });
 
     /* totals */
-    var subtotal = rentalAmount + opAmount + mgmt + OPT.mic * micQ + OPT.ext * extQ + drum + trash + led + piano + OPT.cam * camQ + lan + otherSum;
+    var subtotal = rentalAmount + opAmount + mgmt + OPT.mic * micQ + OPT.ext * extQ + drum + trash + led + piano + otherSum;
     var tax = Math.floor(subtotal * TAX_RATE);
     var grand = subtotal + tax;
 
@@ -655,8 +647,7 @@
         if ($("f-qty")) $("f-qty").value = "1";
         if ($("f-micq")) $("f-micq").value = "1";
         if ($("f-extq")) $("f-extq").value = "1";
-        if ($("f-camq")) $("f-camq").value = "1";
-        ["f-mic", "f-ext", "f-drum", "f-trash", "f-led", "f-piano", "f-cam", "f-lan"].forEach(function (id) {
+        ["f-mic", "f-ext", "f-drum", "f-trash", "f-led", "f-piano"].forEach(function (id) {
           if ($(id)) $(id).checked = false;
         });
         if ($("f-rate")) $("f-rate").value = "auto";

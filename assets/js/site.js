@@ -36,7 +36,7 @@ const esc = (s) =>
 
 /* every poster file carries the build tag, so a browser that kept an older
    copy of a poster (the earlier cropped ones) asks for the new file instead */
-const ASSET_V = "20261128x";
+const ASSET_V = "20261128y";
 const vurl = (u) => (u ? u + (u.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_V : u);
 
 function monthName(m) {
@@ -605,6 +605,29 @@ function initialLang() {
    mail flows after each link has been opened once. ------------------------ */
 const FORM_ACTION = "https://formsubmit.co/" + MAIL_RENTAL;
 
+/* Google Apps Script web app (run by pluswin.production@gmail.com) that mails
+   the desk, sends the copy, replies to the visitor and logs to a sheet.
+   While this is empty the forms keep using FormSubmit as before. */
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbya0eQfUGCx9kQ5NvQzNyp9zVkQsC-cnFafWlY6XPkeAkYJFV0zVVRtn0oafrwn2k0/exec";
+window.PLUSWIN_FORM_ENDPOINT = FORM_ENDPOINT;
+
+/* POST as application/x-www-form-urlencoded (a "simple" request: no CORS
+   preflight); Apps Script answers with JSON that the page can read. */
+function postToEndpoint(data) {
+  const body = new URLSearchParams();
+  Object.keys(data).forEach((k) => body.append(k, data[k]));
+  return fetch(FORM_ENDPOINT, { method: "POST", body })
+    .then((r) => r.json())
+    .then((j) => { if (!j || !j.ok) throw new Error((j && j.error) || "failed"); return j; });
+}
+window.PLUSWIN_POST = postToEndpoint;
+
+function sentPageUrl(from) {
+  const base = window.location.pathname.replace(/[^/]*$/, "");
+  const lang = new URLSearchParams(location.search).get("lang");
+  return base + "assets/sent.html?from=" + from + (lang ? "&lang=" + lang : "");
+}
+
 function formPairs(form) {
   const fd = new FormData(form);
   const rows = [];
@@ -645,8 +668,29 @@ function bindMailForm(form, opts) {
     return opts.subject(value);
   };
 
-  form.addEventListener("submit", () => {
+  form.addEventListener("submit", (ev) => {
     const subject = subjectNow();
+    if (FORM_ENDPOINT) {
+      ev.preventDefault();
+      const data = { _form: opts.formKey, _subject: subject };
+      new FormData(form).forEach((v, k) => {
+        if (k.charAt(0) === "_" && k !== "_honey") return;
+        data[k] = String(v);
+      });
+      if (btn) { btn.disabled = true; btn.classList.add("is-loading"); btn.classList.remove("is-done"); }
+      if (label) label.textContent = t("form.sending");
+      form.setAttribute("aria-busy", "true");
+      if (msg) msg.classList.remove("is-on");
+      postToEndpoint(data)
+        .then(() => { window.location.href = sentPageUrl(document.body.getAttribute("data-page") || "hall"); })
+        .catch(() => {
+          if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
+          form.removeAttribute("aria-busy");
+          if (label) label.textContent = t(opts.submitKey);
+          showFormMsg(msg, "err", t("form.fail"), mailtoFrom(form, subject, mail), mail);
+        });
+      return;
+    }
     if (subjectField) subjectField.value = subject;
     if (nextField) {
       const base = window.location.pathname.replace(/[^/]*$/, "");
@@ -673,6 +717,7 @@ function bindMailForm(form, opts) {
 function bindRentalForm() {
   bindMailForm($("#rentalForm"), {
     msgId: "rentalMsg",
+    formKey: "rental",
     submitKey: "form.submit",
     mail: MAIL_RENTAL,
     subjectField: "お名前 / Name",
@@ -683,6 +728,7 @@ function bindRentalForm() {
 function bindStandForm() {
   bindMailForm($("#standForm"), {
     msgId: "standMsg",
+    formKey: "stand",
     submitKey: "stand.submit",
     mail: MAIL_CONTACT,
     subjectField: "公演名・出演者名 / Show",

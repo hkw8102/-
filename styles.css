@@ -2015,3 +2015,10 @@ html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
 
 /* LINE: a plain speech-bubble glyph (not the LINE logo) drawn like the Instagram icon */
 .sns-line{fill:none}
+
+/* hall rate card → quote builder (estimate.html) */
+.rental-quote{display:flex;align-items:center;justify-content:space-between;gap:18px 28px;flex-wrap:wrap;margin-top:22px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--bg2,transparent)}
+.rental-quote .rq-text{flex:1 1 320px;min-width:0}
+.rental-quote .rq-title{font-weight:700;font-size:15px;margin:0 0 6px}
+.rental-quote .rq-lead{margin:0;font-size:13px;line-height:1.7;color:var(--dim)}
+.rental-quote .btn{flex-shrink:0}

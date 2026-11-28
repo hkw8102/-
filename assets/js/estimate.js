@@ -25,7 +25,7 @@
   var Q = {
     ja: {
       back: "料金表へ戻る", eyebrow: "ESTIMATE SHEET", title: "見積書・利用申込書",
-      lead: "PLUSWIN HALL OSAKA のご利用料金を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成できます。金額はすべて税別です。",
+      lead: "PLUSWIN HALL OSAKA のご利用料金を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成できます。金額はすべて税別の目安で、最終金額は日程・内容を確認のうえご案内します。",
       backBtn: "レンタル料金表を見る", availBtn: "レンタル相談へ",
       savePdf: "見積書・申込書をPDF保存 (A4)", print: "印刷", reset: "リセット",
       toolsHint: "「PDF保存」を押すと、A4・1ページのPDFがそのまま保存されます。印刷するときは「印刷」を押してください。",
@@ -69,7 +69,7 @@
     },
     ko: {
       back: "요금표로 돌아가기", eyebrow: "ESTIMATE SHEET", title: "견적서·이용신청서",
-      lead: "PLUSWIN HALL OSAKA의 이용 요금을 고르기만 하면 세금 별도 견적과 「이용신청서」(A4 1장)를 바로 만들 수 있습니다. 금액은 모두 세금 별도입니다.",
+      lead: "PLUSWIN HALL OSAKA의 이용 요금을 고르기만 하면 세금 별도 견적과 「이용신청서」(A4 1장)를 바로 만들 수 있습니다. 금액은 모두 세금 별도의 참고 금액이며, 최종 금액은 일정과 내용을 확인한 뒤 안내해 드립니다.",
       backBtn: "대관 요금표 보기", availBtn: "대관 문의로",
       savePdf: "PDF 파일 저장 (A4)", print: "인쇄", reset: "초기화",
       toolsHint: "「PDF 파일 저장」을 누르면 A4 1장 PDF가 바로 저장됩니다. 인쇄할 때는 「인쇄」를 누르세요.",
@@ -113,7 +113,7 @@
     },
     en: {
       back: "Back to rate card", eyebrow: "ESTIMATE SHEET", title: "Quote & Application",
-      lead: "Pick the PLUSWIN HALL OSAKA rates you need and this page builds a tax-excluded quote and the official one-page A4 application sheet. All prices are tax excluded.",
+      lead: "Pick the PLUSWIN HALL OSAKA rates you need and this page builds a tax-excluded quote and the official one-page A4 application sheet. All prices are tax-excluded estimates; we confirm the final amount once we have checked your date and plans.",
       backBtn: "See the rate card", availBtn: "Rental enquiry",
       savePdf: "Save as PDF (A4)", print: "Print", reset: "Reset",
       toolsHint: "“Save as PDF” writes the one-page A4 PDF straight away. Use “Print” for the print dialog.",

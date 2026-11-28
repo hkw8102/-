@@ -30,6 +30,10 @@
         try {
           var from = new URLSearchParams(location.search).get("from");
           var back = document.getElementById("back");
+          if (from === "estimate" && back) {
+            back.href = "../estimate.html";
+            back.textContent = "見積ページへ / Back to the quote / 견적 페이지로";
+          }
           if (from === "stand" && back) {
             back.href = "../stand.html";
             back.textContent = "申請ページへ / Back to the application page / 신청 페이지로";

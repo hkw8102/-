@@ -2022,3 +2022,11 @@ html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
 .rental-quote .rq-title{font-weight:700;font-size:15px;margin:0 0 6px}
 .rental-quote .rq-lead{margin:0;font-size:13px;line-height:1.7;color:var(--dim)}
 .rental-quote .btn{flex-shrink:0}
+
+/* estimate: email the quote */
+.est-tools-mail{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}
+.est-consent{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;line-height:1.5;cursor:pointer}
+.est-consent input{margin-top:3px}
+.est-consent a{text-decoration:underline}
+.est-mailnote{margin:0;padding:8px 10px;border-radius:8px;font-size:12.5px;line-height:1.6;background:rgba(220,60,40,.08);color:#c0392b}
+.est-mailnote.is-ok{background:rgba(40,160,90,.1);color:#1e8a4c}

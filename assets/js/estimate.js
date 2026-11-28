@@ -27,7 +27,7 @@
       back: "料金表へ戻る", eyebrow: "ESTIMATE SHEET", title: "見積書・利用申込書",
       lead: "PLUSWIN HALL OSAKA のご利用料金を選ぶだけで、税別の見積りと「ご利用申込書」（A4・1枚）をその場で作成できます。金額はすべて税別の目安で、最終金額は日程・内容を確認のうえご案内します。",
       backBtn: "レンタル料金表を見る", availBtn: "レンタル相談へ",
-      savePdf: "見積書・申込書をPDF保存 (A4)", print: "印刷", reset: "リセット",
+      mailSend: "見積内容をメールで送る", consentLink: "プライバシーポリシー", consentTail: "に同意する（必須）", mailHint: "ご担当者名とメールアドレス（下の「お申込者」欄）を入力して送ると、見積内容がプラスウインに届き、同じ内容の控えがお客様のメールにも届きます。", mailNeed: "「お申込者」欄のご担当者名とメールアドレスを入力してください。", mailConsent: "プライバシーポリシーへの同意にチェックしてください。", mailSent: "送信しました。新しいタブが開かない場合は、ポップアップの許可をご確認ください。担当者より2〜3営業日以内にご連絡します。", savePdf: "見積書・申込書をPDF保存 (A4)", print: "印刷", reset: "リセット",
       toolsHint: "「PDF保存」を押すと、A4・1ページのPDFがそのまま保存されます。印刷するときは「印刷」を押してください。",
       pdfBusy: "PDFを作成しています…",
       pdfDone: "PDFを作成しました。保存されないときは、下の「PDFを開く」から開いて「共有 → ファイルに保存」で保存できます。",
@@ -71,7 +71,7 @@
       back: "요금표로 돌아가기", eyebrow: "ESTIMATE SHEET", title: "견적서·이용신청서",
       lead: "PLUSWIN HALL OSAKA의 이용 요금을 고르기만 하면 세금 별도 견적과 「이용신청서」(A4 1장)를 바로 만들 수 있습니다. 금액은 모두 세금 별도의 참고 금액이며, 최종 금액은 일정과 내용을 확인한 뒤 안내해 드립니다.",
       backBtn: "대관 요금표 보기", availBtn: "대관 문의로",
-      savePdf: "PDF 파일 저장 (A4)", print: "인쇄", reset: "초기화",
+      mailSend: "견적 내용을 메일로 보내기", consentLink: "개인정보 처리방침", consentTail: "에 동의합니다 (필수)", mailHint: "아래 「신청자」 칸에 담당자 이름과 메일 주소를 입력하고 보내면, 견적 내용이 플러스윈에 전달되고 같은 내용의 사본이 고객님 메일로도 발송됩니다.", mailNeed: "「신청자」 칸의 담당자 이름과 메일 주소를 입력해 주세요.", mailConsent: "개인정보 처리방침 동의에 체크해 주세요.", mailSent: "전송했습니다. 새 탭이 열리지 않으면 팝업 허용을 확인해 주세요. 담당자가 2~3영업일 이내에 연락드립니다.", savePdf: "PDF 파일 저장 (A4)", print: "인쇄", reset: "초기화",
       toolsHint: "「PDF 파일 저장」을 누르면 A4 1장 PDF가 바로 저장됩니다. 인쇄할 때는 「인쇄」를 누르세요.",
       pdfBusy: "PDF 만드는 중…",
       pdfDone: "PDF를 만들었습니다. 저장이 안 되면 아래 「PDF 열기」를 눌러 「공유 → 파일에 저장」으로 저장하세요.",
@@ -115,7 +115,7 @@
       back: "Back to rate card", eyebrow: "ESTIMATE SHEET", title: "Quote & Application",
       lead: "Pick the PLUSWIN HALL OSAKA rates you need and this page builds a tax-excluded quote and the official one-page A4 application sheet. All prices are tax-excluded estimates; we confirm the final amount once we have checked your date and plans.",
       backBtn: "See the rate card", availBtn: "Rental enquiry",
-      savePdf: "Save as PDF (A4)", print: "Print", reset: "Reset",
+      mailSend: "Email this quote", consentLink: "Privacy Policy", consentTail: " — I agree (required)", mailHint: "Enter the contact name and email in the Applicant section below, then send: the quote reaches PLUSWIN and a copy goes to your email.", mailNeed: "Please enter the contact name and email in the Applicant section.", mailConsent: "Please tick the box to agree to the Privacy Policy.", mailSent: "Sent. If no new tab opened, please allow pop-ups. We will reply within 2–3 business days.", savePdf: "Save as PDF (A4)", print: "Print", reset: "Reset",
       toolsHint: "“Save as PDF” writes the one-page A4 PDF straight away. Use “Print” for the print dialog.",
       pdfBusy: "Making the PDF…",
       pdfDone: "The PDF is ready. If it did not download, open it with “Open PDF” below and use Share → Save to Files.",
@@ -607,6 +607,97 @@
       });
   }
 
+
+  /* ---------- email the quote (FormSubmit → hallrental@, copy to the customer) ---------- */
+  function cellText(td) { return (td.textContent || "").replace(/\s+/g, " ").trim(); }
+  function quoteSummary() {
+    var lines = [];
+    var add = function (k, v) { if (v) lines.push(k + "：" + v); };
+    add("公演日", val("f-date"));
+    add("入り／退出", (val("f-in") || "") + " – " + (val("f-out") || ""));
+    add("タイトル", val("f-title"));
+    add("出演者", val("f-artist"));
+    add("集客予定", val("f-cap") ? val("f-cap") + "名" : "");
+    lines.push("");
+    lines.push("【お見積り（税別）】");
+    var ids = Array.prototype.slice.call(document.querySelectorAll('[id^="s-a-"], #s-o1a, #s-o2a, #s-o3a'));
+    ids.forEach(function (el) {
+      var amt = cellText(el);
+      if (!amt || amt === "0") return;
+      var tr = el.closest("tr");
+      if (!tr) return;
+      var label = Array.prototype.filter.call(tr.cells, function (c) {
+        return !c.classList.contains("lb") && !/^s-[qa]-/.test(c.id) && !c.classList.contains("mono") && !/^s-o\da$/.test(c.id);
+      }).map(cellText).filter(Boolean).join(" ");
+      var q = tr.querySelector('[id^="s-q-"]');
+      var qty = q ? cellText(q) : "";
+      lines.push("・" + label + (qty && qty !== "1" ? " × " + qty : "") + "　¥" + amt.replace(/^¥/, ""));
+    });
+    lines.push("小計：¥" + cellText($("s-total")).replace(/^¥/, ""));
+    lines.push("消費税：¥" + cellText($("s-tax")).replace(/^¥/, ""));
+    lines.push("合計：¥" + cellText($("s-grand")).replace(/^¥/, ""));
+    lines.push("※金額は目安です。最終金額は日程・内容を確認のうえご案内します。");
+    lines.push("");
+    lines.push("【お申込者】");
+    add("御社名", val("f-company"));
+    add("ご担当者名", val("f-person"));
+    add("ご住所", val("f-addr"));
+    add("TEL／FAX", val("f-tel"));
+    add("携帯電話", val("f-mobile"));
+    add("e-mail", val("f-email"));
+    return lines.join("\n");
+  }
+  function mailNote(msg, ok) {
+    var n = $("mailNote");
+    if (!n) return;
+    n.textContent = msg;
+    n.hidden = false;
+    n.classList.toggle("is-ok", !!ok);
+  }
+  function sendQuoteMail() {
+    var L = Q[currentLang()];
+    render();
+    var email = val("f-email"), person = val("f-person");
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!person || !emailOk) {
+      mailNote(L.mailNeed, false);
+      var target = !person ? $("f-person") : $("f-email");
+      if (target) { target.focus(); target.scrollIntoView({ block: "center", behavior: "smooth" }); }
+      return;
+    }
+    if (!checked("f-consent")) { mailNote(L.mailConsent, false); return; }
+    var summary = quoteSummary();
+    var base = location.pathname.replace(/[^\/]*$/, "");
+    var f = document.createElement("form");
+    f.method = "POST";
+    f.action = "https://formsubmit.co/hallrental@pluswin.jp";
+    f.target = "_blank";
+    f.style.display = "none";
+    var fields = {
+      _subject: "【見積依頼】PLUSWIN HALL OSAKA " + (val("f-date") || "日程未定") + " / " + (val("f-company") || person),
+      _template: "box",
+      _captcha: "false",
+      _cc: "hkw8102@gmail.com",
+      _next: location.origin + base + "assets/sent.html?from=estimate",
+      _autoresponse: "PLUSWIN HALL OSAKA へのお見積りのご依頼ありがとうございます。以下の内容で承りました。担当者より2〜3営業日以内にご連絡いたします。\n\n" + summary + "\n\nプラスウイン株式会社 PLUSWIN HALL OSAKA\nTEL 06-6536-2002（受付 10:00–18:00）／ hallrental@pluswin.jp",
+      "お名前 / Name": person,
+      email: email,
+      "見積内容 / Quote": summary,
+      "プライバシーポリシー同意 / Privacy consent": "同意"
+    };
+    Object.keys(fields).forEach(function (k) {
+      var i = document.createElement(k === "見積内容 / Quote" || k === "_autoresponse" ? "textarea" : "input");
+      if (i.tagName === "INPUT") i.type = "hidden";
+      i.name = k;
+      i.value = fields[k];
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    f.submit();
+    setTimeout(function () { f.remove(); }, 1000);
+    mailNote(L.mailSent, true);
+  }
+
   /* ---------- boot ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     var today = new Date();
@@ -621,6 +712,9 @@
 
     var btnSave = $("btnSavePdf");
     if (btnSave) btnSave.addEventListener("click", savePdf);
+
+    var btnMail = $("btnMail");
+    if (btnMail) btnMail.addEventListener("click", sendQuoteMail);
 
     var btnShare = $("btnShare");
     if (btnShare) btnShare.addEventListener("click", sharePdf);
